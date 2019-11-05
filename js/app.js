@@ -7,6 +7,26 @@ $(function () {
   // ②
   $('.f1').each(function (i) {
   // ③
-    $(this).delay(1000 * i).fadeIn(1500);
+    $(this).fadeIn(1500);
+  });
+});
+$(function () {
+  // ①
+  $('.f6').hide();
+  
+  // ②
+  $('.f6').each(function (i) {
+  // ③
+    $(this).fadeIn(3000);
+  });
+});
+$(function () {
+  // ①
+  $('.f5').hide();
+  
+  // ②
+  $('.f5').each(function (i) {
+  // ③
+    $(this).fadeIn(7500);
   });
 });
