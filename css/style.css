@@ -2,33 +2,21 @@ body {
     max-width: 800px;
     margin: auto;
     background-color: beige;
-    background-image:url("../picture/haikei.png");
-    background-size:cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
 }
 
 .f1 {
-    font-size: 30px;
-    color:white;
-    margin-top:50px;
-    padding-left:20px;
+    text-align: left;
+    font-size: 30px
 }
-.f2{
-    padding-left:60px;
+
+.f2 {
+    text-align: center;
+    margin: 0;
+    font-size: 30px
 }
-.f3{
-    text-align:right;
-    padding-right:60px;
-}
-.f4{
-    text-align:right;
-    padding-right:10px;
-}
-#button-zone{
-    text-align:center;
-}
-#button-zone button{
-    margin-left:30px;
-    font-size:25px;
+
+.f3 {
+    text-align: right;
+    margin: 0;
+    font-size: 30px
 }
