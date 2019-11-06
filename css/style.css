@@ -35,7 +35,7 @@ div#indexButtons {
 .b1 {
   width: 175px;
   height: 78px;
-  margin-top: 10px;
+  margin: 10px 12px 0 0;
   padding-top: 1.77em;
   display: inline-block;
   text-decoration: none;
@@ -69,7 +69,7 @@ div#indexButtons {
 .b3 {
   width: 175px;
   height: 78px;
-  margin-top: 10px;
+  margin: 10px 0 0 12px;
   padding-top: 1.77em;
   display: inline-block;
   text-decoration: none;
