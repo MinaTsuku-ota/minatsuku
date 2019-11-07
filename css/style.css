@@ -1,22 +1,85 @@
 body {
     max-width: 800px;
     margin: auto;
-    background-color: beige;
+    background-color: #F5F5F5;
 }
 
 .f1 {
     text-align: left;
-    font-size: 30px
+    font-size: 26px
 }
 
-.f2 {
-    text-align: center;
-    margin: 0;
-    font-size: 30px
+#fadeTitle:first-child {
+  margin-top: 18px;
+  padding-top: 55px;
 }
 
-.f3 {
-    text-align: right;
-    margin: 0;
-    font-size: 30px
+#fadeTitle p:nth-child(1) {
+  margin-left: 30px;
+}
+
+#fadeTitle p:nth-child(2) {
+  position: relative; top: 43px; left: 400px;
+}
+
+div#fadeTitle {
+  width: auto;
+  height: 570px;
+  border:dashed 1px Scrollbar;
+}
+
+div#indexButtons {
+  text-align: center;
+}
+
+#indexButtons a:nth-child(1) {
+  width: 175px;
+  height: 78px;
+  margin: 10px 12px 0 0;
+  padding-top: 1.77em;
+  display: inline-block;
+  text-decoration: none;
+  color: #799dec;
+  border: solid 2px #799dec;
+  border-radius: 8px;
+  transition: .4s;
+}
+#indexButtons a:nth-child(1):hover {
+  background: #799dec;
+  color: white;
+}
+
+#indexButtons a:nth-child(2) {
+  width: 175px;
+  height: 78px;
+  margin-top: 10px;
+  padding-top: 1.77em;
+  display: inline-block;
+  text-decoration: none;
+  color: #009900;
+  border: solid 2px #009900;
+  border-radius: 8px;
+  transition: .4s;
+}
+#indexButtons a:nth-child(2):hover {
+  background: #009900;
+  color: white;
+}
+
+#indexButtons a:nth-child(3) {
+  width: 175px;
+  height: 78px;
+  margin: 10px 0 0 12px;
+  padding-top: 1.77em;
+  display: inline-block;
+  text-decoration: none;
+  color: #FF69B4;
+  border: solid 2px #FF69B4;
+  border-radius: 8px;
+  transition: .4s;
+}
+
+#indexButtons a:nth-child(3):hover {
+  background: #FF69B4;
+  color: white;
 }
