@@ -6,6 +6,14 @@
 </head>
 <body>
 <?php
+  $sql = "select * from user";
+  $stmt = $dbh->query($sql);
+  foreach($stmt as $row) {
+    echo $row['name'].'='.$row['subject'].;
+
+    echo '<br>'
+  }
+
   phpinfo();
 ?>
 </body>
