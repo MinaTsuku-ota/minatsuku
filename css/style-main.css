@@ -3,28 +3,29 @@ body {
   flex-direction: column;
 }
 
-.headerNav {
-  height: 200px;
+header {
+  height: 250px;
   text-align: center;
   background-color: #888;
   color: #fff;
 }
 
-main {
+/* main {
   display: flex;
   min-height: 100vh;
   margin-top: 10px;
-}
+} */
 
-.localNav {
-  flex: 1;
+main .mainContentFeild {
+  height: 1000px;
+  flex: 2.2;
   text-align: center;
-  background-color: #888;
+  background-color: rgb(194, 194, 48);
   color: #fff;
 }
 
-.mainContents {
-  flex: 2;
+main .leftColumnFeild {
+  flex: 1;
   text-align: center;
   background-color: #eee;
 }
