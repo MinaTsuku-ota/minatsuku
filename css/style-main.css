@@ -1,40 +1,70 @@
-body {
+/* body {
   display: flex;
   flex-direction: column;
-}
+} */
 
 header {
-  height: 250px;
+  height: 100px;
   background-color: #888;
   color: #fff;
 }
 
-/* main {
-  display: flex;
-  min-height: 100vh;
-  margin-top: 10px;
-} */
-
-main .mainContentFeild {
-  height: 600px;
-  flex: 2.2;
-  background-color: rgb(194, 194, 48);
-  color: #fff;
+.homeBackground {
+  background-color: azure;
 }
 
-main .leftColumnFeild {
+.homeMainContents {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 700px;
+  background-color: chocolate;
+}
+.articleField {
+  background-color: azure;
+  margin: 10px;
+  height: 680px;
+}
+.commentField {
+  background-color: azure;
+  margin: 10px 10px 10px 0;
+  height: 680px;}
+
+div .d-flex{
+  margin-top: 50px;
+}
+div .d-flex div:nth-child(1) {
+  background-color: chocolate;
+}
+div .d-flex div:nth-child(2) {
+  background-color: blue;
+}
+div .d-flex div:nth-child(3) {
+  background-color: green;
+}
+div .d-flex div:nth-child(4) {
+  background-color: red;
+}
+div .d-flex div:nth-child(5) {
+  background-color: yellow;
+}
+/* main .leftColumnFeild {
   flex: 1;
   background-color: #eee;
-}
+} */
 
 footer {
   height: 180px;
   background-color: #888;
+  margin-top: 20px;
 }
 
-.cText {
+.no-gutters {
+  padding:0;
+}
+
+/* .cText {
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
-}
+} */
