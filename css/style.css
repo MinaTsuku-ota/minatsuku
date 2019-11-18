@@ -43,7 +43,7 @@
 	);
 	will-change: transform;
 }
-.background-image:hover {
+.background-image:active {
 	transform: matrix3d(
 		1, 0, 0, 0,
 		0, 1, 0, 0,
