@@ -68,3 +68,18 @@ footer {
   align-items: center;
   z-index: 1;
 } */
+
+
+/* sukeのテスト */
+.contents{
+  background:chocolate;
+}
+.web{
+  background:blue;
+}
+.graphic{
+  background:green;
+}
+.movie{
+  background:red;
+}
