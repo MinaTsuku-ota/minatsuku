@@ -1,0 +1,2 @@
+ローカルブランチをリモートへのプッシュは
+git push -u origin HEAD
