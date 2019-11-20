@@ -1,0 +1,30 @@
+#indexWindow {
+  width: 960px;
+  height: 720px;
+  margin: auto;
+  border:dashed 1px black;
+}
+
+#indexTitle {
+  margin-top: 100px;
+  text-align: center;
+  border:dashed 1px black;
+}
+
+#indexButton {
+  margin-top: 100px;
+  text-align: center;
+  border:dashed 1px black;
+}
+
+#indexButton div:nth-child(n) {
+  margin-top: 30px;
+}
+
+body {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: beige;
+}
