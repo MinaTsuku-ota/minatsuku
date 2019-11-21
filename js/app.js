@@ -1,15 +1,12 @@
-i = 0;
-imageLocation = "../image/";
-img = ["aozora.jpg", "yuugata.jpg", "yoru.jpg"];
-
 function imgChange() {
-  i++;
-  if(i >= img.length) {
-    i = 0;
+  var now = new Date();
+  var currentTime =  now.getHours();
+  var yjsnpi = document.getElementById("yarimasunee")
+  if (currentTime >= 4 && currentTime < 15) {
+    yjsnpi.classList.remove("nightBG"); yjsnpi.classList.add("morningBG");
+  } else if(currentTime >= 15 && currentTime < 19) {
+    yjsnpi.classList.remove("morningBG"); yjsnpi.classList.add("afternoonBG");
+  } else {
+    yjsnpi.classList.remove("afternoonBG"); yjsnpi.classList.add("nightBG");
   }
-  document.body.background = imageLocation + img[i];
-}
-function changeTimer() {
-  document.body.background = imageLocation + img[i];
-  changeTimer = setInterval("imgChange()", 10000);
 }

@@ -28,3 +28,13 @@ body {
 	background-size: cover;
 	background-color: beige;
 }
+
+.nightBG {
+  background-image: url(../image/yozora.png);
+}
+.afternoonBG {
+  background-image: url(../image/yuugure.png);
+}
+.morningBG {
+  background-image: url(../image/aozora.png);
+}
