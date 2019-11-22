@@ -17,11 +17,7 @@ header {
   margin-left: 20px;
   margin-right: 20px;
   height: 700px;
-<<<<<<< HEAD
-  background-color: chocolate;
-=======
   background-color: #ffd199;
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
 }
 .articleField {
   background-color: azure;
@@ -37,21 +33,6 @@ div .d-flex{
   margin-top: 50px;
 }
 div .d-flex div:nth-child(1) {
-<<<<<<< HEAD
-  background-color: chocolate;
-}
-div .d-flex div:nth-child(2) {
-  background-color: blue;
-}
-div .d-flex div:nth-child(3) {
-  background-color: green;
-}
-div .d-flex div:nth-child(4) {
-  background-color: red;
-}
-div .d-flex div:nth-child(5) {
-  background-color: yellow;
-=======
   background-color: #ffd199;
 }
 div .d-flex div:nth-child(2) {
@@ -65,7 +46,6 @@ div .d-flex div:nth-child(4) {
 }
 div .d-flex div:nth-child(5) {
   background-color: black;
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
 }
 /* main .leftColumnFeild {
   flex: 1;
@@ -92,18 +72,6 @@ footer {
 
 /* sukeのテスト */
 .contents{
-<<<<<<< HEAD
-  background:chocolate;
-}
-.web{
-  background:blue;
-}
-.graphic{
-  background:green;
-}
-.movie{
-  background:red;
-=======
   background:#ffd199;
 }
 .web{
@@ -114,5 +82,4 @@ footer {
 }
 .movie{
   background:#ff99ac;
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
 }

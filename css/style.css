@@ -1,47 +1,16 @@
-<<<<<<< HEAD
-#indexWindow {
-=======
 /* #indexWindow {
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
   width: 960px;
   height: 720px;
   margin: auto;
   border:dashed 1px black;
-<<<<<<< HEAD
-}
-
-#indexTitle {
-  margin-top: 100px;
-  text-align: center;
-  border:dashed 1px black;
-}
-
-#indexButton {
-  margin-top: 100px;
-=======
 } */
 
 #indexTitle {
   margin-top: 70px;
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
   text-align: center;
   border:dashed 1px black;
 }
 
-<<<<<<< HEAD
-#indexButton div:nth-child(n) {
-  margin-top: 30px;
-}
-
-body {
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	background-color: beige;
-}
-
-=======
 #indexMargin {
   height: 50px;
 }
@@ -64,7 +33,6 @@ body {
 	background-color: beige;
 }
 
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
 .nightBG {
   background-image: url(../image/yozora.png);
 }
@@ -72,9 +40,5 @@ body {
   background-image: url(../image/yuugure.png);
 }
 .morningBG {
-<<<<<<< HEAD
-  background-image: url(../image/aozora.png);
-=======
   background-image: url(../image/aozora-test.png);
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
 }

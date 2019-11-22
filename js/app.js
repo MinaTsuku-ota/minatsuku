@@ -9,9 +9,6 @@ function imgChange() {
   } else {
     yjsnpi.classList.remove("afternoonBG"); yjsnpi.classList.add("nightBG");
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 $(function() {
@@ -37,4 +34,3 @@ $(function() {
 // $(function() {
 //   repeatShow($("indexButton button-01"));
 // });
->>>>>>> d062d3d49b9086f0a99f591e8718104da332a058
