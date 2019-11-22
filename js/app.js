@@ -11,12 +11,26 @@ function imgChange() {
   }
 }
 
-$(function() {
-  $("#indexTitle div").hide();
-  $("#indexTitle div").each(function(i) {
-    $(this).delay(1000*i).fadeIn(1000);
-  });
-});
+/* https://ziyudom.com/js-delay/ */
+// var $indexFadeAnime = $.Deferred(function($indexFadeAnime) {
+//   $indexFadeAnime.then(anime01).then(anime02)
+// });
+// $indexFadeAnime.resolve();
+// function anime01() {
+
+// }
+
+// $(function() {
+//   $("#indexTitle div").hide();
+//   $("#indexTitle div").each(function(i) {
+//     $(this).delay(1000*i).fadeIn(1000);
+//   });
+// });
+
+// $(function() {
+//   $("#indexButton").hide();
+//   $("#indexButton").fadeIn("slow");
+// })
 
 // var exitCount = 0;
 // var elemsCount = 0;
