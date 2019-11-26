@@ -1,0 +1,87 @@
+body{
+    background: #eeeeee;
+}
+
+#warp{
+    width: 960px;
+    margin: 30px auto;
+}
+
+header{
+    border: dashed 1px #999;
+    height: 100px;
+}
+
+#content{
+    width: 958px;
+    height: 498px;
+    border: dashed 1px #999;
+    margin: 10px 0;
+}
+
+.categoryBox{
+    width: 850px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.cotegoryBox tr,th:nth-child(1){
+    background-color:red;
+}
+
+.cotegoryBox tr,th:nth-child(2){
+    background-color: ;
+}
+
+.cotegoryBox tr,th:nth-child(3){
+    background-color: springgreen;
+}
+
+.cotegoryBox tr,th:nth-child(4){
+    background-color: skyblue;
+}
+
+.cotegoryBox tr,th:nth-child(5){
+
+}
+
+.btn-square-pop{
+    width: 20px;
+    height: 15px;
+    position: relative;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: solid 2px #d27d00;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px rgba(0,0,0,0,19);
+    font-weight: bold;
+}
+
+.btn-square-pop:active{
+    border-bottom: solid 2px #fd9535;
+    box-shadow: 0 0 2px rgba(0,0,0,0.30);
+}
+
+
+.homeContent{
+    width: 850px;
+    height: 600px;
+    margin: 0 auto 50px auto;
+    border: dashed 1px #999;
+}
+
+.toukouPanel{
+    margin: 10px 10px;
+    float: left;
+}
+
+.commentPanel{
+    margin: 10px 10px;
+    float: right;
+}
+
+footer{
+    clear: both;
+    border: dashed 1px #999;
+}
