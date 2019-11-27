@@ -11,40 +11,23 @@ function imgChange() {
   }
 }
 
-/* https://ziyudom.com/js-delay/ */
-// var $indexFadeAnime = $.Deferred(function($indexFadeAnime) {
-//   $indexFadeAnime.then(anime01).then(anime02)
-// });
-// $indexFadeAnime.resolve();
-// function anime01() {
+var $indexFadeAnime = $.Deferred(function($indexFadeAnime) {
+  $indexFadeAnime.then(anime01).then(anime02).then(anime03)});
 
-// }
-
-// $(function() {
-//   $("#indexTitle div").hide();
-//   $("#indexTitle div").each(function(i) {
-//     $(this).delay(1000*i).fadeIn(1000);
-//   });
-// });
-
-// $(function() {
-//   $("#indexButton").hide();
-//   $("#indexButton").fadeIn("slow");
-// })
-
-// var exitCount = 0;
-// var elemsCount = 0;
-// var indexButton = $("#indexButton")
-// function repeatShow(indexButton) {
-//   elemsCount = indexButton.length;
-//   elems$.eq(exitCount).show("slow", function() {
-//     exitCount++;
-//     if(exitCount < elemsCount) {
-//       repeatShow(elems$);
-//     }
-//   });
-// }
-
-// $(function() {
-//   repeatShow($("indexButton button-01"));
-// });
+$indexFadeAnime.resolve();
+function anime01() {
+  return $(function() {
+    $("#indexTitle div").hide();
+    $("#indexButton div").hide();
+  });
+}
+function anime02() {
+  return $(function() {
+    $("#indexTitle div").fadeIn(2500);
+    });
+}
+function anime03() {
+  return $(function() {
+    $("#indexButton div").delay(2000).fadeIn(700);
+    });
+}
