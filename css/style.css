@@ -1,24 +1,26 @@
-#indexWindow {
+/* #indexWindow {
   width: 960px;
   height: 720px;
   margin: auto;
   border:dashed 1px black;
-}
+} */
 
 #indexTitle {
-  margin-top: 100px;
+  margin-top: 70px;
   text-align: center;
-  border:dashed 1px black;
+}
+
+#indexMargin {
+  height: 50px;
 }
 
 #indexButton {
-  margin-top: 100px;
+  /* margin-top: 50px; */
   text-align: center;
-  border:dashed 1px black;
 }
 
 #indexButton div:nth-child(n) {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 body {
@@ -27,4 +29,14 @@ body {
 	background-attachment: fixed;
 	background-size: cover;
 	background-color: beige;
+}
+
+.nightBG {
+  background-image: url(../image/yozora.png);
+}
+.afternoonBG {
+  background-image: url(../image/yuugure.png);
+}
+.morningBG {
+  background-image: url(../image/aozora-test.jpg);
 }
