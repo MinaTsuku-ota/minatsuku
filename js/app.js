@@ -23,7 +23,7 @@ function anime01() {
 }
 function anime02() {
   return $(function() {
-    $("#indexTitle div").fadeIn(3000);
+    $("#indexTitle div").fadeIn(2500);
     });
 }
 function anime03() {
