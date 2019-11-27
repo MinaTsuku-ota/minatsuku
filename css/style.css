@@ -8,7 +8,6 @@
 #indexTitle {
   margin-top: 70px;
   text-align: center;
-  border:dashed 1px black;
 }
 
 #indexMargin {
@@ -18,7 +17,6 @@
 #indexButton {
   /* margin-top: 50px; */
   text-align: center;
-  border:dashed 1px black;
 }
 
 #indexButton div:nth-child(n) {
