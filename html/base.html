@@ -6,14 +6,38 @@
     <link rel="stylesheet" href="../css/common.css">
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/jquery.js"></script>
+    <script src="../js/comment.js"></script>
+    <script src="../js/login.js"></script>
     <title>みなツク</title>
 </head>
 <body>
     <div id="wrap">
 
     <header>
-        <h2>ヘッダー</h2>
+        <div class="float_left">
+            <h2>ヘッダー</h2>
+        </div>
+        <div class="float_right">
+            <button id="login_button">ログイン</button>
+            <button>新規登録</button>
+        </div>
+        <div id="login_hidden">
+            <form action="#">
+                <ul>
+                    <li>
+                        ユーザーネーム:<br>
+                        <input type="text">
+                    </li>
+                    <li>
+                        パスワード:<br>
+                        <input type="password">
+                    </li>
+                    <li>
+                        <input type="submit">
+                    </li>
+                </ul>
+            </form>
+        </div>
     </header>
 
     <main>

@@ -10,6 +10,31 @@ body{
 header{
     border: dashed 1px #999;
     height: 100px;
+    overflow:hidden;
+}
+header div.float_right{
+    margin:30px 20px;
+}
+.float_left{
+    float:left;
+}
+.float_right{
+    float:right;
+}
+#login_hidden{
+    width:250px;
+    height:150px;
+    border:1px solid #000;
+    border-radius:5px;
+    background-color:red;
+    position:fixed;
+    top:-152px;
+}
+#login_hidden ul{
+    text-align:left;
+}
+#login_hidden li{
+    list-style-type:none;
 }
 
 #content{
