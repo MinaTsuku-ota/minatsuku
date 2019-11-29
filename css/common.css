@@ -121,7 +121,7 @@ header{
 .navBox input.menu01:checked ~ .homeContent .homeContent .clearfix,
 .navBox input.menu02:checked ~ .homeContent .content02,
 .navBox input.menu03:checked ~ .homeContent .content03,
-.navBox input.menu04:checked ~ .homeContent .content04,{
+.navBox input.menu04:checked ~ .homeContent .content04{
     opacity: 1;
     -webkit-transition: all ease-out 0.4s 0.4s;
     transition: all ease-out 0.4s 0.4s;
@@ -203,6 +203,18 @@ table.comment{
     margin: 5px 5px 10px 10px;
     width: 270px;
     border: solid 1px black;
+}
+table .comment-none{
+    display:none;
+    background: #996633;
+}
+table .comment-none ul{
+    width:470px;
+    padding-left:10px;
+    text-align:left;
+}
+table .comment-none ul li{
+    list-style-type:none;
 }
 
 
