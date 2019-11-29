@@ -1,0 +1,17 @@
+<contents>
+    <data>
+        <title>GIMPを使ったぼかし技術</title>
+        <info>新都心公園の写真を加工してみました！</info>
+        <picture>.//pictureture/test_min.jpg</picture>
+    </data>
+    <person>
+        <title>0002</title>
+        <info>Hanako Suzuki</info>
+        <picture>example2@example.com</picture>
+    </person>
+    <person>
+        <title>0003</title>
+        <info>Takeshi Tanaka</info>
+        <picture>example3@example.com</picture>
+    </person>
+</contents>

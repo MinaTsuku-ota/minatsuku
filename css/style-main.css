@@ -17,7 +17,7 @@ header {
   margin-left: 20px;
   margin-right: 20px;
   height: 700px;
-  background-color: #ffd199;
+  background-color: chocolate;
 }
 .articleField {
   background-color: azure;
@@ -33,19 +33,19 @@ div .d-flex{
   margin-top: 50px;
 }
 div .d-flex div:nth-child(1) {
-  background-color: #ffd199;
+  background-color: chocolate;
 }
 div .d-flex div:nth-child(2) {
-  background-color: #99a3ff;
+  background-color: blue;
 }
 div .d-flex div:nth-child(3) {
-  background-color: #99ff9f;
+  background-color: green;
 }
 div .d-flex div:nth-child(4) {
-  background-color: #ff99ac;
+  background-color: red;
 }
 div .d-flex div:nth-child(5) {
-  background-color: black;
+  background-color: yellow;
 }
 /* main .leftColumnFeild {
   flex: 1;
@@ -72,14 +72,14 @@ footer {
 
 /* sukeのテスト */
 .contents{
-  background:#ffd199;
+  background:chocolate;
 }
 .web{
-  background:#99a3ff;
+  background:blue;
 }
 .graphic{
-  background:#99ff9f;
+  background:green;
 }
 .movie{
-  background:#ff99ac;
+  background:red;
 }
