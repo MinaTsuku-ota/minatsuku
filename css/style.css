@@ -1,85 +1,30 @@
-body {
-    max-width: 800px;
-    margin: auto;
-    background-color: #F5F5F5;
+#indexWindow {
+  width: 960px;
+  height: 720px;
+  margin: auto;
+  border:dashed 1px black;
 }
 
-.f1 {
-    text-align: left;
-    font-size: 26px
-}
-
-#fadeTitle:first-child {
-  margin-top: 18px;
-  padding-top: 55px;
-}
-
-#fadeTitle p:nth-child(1) {
-  margin-left: 30px;
-}
-
-#fadeTitle p:nth-child(2) {
-  position: relative; top: 43px; left: 400px;
-}
-
-div#fadeTitle {
-  width: auto;
-  height: 570px;
-  border:dashed 1px Scrollbar;
-}
-
-div#indexButtons {
+#indexTitle {
+  margin-top: 100px;
   text-align: center;
+  border:dashed 1px black;
 }
 
-.b1 {
-  width: 175px;
-  height: 78px;
-  margin: 10px 12px 0 0;
-  padding-top: 1.77em;
-  display: inline-block;
-  text-decoration: none;
-  color: #799dec;
-  border: solid 2px #799dec;
-  border-radius: 8px;
-  transition: .4s;
-}
-.b1:hover {
-  background: #799dec;
-  color: white;
+#indexButton {
+  margin-top: 100px;
+  text-align: center;
+  border:dashed 1px black;
 }
 
-.b2 {
-  width: 175px;
-  height: 78px;
-  margin-top: 10px;
-  padding-top: 1.77em;
-  display: inline-block;
-  text-decoration: none;
-  color: #009900;
-  border: solid 2px #009900;
-  border-radius: 8px;
-  transition: .4s;
-}
-.b2:hover {
-  background: #009900;
-  color: white;
+#indexButton div:nth-child(n) {
+  margin-top: 30px;
 }
 
-.b3 {
-  width: 175px;
-  height: 78px;
-  margin: 10px 0 0 12px;
-  padding-top: 1.77em;
-  display: inline-block;
-  text-decoration: none;
-  color: #FF69B4;
-  border: solid 2px #FF69B4;
-  border-radius: 8px;
-  transition: .4s;
-}
-
-.b3:hover {
-  background: #FF69B4;
-  color: white;
+body {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: beige;
 }
