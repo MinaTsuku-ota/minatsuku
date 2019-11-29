@@ -202,6 +202,7 @@ table.comment{
     text-align: center;
     margin: 5px 5px 10px 10px;
     width: 270px;
+    height: 200px;
     border: solid 1px black;
 }
 
@@ -209,21 +210,4 @@ table.comment{
 footer{
     clear: both;
     border: dashed 1px #999;
-}
-
-@media screen and (max-width:480px){
-    /*画面幅が480pxまでの時*/
-    .navBox{
-        ;
-    }
-}
-
-@media screen and (max-width:780px){
-    /*画面幅が780pxまでの時*/
-
-}
-
-@media screen and (max-width:480px){
-    /*画面幅が480pxまでの時*/
-
 }
