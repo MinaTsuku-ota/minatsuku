@@ -11,6 +11,8 @@
 |
 */
 
+// HTTPメソッド:GET  PATH:'/' (localhost)  アクション:クロージャ
 Route::get('/', function () {
+    // resources/views/welcome.blade.phpを表示
     return view('welcome');
 });
