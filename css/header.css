@@ -2,11 +2,7 @@
 
 header{
     width:100%;
-    z-index:9999;
     background-color:#33ccff;
-    position: relative;
-    top: 0px;
-    left: 0px;
 }
 
 .btn1{
