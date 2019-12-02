@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header p {
+  height: 200px;
+  text-align: center;
+  background-color: #888;
+  color: #fff;
+}
+
+/* main {
+  display: flex;
+  min-height: 100vh;
+  margin-top: 10px;
+} */
+
+main p:nth-child(1) {
+  flex: 2;
+  text-align: center;
+  background-color: black;
+  color: #fff;
+}
+
+main p:nth-child(2) {
+  height: 400px;
+  flex: 1;
+  text-align: center;
+  background-color: red;
+}
+
+main p:nth-child(3) {
+  height: 400px;
+  flex: 2;
+  text-align: center;
+  background-color: black;
+}

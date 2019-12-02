@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>テスト用html</title>
+  </head>
+  <body>
+    <form action="" method="post"><!--action属性には送信先が入る-->
+        <h1>ユーザー登録機能</h1>
+        <b>ユーザー名(20):</b><!--()の中の数字は打てる文字数-->
+        <input type="text"  name="username" size="20" maxlength="20"><!--name属性にはクラス図で設定したものを使用-->
+        <b>パスワード(4)：</b>
+        <input type="password" name="password" size="4" maxlength="4">
+        <p>
+          <input type="radio" name="departments" value=1 checked="checked">情報システム科
+          <input type="radio" name="departments" value=2>メディアアート科
+          <input type="radio" name="departments" value=3>電気システム科
+          <input type="radio" name="departments" value=4>自動車整備科
+        </p>
+        <p>
+          <input type="submit" value="送信する"><!--useridを自動で割り振るする-->
+          <input type="reset" value="クリア">
+        </p>
+      </form>
+
+
+        <h1>ログイン機能</h1>
+        <form action="" method="post">  <!--action属性には送信先が入る-->
+          <b>ユーザー名(20):</b>
+          <input type="text" name="username" size="20" maxlength="20">
+          <b>パスワード(4)</b>
+          <input type="password" name="password" size="4" maxlength="4"><br>
+          <input type="submit" value="ログイン">
+          
+
+        <h1>投稿機能</h1>
+          <b>タイトル(20)</b>
+          <input type="text" name="title" size="20" maxlength="20">
+          <p>作品説明(256)<br>
+          <textarea name="description" cols="30" rows="10" maxlength="256"></textarea></p>
+          <p>ジャンル</p>
+          <p>
+              <input type="radio" name="genreid" value="1" checked="checked">web
+              <input type="radio" name="genreid" value="2">picture
+              <input type="radio" name="genreid" value="3">movie
+          </p>
+          <b>URL</b>
+          <input type="text" name="url" size="50"><br>
+          <input type="file" name="postdate"><br>
+          <input type="submit" value="送信する"><!--投稿された時間を受け取ってarticleidを割り振る-->
+          <input type="reset" value="クリア">
+        </form>
+        <form action="" method="post">
+
+
+          <h1>作品の表示とその作品に対する評価やコメント</h1>
+          <!--作品、ユーザー名、学科を表示-->
+          <input type="button" name="rate" value="評価">
+          <p>コメント(256)</p>
+          <textarea name="comment" cols="30" rows="10" maxlength="256"></textarea><!--コメントは時間も受け取る-->
+          <!--評価数とコメントを表示-->
+          <input type="submit" value="コメントする">
+          <input type="reset" value="クリア">
+        </form>
+        <form action="" method="post">
+
+
+          <h1>評価機能</h1>
+          <p>評価(256)</p>
+          <textarea name="opinion" cols="30" rows="10" maxlength="256"></textarea>
+          <!--評価時間も表示-->
+          <input type="submit" value="評価する">
+          <input type="reset" value="クリア">
+        </form>
+  </body>
+</html>
