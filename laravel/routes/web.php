@@ -13,6 +13,13 @@
 
 // HTTPメソッド:GET  PATH:'/' (localhost)  アクション:クロージャ
 Route::get('/', function () {
-    // resources/views/welcome.blade.phpを表示
+    // welcome.blade.phpを表示
     return view('welcome');
 });
+
+Route::get('about', 'PagesController@about')->name('about');
+Route::get('contact', 'PagesController@contact')->name('contact');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

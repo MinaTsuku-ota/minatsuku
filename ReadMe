@@ -40,3 +40,46 @@ sourcetreeの説明
 参考サイト
 https://backlog.com/ja/git-tutorial/ 「サルでもわかるGit入門」
 https://www.youtube.com/playlist?list=PLh6V6_7fbbo_M3CqTeJvuXB08--fibyBu 「Git+Github入門」
+
+/*** Laravel関連 ***/
+ローカル環境下ではいくつか自前で用意する必要がある
+0.xamppをダウンロード
+1.「.env」ファイルをlaravelフォルダ("laravel"はプロジェクト名のデフォルトの名前)に作る必要がある
+「.env.sample」をコピーして「.env」にリネームする
+mysqlの使用を前提として、
+DB_DATABASEに使用するデータベース名(事前に用意、名前は自由)
+DB_USERNAMEにmysqlのユーザ名、DB_PASSWORDにmysqlのパスワード
+mailtrap関連は～～～(追記予定)
+
+2.「.env」ファイルのAPP_KEYを設定するためにlaravelフォルダにて以下のコマンド
+php artisan key:generate
+
+「.env」については:https://laravel10.wordpress.com/2015/02/13/laravel%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab/
+(抜粋)
+.env ファイルは実行環境ごとに分ける必要がある情報を格納しています。パスワードやデーターベース名等を開発機やステージング機、商用機等毎に個別に設定することが出来ます。
+php artisan key:generate を実行すると .env 内の APP_KEY にアプリケーション固有のランダムストリングが設定されます。APP_KEYはユーザーのセッション情報やパスワードの暗号化等をセキュアにする為に必要になります。
+※ git を使っている方は、.env を .gitignore ファイルに追加することをお忘れなく！
+
+3.「/vender」フォルダを用意する必要がある。
+カレントディレクトリをlaravelプロジェクトに移動して以下のコマンドを実行する。(composerは自前で用意)
+composer install
+
+// 認証関連:php artisan make:authが実行できないことについて
+make:authはLaravel6.xではできなくなっている。以下のURLを参考にして認証関連のファイルを作成する(Qiita記事)
+https://qiita.com/daisu_yamazaki/items/a914a16ca1640334d7a5
+※Node.jsは装飾のためのjavascriptライブラリなのでlayoutを既に作っていれば必要ない
+(手順)
+composer require laravel/ui  // laravel/uiをインストール
+php artisan ui vue --auth  // LOGIN機能＆テーブル作成
+php artisan migrate
+npm install  // FrontEndに必要なPackageをインストール(Node/npmの使用が必要)
+npm run dev  // CSS/JSを作成ビルド
+
+/*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティーコマンド
+php artisan list // artisanコマンドリストを表示
+php artisan route:list // ルートリストを表示
+php artisan make:controller CONTROLLER_NAME // コントローラ作成
+
+/*** tinker関連 ***/
+php artisan tinkerでtinkerを実行
+\App\User::all()->toArray(); // ユーザ一覧の取得
