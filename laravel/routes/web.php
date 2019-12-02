@@ -21,7 +21,10 @@ Route::get('about', 'PagesController@about')->name('about');
 Route::get('contact', 'PagesController@contact')->name('contact');
 
 Route::get('articles', 'ArticlesController@index');
+Route::get('articles/create', 'ArticlesController@create'); // 順番に注意
 Route::get('articles/{id}', 'ArticlesController@show');
+
+Route::post('articles', 'ArticlesController@store'); // 記事の保存
 
 // 認証関連のルート設定
 Auth::routes();

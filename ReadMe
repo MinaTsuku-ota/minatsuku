@@ -66,16 +66,9 @@ php artisan key:generate を実行すると .env 内の APP_KEY にアプリケ�
 カレントディレクトリをlaravelプロジェクトに移動して以下のコマンドを実行する。(composerは自前で用意)
 composer install
 
-///// 認証関連:php artisan make:authが実行できないことについて
-make:authはLaravel6.xではできなくなっている。以下のURLを参考にして認証関連のファイルを作成する(Qiita記事)
-https://qiita.com/daisu_yamazaki/items/a914a16ca1640334d7a5
-※Node.jsは装飾のためのjavascriptライブラリなのでlayoutを既に作っていれば必要ない
-(手順)
-composer require laravel/ui  // laravel/uiをインストール
-php artisan ui vue --auth  // LOGIN機能＆テーブル作成
-php artisan migrate
-npm install  // FrontEndに必要なPackageをインストール(Node/npmの使用が必要)
-npm run dev  // CSS/JSを作成ビルド
+4...laravelcollective (vender関連)
+現時点で導入するlaravelcollectiveは「6.*」
+composer require "laravelcollective/html":"^6.0"
 
 /*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)
 php artisan list // artisanコマンドリストを表示
@@ -91,6 +84,7 @@ php artisan migrate:refresh // reset + migrate ※テーブルの中身は全て
 php artisan make:model MODELNAME // モデル作成
 php artisan make:seeder TABLENAMETableSeeder // Seeder作成
 php artisan make:factory TABLENAMEFactory // Factory作成
+php artisan make:request TABLENAMERequest // Form Request作成
 
 /*** tinker関連 ***/
 php artisan tinkerでtinkerを実行
@@ -101,3 +95,15 @@ protected $fillable = ['カラム1', 'カラム2', ...]; // マスアサイン�
 protected $dates = ['カラム1', 'カラム2']; // 日付ミューテータは$datesに。
 getカラム名Attribute() // アクセサメソッドはこう書く。メソッド名だけ書いて中身がないと取り出せない
 setカラム名Attribute() // ミューテータメソッド名はこう書く。メソッド名だけ書いて中身がないとセットできない
+
+///// 認証関連:php artisan make:authが実行できないことについて
+make:authはLaravel6.xではできなくなっている。以下のURLを参考にして認証関連のファイルを作成する(Qiita記事)
+https://qiita.com/daisu_yamazaki/items/a914a16ca1640334d7a5
+※Node.jsは装飾のためのjavascriptライブラリなのでlayoutを既に作っていれば必要ない
+(手順)
+composer require laravel/ui  // laravel/uiをインストール
+php artisan ui vue --auth  // LOGIN機能＆テーブル作成
+php artisan migrate
+php artisan db:seed // ダミーデータを挿入
+npm install  // FrontEndに必要なPackageをインストール(Node/npmの使用が必要)
+npm run dev  // CSS/JSを作成ビルド
