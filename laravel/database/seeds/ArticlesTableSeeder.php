@@ -31,6 +31,7 @@ class ArticlesTableSeeder extends Seeder
         // }
         
         // ArticleFactory.phpを参照
+        // factory() 関数に作成するモデルのクラス名と件数を指定して、DBにデータを作成
         factory(App\Article::class, 20)->create();
     }
 }
