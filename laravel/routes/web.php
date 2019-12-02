@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('contact', 'PagesController@contact')->name('contact');
 
-Auth::routes();
 
+// 認証関連のルート設定
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
