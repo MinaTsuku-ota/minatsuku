@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('contact', 'PagesController@contact')->name('contact');
 
+Route::get('articles', 'ArticlesController@index');
+Route::get('articles/{id}', 'ArticlesController@show');
 
 // 認証関連のルート設定
 Auth::routes();
