@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -22,4 +23,9 @@ class Article extends Model
     //     // 小文字に変換
     //     $this->attributes['title'] = mb_strtolower($value);
     // }
+
+    //  published scopeを定義
+    public function scopePublished($query) {
+        $query->where('published_at', '<=', Carbon::now());
+    }
 }

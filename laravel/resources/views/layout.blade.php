@@ -20,6 +20,15 @@
 <body>
     <!-- 上下左右余白 -->
     <div class="container py-4">
+        {{-- フラッシュメッセージの表示 --}}
+        {{-- セッションに ‘message’ をキーに持つ情報があれば、表示するように修正 --}}
+        {{-- class="alert alert-success"というのは Bootstrap の CSSで、この class を指定すると、正常時のアラートとして div を緑に装飾して表示してくれます --}}
+        @if (session('message'))
+            <div class="alert alert-success">{{ session('message') }}</div>
+        @endif
+
+        {{-- コンテンツの表示 --}}
         @yield('content')
-    </div></body>
+    </div>
+</body>
 </html>

@@ -11,8 +11,16 @@ class ArticlesController extends Controller
 {
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
     public function index(){
-        $articles = Article::all();
+        // $articles = Article::all();
 
+        // こちらでも良い
+        // $articles = Article::orderBy('published_at', 'desc')->orderBy('created_at', 'desc')->get();
+        // latest()->get() に変更して、作成日の降順に記事をソート
+        // orderBy()->get() を使っても同様のことが出来る
+        $articles = Article::latest('published_at')->latest('created_at')
+        // ->where('published_at', '<=', Carbon::now()) // 公開日が現在時刻以前の記事だけを取得
+        ->published() // whereをscopeに差し替えた
+        ->get();
         return view('articles.index', compact('articles'));
     }
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -46,6 +54,31 @@ class ArticlesController extends Controller
         // store メソッドで受け取るクラスを Illuminate\Http\Request から App\Http\Requests\ArticleRequest に変更
         // これだけで、今まで store メソッド内で行っていた、validate が不要になります。エラーがあった時の前画面へのリダイレクトも ArticleRequest が行ってくれます。コントローラがスリムになり、超クールです
         Article::create($request->validated());
-        return redirect('articles'); // 記事一覧へリダイレクト
+        // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
+        return redirect()->route('articles.index')->with('message', '記事を追加しました。');
+    }
+
+    // 記事の編集
+    public function edit($id) {
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
+    }
+
+    // 記事の更新
+    public function update(ArticleRequest $request, $id) {
+        $article = Article::findOrFail($id);
+        $article->update($request->validated()); // Form Requestを用いる
+        // return redirect(url('articles', [$article->id]))->with('message', '記事を更新しました。');
+        return redirect()->route('articles.show', [$article->id])->with('message', '記事を更新しました。');
+    }
+
+    // 記事の削除
+    public function destroy($id) {
+        // $id で記事を検索し、delete() メソッドで削除しています
+        $article = Article::findOrFail($id);
+        $article->delete();
+        // redirect() 時に with() メソッドでフラッシュ情報としてメッセージを追加します
+        // フラッシュ情報とは次のリクエストだけで有効な一時的なセッション情報（サーバーに保存する情報）です
+        return redirect()->route('articles.destroy')->with('message', '記事を削除しました。');
     }
 }
