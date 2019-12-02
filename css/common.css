@@ -7,6 +7,8 @@ body{
     margin: 30px auto;
 }
 
+/* ヘッダーの設定 */
+
 header{
     border: dashed 1px #999;
     height: 100px;
@@ -36,6 +38,8 @@ header div.float_right{
 #login_hidden li{
     list-style-type:none;
 }
+
+/*ヘッダーの設定ここまで*/
 
 #content{
     width: 958px;
