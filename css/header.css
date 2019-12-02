@@ -2,11 +2,7 @@
 
 header{
     width:100%;
-    z-index:9999;
     background-color:#33ccff;
-    position: relative;
-    top: 0px;
-    left: 0px;
 }
 
 .btn1{
@@ -19,18 +15,16 @@ header{
 }
 
 #header-left{
-    float: left;
+  float: left;
     margin-left:10px;
 }
 
 #header-right{
     float: right;
-    position: absolute;
-    top: 30px;
-    left: 70%;
+    margin: 40px 20px;
 }
 
-.clearfix:after{
+.clearfix::after{
     content:"";
     display: block;
     clear: both;
@@ -52,9 +46,7 @@ footer{
   text-align: center;
 }
 
-#header-right ul li{
-    list-style: none;
-}
+
 footer ul{
   width: 100%;
 }
