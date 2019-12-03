@@ -21,8 +21,9 @@
 
 // root
 // Route::get('/', 'ArticlesController@index')->name('home');
-// ひとまずbaseへ飛ぶようにする
-Route::get('/', 'ArticlesController@index')->name('home');
+
+// root
+Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('contact', 'PagesController@contact')->name('contact');
