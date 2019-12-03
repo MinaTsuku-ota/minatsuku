@@ -1,5 +1,6 @@
 {{-- @extends('layouts.app') --}}
-@extends('layout')
+{{-- @extends('layout') --}}
+@extends('minatsukulayout')
 
 @section('content')
 <div class="container">

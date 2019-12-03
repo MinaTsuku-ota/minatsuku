@@ -31,10 +31,12 @@ class ArticlesController extends Controller
         // orderBy()->get() を使っても同様のことが出来る
         // $articles = Article::latest('published_at')->latest('created_at')
         // ->where('published_at', '<=', Carbon::now()) // 公開日が現在時刻以前の記事だけを取得
+        // ->get();
+        // $articles = Article::latest('published_at')->latest('created_at')
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // return view('articles.index', compact('articles'));
-        return view('articles.index');
+        return view('articles.base');
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す

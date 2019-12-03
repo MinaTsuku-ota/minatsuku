@@ -75,6 +75,10 @@ composer install
 現時点で導入するlaravelcollectiveは「6.*」
 composer require "laravelcollective/html":"^6.0"
 
+5..以下のコマンド実行
+php artisan migrate // テーブル作成
+php artisan db:seed // テーブルにダミーデータを挿入
+
 /*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)
 php artisan list // artisanコマンドリストを表示
 php artisan route:list // ルートリストを表示
@@ -88,11 +92,11 @@ php artisan migrate:rollback // マイグレーションを1つ戻す
 php artisan migrate:refresh // reset + migrate ※テーブルの中身は全て消える
 php artisan db:seed // ダミーデータの挿入
 
-php artisan make:model MODELNAME // モデル作成
-php artisan make:seeder TABLENAMETableSeeder // Seeder作成
-php artisan make:factory TABLENAMEFactory // Factory作成
-php artisan make:request TABLENAMERequest // Form Request作成
-php artisan make:middleware MyMiddleware // ミドルウェア作成
+php artisan make:model Somemodel // モデル作成
+php artisan make:seeder SometableTableSeeder // Seeder作成
+php artisan make:factory SamtableFactory // Factory作成
+php artisan make:request SometableRequest // Form Request作成
+php artisan make:middleware Somemiddleware // ミドルウェア作成
 
 /*** tinker関連 ***/
 php artisan tinkerでtinkerを実行
@@ -112,6 +116,7 @@ https://qiita.com/daisu_yamazaki/items/a914a16ca1640334d7a5
 composer require laravel/ui  // laravel/uiをインストール
 php artisan ui vue --auth  // LOGIN機能＆テーブル作成
 php artisan migrate
+php artisan db:seed
 npm install  // FrontEndに必要なPackageをインストール(Node/npmの使用が必要)
 npm run dev  // CSS/JSを作成ビルド
 
