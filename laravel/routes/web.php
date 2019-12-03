@@ -19,7 +19,9 @@
 
 // Route::get('/', 'WelcomeController@index')->name('home');
 
-// root を記事一覧にします
+// root
+// Route::get('/', 'ArticlesController@index')->name('home');
+// ひとまずbaseへ飛ぶようにする
 Route::get('/', 'ArticlesController@index')->name('home');
 
 Route::get('about', 'PagesController@about')->name('about');

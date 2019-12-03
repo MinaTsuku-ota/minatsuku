@@ -29,11 +29,12 @@ class ArticlesController extends Controller
         // $articles = Article::orderBy('published_at', 'desc')->orderBy('created_at', 'desc')->get();
         // latest()->get() に変更して、作成日の降順に記事をソート
         // orderBy()->get() を使っても同様のことが出来る
-        $articles = Article::latest('published_at')->latest('created_at')
+        // $articles = Article::latest('published_at')->latest('created_at')
         // ->where('published_at', '<=', Carbon::now()) // 公開日が現在時刻以前の記事だけを取得
-        ->published() // whereをscopeに差し替えた(Articleモデルを参照)
-        ->get();
-        return view('articles.index', compact('articles'));
+        // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
+        // ->get();
+        // return view('articles.index', compact('articles'));
+        return view('articles.index');
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -75,7 +76,7 @@ class ArticlesController extends Controller
         // store メソッドで受け取るクラスを Illuminate\Http\Request から App\Http\Requests\ArticleRequest に変更
         // これだけで、今まで store メソッド内で行っていた、validate が不要になります。エラーがあった時の前画面へのリダイレクトも ArticleRequest が行ってくれます。コントローラがスリムになり、超クールです
         // Article::create($request->validated());
-        
+
         // 新規の記事を、ログイン中のユーザーの記事として保存するよう修正
         // Auth::user()->articles()->create($request->validated());
         $article = Auth::user()->articles()->create($request->validated());
