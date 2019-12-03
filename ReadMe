@@ -90,6 +90,7 @@ php artisan make:model MODELNAME // モデル作成
 php artisan make:seeder TABLENAMETableSeeder // Seeder作成
 php artisan make:factory TABLENAMEFactory // Factory作成
 php artisan make:request TABLENAMERequest // Form Request作成
+php artisan make:middleware MyMiddleware // ミドルウェア作成
 
 /*** tinker関連 ***/
 php artisan tinkerでtinkerを実行

@@ -12,11 +12,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- BootstrapのJS読み込み -->
 <script src="/js/app.js"></script>
-<style>
-#show_button{
-    overflow: hidden;
-}
-</style>
 <body>
     {{-- ナビゲーションバーの Partial を使用 --}}
     @include('navbar')

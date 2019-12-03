@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 // use Illuminate\Http\Request;
 use App\Article;
 // use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
+    // ミドルウェアの設定
+    public function __construct()
+    {
+        // indexとshowビュー以外にauthを適用
+        // auth:ログインしていなかったらloginビューへリダイレクト
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
     public function index(){
         // $articles = Article::all();
@@ -19,7 +28,7 @@ class ArticlesController extends Controller
         // orderBy()->get() を使っても同様のことが出来る
         $articles = Article::latest('published_at')->latest('created_at')
         // ->where('published_at', '<=', Carbon::now()) // 公開日が現在時刻以前の記事だけを取得
-        ->published() // whereをscopeに差し替えた
+        ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         ->get();
         return view('articles.index', compact('articles'));
     }
@@ -79,6 +88,6 @@ class ArticlesController extends Controller
         $article->delete();
         // redirect() 時に with() メソッドでフラッシュ情報としてメッセージを追加します
         // フラッシュ情報とは次のリクエストだけで有効な一時的なセッション情報（サーバーに保存する情報）です
-        return redirect()->route('articles.destroy')->with('message', '記事を削除しました。');
+        return redirect()->route('articles.index')->with('message', '記事を削除しました。');
     }
 }
