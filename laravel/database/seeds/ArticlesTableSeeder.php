@@ -32,6 +32,14 @@ class ArticlesTableSeeder extends Seeder
         
         // ArticleFactory.phpを参照
         // factory() 関数に作成するモデルのクラス名と件数を指定して、DBにデータを作成
-        factory(App\Article::class, 20)->create();
+        // factory(App\Article::class, 20)->create();
+
+        // ユーザーを１件取得してから、Article をそのユーザーに関連付けて作成
+        // factory の create() メソッドに項目名と値の連想配列を渡すことで、factory で定義してる項目の設定内容を上書きすることができます
+        // ArticleFactory の定義内容では１件の Article に対して毎回ユーザーを作成して user_id をセットするようになっていますが、それを上書きして、検索したユーザーの ID をセットしています
+        $user = App\User::first();
+        factory(App\Article::class, 20)->create([
+            'user_id' => $user->id,
+        ]);
     }
 }

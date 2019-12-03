@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Articleと関連付ける
+    public function articles() {
+        return $this->hasMany('App\Article');
+    }
 }

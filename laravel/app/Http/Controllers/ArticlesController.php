@@ -8,6 +8,8 @@ use App\Article;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 
+use Illuminate\Support\Facades\Auth;
+
 class ArticlesController extends Controller
 {
     // ミドルウェアの設定
@@ -62,7 +64,9 @@ class ArticlesController extends Controller
 
         // store メソッドで受け取るクラスを Illuminate\Http\Request から App\Http\Requests\ArticleRequest に変更
         // これだけで、今まで store メソッド内で行っていた、validate が不要になります。エラーがあった時の前画面へのリダイレクトも ArticleRequest が行ってくれます。コントローラがスリムになり、超クールです
-        Article::create($request->validated());
+        // Article::create($request->validated());
+        // 新規の記事を、ログイン中のユーザーの記事として保存するよう修正
+        Auth::user()->articles()->create($request->validated());
         // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');
     }

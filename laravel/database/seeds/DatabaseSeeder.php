@@ -13,8 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         $this->call([
-            ArticlesTableSeeder::class, // SEEDERファイルの読み込み
-            // OtherTableSeeder::class, // 他のSEEDERの読み込み
+            // SEEDERファイルの読み込み、順番に注意
+            UsersTableSeeder::class,
+            ArticlesTableSeeder::class,
+            // OtherTableSeeder::class,
         ]);
     }
 }
