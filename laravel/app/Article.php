@@ -33,4 +33,10 @@ class Article extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    // Tagと関連付ける
+    public function tags(){
+        // 中間テーブルのタイムスタンプを更新する為に、withTimestamps() を使用する必要があります。
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
 }

@@ -37,6 +37,7 @@ class ArticlesTableSeeder extends Seeder
         // ユーザーを１件取得してから、Article をそのユーザーに関連付けて作成
         // factory の create() メソッドに項目名と値の連想配列を渡すことで、factory で定義してる項目の設定内容を上書きすることができます
         // ArticleFactory の定義内容では１件の Article に対して毎回ユーザーを作成して user_id をセットするようになっていますが、それを上書きして、検索したユーザーの ID をセットしています
+        // UserのSeederで1件だけrootという名前のユーザを登録しているので、それを取り出している
         $user = App\User::first();
         factory(App\Article::class, 20)->create([
             'user_id' => $user->id,
