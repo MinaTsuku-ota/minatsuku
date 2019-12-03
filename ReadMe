@@ -76,6 +76,7 @@ composer require "laravelcollective/html":"^6.0"
 /*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)
 php artisan list // artisanコマンドリストを表示
 php artisan route:list // ルートリストを表示
+
 php artisan make:controller CONTROLLER_NAME // コントローラ作成
 
 php artisan make:migration create_TABLENAME_table // テーブルを作成するマイグレーションの作成

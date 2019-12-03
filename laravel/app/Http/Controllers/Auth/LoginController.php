@@ -25,7 +25,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
+ 
+    // named route で指定したいので function にします
+    protected function redirectTo ()
+    {
+        return route('dashboard');
+    }
 
     /**
      * Create a new controller instance.
