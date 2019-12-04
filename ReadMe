@@ -40,3 +40,100 @@ sourcetreeの説明
 参考サイト
 https://backlog.com/ja/git-tutorial/ 「サルでもわかるGit入門」
 https://www.youtube.com/playlist?list=PLh6V6_7fbbo_M3CqTeJvuXB08--fibyBu 「Git+Github入門」
+
+https://laravel10.wordpress.com/ 「ララ帳」
+
+/*** Laravel関連 ***/
+ローカル環境下ではいくつか自前で用意する必要がある
+0...xamppをダウンロード
+\xampp\apache\conf\httpd.confにて、DOCUMENTROOTを "C:\minatsuku\laravel\public" の様に設定する(publicフォルダをルートフォルダとしたい)
+Apache起動、MySQL起動
+MySQLは喜屋武先生の時に入れたものとxamppで入れたMySQLでポート番号が同じになって起動できないはずなので
+応急処置としては
+タスクマネージャを管理者権限で開いて[サービス]タブからMySQLを停止→xamppのMySQL起動
+ってことをしている
+
+1...「.env」ファイルをlaravelフォルダに作る必要がある(minatsukuに作った"laravel"はlaravelプロジェクトネームのデフォルト値)
+「.env.sample」をコピーして「.env」にリネームする
+(.env内設定)
+mysqlの使用を前提として、
+DB_DATABASEに使用するデータベース名(事前に用意、名前は自由)
+DB_USERNAMEにmysqlのユーザ名、DB_PASSWORDにmysqlのパスワード
+(.env内mailtrap関連)
+メールの環境設定:https://laravel10.wordpress.com/2015/02/22/%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AE%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A/
+MAIL_PORTはデフォルトの2525ではなく587を使用すると良い
+
+2...「.env」ファイルのAPP_KEYを設定する。カレントディレクトリをlaravelフォルダに移動して以下のコマンドを実行する
+php artisan key:generate
+
+「.env」については  https://laravel10.wordpress.com/2015/02/13/laravel%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab/
+(抜粋)
+.env ファイルは実行環境ごとに分ける必要がある情報を格納しています。パスワードやデーターベース名等を開発機やステージング機、商用機等毎に個別に設定することが出来ます。
+php artisan key:generate を実行すると .env 内の APP_KEY にアプリケーション固有のランダムストリングが設定されます。APP_KEYはユーザーのセッション情報やパスワードの暗号化等をセキュアにする為に必要になります。
+※ git を使っている方は、.env を .gitignore ファイルに追加することをお忘れなく！
+
+3...「/vender」フォルダをlaravelフォルダに用意する必要がある。
+カレントディレクトリをlaravelフォルダに移動して以下のコマンドを実行する。(composerは自前で用意)
+composer install
+
+4...laravelcollective (vender関連)
+現時点で導入するlaravelcollectiveは「6.*」
+composer require "laravelcollective/html":"^6.0"
+
+5..以下のコマンド実行
+php artisan migrate // テーブル作成
+php artisan db:seed // テーブルにダミーデータを挿入
+
+/*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)
+php artisan list // artisanコマンドリストを表示
+php artisan route:list // ルートリストを表示
+
+php artisan make:controller CONTROLLER_NAME // コントローラ作成
+
+php artisan make:migration create_TABLENAME_table // テーブルを作成するマイグレーションの作成
+php artisan make:migration add_COLUMNNAME_to_TABLENAME_table --table=TABLENAME // テーブルの変更を行うマイグレーションの作成
+php artisan migrate // マイグレーション実行
+php artisan migrate:rollback // マイグレーションを1つ戻す
+php artisan migrate:refresh // reset + migrate ※テーブルの中身は全て消える
+php artisan db:seed // ダミーデータの挿入
+
+php artisan make:model Somemodel // モデル作成
+php artisan make:seeder SometableTableSeeder // Seeder作成
+php artisan make:factory SamtableFactory // Factory作成
+php artisan make:request SometableRequest // Form Request作成
+php artisan make:middleware Somemiddleware // ミドルウェア作成
+
+/*** tinker関連 ***/
+php artisan tinkerでtinkerを実行
+\App\User::all()->toArray(); // ユーザ一覧の取得
+
+/*** モデル関連 ***/
+protected $fillable = ['カラム1', 'カラム2', ...]; // マスアサインメントは$fillableに。
+protected $dates = ['カラム1', 'カラム2']; // 日付ミューテータは$datesに。
+getカラム名Attribute() // アクセサメソッドはこう書く。メソッド名だけ書いて中身がないと取り出せない
+setカラム名Attribute() // ミューテータメソッド名はこう書く。メソッド名だけ書いて中身がないとセットできない
+
+///// 認証関連:php artisan make:authが実行できないことについて
+make:authはLaravel6.xではできなくなっている。以下のURLを参考にして認証関連のファイルを作成する(Qiita記事)
+https://qiita.com/daisu_yamazaki/items/a914a16ca1640334d7a5
+※Node.jsは装飾のためのjavascriptライブラリなのでlayoutを既に作っていれば必要ない
+(手順)
+composer require laravel/ui  // laravel/uiをインストール
+php artisan ui vue --auth  // LOGIN機能＆テーブル作成
+php artisan migrate
+php artisan db:seed
+npm install  // FrontEndに必要なPackageをインストール(Node/npmの使用が必要)
+npm run dev  // CSS/JSを作成ビルド
+
+/** composer関連 **/
+(autoload設定にて)
+composer.json の自動ロード設定を変更した後は以下のコマンドで設定を反映する必要があります
+composer dump-autoload
+<その他メモ>
+ローカルブランチをリモートへのプッシュは
+git push -u origin HEAD
+
+mysqlの文字化け対処
+https://qiita.com/YusukeHigaki/items/2cab311d2a559a543e3a 「mysqlで文字コードをutf8にセットする」
+utf8への設定が終わったらmysqlへログインして次のコマンド
+>charset cp932;
