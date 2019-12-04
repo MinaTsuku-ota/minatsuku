@@ -93,7 +93,7 @@ php artisan key:generate を実行すると .env 内の APP_KEY にアプリケ�
 php artisan migrate // テーブル作成
 php artisan db:seed // テーブルにダミーデータを挿入
 
-6..認証関連ファイルのインストールとjsコンパイル
+6..認証関連ファイルのインストールとjsビルド
 ///// 認証関連:php artisan make:authが実行できないことについて
 make:authはLaravel6.xではできなくなっている。以下のURLを参考にして認証関連のファイルを作成する(Qiita記事)
 https://qiita.com/daisu_yamazaki/items/a914a16ca1640334d7a5
