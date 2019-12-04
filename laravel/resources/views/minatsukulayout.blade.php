@@ -8,15 +8,15 @@
 
     {{-- BootstrapのCSS読み込み --}}
     {{-- <link href="/css/app.css" rel="stylesheet"> --}}
-    {{-- jQuery読み込み --}}
+    <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    {{-- BootstrapのJS読み込み --}}
+    <!-- BootstrapのJS読み込み -->
     <script src="/js/app.js"></script>
 
     <!-- header.htmlの分 -->
     <link rel="stylesheet" href="/css/normalize.css">
-    {{-- <link rel="stylesheet" href="/css/main_contents.css">
-    <link rel="stylesheet" href="/css/header.css"> --}}
+    {{-- <link rel="stylesheet" href="/css/main_contents.css"> --}}
+    {{-- <link rel="stylesheet" href="/css/header.css"> --}}
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
