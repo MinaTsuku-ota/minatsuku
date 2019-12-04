@@ -46,7 +46,12 @@ https://laravel10.wordpress.com/ 「ララ帳」
 /*** Laravel関連 ***/
 ローカル環境下ではいくつか自前で用意する必要がある
 0...xamppをダウンロード
-\xampp\apache\conf\httpd.confにて、DOCUMENTROOTを "C:\minatsuku\laravel\public" の様に設定する
+\xampp\apache\conf\httpd.confにて、DOCUMENTROOTを "C:\minatsuku\laravel\public" の様に設定する(publicフォルダをルートフォルダとしたい)
+Apache起動、MySQL起動
+MySQLは喜屋武先生の時に入れたものとxamppで入れたMySQLでポート番号が同じになって起動できないはずなので
+応急処置としては
+タスクマネージャを管理者権限で開いて[サービス]タブからMySQLを停止→xamppのMySQL起動
+ってことをしている
 
 1...「.env」ファイルをlaravelフォルダに作る必要がある(minatsukuに作った"laravel"はlaravelプロジェクトネームのデフォルト値)
 「.env.sample」をコピーして「.env」にリネームする
