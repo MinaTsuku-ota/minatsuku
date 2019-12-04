@@ -1,4 +1,5 @@
-@extends('layout')
+{{-- @extends('layout') --}}
+@extends('minatsukulayout')
 
 @section('content')
     <h1>Edit: {{ $article->title }}</h1>
