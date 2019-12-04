@@ -129,3 +129,11 @@ npm run dev  // CSS/JSを作成ビルド
 (autoload設定にて)
 composer.json の自動ロード設定を変更した後は以下のコマンドで設定を反映する必要があります
 composer dump-autoload
+<その他メモ>
+ローカルブランチをリモートへのプッシュは
+git push -u origin HEAD
+
+mysqlの文字化け対処
+https://qiita.com/YusukeHigaki/items/2cab311d2a559a543e3a 「mysqlで文字コードをutf8にセットする」
+utf8への設定が終わったらmysqlへログインして次のコマンド
+>charset cp932;
