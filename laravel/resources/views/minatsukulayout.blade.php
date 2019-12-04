@@ -19,10 +19,11 @@
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     {{-- base.htmlの分 --}}
-    {{-- <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/common.css">
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
-    <script src="/js/jquery.js"></script> --}}
+    <script src="/js/jquery.js"></script>
+    
 </head>
 <body>
     {{-- headerの読み込み --}}
