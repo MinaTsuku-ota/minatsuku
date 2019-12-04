@@ -1,13 +1,13 @@
 @charset "utf-8";
 
-header{
+.header{
     width:100%;
     padding: 5px 0px;
     background-color:#0cf;
     position: fixed;
     top: 0px;
     left: 0px;
-
+    
 }
 
 .dummy{
@@ -44,12 +44,12 @@ header{
   border-radius: 4px;
 }
 
-#header-left{
+.header-left{
   float: left;
     margin: 10px 0px 0px 10px;
 }
 
-#header-right{
+.header-right{
     float: right;
     margin: 40px 30px;
 }
@@ -59,10 +59,10 @@ header{
     content:"";
     display: block;
     clear: both;
-
+    
 }
 
-#home_daimei{
+.home_daimei{
   width: 90%;
 }
 

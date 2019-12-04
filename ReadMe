@@ -43,7 +43,7 @@ https://www.youtube.com/playlist?list=PLh6V6_7fbbo_M3CqTeJvuXB08--fibyBu 「Git+
 
 https://laravel10.wordpress.com/ 「ララ帳」
 
-/*** Laravel関連 ***/
+/*** Laravel環境設定 ***/
 ローカル環境下ではいくつか自前で用意する必要がある
 0...xamppをダウンロード
 \xampp\apache\conf\httpd.confにて、DOCUMENTROOTを "C:\minatsuku\laravel\public" の様に設定する
@@ -71,9 +71,9 @@ composer: https://getcomposer.org/
 ダウンロードしたらlaravelフォルダにて以下のコマンド
 composer install
 
-3...laravelcollective (vender関連)
-現時点で導入するlaravelcollectiveは「6.*」
-composer require "laravelcollective/html":"^6.0"
+3...laravelcollectiveをインストール(vender関連)
+以下のコマンドを実行
+composer require laravelcollective/html
 
 4...「.env」ファイルのAPP_KEYを設定する。カレントディレクトリをlaravelフォルダに移動して以下のコマンドを実行する
 php artisan key:generate
@@ -87,7 +87,9 @@ php artisan key:generate を実行すると .env 内の APP_KEY にアプリケ�
 5..以下のコマンド実行
 php artisan migrate // テーブル作成
 php artisan db:seed // テーブルにダミーデータを挿入
+~~~環境設定はここまで~~~
 
+(コマンドメモ)
 /*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)
 php artisan list // artisanコマンドリストを表示
 php artisan route:list // ルートリストを表示

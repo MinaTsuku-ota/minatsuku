@@ -13,12 +13,14 @@
     {{-- BootstrapのJS読み込み --}}
     <script src="/js/app.js"></script>
 
-    {{-- header.htmlの分 --}}
+    <!-- header.htmlの分 -->
     <link rel="stylesheet" href="/css/normalize.css">
+    {{-- <link rel="stylesheet" href="/css/main_contents.css"> --}}
     {{-- <link rel="stylesheet" href="/css/header.css"> --}}
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    {{-- base.htmlの分 --}}
+
+    <!-- base.htmlの分 -->
     <link rel="stylesheet" href="/css/new_common.css">
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
