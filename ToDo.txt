@@ -3,3 +3,9 @@
 2.ログイン可能
 3.ユーザごとのManagement.html
 4.ユーザごとに制作物をDBに保持する(タイトル名/説明文/画像PATH/URL/ジャンル/年月日)
+
+Auth機能を拡張
+https://www.ritolab.com/entry/86
+
+ログアウト時の動作
+https://teratail.com/questions/163019

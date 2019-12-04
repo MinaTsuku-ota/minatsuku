@@ -36,7 +36,7 @@ class ArticlesController extends Controller
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // return view('articles.index', compact('articles'));
-        return view('articles.base');
+        return view('articles.index');
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -52,8 +52,9 @@ class ArticlesController extends Controller
     public function create(){
         // pluckメソッドは指定したキーの全コレクション値を配列で取得
         // タグ名と id の一覧を View に渡す
-        $tag_list = Tag::pluck('name', 'id');
-        return view('articles.create', compact('tag_list'));
+        // $tag_list = Tag::pluck('name', 'id');
+        // return view('articles.create', compact('tag_list'));
+        return view('articles.create');
     }
 
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました

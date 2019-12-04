@@ -12,10 +12,11 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
- 
+
         App\User::create([
             'name' => 'root',
-            'email' => 'root@example.com',
+            // 一旦名前とパスワードだけにする
+            // 'email' => 'root@example.com',
             'password' => Hash::make('password'),
         ]);
     }

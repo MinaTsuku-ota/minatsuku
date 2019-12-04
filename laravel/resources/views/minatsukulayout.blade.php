@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="/css/new_common.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
+    @yield('addcss')
+
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
 
     <script src="/js/jquery-3.4.1.min.js"></script>

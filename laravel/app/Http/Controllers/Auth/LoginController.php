@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -26,7 +28,7 @@ class LoginController extends Controller
      * @var string
      */
     // protected $redirectTo = '/home';
- 
+
     // named route で指定したいので function にします
     protected function redirectTo ()
     {
@@ -45,4 +47,19 @@ class LoginController extends Controller
         // guest:ログインしていたらリダイレクトする
         $this->middleware('guest')->except('logout');
     }
+
+    // AuthenticatesUsersトレイトのusername()を継承
+    // 認証をusername+passwordとする
+    // 認証カラムはuniqueである必要がある
+    public function username()
+    {
+      return 'name';
+    }
+
+    // ログアウト時の動作
+    protected function loggedOut(Request $request)
+    {
+        return view('articles.index');
+    }
+
 }

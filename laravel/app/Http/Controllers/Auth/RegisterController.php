@@ -29,13 +29,13 @@ class RegisterController extends Controller
      * @var string
      */
     // protected $redirectTo = '/home';
- 
+
     // named route で指定したいので function にします
     protected function redirectTo ()
     {
         return route('dashboard');
     }
-    
+
     /**
      * Create a new controller instance.
      *
@@ -52,11 +52,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    // 一旦名前とパスワードだけにする
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -67,11 +68,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    // 一旦名前とパスワードだけにする
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            // 'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
     }
