@@ -5,14 +5,14 @@ body{
 }
 
 
-.header{
+header{
     width:100%;
     padding: 5px 0px;
     background-color:#0cf;
     position: fixed;
     top: 0px;
     left: 0px;
-    
+    z-index: 10;
 }
 
 .dummy{
@@ -50,12 +50,12 @@ body{
     border-radius: 4px;
   }
   
-  .header-left{
+  #header-left{
     float: left;
       margin: 10px 0px 0px 10px;
   }
   
-  .header-right{
+  #header-right{
       float: right;
       margin: 40px 30px;
   }
@@ -94,7 +94,7 @@ body{
  .navBox input#tab04{
     left: 431px;
 }
-.home_daimei{
+#home_daimei{
     width: 90%;
   }
 
