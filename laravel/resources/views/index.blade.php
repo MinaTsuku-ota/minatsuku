@@ -17,6 +17,6 @@
       <div class="w-100 button-01"><a href={{ route('login') }} class="b1"><img src="/image/rogin.png" alt="ログインする" width="18%"></a></div>
     </div>
     <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/js/myapp.js"></script>
   </body>
 </html>
