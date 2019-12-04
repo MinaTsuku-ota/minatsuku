@@ -4,8 +4,12 @@ body{
     background-image : url(../image/haikei.png);
 }
 
+#warp{
+    width: 960px;
+    margin: 30px auto;
+}
 
-header{
+.header{
     width:100%;
     padding: 5px 0px;
     background-color:#0cf;
@@ -50,12 +54,12 @@ header{
     border-radius: 4px;
   }
   
-  #header-left{
+  .header-left{
     float: left;
       margin: 10px 0px 0px 10px;
   }
   
-  #header-right{
+  .header-right{
       float: right;
       margin: 40px 30px;
   }
@@ -94,7 +98,7 @@ header{
  .navBox input#tab04{
     left: 431px;
 }
-#home_daimei{
+.home_daimei{
     width: 90%;
   }
 
@@ -278,7 +282,8 @@ footer{
   }
   
   footer ul li a:visited{
-    color: #fff;
+      color: #fff;
   }
+  
   
   
