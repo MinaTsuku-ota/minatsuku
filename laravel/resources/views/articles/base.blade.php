@@ -17,7 +17,7 @@
         		    <div class="toukouPanel">
                         <p>投稿</p>
                         {{-- 記事一覧 --}}
-					    @for($i=1;$i<=1;$i++)
+					    @for($i=1;$i<=10;$i++)
                             <table class="toukou">
                                 <tr>
                                     <td colspan="10">オリジナルテトリス</td>
