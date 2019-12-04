@@ -4,10 +4,6 @@ body{
     background-image : url(../image/haikei.png);
 }
 
-#warp{
-    width: 960px;
-    margin: 30px auto;
-}
 
 .header{
     width:100%;
