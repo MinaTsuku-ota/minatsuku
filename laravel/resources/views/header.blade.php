@@ -11,6 +11,11 @@
     {{-- ログインしている時のメニュー --}}
     @else
     <div class="header-right">
+
+        <!-- 仮の投稿ボタン -->
+        <div class="btn sinki "><a href="{{ route('articles.create') }}">投稿</a></div>
+
+        {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
         <div class="btn login "><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></div>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         <div class="btn sinki "><a href="{{ route('dashboard') }}">DashBoard</a></div>

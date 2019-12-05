@@ -14,10 +14,10 @@
 
 {{-- selectタグを追加追加 --}}
 {{-- select タグは複数選択出来るようにする為、バインド名に括弧を付けて ‘tags[]’ とし、オプションに ‘multiple’ を入れます --}}
-<div class="form-group">
+{{-- <div class="form-group">
     {!! Form::label('tags', 'Tags:') !!}
     {!! Form::select('tags[]', $tag_list, null, ['class' => 'form-control', 'multiple']) !!}
-</div>
+</div> --}}
 
 <div class="form-group">
     {{-- submit ボタンのタイトルも $submitButton 変数が渡されることを想定しています --}}
