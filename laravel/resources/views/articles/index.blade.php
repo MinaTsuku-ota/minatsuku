@@ -18,7 +18,7 @@
 				@for($i=1;$i<=10;$i++)
                     <table class="toukou">
                         <tr>
-                            <td colspan="10">オリジナルテトリス</td>
+                            <td colspan="10">{{ $articles->title }}</td>
                         </tr>
                         <tr>
                             <td colspan="6" height="180px">詳細説明</td>

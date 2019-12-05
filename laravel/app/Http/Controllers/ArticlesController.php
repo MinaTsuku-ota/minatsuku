@@ -23,10 +23,9 @@ class ArticlesController extends Controller
 
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
     public function index(){
-        // $articles = Article::all();
-
+        $articles = Article::all();
         // こちらでも良い
-        // $articles = Article::orderBy('published_at', 'desc')->orderBy('created_at', 'desc')->get();
+        $articles = Article::orderBy('published_at', 'desc')->orderBy('created_at', 'desc')->get();
         // latest()->get() に変更して、作成日の降順に記事をソート
         // orderBy()->get() を使っても同様のことが出来る
         // $articles = Article::latest('published_at')->latest('created_at')
@@ -36,7 +35,7 @@ class ArticlesController extends Controller
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // return view('articles.index', compact('articles'));
-        return view('articles.index');
+        return view('articles.index',compact('articles'));
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
