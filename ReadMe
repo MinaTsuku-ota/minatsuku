@@ -46,7 +46,7 @@ https://laravel10.wordpress.com/ 「ララ帳」
 
 /*** Laravel環境設定 ***/
 ローカル環境下ではいくつか自前で用意する必要がある
-0...xamppをダウンロード
+0...xampp(https://www.apachefriends.org/jp/index.html)をダウンロード(ReadMe記載時のバージョンは7.3.11)
 \xampp\apache\conf\httpd.confにて、DOCUMENTROOTを "C:\minatsuku\laravel\public" の様に設定する
 ※publicフォルダをルートフォルダとしたい
 ※例のminatsuku
@@ -73,8 +73,6 @@ MAIL_PORTはデフォルトの2525ではなく587を使用すると良い
 
 2...「/vender」フォルダをlaravelフォルダに用意する必要がある。
 カレントディレクトリをlaravelフォルダに移動して以下のコマンドを実行する。(composerは自前で用意https://getcomposer.org/)
-composer: https://getcomposer.org/
-ダウンロードしたらlaravelフォルダにて以下のコマンド
 composer install
 
 3...laravelcollectiveをインストール(vender関連)
@@ -104,6 +102,8 @@ composer require laravel/ui  // laravel/uiをインストール
 php artisan ui vue --auth  // LOGIN機能＆テーブル作成
 php artisan migrate
 php artisan db:seed
+
+↓こちらは必要に応じて
 npm install  // FrontEndに必要なPackageをインストール(Node/npmの使用が必要、別途ダウンロードhttps://nodejs.org/ja/)
 npm run dev  // CSS/JSを作成ビルド、jsファイルを編集する毎に行う
 
