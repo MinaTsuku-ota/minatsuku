@@ -15,8 +15,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     You are logged in!
+                    <h2>ようこそ、{{ Auth::user()->name }}さん！</h2>
+                    <h3>あなたの学科は：{{ Auth::user()->subject }}</h3>
                 </div>
             </div>
         </div>
