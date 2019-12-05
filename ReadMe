@@ -147,6 +147,8 @@ setカラム名Attribute() // ミューテータメソッド名はこう書く�
 composer.json の自動ロード設定を変更した後は以下のコマンドで設定を反映する必要があります
 composer dump-autoload
 
-<その他メモ>
+(その他メモ)
 ローカルブランチをリモートへのプッシュは
 git push -u origin HEAD
+
+factoryはseederでつかうやつ.
