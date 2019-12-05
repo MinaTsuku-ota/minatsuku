@@ -23,7 +23,7 @@ class ArticlesController extends Controller
 
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
     public function index(){
-        // $articles = Article::all();
+        $articles = Article::all();
 
         // こちらでも良い
         // $articles = Article::orderBy('published_at', 'desc')->orderBy('created_at', 'desc')->get();
