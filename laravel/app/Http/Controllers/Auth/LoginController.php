@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use App\Article;
+
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -59,7 +61,8 @@ class LoginController extends Controller
     // ログアウト時の動作
     protected function loggedOut(Request $request)
     {
-        return view('articles.index');
+        $articles = Article::all();
+        return view('articles.index', compact('articles'));
     }
 
 }

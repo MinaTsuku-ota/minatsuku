@@ -15,14 +15,16 @@
         	<div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
-				@for($i=1;$i<=10;$i++)
+                @foreach($articles as $row)
                     <table class="toukou">
                         <tr>
-                            <td colspan="10">オリジナルテトリス</td>
+                            <td colspan="10">タイトル</br>{{ $row->title }}</td>
                         </tr>
                         <tr>
-                            <td colspan="6" height="180px">詳細説明</td>
+                            <td colspan="6" height="180px">詳細説明</br>{{ $row->body }}</td>
                             <td colspan="4" height="180px">画像</td>
+
+
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
@@ -38,8 +40,11 @@
                                 </ul>
                             </td>
                         </tr>
-					</table>
-				@endfor
+                    </table>
+                    @if($loop->iteration <= 10)
+                        @continue
+                    @endif
+                @endforeach
         	</div>
             <div class="commentPanel">
                 <p>NEW コメント</p>
