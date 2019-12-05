@@ -9,3 +9,20 @@ https://www.ritolab.com/entry/86
 
 ログアウト時の動作
 https://teratail.com/questions/163019
+
+Laravelでフォームで送信した値を取得する
+http://cly7796.net/wp/php/to-get-the-value-that-was-sent-in-the-form-in-laravel/
+
+BladeでSelectボックス
+http://recipes.laravel.jp/recipe/231
+
+index指定でのマイグレートの為にmysqlでindexを確認するコマンド:
+show index from TABLENAME;
+
+LaravelのAuth認証機能をカスタマイズし意図した挙動へ変更するTips
+https://www.ritolab.com/entry/86
+
+Laravelの認証機能をカスタマイズする
+https://qiita.com/t-iguchi/items/446a3958bf5a27c91fd1
+
+RegisterControllerは確認済み

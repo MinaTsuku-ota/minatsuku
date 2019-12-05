@@ -15,7 +15,9 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id'); // usersテーブルへの外部キー
+            // usersテーブルへの外部キーを登録
+            // ユーザ1に対して記事nの関係。ユーザテーブルが親テーブルとなる
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('body');
             $table->timestamps();
