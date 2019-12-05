@@ -1,101 +1,40 @@
-{{-- @extends('layouts.app') --}}
-{{-- @extends('layout') --}}
 @extends('minatsukulayout')
 
+@section('addcss')
+<link rel="stylesheet" href="/css/sinki.css">
+@endsection
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        {{-- 一旦名前とパスワードだけにする --}}
-                        {{-- <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <!-- 科目選択欄 -->
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                {{Form::select('subject', [
-                                    '自動車整備科' => '自動車整備科',
-                                    '電機システム科' => '電機システム科',
-                                    'メディアアート科' => 'メディアアート科',
-                                    '情報システム科' => '情報システム科',
-                                    'オフィスビジネス科' => 'オフィスビジネス科',
-                                    '総合実務科' => '総合実務科'],
-                                    null, ['class' => 'form-control'])}}
-                                @error('subject')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <section>
+        <div id="sinki_syoudai">
+          <img src="/image/sinki_syoudai.png" alt="はじめの一歩" class="syoudai">
         </div>
-    </div>
-</div>
+        <form class="clearfix" method="POST" action="{{ route('register') }}">
+          @csrf
+          <dl>
+            <dt><label for="name">ニックネーム</label></dt>
+            <dd><input type="text" name="name" id="name" class="nyuuryoku" value="{{ old('name') }}" required autocomplete="name" autofocus></dd>
+            <dt><label for="password">パスワード</label></dt>
+            <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
+
+            <dt><label for="password-confirm">パスワード確認</label></dt>
+            <dd><input type="password" name="password_confirmation" id="password-confirm" class="nyuuryoku" required></dd>
+
+            <dt><label for="subject">科名</dt>
+            <dd>
+                {{Form::select('subject', [
+                    '自動車整備科' => '自動車整備科',
+                    '電機システム科' => '電機システム科',
+                    'メディアアート科' => 'メディアアート科',
+                    '情報システム科' => '情報システム科',
+                    'オフィスビジネス科' => 'オフィスビジネス科',
+                    '総合実務科' => '総合実務科'])}}
+            </dd>
+          </dl>
+          <div class="touroku">
+            <p class="button"><input type="submit" value="登録する"></p>
+          </div>
+          <a href="#"><img src="/image/tyuuki0.png" alt="注記" class="tyuuki0"></a>
+        </form>
+      </section>
 @endsection
