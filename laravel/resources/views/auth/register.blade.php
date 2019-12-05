@@ -65,18 +65,25 @@
                         </div>
 
                         <!-- 科目選択欄 -->
-                        {{-- <div class="form-group row">
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                {{Form::select('subject', ['subject1', 'suject2', 'subject3'], null, ['class' => 'form-control'])}}
+                                {{Form::select('subject', [
+                                    '自動車整備科' => '自動車整備科',
+                                    '電機システム科' => '電機システム科',
+                                    'メディアアート科' => 'メディアアート科',
+                                    '情報システム科' => '情報システム科',
+                                    'オフィスビジネス科' => 'オフィスビジネス科',
+                                    '総合実務科' => '総合実務科'],
+                                    null, ['class' => 'form-control'])}}
                                 @error('subject')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div> --}}
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

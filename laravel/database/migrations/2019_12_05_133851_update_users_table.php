@@ -15,8 +15,9 @@ class UpdateUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('email');
-            // $table->string('subject');
-            // $table->unique('name');
+            $table->string('subject');
+            // nameで認証するのでuniqueとする
+            $table->unique('name');
         });
     }
 
@@ -28,9 +29,9 @@ class UpdateUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            // $table->dropColumn('subject');
-            // $table->dropUnique('users_name_unique');
             $table->string('email')->unique();
+            $table->dropColumn('subject');
+            $table->dropUnique('users_name_unique');
         });
     }
 }

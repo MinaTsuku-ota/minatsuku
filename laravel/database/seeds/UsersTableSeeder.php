@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
             // 一旦名前とパスワードだけにする
             // 'email' => 'root@example.com',
             'password' => Hash::make('password'),
+            'subject' => '情報システム科',
         ]);
     }
 }
