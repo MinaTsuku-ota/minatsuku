@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+body{
+    background-image : url(../image/haikei.png);
+}
+
+#warp{
+    width: 960px;
+    margin: 30px auto;
+}
+
+.header{
+    width:100%;
+    padding: 5px 0px;
+    background-color:#0cf;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+}
+
+.dummy{
+    position: static;
+  }
+  
+  .login{
+    float: left;
+    margin-right: 30px;
+    background-color: #f90;
+    color:#fff;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  
+  .btn a:visited{
+    color:#fff;
+  }
+  
+  .btn a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .btn:hover{
+    opacity: 0.8;
+  }
+  
+  .sinki{
+    float:right;
+    background-color: #c06;
+    color:#fff;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  
+  .header-left{
+    float: left;
+      margin: 10px 0px 0px 10px;
+  }
+  
+  .header-right{
+      float: right;
+      margin: 40px 30px;
+  }
+  
+
+#content{
+    width: 958px;
+    /* height: 850px; */
+    border: dashed 1px #999;
+    margin: 10px 0;
+}
+
+.homeContent{
+    width: 60%;
+    /* height: 90%; */
+    margin: 100px auto 50px auto;
+    border-radius: 3px 3px 3px 3px;
+    background: #f5deb3;
+    clear: both;
+    position: relative;
+}
+
+.clearfix::after{
+    display: block;
+    content:"";
+    clear: both;
+}
+
+.toukouPanel{
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+    /* height: 100%; */
+    border: solid 5px #ffffff;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.toukouPanel p{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ffffff;
+    background-color: #996633;
+    font-weight: bold;
+    border-bottom: thick solid  #ffffff;
+    border-radius: 5px;
+}
+
+table.toukou{
+    /* table-layout: fixed; */
+    word-break: break-all;
+    word-wrap: break-all;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    border: solid 1px black;
+}
+
+table.toukou td{
+    border: solid 1px black;
+}
+
+footer{
+    width:100%;
+    background-color:#0cf;
+    text-align: center;
+  }
+  
+  footer ul {
+    margin: 0px;
+  }
+  
+  
+  footer ul li{
+    display: inline-block;
+    margin:40px 60px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  footer ul li a:visited{
+      color: #fff;
+  }
+  
+  
+  
