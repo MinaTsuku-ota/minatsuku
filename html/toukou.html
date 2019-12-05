@@ -1,70 +1,89 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="Jp">
 <head>
-  <meta charset="utf-8">
-  <title>みなツク -MINATUKU-</title>
-  <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/sinki.css">
-  <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>みなツク</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/toukou.css">
+    <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
+
 <body>
-  <header class="header clearfix">
-    <div class="header-left clearfix">
-          <a href="#"><img src="../image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
-    </div>
-  </header>
-  <main>
-      <div class="header clearfix dummy">
-          <div class="header-left clearfix">
-              <a href="#"><img src="../image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
-          </div>
-      </div>
-      <section>
-        <div id="sinki_syoudai">
-          <img src="../image/sinki_syoudai.png" alt="はじめの一歩" class="syoudai">
+    <div id="wrap">
+    <header class="header clearfix">
+        <div class="header-left clearfix">
+            <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
         </div>
-        <form class="clearfix" >
-          <dl>
-            <dt><label for="name">ニックネーム</label></dt>
-            <dd><input type="text" name="name" id="name" class="nyuuryoku" required></dd>
-            <dt><label for="password">パスワード</label></dt>
-            <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
-            <dt><label for="subject">科名</dt>
-            <dd>
-              <select >
-                <option>自動車整備科</option>
-                <option>電機システム科</option>
-                <option>メディアアート科</option>
-                <option>情報システム科</option>
-                <option>オフィスビジネス化</option>
-                <option>総合実務科</option>
-              </select>
-            </dd>
-          </dl>
-          <div class="touroku">
-            <p class="button"><input type="submit" value="登録する"></p>
-          </div>
-          <a href="#"><img src="../image/tyuuki0.png" alt="注記" class="tyuuki0"></a>
-        </form>
-      </section>
-  </main>
 
-  <footer>
-    <ul>
-        <li><a href="#"><i class="fas fa-home">ホーム</i></a></li>
-        <li><a href="#"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
-        <li><a href="#"><i class="fas fa-exclamation-triangle">注記</i></a></li>
-        <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
-    </ul>
-</footer>
+        <div class="header-right">
+            <div class="btn login "><a href="#">ログイン</a></div>
+            <div class="btn sinki "><a href="#">新規登録</a></div>
+        </div>
+    </header>
+    
+
+    <main>
+    <div class="header clearfix dummy">
+        <div class="header-left clearfix">
+            <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+        </div>
+               
+    <div class="header-right">
+        <div class="btn login "><a href="#">ログイン</a></div>
+            <div class="btn sinki "><a href="#">新規登録</a></div>
+        </div>
+    </div>
+
+        <div id="contens">
 
 
+        <div class="navBox">
+
+        <section class="homeContent clearfix">
+
+        <div class="toukouPanel">
+
+            <p>投稿</p>
+
+                <table class="toukou">
+                    <tr>
+                        <td>オリジナルテトリス</td>
+                    </tr>
+
+                    <tr>
+                        <td height="250px">詳細説明</td>
+                    </tr>
+
+                    <tr>
+                        <td height="250px">画像</td>
+                    </tr>
+
+                </table>
+
+        <div>
+
+            
+        </div>
+
+        </div>
 
 
+        </div>
 
+        </section>
 
+        <div>
+
+    </main>
+    <footer>
+            <ul>
+                <li><a href="#"><i class="fas fa-home">ホーム</i></a></li>
+                <li><a href="#"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
+                <li><a href="#"><i class="fas fa-exclamation-triangle">注記</i></a></li>
+                <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
+            </ul>
+        </footer>
+    </div>
 </body>
-
-
 </html>
