@@ -22,7 +22,8 @@ class ArticlesController extends Controller
     }
 
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
-    public function index(){
+    public function index()
+    {
         $articles = Article::all();
 
         // こちらでも良い
@@ -36,11 +37,12 @@ class ArticlesController extends Controller
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // return view('articles.index', compact('articles'));
-        return view('articles.index');
+        return view('articles.index', compact('articles'));
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
-    public function show(Article $article){ // $id から $article へ変更
+    public function show(Article $article)
+    { // $id から $article へ変更
         // $article = Article::findOrFail($id);
         // 自動的にルートの {article} 部分に指定された id に一致する Article が $article 変数に渡されてきます
         // この機能をRoute Model Bindeingという
@@ -49,7 +51,8 @@ class ArticlesController extends Controller
     }
 
     // createビューを表示するだけ
-    public function create(){
+    public function create()
+    {
         // pluckメソッドは指定したキーの全コレクション値を配列で取得
         // タグ名と id の一覧を View に渡す
         // $tag_list = Tag::pluck('name', 'id');
@@ -59,7 +62,8 @@ class ArticlesController extends Controller
 
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
-    public function store(ArticleRequest $request){
+    public function store(ArticleRequest $request)
+    {
         // フォームの入力値を取得
         // $inputs = \Request::all();
         // dd($inputs); // デバッグ： $inputs の内容確認
@@ -91,7 +95,8 @@ class ArticlesController extends Controller
     }
 
     // 記事の編集
-    public function edit(Article $article) { // $id から $article へ変更
+    public function edit(Article $article)
+    { // $id から $article へ変更
         // $article = Article::findOrFail($id);
         // タグ名と id の一覧を View に渡す
         $tag_list = Tag::pluck('name', 'id');
@@ -99,7 +104,8 @@ class ArticlesController extends Controller
     }
 
     // 記事の更新
-    public function update(ArticleRequest $request, Article $article) { // $id から $article へ変更
+    public function update(ArticleRequest $request, Article $article)
+    { // $id から $article へ変更
         // $article = Article::findOrFail($id);
         $article->update($request->validated()); // Form Requestを用いる
         // リクエストで渡される tags を sync() メソッドで タグのリレーションに同期しています
@@ -111,12 +117,17 @@ class ArticlesController extends Controller
     }
 
     // 記事の削除
-    public function destroy(Article $article) { // $id から $article へ変更
+    public function destroy(Article $article)
+    { // $id から $article へ変更
         // $id で記事を検索し、delete() メソッドで削除しています
         // $article = Article::findOrFail($id);
         $article->delete();
         // redirect() 時に with() メソッドでフラッシュ情報としてメッセージを追加します
         // フラッシュ情報とは次のリクエストだけで有効な一時的なセッション情報（サーバーに保存する情報）です
         return redirect()->route('articles.index')->with('message', '記事を削除しました。');
+    }
+    public function id()
+    {
+        return $this->hasOne('App\id');
     }
 }
