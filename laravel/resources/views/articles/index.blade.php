@@ -4,13 +4,14 @@
 <div id="contens">
     <div class="navBox">
         <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
-        <label for="tab01" class="label01">HOME</label>
+        <label for="tab01" class="label01 janru">HOME</label>
         <input type="radio" name="tabs" id="tab02" class="menu02">
-        <label for="tab02" class="label02">WEB</label>
+        <label for="tab02" class="label02 janru">WEB</label>
         <input type="radio" name="tabs" id="tab03" class="menu03">
-        <label for="tab03" class="label03">写真</label>
+        <label for="tab03" class="label03 janru">写真</label>
         <input type="radio" name="tabs" id="tab04" class="menu04">
-        <label for="tab04" class="label04">動画</label>
+        <label for="tab04" class="label04 janru">動画</label>
+
         <section class="homeContent clearfix">
         	<div class="toukouPanel">
                 <p>投稿</p>
@@ -41,8 +42,8 @@
                             </td>
                         </tr>
                     </table>
-                    @if($loop->iteration <= 10)
-                        @continue
+                    @if($loop->iteration >= 10)
+                        @break
                     @endif
                 @endforeach
         	</div>
@@ -57,6 +58,17 @@
                     </table>
                 @endfor
             </div>
+
+            {{-- 投稿ボタン --}}
+            <div id="toukou_button">
+                <div id="toukou0">
+                    <img src="/image/toukoubotan0.png " alt="投稿する">
+                </div>
+                <div id="toukou1">
+                    <a href="{{ route('articles.create') }}"><img src="/image/toukoubotan1.png " alt="投稿する" id="toukou1"></a>
+                </div>
+            </div>
+
         </section>
     </div>
 </div>

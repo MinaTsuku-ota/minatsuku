@@ -2,16 +2,9 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>みなツク -MINATUKU-</title>
+    <title>みなツク</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {{-- BootstrapのCSS読み込み --}}
-    {{-- <link href="/css/app.css" rel="stylesheet"> --}}
-    <!-- jQuery読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- BootstrapのJS読み込み -->
-    <script src="/js/app.js"></script>
 
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/new_common.css">
@@ -21,9 +14,8 @@
 
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
 
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/jquery-ui.min.js"></script>
-    <script src="/js/jquery.js"></script>
+    @yield('addjs')
+
 </head>
 <body>
 <div id="wrap">

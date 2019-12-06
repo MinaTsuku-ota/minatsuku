@@ -11,10 +11,24 @@ body{
     position: fixed;
     top: 0px;
     left: 0px;
+    z-index: 10;
 }
-.sinki_daimei{
-  height: 90px;
+
+#back{
+  position: relative;
+  top: 73px;
+  left: 40px;
+  
 }
+
+#back:hover{
+  opacity: 0.8;
+}
+
+.fas {
+  color: #97d3e3;
+}
+
 
 .header-left{
   text-align: center;
@@ -26,22 +40,30 @@ body{
   background-color: #97d3e3;
   color: #fff;
   line-height: 30px;
+  margin-top: 90px;
   margin-bottom: 20px;
   border-radius: 20px;
 }
 
-
-
-dl {
+#login_syoudai{
   text-align: center;
- 
+}
+
+.login_daimei{
+ color: #45A1CF;
+ font-size: 40px;
 }
 
 dd{
   margin-left: 0px;
 }
 
-#tourokusuru{
+dl {
+  text-align: center;
+ 
+}
+
+#loginsuru{
   width: 160px;
   padding: 0.8em;
   text-align: center;
@@ -53,17 +75,21 @@ dd{
   margin-bottom: 0px;
 }
 
-#tourokusuru:hover{
+#loginsuru:hover{
   opacity: 0.8;
 }
 
-#tourokusuru:active{
+#loginsuru:active{
   cursor: pointer;
   text-decoration: none;
   background-color: #ca6900;
   transform: translate3d( 0, 4px, 0);
   border-bottom: none;
   border-radius: 10px;
+}
+
+.button{
+  text-align: center;
 }
 
 #modorubotan{
@@ -88,13 +114,6 @@ dd{
   color: #FFF;
 }
 
-.tyuukikakko{
-  height: 260px;
-  width: 160px;
-  float: right;
-}
-
-
 section{
   margin: 7% 25%;
   padding: 50px 30px;
@@ -108,6 +127,7 @@ section{
 }
 
 .nyuuryoku{
+  text-align: center;
   width: 50%;
   line-height: 30px;
 }
