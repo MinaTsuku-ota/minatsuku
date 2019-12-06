@@ -65,13 +65,13 @@ body{
 
   #toukou0{
     position: fixed;
-    bottom: 10%;
+    bottom: 10.5%;
     right: 0%;
 }
 
 #toukou1{
   position: fixed;
-  bottom: 10%;
+  bottom: 11%;
   right:0%;
   opacity: 0;
   
@@ -316,6 +316,7 @@ footer{
     width:100%;
     background-color:#0cf;
     text-align: center;
+    min-width: 877px;
   }
   
   footer ul {
