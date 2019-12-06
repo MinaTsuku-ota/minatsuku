@@ -56,55 +56,46 @@ body{
   
   .header-left{
     float: left;
-      margin: 10px 0px 0px 10px;
+    margin: 10px 0px 0px 10px;
   }
   
   .header-right{
-      float: right;
-      margin: 40px 30px;
+    float: right;
+    margin: 40px 30px;
   }
   
-
-#content{
+  
+  #content{
     width: 958px;
     /* height: 850px; */
     border: dashed 1px #999;
     margin: 10px 0;
-}
+  }
 
 .homeContent{
-    width: 60%;
-    /* height: 90%; */
-    margin: 100px auto 50px auto;
-    border-radius: 3px 3px 3px 3px;
-    background: #f5deb3;
-    clear: both;
-    position: relative;
+  min-width: 470px;
+  max-width: 770px;
+  /* height: 90%; */
+  margin: 100px auto 50px auto;
+  border-radius: 10px;
+  background: #f5deb3;
+  clear: both;
+  position: relative;
 }
 
 .clearfix::after{
-    display: block;
-    content:"";
-    clear: both;
+  display: block;
+  content:"";
+  clear: both;
 }
 
 .toukouPanel{
-    margin: auto;
-    margin-top: 20px;
-    width: 90%;
-    /* height: 100%; */
-    border: solid 5px #ffffff;/*線*/
-    border-radius: 10px;/*角の丸み*/
-}
-.toukouPanel p{
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #ffffff;
-    background-color: #996633;
-    font-weight: bold;
-    border-bottom: thick solid  #ffffff;
-    border-radius: 5px;
+  margin: auto;
+  margin-top: 20px;
+  min-width: 500px;
+  max-width: 770px;
+  border: solid 5px #ffffff;/*線*/
+  border-radius: 10px;/*角の丸み*/
 }
 
 table.toukou{
@@ -112,14 +103,135 @@ table.toukou{
     word-break: break-all;
     word-wrap: break-all;
     text-align: center;
-    width: 90%;
+    min-width: 600px;
+    max-width: 750px;
+    /* max-height: 80%; */
     margin: auto;
-    border: solid 1px black;
+    border-style: none;
 }
 
 table.toukou td{
-    border: solid 1px black;
+    border: solid 3px  #996633;
+    border-radius: 4px;
 }
+
+.genre select{
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.genre select::-ms-expand {
+    display: none;
+}
+.genre{
+  text-align: center;
+  width: 90%;
+  color: #ffffff;
+  border-radius: 2px;
+  border-radius: 50px;
+  background: #d38334;
+  border: solid 2px rgb(121, 55, 8);/*少し濃い目の色に*/
+}
+
+
+.genre::before {
+	top: 0.8em;
+	right: 0.8em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #ffffff;
+	pointer-events: none;
+}
+
+.genre select {
+	padding: 8px 38px 8px 8px;
+	color: #ffffff;
+}
+
+input[type="text1"]{
+  border: 2px solid #996633;  /* 枠線 */
+  border-radius: 2px;   /* 角丸 */
+  padding: 2px;          /* 内側の余白量 */
+  background-color:  #FFFFFF;  /* 背景色 */
+  /* width: 20em;       */
+} 
+
+.test{
+  max-width: 250px;
+}
+
+.imageText{
+  width: 30%;
+  height: 60%;
+  resize: none;
+  resize: none;
+  border: 2px solid #996633;  /* 枠線 */
+  border-radius: 2px;   /* 角丸 */
+  padding: 2px;          /* 内側の余白量 */
+}
+
+.setumeiText{
+  width: 97%;
+  height: 90%;
+  resize: none;
+  border: 2px solid #996633;  /* 枠線 */
+  border-radius: 2px;   /* 角丸 */
+  padding: 2px;          /* 内側の余白量 */
+  background-color:  #FFFFFF;  /* 背景色 */
+}
+
+
+.imageText::placeholder{
+  background-image: url(../image/favicon.png);
+  text-align: center;
+  font-size: 120px;
+  background-repeat: no-repeat;
+}
+
+.STimg{
+  text-align: center;
+  margin: 10px auto;
+}
+
+
+.STbtn{
+  background-color: #d38334;
+  margin: 50px auto;
+  max-width: 50px;
+  min-width: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  padding: 0.5em 1em;
+  border-bottom: solid 2px rgb(121, 55, 8);/*少し濃い目の色に*/
+  border-radius: 4px;/*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+}
+
+.STbtnChild{
+  display: inline-block;
+}
+
+.STbtn:active {
+  border-bottom: solid 5px  #996633;
+  box-shadow: 0 2px 2px rgb(121, 55, 8);
+}
+
 
 footer{
     width:100%;
