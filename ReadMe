@@ -40,6 +40,7 @@ sourcetreeの説明
 参考サイト
 https://backlog.com/ja/git-tutorial/ 「サルでもわかるGit入門」
 https://www.youtube.com/playlist?list=PLh6V6_7fbbo_M3CqTeJvuXB08--fibyBu 「Git+Github入門」
+<<<<<<< HEAD
 
 https://laravel10.wordpress.com/ 「ララ帳」
 
@@ -137,3 +138,6 @@ mysqlの文字化け対処
 https://qiita.com/YusukeHigaki/items/2cab311d2a559a543e3a 「mysqlで文字コードをutf8にセットする」
 utf8への設定が終わったらmysqlへログインして次のコマンド
 >charset cp932;
+=======
+iiiiii
+>>>>>>> 9d2ef8d06430831ee8201d39e50b21542fb85a1c
