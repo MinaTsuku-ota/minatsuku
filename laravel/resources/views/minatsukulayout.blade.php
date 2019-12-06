@@ -27,9 +27,10 @@
 </head>
 <body>
 <div id="wrap">
-    {{-- headerの読み込み --}}
+    <!-- header -->
     @include('header')
 
+    <!-- header dummy-->
     <main>
         <div class="header clearfix dummy">
             <div class="header-left clearfix">
@@ -49,11 +50,11 @@
             <div class="alert alert-success">{{ session('message') }}</div>
         @endif
 
-        {{-- コンテンツの表示 --}}
+        <!-- content -->
         @yield('content')
     </main>
 
-    {{-- footerの読み込み--}}
+    <!-- footer -->
     @include('footer')
 </div>
 </body>

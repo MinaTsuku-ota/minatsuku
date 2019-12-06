@@ -12,7 +12,7 @@
     @else
     <div class="header-right">
 
-        <!-- 仮の投稿ボタン -->
+        {{-- 仮の投稿ボタン --}}
         <div class="btn sinki "><a href="{{ route('articles.create') }}">投稿</a></div>
 
         {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
