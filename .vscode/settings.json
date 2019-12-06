@@ -1,11 +1,7 @@
 {
     "liveServer.settings.port": 5501,
-<<<<<<< HEAD
     
     "editor.tabSize": 2,
     "editor.insertSpaces": false,
     "files.eol": "\n"
-=======
-    "git.ignoreLimitWarning": true
->>>>>>> 9d2ef8d06430831ee8201d39e50b21542fb85a1c
 }

@@ -16,7 +16,7 @@ body{
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 10;
+    
 }
 
 .dummy{
@@ -32,19 +32,6 @@ body{
     padding: 15px;
     border-radius: 4px;
   }
-
-  /* ログイン後 */
-  /* .mypage{
-    float: left;
-    margin-right: 30px;
-    background-color: #f90;
-    color:#fff;
-    font-weight: bold;
-    padding: 15px;
-    border-radius: 4px;
-  }
-   */
-
   
   .btn a:visited{
     color:#fff;
@@ -57,36 +44,6 @@ body{
   .btn:hover{
     opacity: 0.8;
   }
-.janru:hover{
-    opacity:0.8;
-    
-}
-
-
-  #toukou0{
-    position: fixed;
-    bottom: 10%;
-    right: 0%;
-}
-
-#toukou1{
-  position: fixed;
-  bottom: 10%;
-  right:0%;
-  opacity: 0;
-  
-}
-
-#toukou_button img{
-    width: 200px;
-    height: 160px;
-    
-}
-
-
-#toukou1:hover{
-    opacity: 1;
-}
   
   .sinki{
     float:right;
@@ -106,13 +63,7 @@ body{
       float: right;
       margin: 40px 30px;
   }
-
-#contens{
-    margin: 0px 20%;
-    position: relative;
-    top: 0;
-    left: 0;
-}
+  
 
 #content{
     width: 958px;
@@ -331,8 +282,7 @@ footer{
   }
   
   footer ul li a:visited{
-      color: #fff;
+    color: #fff;
   }
-  
   
   
