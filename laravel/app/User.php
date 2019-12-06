@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -20,7 +20,7 @@ class User extends Authenticatable
         // 一旦emailは使わない
         // 'email',
         'password',
-        'subject',
+        'subject_id',
     ];
 
     /**
@@ -44,5 +44,10 @@ class User extends Authenticatable
     // Articleと関連付ける
     public function articles() {
         return $this->hasMany('App\Article');
+    }
+
+    // Subjectが親
+    public function subject(){
+        return $this->belongsTo('App\Subject');
     }
 }

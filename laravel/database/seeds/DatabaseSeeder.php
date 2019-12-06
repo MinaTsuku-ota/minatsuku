@@ -14,9 +14,9 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call([
             // SEEDERファイルの読み込み、順番に注意
+            SubjectsTableSeeder::class,
             UsersTableSeeder::class,
             ArticlesTableSeeder::class,
-            SubjectsTableSeeder::class,
             // OtherTableSeeder::class,
         ]);
     }

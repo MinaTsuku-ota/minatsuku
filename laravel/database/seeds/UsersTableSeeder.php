@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             // 一旦名前とパスワードだけにする
             // 'email' => 'root@example.com',
             'password' => Hash::make('password'),
-            'subject' => '情報システム科',
+            'subject_id' => 4,
         ]);
     }
 }

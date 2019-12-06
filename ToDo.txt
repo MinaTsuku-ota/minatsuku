@@ -30,3 +30,7 @@ https://php-junkie.net/framework/laravel/upload_image/
 
 Laravelを使った画像アップロード実装法3選 - Qiita
 https://qiita.com/RitaChan/items/d59001430f50789c570f
+
+migration-seederの良い記事
+【Laravel】Seederとバッチを使って初期データを揃える - Qiita
+https://qiita.com/vivid_colors/items/766c541038b53a4095c8

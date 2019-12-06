@@ -55,11 +55,13 @@ class RegisterController extends Controller
     // 一旦名前とパスワードだけにする
     protected function validator(array $data)
     {
+        // !! validationに失敗した場合は前の画面へgetメソッドでリダイレクトされる !!
+        // これで3時間苦しめられた
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'subject' => ['required', 'string'],
+            'subject' => ['required'],
         ]);
     }
 
@@ -76,7 +78,7 @@ class RegisterController extends Controller
             // 一旦名前とパスワードだけにする
             // 'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'subject' => $data['subject'],
+            'subject_id' => $data['subject'],
         ]);
     }
 }

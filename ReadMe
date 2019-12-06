@@ -121,6 +121,7 @@ php artisan make:controller CONTROLLER_NAME // コントローラ作成
 
 php artisan make:migration create_TABLENAME_table // テーブルを作成するマイグレーションの作成
 php artisan make:migration add_COLUMNNAME_to_TABLENAME_table --table=TABLENAME // テーブルの変更を行うマイグレーションの作成
+例)php artisan make:migration update_users_table --table=users
 php artisan migrate // マイグレーション実行
 php artisan migrate:rollback // マイグレーションを1つ戻す
 php artisan migrate:refresh // reset + migrate ※テーブルの中身は全て消える
