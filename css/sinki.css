@@ -12,6 +12,9 @@ body{
     top: 0px;
     left: 0px;
 }
+.sinki_daimei{
+  height: 90px;
+}
 
 .header-left{
   text-align: center;

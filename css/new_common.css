@@ -104,7 +104,7 @@ body{
   
   .header-right{
       float: right;
-      margin: 40px 30px;
+      margin: 22px 30px;
   }
 
 #contens{
@@ -148,7 +148,7 @@ body{
     left: 431px;
 }
 .home_daimei{
-    width: 90%;
+    width: 300px;
   }
 
 .navBox label{
