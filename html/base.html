@@ -1,59 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="Jp">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/common.css">
-    <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/comment.js"></script>
-    <script src="../js/login.js"></script>
     <title>みなツク</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/new_common.css">
+    <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
     <div id="wrap">
+    <header class="header clearfix">
+        <div class="header-left clearfix">
+            <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+        </div>
 
-    <header>
-        <div class="float_left">
-            <h2>ヘッダー</h2>
-        </div>
-        <div class="float_right">
-            <button id="login_button">ログイン</button>
-            <button>新規登録</button>
-        </div>
-        <div id="login_hidden"><!--ログインフォーム-->
-            <form action="#">
-                <ul>
-                    <li>
-                        ユーザーネーム:<br>
-                        <input type="text">
-                    </li>
-                    <li>
-                        パスワード:<br>
-                        <input type="password">
-                    </li>
-                    <li>
-                        <input type="submit">
-                    </li>
-                </ul>
-            </form>
+        <div class="header-right">
+            <div class="btn login "><a href="#">ログイン</a></div>
+            <!-- ログイン後 -->
+            <!-- <div class="btn mypage "><a href="#">マイページ</a></div> -->
+            <div class="btn sinki "><a href="#">新規登録</a></div>
         </div>
     </header>
+    
 
     <main>
-
-        <div id="contens">
+    <div class="header clearfix dummy">
+        <div class="header-left clearfix">
+            <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+        </div>
+               
+        <div class="header-right">
+            <div class="btn login "><a href="#">ログイン</a></div>
+            <div class="btn sinki "><a href="#">新規登録</a></div>
+         </div>
+    </div>
+    
+    <div id="contens">
 
 
         <div class="navBox">
             <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
-            <label for="tab01" class="label01">HOME</label>
+            <label for="tab01" class="label01 janru">HOME</label>
             <input type="radio" name="tabs" id="tab02" class="menu02">
-            <label for="tab02" class="label02">WEB</label>
+            <label for="tab02" class="label02 janru">WEB</label>
             <input type="radio" name="tabs" id="tab03" class="menu03">
-            <label for="tab03" class="label03">写真</label>
+            <label for="tab03" class="label03 janru">写真</label>
             <input type="radio" name="tabs" id="tab04" class="menu04">
-            <label for="tab04" class="label04">動画</label>
+            <label for="tab04" class="label04 janru">動画</label>
 
         <section class="homeContent clearfix">
 
@@ -73,17 +67,9 @@
 
                     <tr>
                         <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment-button">コメント</td>
+                        <td colspan="1">コメント</td>
                         <td colspan="3">名前</td>
                         <td colspan="5">科の名前</td>
-                    </tr>
-                    <tr class="comment-none">
-                        <td colspan="10">
-                            <ul>
-                                <li>コメント内容1</li>
-                                <li>コメント内容2</li>
-                            </ul>
-                        </td>
                     </tr>
 
                 </table>
@@ -100,19 +86,10 @@
     
                         <tr>
                             <td colspan="1">いいね</td>
-                            <td colspan="1" class="comment-button">コメント</td>
+                            <td colspan="1">コメント</td>
                             <td colspan="3">名前</td>
                             <td colspan="5">科の名前</td>
                         </tr>
-                        <tr class="comment-none">
-                            <td colspan="10">
-                                <ul>
-                                    <li>コメント内容1</li>
-                                    <li>コメント内容2</li>
-                                </ul>
-                            </td>
-                        </tr>
-    
     
                     </table>
 
@@ -128,19 +105,10 @@
         
                             <tr>
                                 <td colspan="1">いいね</td>
-                                <td colspan="1" class="comment-button">コメント</td>
+                                <td colspan="1">コメント</td>
                                 <td colspan="3">名前</td>
                                 <td colspan="5">科の名前</td>
                             </tr>
-                            <tr class="comment-none">
-                                <td colspan="10">
-                                    <ul>
-                                        <li>コメント内容1</li>
-                                        <li>コメント内容2</li>
-                                    </ul>
-                                </td>
-                            </tr>
-    
         
                     </table>
 
@@ -156,19 +124,10 @@
     
                         <tr>
                             <td colspan="1">いいね</td>
-                            <td colspan="1" class="comment-button">コメント</td>
+                            <td colspan="1">コメント</td>
                             <td colspan="3">名前</td>
                             <td colspan="5">科の名前</td>
                         </tr>
-                        <tr class="comment-none">
-                            <td colspan="10">
-                                <ul>
-                                    <li>コメント内容1</li>
-                                    <li>コメント内容2</li>
-                                </ul>
-                            </td>
-                        </tr>
-
     
                 </table>
 
@@ -184,19 +143,10 @@
 
                     <tr>
                         <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment-button">コメント</td>
+                        <td colspan="1">コメント</td>
                         <td colspan="3">名前</td>
                         <td colspan="5">科の名前</td>
                     </tr>
-                    <tr class="comment-none">
-                        <td colspan="10">
-                            <ul>
-                                <li>コメント内容1</li>
-                                <li>コメント内容2</li>
-                            </ul>
-                        </td>
-                    </tr>
-
 
             </table>
 
@@ -285,17 +235,28 @@
 
 
         </div>
+        <div id="toukou_button">
+            <div id="toukou0">
+                <img src="../image/toukoubotan0.png " alt="投稿する">
+            </div>
+            <div id="toukou1">
+                <a href="#"><img src="../image/toukoubotan1.png " alt="投稿する" id="toukou1"></a>
+            </div>
+        </div>
 
-        </section>
+        
 
-        <div>
+    <div>
 
     </main>
-
     <footer>
-        <h2>フッター</h2>
-    </footer>
-
+            <ul>
+                <li><a href="#"><i class="fas fa-home">ホーム</i></a></li>
+                <li><a href="#"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
+                <li><a href="#"><i class="fas fa-exclamation-triangle">注記</i></a></li>
+                <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
+            </ul>
+        </footer>
     </div>
 </body>
 </html>
