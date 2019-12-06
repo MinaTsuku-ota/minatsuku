@@ -199,6 +199,12 @@ input[type="text1"]{
   width:100%;
   height:100%;
 }
+.dropCSS{
+  background:#996633;
+}
+.mouseCSS{
+  cursor:pointer;
+}
 /*D&Dここまで*/
 
 .setumeiText{

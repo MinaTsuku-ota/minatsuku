@@ -24,7 +24,16 @@ $(function(){
             }
 
             drag_ev.dataTransfer.dropEffect = 'copy';
+
+            $(this).addClass('dropCSS');
         });
+
+        imageArea.on('dragleave',function(ev){
+            ev.preventDefault();
+            ev.stopPropagation();
+
+            $(this).removeClass('dropCSS');
+        })
 
         imageArea.on('dragenter',function(ev){
             ev.preventDefault();
@@ -59,6 +68,15 @@ $(function(){
         });
 
         // ----------Clickぞーん----------
+
+        imageArea.hover(
+            function(){
+                $(this).addClass('mouseCSS');
+        },
+            function(){
+                $(this).removeClass('mouseCSS');
+        });
+
         imageArea.on('click',function(e){
             //初期動作の"#"を止める
             e.preventDefault();
