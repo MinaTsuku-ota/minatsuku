@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -12,6 +14,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
+        DB::statement("ALTER TABLE users AUTO_INCREMENT = 1;");
 
         App\User::create([
             'name' => 'root',

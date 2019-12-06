@@ -14,9 +14,9 @@ class UpdateArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
         });
     }
 

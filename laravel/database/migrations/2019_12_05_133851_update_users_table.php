@@ -15,8 +15,9 @@ class UpdateUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('email');
+            $table->dropColumn('email_verified_at');
             $table->string('subject');
-            // nameで認証するのでuniqueとする
+            //nameで認証するのでuniqueとする
             $table->unique('name');
         });
     }
@@ -30,6 +31,7 @@ class UpdateUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->dropColumn('subject');
             $table->dropUnique('users_name_unique');
         });

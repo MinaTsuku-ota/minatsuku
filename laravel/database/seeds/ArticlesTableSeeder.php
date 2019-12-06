@@ -18,6 +18,7 @@ class ArticlesTableSeeder extends Seeder
     {
         // Query Builderを使ってArticlesテーブルのレコードを全て削除
         DB::table('articles')->delete();
+        DB::statement("ALTER TABLE articles AUTO_INCREMENT = 1;");
 
         // // Faker を使用してダミーデータを作成
         // $faker = Faker::create('en_US');
@@ -26,7 +27,7 @@ class ArticlesTableSeeder extends Seeder
         //     Article::create([
         //         'title' => $faker->sentence(),
         //         'body' => $faker->paragraph(),
-        //         'published_at' => Carbon::today()
+        //         'published_at' => Carbon::today(),
         //     ]);
         // }
         
@@ -39,7 +40,7 @@ class ArticlesTableSeeder extends Seeder
         // ArticleFactory の定義内容では１件の Article に対して毎回ユーザーを作成して user_id をセットするようになっていますが、それを上書きして、検索したユーザーの ID をセットしています
         // UserのSeederで1件だけrootという名前のユーザを登録しているので、それを取り出している
         $user = App\User::first();
-        factory(App\Article::class, 20)->create([
+        factory(App\Article::class, 10)->create([
             'user_id' => $user->id,
         ]);
     }

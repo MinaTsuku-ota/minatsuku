@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             // SEEDERファイルの読み込み、順番に注意
             UsersTableSeeder::class,
             ArticlesTableSeeder::class,
+            SubjectsTableSeeder::class,
             // OtherTableSeeder::class,
         ]);
     }
