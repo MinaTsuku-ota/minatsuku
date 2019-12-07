@@ -17,7 +17,9 @@
     @yield('addjs')
 
 </head>
+
 <body>
+
 <div id="wrap">
     <!-- header -->
     @include('header')
@@ -35,7 +37,7 @@
         </div>
 
         {{-- フラッシュメッセージの表示 --}}
-        {{-- セッションに"message"をキーに持つ情報があれば、表示するように修正 --}}
+        {{-- セッションに"message"をキーに持つ情報があれば表示 --}}
         {{-- class="alert alert-success"というのは Bootstrap の CSSで、この class を指定すると、正常時のアラートとして div を緑に装飾して表示してくれます --}}
         {{-- @if (Session::has('flash_message'))でも良い --}}
         @if (session('message'))
@@ -49,5 +51,11 @@
     <!-- footer -->
     @include('footer')
 </div>
+
+{{-- 編集権限が無い場合にアラート --}}
+@if(session('no_edit_permission'))
+    <script>alert('編集権限がないよ!');</script>
+@endif
+
 </body>
 </html>

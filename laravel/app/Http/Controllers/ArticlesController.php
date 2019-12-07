@@ -107,8 +107,8 @@ class ArticlesController extends Controller
             // 編集の権限があれば編集画面へ
             return view('articles.edit', compact('article'));
         }else{
-            // 編集の権限がない場合は記事一覧へ飛ばす（暫定）
-            return redirect()->route('articles.index');
+            // 編集の権限がない場合は記事一覧へ飛ばす(暫定)
+            return redirect()->route('articles.index')->with('no_edit_permission', 'no_edit_permission');
         }
 
         // return view('articles.edit', compact('article'));
