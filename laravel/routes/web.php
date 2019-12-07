@@ -42,3 +42,7 @@ Route::resource('articles', 'ArticlesController');
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+// テスト用ページ 既にあったPagesControllerを再利用
+Route::get('test', 'PagesController@test')->name('test');
+Route::post('/', 'PagesController@store')->name('image.store');

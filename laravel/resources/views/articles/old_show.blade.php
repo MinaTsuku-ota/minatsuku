@@ -23,14 +23,17 @@
     <br/>
 
     <div>
-        {{-- ログイン中かをチェック --}}
+        {{-- ログインしているときだけ表示 --}}
         @auth
-            {{-- さらに、articlesテーブルのuser_idとusersテーブルのidが一致しているかをチェック --}}
-            {{-- $article->user_id部分は$article->user->idでも同様の結果を得られるはず --}}
-            @if( ( $article->user_id ) === ( Auth::user()->id ) )
-                <td><a href="{{ route('articles.update', $article->id) }}">編集</a></td>
-                <td><a href="{{ route('articles.destroy', $article->id) }}">削除</a></td>
-            @endif
+            <a href="{{ action('ArticlesController@edit', [$article->id]) }}"
+                class="btn btn-primary">編集</a>
+
+            {{-- 削除ボタン --}}
+            {{-- {!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id], 'class' => 'd-inline']) !!}
+                {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!} --}}
+            {{-- ヘルパ関数を使う --}}
+            {!! delete_form(['articles', $article->id]) !!}
         @endauth
 
         <a href="{{ action('ArticlesController@index') }}"

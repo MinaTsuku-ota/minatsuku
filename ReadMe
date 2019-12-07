@@ -107,10 +107,18 @@ php artisan db:seed
 npm install  // FrontEndに必要なPackageをインストール(Node/npmの使用が必要、別途ダウンロードhttps://nodejs.org/ja/)
 npm run dev  // CSS/JSを作成ビルド、jsファイルを編集する毎に行う
 
+7...(laravel/)storage/app/publicをブラウザからアクセスできるようにする
+以下のコマンドでpublic配下にstorageディレクトリへのシンボリックリンクが作られる
+画像を公開したい場合に(laravel/)public配下に画像を配置するのではなく(laravel/)storageフォルダへのリンクを作っている
+php artisan storage:link
+
 ~~~環境設定はここまで~~~
 ※データベースのテーブルの構造を変更した場合は以下のコマンド
 php artisan migrate:refresh // テーブル構造を再構築、テーブルの中身は全て消える
 php artisan db:seed // seederで用意した初期値でレコードを登録する
+
+~~~おまじない~~~
+composer dump-autoload (下のcomposer関連)
 
 (コマンドメモ)
 /*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)

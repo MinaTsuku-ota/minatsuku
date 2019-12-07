@@ -17,7 +17,7 @@
                     @endif
                     You are logged in!
                     <h2>ようこそ、{{ Auth::user()->name }}さん！</h2>
-                    {{-- <h3>あなたの学科は：{{ Auth::user()->subject }}</h3> --}}
+                    <h3>あなたの学科は：{{ App\Subject::find(Auth::user()->subject_id)->subject }}</h3>
                 </div>
             </div>
         </div>

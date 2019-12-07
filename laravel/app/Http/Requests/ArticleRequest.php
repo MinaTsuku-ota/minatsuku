@@ -15,7 +15,8 @@ class ArticleRequest extends FormRequest
     // 例えば、現在ログイン中のユーザに権限が無ければ、false を返します
     public function authorize()
     {
-        return true; // 誰でも記事を編集可能
+        // 誰でも記事を編集可能(ユーザの認証は別で行っているのでこれで良い)
+        return true;
     }
 
     /**

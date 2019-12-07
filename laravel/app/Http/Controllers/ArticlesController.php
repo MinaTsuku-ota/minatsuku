@@ -9,6 +9,7 @@ use App\Tag;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller
@@ -24,7 +25,7 @@ class ArticlesController extends Controller
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
     public function index()
     {
-        $articles = Article::all();
+        // $articles = Article::all();
 
         // こちらでも良い
         // $articles = Article::orderBy('published_at', 'desc')->orderBy('created_at', 'desc')->get();
@@ -33,9 +34,9 @@ class ArticlesController extends Controller
         // $articles = Article::latest('published_at')->latest('created_at')
         // ->where('published_at', '<=', Carbon::now()) // 公開日が現在時刻以前の記事だけを取得
         // ->get();
-        // $articles = Article::latest('published_at')->latest('created_at')
-        // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
-        // ->get();
+        $articles = Article::latest('published_at')->latest('created_at')
+        ->published() // whereをscopeに差し替えた(Articleモデルを参照)
+        ->get();
         // return view('articles.index', compact('articles'));
         return view('articles.index', compact('articles'));
     }
@@ -45,7 +46,7 @@ class ArticlesController extends Controller
     { // $id から $article へ変更
         // $article = Article::findOrFail($id);
         // 自動的にルートの {article} 部分に指定された id に一致する Article が $article 変数に渡されてきます
-        // この機能をRoute Model Bindeingという
+        // この機能をRoute Model Bindingという
         // ルートの {article} パラメータとコントローラの $article 引数は名前を合わせておく必要があります
         return view('articles.show', compact('article'));
     }
@@ -88,19 +89,29 @@ class ArticlesController extends Controller
         // Auth::user()->articles()->create($request->validated());
         $article = Auth::user()->articles()->create($request->validated());
         // リクエストで渡される tags を attach() メソッドでタグのリレーションに追加
-        $article->tags()->attach($request->input('tags'));
+        // $article->tags()->attach($request->input('tags'));
 
         // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');
     }
 
     // 記事の編集
-    public function edit(Article $article)
-    { // $id から $article へ変更
+    public function edit(Article $article) { // $id から $article へ変更
         // $article = Article::findOrFail($id);
         // タグ名と id の一覧を View に渡す
-        $tag_list = Tag::pluck('name', 'id');
-        return view('articles.edit', compact('article, tag_list'));
+        // $tag_list = Tag::pluck('name', 'id');
+        // return view('articles.edit', compact('article, tag_list'));
+
+        // ユーザに編集の権限があるかチェック
+        if($article->user_id == Auth::user()->id){
+            // 編集の権限があれば編集画面へ
+            return view('articles.edit', compact('article'));
+        }else{
+            // 編集の権限がない場合は記事一覧へ飛ばす（暫定）
+            return redirect()->route('articles.index');
+        }
+
+        // return view('articles.edit', compact('article'));
     }
 
     // 記事の更新
