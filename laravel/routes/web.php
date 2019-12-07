@@ -45,4 +45,4 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
-Route::post('/', 'PagesController@store')->name('image.store');
+Route::post('test', 'PagesController@store')->name('image.store');

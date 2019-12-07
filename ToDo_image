@@ -18,3 +18,8 @@ laravelマニュアル(日本語)
 https://readouble.com/laravel/6.x/ja/filesystem.html
 
 画像の削除はstorageの画像を消すことと、DBの画像情報を消すことを行う
+
+画像ファイル名を以下のようにする。
+{記事id}_{1or2or3}_{一意の文字列}.{拡張子}
+
+投稿ファイルのバリデーションはArticleRequestを参照
