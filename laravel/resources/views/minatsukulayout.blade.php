@@ -24,25 +24,17 @@
     <!-- header -->
     @include('header')
 
-    <!-- header dummy-->
     <main>
-        <div class="header clearfix dummy">
-            <div class="header-left clearfix">
-                <a href="#"><img src="/image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
-            </div>
-            <div class="header-right">
-                <div class="btn login "><a href="#">ログイン</a></div>
-                <div class="btn sinki "><a href="#">新規登録</a></div>
-            </div>
-        </div>
+        <!-- header dummy-->
+        @include('header_dummy')
 
         {{-- フラッシュメッセージの表示 --}}
         {{-- セッションに"message"をキーに持つ情報があれば表示 --}}
         {{-- class="alert alert-success"というのは Bootstrap の CSSで、この class を指定すると、正常時のアラートとして div を緑に装飾して表示してくれます --}}
         {{-- @if (Session::has('flash_message'))でも良い --}}
-        @if (session('message'))
-            <div class="alert alert-success">{{ session('message') }}</div>
-        @endif
+        {{-- @if (session('message'))
+        <div class="alert alert-success">{{ session('message') }}</div>
+        @endif --}}
 
         <!-- content -->
         @yield('content')
@@ -51,6 +43,10 @@
     <!-- footer -->
     @include('footer')
 </div>
+
+@if (session('message'))
+<script>alert({{ session('message') }});</script>
+@endif
 
 {{-- 編集権限が無い場合にアラート --}}
 @if(session('no_edit_permission'))
