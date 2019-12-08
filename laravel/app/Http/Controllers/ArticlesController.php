@@ -110,7 +110,7 @@ class ArticlesController extends Controller
         if($request->hasFile('image2')){
             $article->image2 = basename($request->image2->store('public'));
         }
-        if($request->hasFile('image2')){
+        if($request->hasFile('image3')){
             $article->image3 = basename($request->image3->store('public'));
         }
         $article->save();

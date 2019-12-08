@@ -28,7 +28,9 @@ class PagesController extends Controller
 
     // テスト用ビューの表示
     public function test(){
-        $images = Image::all(); // $imagesはimagesテーブルのレコードが配列で格納
+        // $imagesはimagesテーブルのレコードが配列で格納される
+        // 後にビューでforeach文でアクセスするなどして扱う
+        $images = Image::all();
         return view('test', compact('images'));
     }
 

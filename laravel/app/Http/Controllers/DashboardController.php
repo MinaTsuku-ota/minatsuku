@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use App\Article;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -23,7 +24,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        // $imagesはimagesテーブルのレコードが配列で格納される
+        // 後にビューでforeach文でアクセスするなどして扱う
+        $articles = Article::where('user_id', Auth::user()->id)->get();
+
         // return view('home');
-        return view('dashboard');
+        // return view('dashboard');
+        return view('dashboard', compact('articles'));
     }
 }
