@@ -49,6 +49,7 @@
 @endif
 
 {{-- 編集権限が無い場合にアラート --}}
+{{-- 何かしら文字が入っていないとfalseになるので注意。valueを使わないとしてもkeyだけではだめ --}}
 @if(session('no_edit_permission'))
     <script>alert('編集権限がないよ!');</script>
 @endif

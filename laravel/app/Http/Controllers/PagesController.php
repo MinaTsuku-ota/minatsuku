@@ -53,6 +53,7 @@ class PagesController extends Controller
         // $uploadImg = $request->image; // "image"は<input type="file">のname属性の値
         // isValidメソッドはファイルが存在しているかに付け加え、問題なくアップロードできたのかを確認することができます
         // $request->imageは$request->file('image')でも良い
+        // ここでのimageはformタグのname属性値
         if($request->image->isValid()) {
             // storeメソッドは、一意のIDをファイル名として生成します
             // ファイルの拡張子は、MIMEタイプの検査により決まります

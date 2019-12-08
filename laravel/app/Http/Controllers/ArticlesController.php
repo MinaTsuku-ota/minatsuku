@@ -65,6 +65,13 @@ class ArticlesController extends Controller
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
     public function store(ArticleRequest $request)
     {
+        // 画像はここでバリデート
+        $request->validate([
+            'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+        ]);
+
         // フォームの入力値を取得
         // $inputs = \Request::all();
         // dd($inputs); // デバッグ： $inputs の内容確認
@@ -86,10 +93,27 @@ class ArticlesController extends Controller
         // Article::create($request->validated());
 
         // 新規の記事を、ログイン中のユーザーの記事として保存するよう修正
-        // Auth::user()->articles()->create($request->validated());
+        // create()によってレコードが追加されるので後にimageを格納していく
         $article = Auth::user()->articles()->create($request->validated());
+
         // リクエストで渡される tags を attach() メソッドでタグのリレーションに追加
         // $article->tags()->attach($request->input('tags'));
+
+        // ここでimageを格納する処理
+        // isValidメソッドはファイルが存在しているかに付け加え、問題なくアップロードできたのかを確認することができます
+        // storeメソッドは、一意のIDをファイル名として生成します。ファイルの拡張子は、MIMEタイプの検査により決まります
+        // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
+        // basename()はパスの最下層の名前を返す(拡張子含む)
+        if($request->hasFile('image1')){
+            $article->image1 = basename($request->image1->store('public'));
+        }
+        if($request->hasFile('image2')){
+            $article->image2 = basename($request->image2->store('public'));
+        }
+        if($request->hasFile('image2')){
+            $article->image3 = basename($request->image3->store('public'));
+        }
+        $article->save();
 
         // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');

@@ -23,3 +23,13 @@ https://readouble.com/laravel/6.x/ja/filesystem.html
 {記事id}_{1or2or3}_{一意の文字列}.{拡張子}
 
 投稿ファイルのバリデーションはArticleRequestを参照
+
+storeAs('', 'dummy.pdf', ['disk' => 'local'])
+１つめの引数が、設定ファイルで指定されているストレージのルートディレクトリからのパスになります。上記の例では、ストレージのルートディレクトリ直下です。
+２つめの引数が、保存する際のファイル名になります。３つめの引数で、どのストレージを利用するかを指定しています。上の例では、local を指定しています。
+
+バリデーションルールはこちら
+https://readouble.com/laravel/6.x/ja/validation.html
+
+バリデーションに関わる秀逸な記事
+https://liginc.co.jp/359544

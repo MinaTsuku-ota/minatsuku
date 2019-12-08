@@ -9,7 +9,7 @@
            アップロード
         </button>
     </form>
-    {{-- PagesController@indexから送られてくる$imagesを扱う --}}
+    {{-- コントローラ(現在:PagesController@index)から送られてくる$imagesを扱う --}}
     @foreach($images as $image)
         <div>
             {{-- asset()はpublicディレクトリへのパスを返す --}}
