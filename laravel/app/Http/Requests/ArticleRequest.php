@@ -31,10 +31,11 @@ class ArticleRequest extends FormRequest
         return [  // ②
             'title' => 'required|min:3',
             'body' => 'required',
-            'published_at' => 'required|date',
+            // 'published_at' => 'required|date',
             // 'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
             // 'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
             // 'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'genre_id' => 'required',
         ];
     }
 }

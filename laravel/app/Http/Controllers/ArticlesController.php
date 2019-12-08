@@ -34,9 +34,11 @@ class ArticlesController extends Controller
         // $articles = Article::latest('published_at')->latest('created_at')
         // ->where('published_at', '<=', Carbon::now()) // 公開日が現在時刻以前の記事だけを取得
         // ->get();
-        $articles = Article::latest('published_at')->latest('created_at')
-        ->published() // whereをscopeに差し替えた(Articleモデルを参照)
-        ->get();
+        // $articles = Article::latest('published_at')->latest('created_at')
+        // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
+        // ->get();
+        // published_atを使わない
+        $articles = Article::latest('created_at')->get();
         // return view('articles.index', compact('articles'));
         return view('articles.index', compact('articles'));
     }

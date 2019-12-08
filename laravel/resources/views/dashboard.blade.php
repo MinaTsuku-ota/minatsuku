@@ -2,6 +2,10 @@
 {{-- @extends('layout') --}}
 @extends('minatsukulayout')
 
+@section('addcss')
+<link rel="stylesheet" href="../css/new_common.css">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -26,7 +30,7 @@
                 @foreach($articles as $article)
                 <div>
                     @if(isset($article->image1))
-                    {{-- asset()はpublicディレクトリへのパスを返す --}}
+                    {{-- asset()はlaravel/publicディレクトリへのパスを返す --}}
                     {{-- "$image"はimagesテーブルの1レコード分のデータ --}}
                     {{-- "$image->image"はimagesテーブルのimageカラムの内容(画像ファイル名が格納されている) --}}
                     <img src="{{ asset('storage/' . $article->image1) }}" style="width: 10%; height: auto;"/>

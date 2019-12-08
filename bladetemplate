@@ -1,0 +1,9 @@
+@extends('minatsukulayout')
+
+@section('addcss')
+{{-- addcss --}}
+@endsection
+
+@section('content')
+{{-- content --}}
+@endsection

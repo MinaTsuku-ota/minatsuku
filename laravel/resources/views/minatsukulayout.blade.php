@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/new_common.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
+    {{-- 追加CSS --}}
     @yield('addcss')
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
 
+    {{-- 追加javascript --}}
     @yield('addjs')
-
 </head>
 
 <body>

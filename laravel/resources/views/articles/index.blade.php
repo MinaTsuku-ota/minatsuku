@@ -1,5 +1,9 @@
 @extends('minatsukulayout')
 
+@section('addcss')
+<link rel="stylesheet" href="/css/new_common.css">
+@endsection
+
 @section('content')
 <div id="contens">
     <div class="navBox">

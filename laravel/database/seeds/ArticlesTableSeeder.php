@@ -30,7 +30,7 @@ class ArticlesTableSeeder extends Seeder
         //         'published_at' => Carbon::today(),
         //     ]);
         // }
-        
+
         // ArticleFactory.phpを参照
         // factory() 関数に作成するモデルのクラス名と件数を指定して、DBにデータを作成
         // factory(App\Article::class, 20)->create();
@@ -42,6 +42,8 @@ class ArticlesTableSeeder extends Seeder
         $user = App\User::first();
         factory(App\Article::class, 10)->create([
             'user_id' => $user->id,
+            'genre_id' => 1,
         ]);
+
     }
 }

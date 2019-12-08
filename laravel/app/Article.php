@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'body', 'published_at', 'image1', 'image2', 'image3'];
+    protected $fillable = ['title', 'body', 'published_at', 'image1', 'image2', 'image3', 'genre_id'];
     protected $dates = ['published_at']; // 日付ミューテータ
 
     // アクセサメソッド
@@ -38,5 +38,10 @@ class Article extends Model
     public function tags(){
         // 中間テーブルのタイムスタンプを更新する為に、withTimestamps() を使用する必要があります。
         return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
+
+    // Genreモデルが親
+    public function genre(){
+        return $this->belongsTo('App\Genre');
     }
 }
