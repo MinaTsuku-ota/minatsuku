@@ -38,7 +38,7 @@ class ArticlesController extends Controller
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // published_atを使わない
-        $articles = Article::latest('created_at')->get();
+        $articles = Article::latest('created_at')->paginate(10);
         // return view('articles.index', compact('articles'));
         return view('articles.index', compact('articles'));
     }

@@ -26,20 +26,20 @@
         	<div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
-                @foreach($articles as $article)
+                @foreach($articles as $row)
                     <table class="toukou">
                         <tr>
-                            <td colspan="10">タイトル<br/><a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                            <td colspan="10">タイトル<br/><a href="{{ url('articles', $row->id) }}">{{ $row->title }}</a></td>
                         </tr>
                         <tr>
-                            <td colspan="6" height="180px">詳細説明<br/>{{ $article->body }}</td>
+                            <td colspan="6" height="180px">詳細説明<br/>{{ $row->body }}</td>
                             <td colspan="4" height="180px">画像</td>
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
                             <td colspan="1" class="comment_button">コメント</td>
-                            <td colspan="3">名前</td>
-                            <td colspan="5">科の名前</td>
+                            <td colspan="3">名前</br>{{ App\user::find($row->user_id)->name }}</td>
+                            <td colspan="5">科の名前</br>{{ App\subject::find($row->user_id)->subject }}</td>
                         </tr>
 
                         <tr class="comment-none">
@@ -53,11 +53,10 @@
                                 </ul>
                             </td>
                         </tr>
-
                     </table>
-                    @if($loop->iteration >= 10)
-                        @break
-                    @endif
+                    <div class="paginate">
+                        {{ $articles->links()}}
+                    </div>
                 @endforeach
         	</div>
             <div class="commentPanel">
