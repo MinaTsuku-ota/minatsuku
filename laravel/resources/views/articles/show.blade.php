@@ -1,6 +1,10 @@
 {{-- @extends('layout') --}}
 @extends('minatsukulayout')
 
+@section('addcss')
+<link rel="stylesheet" href="/css/new_common.css">
+@endsection
+
 @section('content')
     <h1>{{ $article->title }}</h1>
 

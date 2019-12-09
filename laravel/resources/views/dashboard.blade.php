@@ -33,13 +33,13 @@
                     {{-- asset()はlaravel/publicディレクトリへのパスを返す --}}
                     {{-- "$image"はimagesテーブルの1レコード分のデータ --}}
                     {{-- "$image->image"はimagesテーブルのimageカラムの内容(画像ファイル名が格納されている) --}}
-                    <img src="{{ asset('storage/' . $article->image1) }}" style="width: 10%; height: auto;"/>
+                    <img src="{{ asset('storage/'.$article->image1) }}" style="width: 10%; height: auto;"/>
                     @endif
                     @if(isset($article->image2))
-                    <img src="{{ asset('storage/' . $article->image2) }}" style="width: 10%; height: auto;"/>
+                    <img src="{{ asset('storage/'.$article->image2) }}" style="width: 10%; height: auto;"/>
                     @endif
                     @if(isset($article->image3))
-                    <img src="{{ asset('storage/' . $article->image3) }}" style="width: 10%; height: auto;"/>
+                    <img src="{{ asset('storage/'.$article->image3) }}" style="width: 10%; height: auto;"/>
                     @endif
                 </div>
                 @endforeach
