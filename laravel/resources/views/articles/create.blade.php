@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/css/toukou.css">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/D&D.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -56,11 +59,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="10" height="250px">
+                                    <td colspan="10" height="250px" id="input_td">
                                         {{-- <textarea placeholder="+" class="imageText" name="image1"></textarea>
                                         <textarea placeholder="+" class="imageText" name="image2"></textarea>
                                         <textarea placeholder="+" class="imageText" name="image3"></textarea> --}}
-                                        <div>
+                                        {{-- <div>
                                             <label for="image1">画像1:</label>
                                             <input name="image1" type="file">
                                         </div>
@@ -71,7 +74,19 @@
                                         <div>
                                             <label for="image3">画像3:</label>
                                             <input name="image3" type="file">
-                                        </div>
+                                        </div> --}}
+                                        <span class="input_span">
+                                            <div class="imageText">Drop or Click here</div>
+                                            <input type="file" class="imageInput" name="file0">
+                                        </span>
+                                        <span class="input_span">
+                                            <div class="imageText">Drop or Click here</div>
+                                            <input type="file" class="imageInput" name="file1">
+                                        </span>
+                                        <span class="input_span">
+                                            <div class="imageText">Drop or Click here</div>
+                                            <input type="file" class="imageInput" name="file2">
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>

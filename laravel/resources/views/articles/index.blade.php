@@ -28,23 +28,21 @@
                         <tr>
                             <td colspan="6" height="180px">詳細説明</br>{{ $row->body }}</td>
                             <td colspan="4" height="180px">画像</td>
-
-
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
-                            <td colspan="1" class="comment-button">コメント</td>
+                            <td colspan="1">コメント</td>
                             <td colspan="3">名前</td>
                             <td colspan="5">科の名前</td>
                         </tr>
-                        <tr class="comment-none">
+                        {{-- <tr class="comment-none">
                             <td colspan="10">
                                 <ul>
                                     <li>コメント内容1</li>
                                     <li>コメント内容2</li>
                                 </ul>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </table>
                     @if($loop->iteration >= 10)
                         @break
