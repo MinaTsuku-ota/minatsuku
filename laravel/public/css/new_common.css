@@ -310,6 +310,13 @@ table.comment{
     height: 200px;
     border: solid 1px black;
 }
+/* コメント表示機能 */
+.comment_none{
+    display:none;
+}
+.comment_none li{
+    list-style-type: none;
+}
 
 
 footer{
