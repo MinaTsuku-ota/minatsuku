@@ -28,7 +28,8 @@
 				<img src="/image/sinki_syoudai.png" alt="はじめの一歩" class="syoudai">
 			</div>
 
-			<form class="clearfix" >
+			<form class="clearfix" method="POST" action="{{ route('register') }}">
+				@csrf
 				<dl>
 					<dt class="daimei"><label for="name">ニックネーム</label></dt>
 					<dd><input type="text" name="name" id="name" class="nyuuryoku" required value="{{ old('name') }}" autofocus></dd>
@@ -50,12 +51,12 @@
 
 				<div class="touroku">
 					<p class="button"><input type="submit" value="登録する" id="tourokusuru"></p>
-                </div>
+        </div>
 
-                {{-- 戻るボタン --}}
-                <div class="modoru">
-                    <a href="{{ route('articles.index') }}" ><input type="submit" value="←もどる" id="modorubotan"></a>
-			    </div>
+        {{-- 戻るボタン --}}
+        <div class="modoru">
+          <a href="{{ route('articles.index') }}" ><input type="submit" value="←もどる" id="modorubotan"></a>
+			  </div>
 
 				<div class="tyuukikakko">
 					<a href="#">
