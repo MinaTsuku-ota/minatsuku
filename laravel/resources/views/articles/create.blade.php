@@ -76,7 +76,7 @@
                                             <input type="file" class="imageInput" name="image3">
                                         </span>
                                         
-                                        <p style="color:red;">一旦上か下使う</p>
+                                        {{-- <p style="color:red;">一旦上か下使う</p>
 
                                         <div>
                                             <label for="image1">画像1:</label>
@@ -89,7 +89,7 @@
                                         <div>
                                             <label for="image3">画像3:</label>
                                             <input name="image3" type="file">
-                                        </div>
+                                        </div> --}}
                                     </td>
                                 </tr>
                                 <tr>

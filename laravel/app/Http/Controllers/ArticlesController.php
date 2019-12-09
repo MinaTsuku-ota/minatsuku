@@ -147,7 +147,7 @@ class ArticlesController extends Controller
         $article->update($request->validated()); // Form Requestを用いる
         // リクエストで渡される tags を sync() メソッドで タグのリレーションに同期しています
         // sync() メソッドでは article_tag テーブルのデータが引数で渡された id の物だけになるように、追加と削除を行います
-        $article->tags()->sync($request->input('tags'));
+        // $article->tags()->sync($request->input('tags'));
 
         // return redirect(url('articles', [$article->id]))->with('message', '記事を更新しました。');
         return redirect()->route('articles.show', [$article->id])->with('message', '記事を更新しました。');

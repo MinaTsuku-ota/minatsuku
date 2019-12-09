@@ -26,13 +26,13 @@
         	<div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
-                @foreach($articles as $row)
+                @foreach($articles as $article)
                     <table class="toukou">
                         <tr>
-                            <td colspan="10">タイトル</br>{{ $row->title }}</td>
+                            <td colspan="10">タイトル<br/><a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                         </tr>
                         <tr>
-                            <td colspan="6" height="180px">詳細説明</br>{{ $row->body }}</td>
+                            <td colspan="6" height="180px">詳細説明<br/>{{ $article->body }}</td>
                             <td colspan="4" height="180px">画像</td>
                         </tr>
                         <tr>
