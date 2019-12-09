@@ -2,13 +2,13 @@ $(function(){
     var duration = 300;
 
     //全てのコメント要素に関数を反映
-    $('.comment-button').each(function(){
+    $('.comment_button').each(function(){
 
         //クリック時
         $(this).click(function(){
 
             //コメント内容の要素をJQOにする
-            var $comment = $(this).parent().next('.comment-none');
+            var $comment = $(this).parent().next('.comment_none');
 
             //開閉処理
             $comment.toggleClass('open');
