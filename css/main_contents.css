@@ -1,0 +1,9 @@
+thead,tr,td{
+    border:1px solid red;
+}
+table{
+    width:100%;
+}
+tr{
+    border-bottom:1px solid red;
+}
