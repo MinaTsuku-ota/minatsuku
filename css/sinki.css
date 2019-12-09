@@ -11,6 +11,7 @@ body{
     position: fixed;
     top: 0px;
     left: 0px;
+    z-index: 10;
 }
 .sinki_daimei{
   height: 90px;
@@ -30,12 +31,27 @@ body{
   border-radius: 20px;
 }
 
+#sinki_syoudai{
+  color: #45A1CF;
+ font-size: 25px;
+}
 
+#back{
+  position: relative;
+  top: 82px;
+  left: 10px;
+}
+
+.backbutton {
+  color: #97d3e3;
+}
 
 dl {
   text-align: center;
  
 }
+
+
 
 dd{
   margin-left: 0px;
@@ -66,27 +82,7 @@ dd{
   border-radius: 10px;
 }
 
-#modorubotan{
-  display: inline-block;
-  float: left;
-  margin: 120px 15%;
-  max-width: 180px;
-  text-align: left;
-  border: 2px solid #97d3e3;
-  font-size: 16px;
-  color: #97d3e3;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: .4s;
-}
 
-#modorubotan:hover {
-  background-color: #97d3e3;
-  border-color: #97d3e3;
-  color: #FFF;
-}
 
 .tyuukikakko{
   height: 260px;
@@ -95,12 +91,13 @@ dd{
 }
 
 
+
 section{
   margin: 7% 25%;
   padding: 50px 30px;
   background-color: #fff;
   border-radius: 50px;
-  min-width: 420px;
+  min-width: 430px;
 }
 .syoudai{
   width:80%;
@@ -114,6 +111,7 @@ section{
 
 select{
   width: 30%;
+  height: 35px;
 }
 
 
