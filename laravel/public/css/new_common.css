@@ -22,7 +22,7 @@ body{
 .dummy{
     position: static;
   }
-
+  
   .login{
     float: left;
     margin-right: 30px;
@@ -33,7 +33,8 @@ body{
     border-radius: 4px;
   }
 
-.mypage{
+  
+ .mypage{
     float: left;
     margin-right: 30px;
     background-color: #f90;
@@ -43,10 +44,11 @@ body{
     border-radius: 4px;
   }
 
+  
   .btn a:visited{
     color:#fff;
   }
-
+  
   .btn a{
     text-decoration: none;
     color: #fff;
@@ -56,7 +58,7 @@ body{
   }
 .janru:hover{
     opacity:0.8;
-
+    
 }
 
 
@@ -71,20 +73,20 @@ body{
   bottom: 11%;
   right:0%;
   opacity: 0;
-
+  
 }
 
 #toukou_button img{
     width: 200px;
     height: 160px;
-
+    
 }
 
 
 #toukou1:hover{
     opacity: 1;
 }
-
+  
   .sinki{
     float:right;
     background-color: #c06;
@@ -93,12 +95,12 @@ body{
     padding: 15px;
     border-radius: 4px;
   }
-
+  
   .header-left{
     float: left;
       margin: 10px 0px 0px 10px;
   }
-
+  
   .header-right{
       float: right;
       margin: 22px 30px;
@@ -307,6 +309,13 @@ table.comment{
     height: 200px;
     border: solid 1px black;
 }
+/* コメント表示機能 */
+.comment_none{
+    display:none;
+}
+.comment_none li{
+    list-style-type: none;
+}
 
 
 footer{
@@ -315,21 +324,22 @@ footer{
     text-align: center;
     min-width: 877px;
   }
-
+  
   footer ul {
     margin: 0px;
   }
-
-
+  
+  
   footer ul li{
     display: inline-block;
     margin:40px 60px;
     font-weight: bold;
     color: #fff;
   }
-
+  
   footer ul li a:visited{
       color: #fff;
   }
-
-
+  
+  
+  

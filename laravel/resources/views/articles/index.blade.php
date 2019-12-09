@@ -4,11 +4,11 @@
 <link rel="stylesheet" href="/css/new_common.css">
 @endsection
 
-{{-- @section('addjs')
+@section('addjs')
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/comment.js"></script>
-@endsection --}}
+@endsection
 
 @section('content')
 <div id="contens">
@@ -37,18 +37,23 @@
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
-                            <td colspan="1">コメント</td>
+                            <td colspan="1" class="comment_button">コメント</td>
                             <td colspan="3">名前</td>
                             <td colspan="5">科の名前</td>
                         </tr>
-                        {{-- <tr class="comment-none">
+
+                        <tr class="comment-none">
                             <td colspan="10">
                                 <ul>
-                                    <li>コメント内容1</li>
-                                    <li>コメント内容2</li>
+                                    <li></li>
+                                    <form action="#">
+                                        <input type="text">
+                                    </form>
+                                    <li>コメント内容の予定</li>
                                 </ul>
                             </td>
-                        </tr> --}}
+                        </tr>
+
                     </table>
                     @if($loop->iteration >= 10)
                         @break
