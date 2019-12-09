@@ -49,9 +49,14 @@
                 <div>
                 <p>遊び</p>
                 <div>
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/50zh1qTWLW8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tbvxFW4UJdU" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                </div>
+                <form>
+                    @csrf
+                    <p><input type="text"></p>
+                    <p><button type="submit">送信</button></p>
+                </form>
             </div>
         </div>
     </div>

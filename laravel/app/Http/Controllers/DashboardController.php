@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-// use Illuminate\Http\Request;
+
 use App\Article;
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -31,5 +33,10 @@ class DashboardController extends Controller
         // return view('home');
         // return view('dashboard');
         return view('dashboard', compact('articles'));
+    }
+
+    // google reCAPTCHA v3を使って送信
+    public function send(Request $request){
+        // validate
     }
 }

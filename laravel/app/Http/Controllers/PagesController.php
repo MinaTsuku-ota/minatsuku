@@ -38,25 +38,43 @@ class PagesController extends Controller
     public function store(Request $request)
     {
         // バリデーション
+        // $this->validate($request, [
+        //     'image' => [
+        //         // 'required', // 必須
+        //         'file', // アップロードされたファイルであること
+        //         'image', // 画像ファイルであること
+        //         'mimes:jpeg,jpg,png,gif', // MIMEタイプを指定
+        //         // 最小縦横120px 最大縦横400px
+        //         //'dimensions:min_width=120,min_height=120,max_width=400,max_height=400',
+        //         'max:2048', // 最大サイズ2M
+        //     ]
+        // ]);
+
         $this->validate($request, [
-            'image' => [
-                // 'required', // 必須
-                'file', // アップロードされたファイルであること
-                'image', // 画像ファイルであること
-                'mimes:jpeg,jpg,png,gif', // MIMEタイプを指定
-                // 最小縦横120px 最大縦横400px
-                //'dimensions:min_width=120,min_height=120,max_width=400,max_height=400',
-                'max:2048', // 最大サイズ2M
-            ]
+            'test' => 'required',
+
         ]);
 
-        $image = new Image(); // Imageモデルのインスタンス生成、imagesテーブルを扱えるようにする
+        $response = (new \ReCaptcha\ReCaptcha( config('app/captcha_secret') ))
+        ->setExpectedAction('contact_form')
+        ->verify($request->input('_recaptcha'), $request->ip());
+
+        if (!$response->isSuccess()) {
+            abort(403);
+        }
+        if ($response->getScore() < 0.6) {
+            return response()->view('test', ['status' => false]);
+        }
+        return response()->view('test', ['status' => true]);
+
+
+        // $image = new Image(); // Imageモデルのインスタンス生成、imagesテーブルを扱えるようにする
 
         // $uploadImg = $request->image; // "image"は<input type="file">のname属性の値
         // isValidメソッドはファイルが存在しているかに付け加え、問題なくアップロードできたのかを確認することができます
         // $request->imageは$request->file('image')でも良い
         // ここでのimageはformタグのname属性値
-        if($request->image->isValid()) {
+        // if($request->image->isValid()) {
             // storeメソッドは、一意のIDをファイル名として生成します
             // ファイルの拡張子は、MIMEタイプの検査により決まります
             // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
@@ -73,9 +91,9 @@ class PagesController extends Controller
             // $image->image = str_replace('public/', '', $request->image->store('public'));
 
             // basename()でも良い。パスの最下層の名前を返す(拡張子含む)
-            $image->image = basename($request->image->store('public'));
-        }
-        $image->save(); // 変更を確定
-        return redirect()->route('test');
+        //     $image->image = basename($request->image->store('public'));
+        // }
+        // $image->save(); // 変更を確定
+        // return redirect()->route('test');
     }
 }

@@ -41,8 +41,11 @@ Route::resource('articles', 'ArticlesController');
 // 認証関連のルート設定
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
-Route::post('test', 'PagesController@store')->name('image.store');
+Route::post('test', 'PagesController@store')->name('test.store');
+
+// dashboardでgoogle reCAPTHA v3を使ってみる
+// Route::post('dashboard', 'DashboardController@send')->name('dashboard');
