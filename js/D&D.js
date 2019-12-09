@@ -44,14 +44,12 @@ $(function(){
             ev.preventDefault();
             ev.stopPropagation();
 
-            //dataTransferがJQOによって使えないので.originalEventとして使えるようにする
-            var drag_ev = ev;
-            if(ev.originalEvent){
-                drag_ev = ev.originalEvent;
-            }
+            var data = $(ev).get()[0].files;
 
-            var dt = drag_ev.dataTransfer,
-                files = dt.files;
+            //dataTransferがJQOによって使えないので.originalEventとして使えるようにする
+            var files = ev.originalEvent.dataTransfer.files;
+
+            data = files;
 
             //要素番号をグローバル変数に格納
             var name_num = $(this).parent().find('input').attr('name');
@@ -64,7 +62,8 @@ $(function(){
                 span_num = 2
             };
 
-            checkFiles(files);
+            checkFiles(data);
+            console.log(data);
         });
 
         // ----------Clickぞーん----------
@@ -99,6 +98,7 @@ $(function(){
     //inputに画像が読み込まれたら
     imageInput.on('change',function(ev){
         checkFiles(ev.target.files);
+        console.log(ev.target.files);
     });
 
     //画像の拡張子とファイルサイズを調べる
