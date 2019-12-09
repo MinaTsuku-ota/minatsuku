@@ -26,13 +26,13 @@
         </div>
         <form class="clearfix" >
           <dl>
-            <dt><label for="name">ニックネーム</label></dt>
-            <dd><input type="text" name="name" id="name" required></dd>
-            <dt><label for="password">パスワード</label></dt>
-            <dd><input type="password" name="password" id="password" required></dd>
-            <dt><label for="subject">科名</dt>
+            <dt class="daimei"><label for="name">ニックネーム</label></dt>
+            <dd><input type="text" name="name" id="name" class="nyuuryoku" required></dd>
+            <dt class="daimei"><label for="password">パスワード</label></dt>
+            <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
+            <dt class="daimei"><label for="subject">科名</dt>
             <dd>
-              <select>
+              <select >
                 <option>自動車整備科</option>
                 <option>電機システム科</option>
                 <option>メディアアート科</option>
@@ -43,9 +43,11 @@
             </dd>
           </dl>
           <div class="touroku">
-          <p class="button"><input type="submit" value="登録する"></p>
+            <p class="button"><input type="submit" value="登録する" id="tourokusuru"></p>
           </div>
-          <a href="#"><img src="../image/tyuuki0.png" alt="注記" class="tyuuki0"></a>
+          <div class="tyuukikakko">
+            <a href="#"><img src="../image/tyuuki0.png" onmouseover="this.src='../image/tyuuki1.png'" onmouseout="this.src='../image/tyuuki0.png'" class="tyuuki" alt="注記"></a>
+          </div>
         </form>
       </section>
   </main>
