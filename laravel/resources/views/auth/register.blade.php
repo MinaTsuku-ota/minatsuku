@@ -19,25 +19,36 @@
 	<main>
 		<div class="header clearfix dummy">
 			<div class="header-left clearfix">
-				<a href="#"><img src="../image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
+				<a href="#"><img src="/image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
 			</div>
 		</div>
 
 		<section>
+		    <div id="back">
+                {{-- 戻るボタン --}}
+                <a href="{{ route('articles.index') }}"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+            </div>
 			<div id="sinki_syoudai">
-				<img src="/image/sinki_syoudai.png" alt="はじめの一歩" class="syoudai">
+				<h1>はじめの一歩</h1>
 			</div>
 
 			<form class="clearfix" method="POST" action="{{ route('register') }}">
 				@csrf
 				<dl>
-					<dt class="daimei"><label for="name">ニックネーム</label></dt>
+                    <dt>
+                        <label for="name"><div class="daimei">ニックネーム</div></label>
+                    </dt>
 					<dd><input type="text" name="name" id="name" class="nyuuryoku" required value="{{ old('name') }}" autofocus></dd>
-					<dt class="daimei"><label for="password">パスワード</label></dt>
+                    <dt>
+                        <label for="password"><div class="daimei">パスワード</div></label>
+                    </dt>
                     <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
+                    <dd class="kome">※パスワードは8文字以上</dd>
                     <dt class="daimei"><label for="password-confirm">パスワード(確認)</label></dt>
                     <dd><input type="password" name="password_confirmation" id="password" class="nyuuryoku" required></dd>
-					<dt class="daimei"><label for="subject">科名</dt>
+                    <dt>
+                        <div class="daimei">科名</div>
+                    </dt>
 					<dd>
 						{{Form::select('subject', [
 							'1' => '自動車整備科',
@@ -51,12 +62,12 @@
 
 				<div class="touroku">
 					<p class="button"><input type="submit" value="登録する" id="tourokusuru"></p>
-        </div>
+                </div>
 
-        {{-- 戻るボタン --}}
-        <div class="modoru">
-          <a href="{{ route('articles.index') }}" ><input type="submit" value="←もどる" id="modorubotan"></a>
-			  </div>
+                {{-- 戻るボタン --}}
+                {{-- <div class="modoru">
+                    <a href="{{ route('articles.index') }}" ><input type="submit" value="←もどる" id="modorubotan"></a>
+		        </div> --}}
 
 				<div class="tyuukikakko">
 					<a href="#">

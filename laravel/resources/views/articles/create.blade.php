@@ -63,7 +63,22 @@
                                         {{-- <textarea placeholder="+" class="imageText" name="image1"></textarea>
                                         <textarea placeholder="+" class="imageText" name="image2"></textarea>
                                         <textarea placeholder="+" class="imageText" name="image3"></textarea> --}}
-                                        {{-- <div>
+                                        <span class="input_span">
+                                            <div class="imageText">Click or Drop here</div>
+                                            <input type="file" class="imageInput" name="image1">
+                                        </span>
+                                        <span class="input_span">
+                                            <div class="imageText">Click or Drop here</div>
+                                            <input type="file" class="imageInput" name="image2">
+                                        </span>
+                                        <span class="input_span">
+                                            <div class="imageText">Click or Drop here</div>
+                                            <input type="file" class="imageInput" name="image3">
+                                        </span>
+                                        
+                                        <p style="color:red;">一旦上か下使う</p>
+
+                                        <div>
                                             <label for="image1">画像1:</label>
                                             <input name="image1" type="file">
                                         </div>
@@ -74,19 +89,7 @@
                                         <div>
                                             <label for="image3">画像3:</label>
                                             <input name="image3" type="file">
-                                        </div> --}}
-                                        <span class="input_span">
-                                            <div class="imageText">Drop or Click here</div>
-                                            <input type="file" class="imageInput" name="file0">
-                                        </span>
-                                        <span class="input_span">
-                                            <div class="imageText">Drop or Click here</div>
-                                            <input type="file" class="imageInput" name="file1">
-                                        </span>
-                                        <span class="input_span">
-                                            <div class="imageText">Drop or Click here</div>
-                                            <input type="file" class="imageInput" name="file2">
-                                        </span>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>

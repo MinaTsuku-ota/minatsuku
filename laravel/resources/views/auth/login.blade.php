@@ -25,7 +25,7 @@
 
     <section>
         <div id="back">
-            <a href="{{ route('articles.index') }}"><i class="fas fa-arrow-circle-left fa-3x"></i></a>
+            <a href="{{ route('articles.index') }}"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
         </div>
         <div id="login_syoudai">
             <h1 class="login_daimei">ログイン</h1>
@@ -34,9 +34,13 @@
         <form class="clearfix" method="POST" action="{{ route('login') }}">
             @csrf
             <dl>
-                <dt class="daimei"><label for="name">ニックネーム</label></dt>
+                <dt>
+                    <label for="name"><div class="daimei">ニックネーム</div></label>
+                </dt>
                 <dd><input type="text" name="name" id="name" class="nyuuryoku" required value="{{ old('name') }}" autocomplete="name" autofocus></dd>
-                <dt class="daimei"><label for="password">パスワード</label></dt>
+                <dt>
+                    <label for="password"><div class="daimei">パスワード</div></label>
+                </dt>
                 <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
             </dl>
             <div class="login">

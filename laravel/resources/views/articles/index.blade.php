@@ -4,6 +4,12 @@
 <link rel="stylesheet" href="/css/new_common.css">
 @endsection
 
+@section('addjs')
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/comment.js"></script>
+@endsection
+
 @section('content')
 <div id="contens">
     <div class="navBox">
