@@ -40,7 +40,7 @@ class ArticlesTableSeeder extends Seeder
         // ArticleFactory の定義内容では１件の Article に対して毎回ユーザーを作成して user_id をセットするようになっていますが、それを上書きして、検索したユーザーの ID をセットしています
         // UserのSeederで1件だけrootという名前のユーザを登録しているので、それを取り出している
         $user = App\User::first();
-        factory(App\Article::class, 10)->create([
+        factory(App\Article::class, 3)->create([
             'user_id' => $user->id,
             'genre_id' => 1,
         ]);
