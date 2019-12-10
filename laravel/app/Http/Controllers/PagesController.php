@@ -59,6 +59,7 @@ class PagesController extends Controller
         // ->setScoreThreshold(0.5)
         ->verify($request->input('recaptcha'), $request->ip());
 
+        // $responseによって条件判断
         if (!$response->isSuccess()) {
             abort(403);
             // dd($response);
