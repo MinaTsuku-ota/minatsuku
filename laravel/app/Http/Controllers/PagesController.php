@@ -101,4 +101,15 @@ class PagesController extends Controller
         // $image->save(); // 変更を確定
         // return redirect()->route('test');
     }
+
+    // ajaxテスト用
+    public function ajaxtest(){
+        // ajaxtestフォルダのajaxtest.blade.php
+        return view('ajaxtest.ajaxtest');
+    }
+
+    // ajaxテスト用(ボタンクリックGET)
+    public function ajaxtest_get(){
+        return view('ajaxtest.sample');
+    }
 }

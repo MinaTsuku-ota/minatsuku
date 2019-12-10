@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td colspan="6" height="180px">詳細説明<br/>{{ $row->body }}</td>
-                            <td colspan="4" height="180px">画像</td>
+                            <td colspan="4" height="180px"><img src="/storage/{{$row->image1}}" alt="no_image"></td>
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
@@ -55,9 +55,7 @@
                         </tr>
                     </table>
                 @endforeach
-                <div class="paginate">
-                    {{ $articles->links()}}
-                </div>
+                {{ $articles->onEachSide(2)->links()}}
         	</div>
             <div class="commentPanel">
                 <p>NEW コメント</p>

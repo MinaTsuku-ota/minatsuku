@@ -106,13 +106,13 @@ class ArticlesController extends Controller
         // storeメソッドは、一意のIDをファイル名として生成します。ファイルの拡張子は、MIMEタイプの検査により決まります
         // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
         // basename()はパスの最下層の名前を返す(拡張子含む)
-        if($request->hasFile('image1')){
+        if ($request->hasFile('image1')) {
             $article->image1 = basename($request->image1->store('public'));
         }
-        if($request->hasFile('image2')){
+        if ($request->hasFile('image2')) {
             $article->image2 = basename($request->image2->store('public'));
         }
-        if($request->hasFile('image3')){
+        if ($request->hasFile('image3')) {
             $article->image3 = basename($request->image3->store('public'));
         }
         $article->save();
@@ -122,17 +122,18 @@ class ArticlesController extends Controller
     }
 
     // 記事の編集
-    public function edit(Article $article) { // $id から $article へ変更
+    public function edit(Article $article)
+    { // $id から $article へ変更
         // $article = Article::findOrFail($id);
         // タグ名と id の一覧を View に渡す
         // $tag_list = Tag::pluck('name', 'id');
         // return view('articles.edit', compact('article, tag_list'));
 
         // ユーザに編集の権限があるかチェック
-        if($article->user_id == Auth::user()->id){
+        if ($article->user_id == Auth::user()->id) {
             // 編集の権限があれば編集画面へ
             return view('articles.edit', compact('article'));
-        }else{
+        } else {
             // 編集の権限がない場合は記事一覧へ飛ばす(暫定)
             return redirect()->route('articles.index')->with('no_edit_permission', 'no_edit_permission');
         }
