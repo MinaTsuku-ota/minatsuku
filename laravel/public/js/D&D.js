@@ -1,5 +1,11 @@
 $(function () {
 
+    // if(window.File && window.FileReader && window.FileList && window.Blob){
+    //     alert('Yes!!!!');
+    // }else{
+    //     alert('Noooooo');
+    // }
+
     //.imageTextとinputの変数宣言
     var imageArea = $('.imageText'),
         imageInput = $('.imageInput'),
@@ -7,6 +13,7 @@ $(function () {
 
     //修正をかけたいグローバル変数（要素番号用）
     var span_num = 0;
+
 
     //各imageAreaに関数を反映
     imageArea.each(function () {
@@ -17,13 +24,12 @@ $(function () {
             ev.preventDefault();
             ev.stopPropagation();
 
-            //dataTransferがJQOによって使えないので.originalEventとして使えるようにする
-            var drag_ev = ev;
-            if (ev.originalEvent) {
-                drag_ev = ev.originalEvent;
-            }
 
-            drag_ev.dataTransfer.dropEffect = 'copy';
+
+            //dataTransferがJQOによって使えないので.originalEventとして使えるようにする
+           
+
+            ev.originalEvent.dataTransfer.dropEffect = 'copy';
 
             $(this).addClass('dropCSS');
         });
@@ -44,12 +50,13 @@ $(function () {
             ev.preventDefault();
             ev.stopPropagation();
 
-            var data = $(ev).get()[0].files;
 
-            //dataTransferがJQOによって使えないので.originalEventとして使えるようにする
+
+            // var data = $(this).get()[0].files;
+
             var files = ev.originalEvent.dataTransfer.files;
 
-            data = files;
+            // files.item(0);
 
             //要素番号をグローバル変数に格納
             var name_num = $(this).parent().find('input').attr('name');
@@ -62,8 +69,19 @@ $(function () {
                 span_num = 2
             };
 
-            checkFiles(data);
-            console.log(data);
+            // files.prototype.length = 0;
+
+            var fileReader = new FileReader();
+
+            fileReader.readAsDataURL(files[0]);
+            console.log(fileReader.result);
+
+            fileReader.onload = function(files){
+                console.log(files.result);
+                alert('読み込まれてはいる');
+            };
+            checkFiles(files);
+            // return;
         });
 
         // ----------Clickぞーん----------
@@ -126,9 +144,10 @@ $(function () {
 
             //要素番号が取得できなかったのでグローバル変数を用いてdivタグにぶちこんでみた
             imageOutput.eq(span_num).find('.imageText').html(image);
+            console.log(blobURL);
         });
-    };
 
+    };
 
 });
 
