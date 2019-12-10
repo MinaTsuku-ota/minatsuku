@@ -59,10 +59,10 @@ class LoginController extends Controller
     }
 
     // ログアウト時の動作
+    // Illuminate\Foundation\Auth\AuthenticatesUsers のloggedOutメソッドをオーバーライド
     protected function loggedOut(Request $request)
     {
-        $articles = Article::all();
-        return view('articles.index', compact('articles'));
+        return redirect()->route('articles.index');
     }
 
 }
