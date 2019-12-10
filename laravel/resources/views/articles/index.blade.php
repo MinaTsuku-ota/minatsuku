@@ -39,7 +39,7 @@
                             <td colspan="1">いいね</td>
                             <td colspan="1" class="comment_button">コメント</td>
                             <td colspan="3">名前</br>{{ App\user::find($row->user_id)->name }}</td>
-                            <td colspan="5">科の名前</br>{{ App\subject::find($row->user_id)->subject }}</td>
+                            <td colspan="5">科の名前</br>{{ App\subject::find(App\user::find($row->user_id)->subject_id)->subject  }}</td>
                         </tr>
 
                         <tr class="comment-none">
@@ -54,10 +54,10 @@
                             </td>
                         </tr>
                     </table>
-                    <div class="paginate">
-                        {{ $articles->links()}}
-                    </div>
                 @endforeach
+                <div class="paginate">
+                    {{ $articles->links()}}
+                </div>
         	</div>
             <div class="commentPanel">
                 <p>NEW コメント</p>
