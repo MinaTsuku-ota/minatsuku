@@ -3,7 +3,7 @@
 @extends('minatsukulayout')
 
 @section('addcss')
-<link rel="stylesheet" href="../css/new_common.css">
+<link rel="stylesheet" href="/css/new_common.css">
 @endsection
 
 @section('content')

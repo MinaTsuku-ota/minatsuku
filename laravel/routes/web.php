@@ -46,6 +46,9 @@ Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
 Route::post('test', 'PagesController@post')->name('test.post');
+// ajaxテスト用
+Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
+Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
 
 // dashboardでgoogle reCAPTHA v3を使ってみる
 // Route::post('dashboard', 'DashboardController@send')->name('dashboard');
