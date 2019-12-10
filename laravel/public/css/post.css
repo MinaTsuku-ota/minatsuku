@@ -257,6 +257,34 @@ input[type="text1"]{
   box-shadow: 0 2px 2px rgb(121, 55, 8);
 }
 
+/* Preview area css Start */
+div#preview_wrap{
+  width: 500px;
+  margin: 15px auto;
+}
+
+div#preview_wrap h2{
+  text-align: center;
+}
+
+div#preview_wrap p{
+  margin: 0;
+}
+
+table.preview_area{
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+  text-align: center;
+  margin: 5px 10px 10px 15px;
+  width: 470px;
+  border: solid 1px black;
+}
+
+table.preview_area td{
+  border: solid 1px black;
+}
+/* Preview area css End */
 
 footer{
     width:100%;

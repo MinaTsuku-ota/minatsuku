@@ -41,7 +41,7 @@ var ppGenEvn = document.getElementById("genre");
 var ppDepEvn = document.getElementById("department");
 var ppDesEvn = document.getElementById("description");
 
-ppTitEvn.addEventListener("keydown", titleReflect, false);
+ppTitEvn.addEventListener("keyup", titleReflect, false);
 ppGenEvn.addEventListener("change", genreReflect, false);
 ppDepEvn.addEventListener("change", departmentReflect, false);
-ppDesEvn.addEventListener("keydown", descriptionReflect, false);
+ppDesEvn.addEventListener("keyup", descriptionReflect, false);
