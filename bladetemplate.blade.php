@@ -4,6 +4,10 @@
 {{-- addcss --}}
 @endsection
 
+@section('addjs')
+{{-- addscripts --}}
+@endsection
+
 @section('content')
 {{-- content --}}
 @endsection

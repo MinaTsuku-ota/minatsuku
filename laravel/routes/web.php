@@ -45,7 +45,7 @@ Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
-Route::post('test', 'PagesController@store')->name('test.store');
+Route::post('test', 'PagesController@post')->name('test.post');
 
 // dashboardでgoogle reCAPTHA v3を使ってみる
 // Route::post('dashboard', 'DashboardController@send')->name('dashboard');

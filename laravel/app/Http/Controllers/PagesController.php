@@ -35,7 +35,7 @@ class PagesController extends Controller
     }
 
     // 画像が送られたときの処理
-    public function store(Request $request)
+    public function post(Request $request)
     {
         // バリデーション
         // $this->validate($request, [
@@ -51,21 +51,25 @@ class PagesController extends Controller
         // ]);
 
         $this->validate($request, [
-            'test' => 'required',
-
+            'text' => 'required',
         ]);
 
-        $response = (new \ReCaptcha\ReCaptcha( config('app/captcha_secret') ))
-        ->setExpectedAction('contact_form')
-        ->verify($request->input('_recaptcha'), $request->ip());
+        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
+        ->setExpectedAction('localhost')
+        // ->setScoreThreshold(0.5)
+        ->verify($request->input('recaptcha'), $request->ip());
 
         if (!$response->isSuccess()) {
             abort(403);
+            // dd($response);
         }
         if ($response->getScore() < 0.6) {
             return response()->view('test', ['status' => false]);
         }
-        return response()->view('test', ['status' => true]);
+        return response()->view('test', [
+            'status' => true,
+            'score' => $response->getScore(),
+            ]);
 
 
         // $image = new Image(); // Imageモデルのインスタンス生成、imagesテーブルを扱えるようにする

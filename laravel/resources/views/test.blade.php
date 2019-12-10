@@ -1,7 +1,21 @@
 @extends('minatsukulayout')
 
 @section('addcss')
-<link rel="stylesheet" href="../css/new_common.css">
+<link rel="stylesheet" href="/css/new_common.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+@endsection
+
+@section('addjs')
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('app.captcha_sitekey') }}"></script>
+<script>
+    grecaptcha.ready(function () {
+        grecaptcha.execute('{{ config('app.captcha_sitekey') }}', { action: 'localhost' }).then(function (token) {
+            if(token){
+                document.getElementById('recaptcha').value = token;
+            }
+        });
+    });
+</script>
 @endsection
 
 @section('content')
@@ -22,19 +36,49 @@
             {{-- <img src="{{ asset('storage/' . $image->image) }}" alt="image" style="width: 10%; height: auto;"/>
         </div>
     @endforeach --}}
-
+<div class="column is-half">
     @if(isset($status))
         @if($status == true)
-            <p>送信に成功しました。</p>
+            <div class="notification is-success">
+                <button class="delete"></button>
+                送信に成功しました。<br/>
+                あなたのSCORE：<strong>{{ $score }}</strong><br/>
+                (robot)0.0 ~ 1.0(human)
+            </div>
         @endif
         @if($status == false)
-            <p>送信に失敗しました。</p>
+            <div class="notification is-warning">
+                <button class="delete"></button>
+                送信に失敗しました。<br/>
+                あなたのSCORE：<strong>{{ $score }}</strong>
+                (robot)0.0 --- 1.0(human)
+            </div>
         @endif
     @endif
 
-    <form method="POST" action="{{ route('test.store') }}">
+    <form method="POST" action="{{ route('test.post') }}">
         @csrf
-        <p><input type="text" name="text"></p>
-        <p><button type="submit">送信</button></p>
+        <div class="field">
+            <div class="control">
+                <input type="text" name="text" class="input" placeholder="Message" required></p>
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="button is-link">Send Message</button>
+            </div>
+        <div class="field">
+        <input type="hidden" name="recaptcha" id="recaptcha">
     </form>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    $notification = $delete.parentNode;
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>
 @endsection
