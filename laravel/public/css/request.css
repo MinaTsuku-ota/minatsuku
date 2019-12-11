@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+body{
+  background-image: url("../image/haikei.png");
+  background-size: contain;
+}
+
+.header{
+    width:100%;
+    background-color:#0cf;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+}
+
+#back{
+  position: relative;
+  top: 73px;
+  left: 40px;
+  
+}
+
+
+
+.backbutton {
+  color: #97d3e3;
+}
+
+
+.header-left{
+  text-align: center;
+}
+
+.daimei{
+  margin: 80px auto;
+  width:200px;
+  background-color: #97d3e3;
+
+
+  color: #fff;
+  line-height: 30px;
+  margin-top: 90px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+section{
+  margin: 7% 25%;
+  padding: 50px 30px;
+  background-color: #fff;
+  border-radius: 50px;
+  min-width: 420px;
+  /* -------いったん高さとる--------- */
+  height: 600px;
+}
+
+footer{
+  width:100%;
+  background-color:#0cf;
+  text-align: center;
+}
+
+footer ul{
+  margin: 0px;
+}
+
+
+footer ul li{
+  display: inline-block;
+  margin:40px 60px;
+  font-weight: bold;
+}
+
+footer ul li a{
+  color: #fff;
+}
+
+footer ul li a:visited{
+  color: #fff;
+}
+
+.dummy{
+  position: static;
+}
+
+.clearfix::after{
+  content:"";
+  display: block;
+  clear: both;
+  
+}
