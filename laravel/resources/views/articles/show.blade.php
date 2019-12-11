@@ -33,11 +33,21 @@
             {{-- $article->user_id部分は$article->user->idでも同様の結果を得られるはず --}}
             @if( ( $article->user_id ) === ( Auth::user()->id ) )
                 <td><a href="{{ route('articles.edit', $article->id) }}">編集</a></td>
-                <td><a href="{{ route('articles.destroy', $article->id) }}">削除</a></td>
+                <form method="POST" action="{{ route('articles.destroy', $article->id) }}">
+                    @method('DELETE')
+                    @csrf
+                    <input type="submit" value="削除">
+                </form>
+
+                {{-- <td><a href="{{ route('articles.destroy', $article->id) }}">削除</a></td> --}}
+                {{-- {!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id], 'class' => 'd-inline']) !!}
+                {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
+                {!! Form::close() !!} --}}
+                {{-- helperを使う_22 --}}
+                {{-- {!! delete_form(['articles', $article->id]) !!} --}}
             @endif
         @endauth
 
-        <a href="{{ action('ArticlesController@index') }}"
-            class="btn btn-secondary float-right">一覧へ戻る</a>
+        <a href="{{ action('ArticlesController@index') }}">一覧へ戻る</a>
     </div>
 @endsection

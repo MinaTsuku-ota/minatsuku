@@ -15,6 +15,7 @@
 
     {{-- Formファザードはlaravelcollective/htmlパッケージに含まれるものです --}}
     {{-- {!! Form::open(['url' => 'articles']) !!} URL指定の場合はこちら --}}
+    {{-- 'files'=>trueはフォームにenctype="multipart/form-data"属性を追加します。 --}}
     {!! Form::open(['route' => 'articles.store', 'files' => true]) !!}
         @include('articles.form', [
             'published_at' => date('Y-m-d'),

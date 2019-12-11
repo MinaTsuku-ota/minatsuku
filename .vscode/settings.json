@@ -1,7 +1,5 @@
 {
-	"workbench.startupEditor": "newUntitledFile",
 	"C_Cpp.updateChannel": "Insiders",
-	"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
 	// "editor.tabSize": 2,
 	"editor.wordWrap": "on",
 	// ファイルの読み取り/書き込みで使用する既定の文字セット エンコーディング。言語ごとに構成することも可能です。
