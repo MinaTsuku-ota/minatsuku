@@ -75,6 +75,18 @@ class ArticlesController extends Controller
             'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
 
+        // captcha data request
+        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
+        ->setExpectedAction('localhost')
+        // ->setScoreThreshold(0.5)
+        ->verify($request->input('recaptcha'), $request->ip());
+
+        // $responseによって条件判断
+        if (!$response->isSuccess()) {
+            abort(403);
+            // dd($response);
+        }
+
         // フォームの入力値を取得
         // $inputs = \Request::all();
         // dd($inputs); // デバッグ： $inputs の内容確認
