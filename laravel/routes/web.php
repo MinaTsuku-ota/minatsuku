@@ -41,7 +41,10 @@ Route::resource('articles', 'ArticlesController');
 // 認証関連のルート設定
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
+
+// マイページ用
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::post('dashboard', 'DashboardController@dashboard_post')->name('dashboard.post');
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');

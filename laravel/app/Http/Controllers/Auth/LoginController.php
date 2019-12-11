@@ -45,7 +45,7 @@ class LoginController extends Controller
     // ミドルウェアの設定
     public function __construct()
     {
-        // logoutビュー以外にguestを適用
+        // logout以外にguestを適用
         // guest:ログインしていたらリダイレクトする
         $this->middleware('guest')->except('logout');
     }

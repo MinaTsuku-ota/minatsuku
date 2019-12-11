@@ -99,6 +99,8 @@
                                 </tr>
                             </table>
                             <div class="STbtn">
+                                {{-- <a href="#" class="STbtnChild">投稿</a> --}}
+                                {{-- 一旦inputタグにする --}}
                                 <input type="submit" class="STbtnChild" value="投稿">
                             </div>
                         </form>

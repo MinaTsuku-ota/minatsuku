@@ -1,8 +1,8 @@
 @extends('minatsukulayout')
 
 @section('addcss')
-<link rel="stylesheet" href="/css/new_common.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+<link rel="stylesheet" href="/css/new_common.css">
 @endsection
 
 @section('addjs')
@@ -67,7 +67,7 @@
             <div class="control">
                 <button type="submit" class="button is-link">Send Message</button>
             </div>
-        <div class="field">
+        </div>
         <input type="hidden" name="recaptcha" id="recaptcha">
     </form>
 </div>
