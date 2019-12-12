@@ -26,20 +26,20 @@
         	<div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
-                @foreach($articles as $row)
+                @foreach($articles as $article)
                     <table class="toukou">
                         <tr>
-                            <td colspan="10">タイトル<br/><a href="{{ url('articles', $row->id) }}">{{ $row->title }}</a></td>
+                            <td colspan="10">タイトル<br/><a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                         </tr>
                         <tr>
-                            <td colspan="6" height="180px">詳細説明<br/>{{ $row->body }}</td>
-                            <td colspan="4" height="180px"><img src="/storage/{{$row->image1}}" alt="no_image"></td>
+                            <td colspan="6" height="180px">詳細説明<br/>{{ $article->body }}</td>
+                        <td colspan="4" height="180px"><img src="{{ asset('storage/'.$article->image1) }}" alt="no_image"></td>
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
                             <td colspan="1" class="comment_button">コメント</td>
-                            <td colspan="3">名前</br>{{ App\user::find($row->user_id)->name }}</td>
-                            <td colspan="5">科の名前</br>{{ App\subject::find(App\user::find($row->user_id)->subject_id)->subject  }}</td>
+                            <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                            <td colspan="5">科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}</td>
                         </tr>
 
                         <tr class="comment-none">
@@ -68,7 +68,6 @@
                     </table>
                 @endfor
             </div>
-
             {{-- 投稿ボタン --}}
             <div id="toukou_button">
                 <div id="toukou0">
@@ -78,7 +77,6 @@
                     <a href="{{ route('articles.create') }}"><img src="/image/toukoubotan1.png " alt="投稿する" id="toukou1"></a>
                 </div>
             </div>
-
         </section>
     </div>
 </div>

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -39,4 +39,24 @@ class DashboardController extends Controller
     public function send(Request $request){
         // validate
     }
+
+    public function destroy($id) {
+        $Article = Article::findOrFail($id);
+        $Article->delete();
+        return redirect()->route('dashboard')->with('message', '記事を削除しました。');
+    }
+    // 編集
+    // public function edit($id) {
+    //     $article = Article::findOrfail($id);
+
+    //     return view('articles.edit', compact('article'));
+    // }
+
+    // public function update(ArticleRequest $request, $id) {
+    //     $article = Article::findOrFail($id);
+
+    //     $article->update($request->validated());
+
+    //     return redirect(url('dashboard', [$article->id]));
+    // } 
 }
