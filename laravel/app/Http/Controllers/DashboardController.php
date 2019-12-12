@@ -24,7 +24,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($array=null)
     {
         // $imagesはimagesテーブルのレコードが配列で格納される
         // 後にビューでforeach文でアクセスするなどして扱う
@@ -32,12 +32,35 @@ class DashboardController extends Controller
 
         // return view('home');
         // return view('dashboard');
-        return view('dashboard', compact('articles'));
+        return view('dashboard', compact('articles', 'array'));
     }
 
     // google reCAPTCHA v3を使って送信
-    public function send(Request $request){
+    public function dashboard_post(Request $request){
         // validate
+        $this->validate($request, [
+            'text' => 'required',
+        ]);
+        
+        // captcha data request
+        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
+        ->setExpectedAction('localhost')
+        // ->setScoreThreshold(0.5)
+        ->verify($request->input('recaptcha'), $request->ip());
+
+        // $responseによって条件判断
+        if (!$response->isSuccess()) {
+            abort(403);
+            // dd($response);
+        }
+        if ($response->getScore() < 0.6) {
+            $status = false;
+            return response()->view('dashboard', ['status' => false]);
+        }
+        $articles = Article::where('user_id', Auth::user()->id)->get();
+        $status = true;
+        $score = $response->getScore();
+        return response()->view('dashboard', compact('articles', 'status', 'score'));
     }
 
     public function destroy($id) {

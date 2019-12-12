@@ -8,6 +8,7 @@ use App\Article;
 // use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use Illuminate\Support\Facades\Storage;
 
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -73,6 +74,18 @@ class ArticlesController extends Controller
             'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
             'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
+
+        // captcha data request
+        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
+        ->setExpectedAction('localhost')
+        // ->setScoreThreshold(0.5)
+        ->verify($request->input('recaptcha'), $request->ip());
+
+        // $responseによって条件判断
+        if (!$response->isSuccess()) {
+            abort(403);
+            // dd($response);
+        }
 
         // フォームの入力値を取得
         // $inputs = \Request::all();
@@ -159,7 +172,20 @@ class ArticlesController extends Controller
     { // $id から $article へ変更
         // $id で記事を検索し、delete() メソッドで削除しています
         // $article = Article::findOrFail($id);
+        
+        // 画像の削除
+        if(isset($article->image1)){
+            Storage::disk('public')->delete($article->image1);
+        }
+        if(isset($article->image2)){
+            Storage::disk('public')->delete($article->image2);
+        }
+        if(isset($article->image3)){
+            Storage::disk('public')->delete($article->image3);
+        }
+        // 記事レコードを削除
         $article->delete();
+
         // redirect() 時に with() メソッドでフラッシュ情報としてメッセージを追加します
         // フラッシュ情報とは次のリクエストだけで有効な一時的なセッション情報（サーバーに保存する情報）です
         return redirect()->route('articles.index')->with('message', '記事を削除しました。');

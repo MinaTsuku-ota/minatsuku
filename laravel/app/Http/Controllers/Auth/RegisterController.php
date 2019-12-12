@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Http\Request;
+
+use Illuminate\Auth\Events\Registered;
+
 class RegisterController extends Controller
 {
     /*
@@ -58,7 +62,7 @@ class RegisterController extends Controller
         // !! validationに失敗した場合は前の画面へgetメソッドでリダイレクトされる !!
         // これで3時間苦しめられた
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'subject' => ['required'],
@@ -80,5 +84,35 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'subject_id' => $data['subject'],
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        // captcha data request
+        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
+        ->setExpectedAction('localhost')
+        // ->setScoreThreshold(0.5)
+        ->verify($request->input('recaptcha'), $request->ip());
+
+        // $responseによって条件判断
+        if (!$response->isSuccess()) {
+            // abort(403);
+            dd($response);
+        }
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
     }
 }

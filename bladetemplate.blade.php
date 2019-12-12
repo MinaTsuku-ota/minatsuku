@@ -2,6 +2,7 @@
 
 @section('addcss')
 {{-- addcss --}}
+<link rel="stylesheet" href="/css/new_common.css">
 @endsection
 
 @section('addjs')

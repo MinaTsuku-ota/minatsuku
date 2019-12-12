@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="/css/sinki.css">
 	<link rel="shortcut icon" href="/image/favicon.png" type="image/png">
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    @include('recaptcha_js')
 </head>
 <body>
 
@@ -74,6 +76,7 @@
 						<img src="/image/tyuuki0.png" onmouseover="this.src='/image/tyuuki1.png'" onmouseout="this.src='/image/tyuuki0.png'" class="tyuuki" alt="注記">
 					</a>
 				</div>
+				<input type="hidden" name="recaptcha" id="recaptcha">
             </form>
 		</section>
 	</main>
