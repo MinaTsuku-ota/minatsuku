@@ -77,16 +77,16 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
-        // captcha data request
-        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        ->setExpectedAction('localhost')
-        // ->setScoreThreshold(0.5)
-        ->verify($request->input('recaptcha'), $request->ip());
-        // $responseによって条件判断
-        if (!$response->isSuccess()) {
-            abort(403);
-            // dd($response);
-        }
+        // // captcha data request
+        // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
+        // ->setExpectedAction('localhost')
+        // // ->setScoreThreshold(0.5)
+        // ->verify($request->input('recaptcha'), $request->ip());
+        // // $responseによって条件判断
+        // if (!$response->isSuccess()) {
+        //     abort(403);
+        //     // dd($response);
+        // }
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and

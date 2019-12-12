@@ -127,11 +127,14 @@ $(function () {
             //要素番号をグローバル変数に格納
             var name_num = $(this).parent().find('input').attr('name');
 
-            if (name_num == 'file0') {
-                span_num = 0;
-            } else if (name_num == 'file1') {
-                span_num = 1;
-            } else if (name_num == 'file2') {
+            // if (name_num == 'file0') {
+            if (name_num == 'image1') {
+                    span_num = 0;
+            // } else if (name_num == 'file1') {
+            } else if (name_num == 'image2') {
+                    span_num = 1;
+            // } else if (name_num == 'file2') {
+            } else if (name_num == 'image3') {
                 span_num = 2
             };
 

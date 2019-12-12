@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>みなツク</title>
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/toukou.css">
+    <link rel="stylesheet" href="/css/post.css">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="/js/jquery-3.4.1.min.js"></script>
@@ -23,20 +23,15 @@
                 {{-- <div class="btn login "><a href="route{{ route('login') }}">ログイン</a></div>
                 <div class="btn sinki "><a href="route{{ route('register') }}">新規登録</a></div> --}}
 
-                {{--ログインしていない時のメニュー --}}
-                @guest
+                @guest {{--ログインしていない時のメニュー --}}
                 <div class="btn login "><a href="{{ route('login') }}">ログイン</a></div>
                 <div class="btn sinki "><a href="{{ route('register') }}">新規登録</a></div>
-                {{-- ログインしている時のメニュー --}}
-                @else
-                {{-- <div class="btn mypage "><a href="{{ route('dashboard') }}">マイページ</a></div> --}}
+                @else {{-- ログインしている時のメニュー --}}
                 <div class="btn login "><a href="{{ route('dashboard') }}">マイページ</a></div>
                 {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
                 <div class="btn sinki "><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></div>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                 @endguest
-
-
             </div>
         </header>
 
@@ -63,7 +58,8 @@
                                 <tr>
                                     <td>ジャンル?</td>
                                     <td style="border-style:none;">
-                                        <select size="1" class="genre" name="genre_id">
+                                        <select size="1" class="genre"  id="ref_gen" name="genre_id">
+                                            {{-- <option value="0">Please&nbsp;select&nbsp;a&nbsp;genre.</option> --}}
                                             <option value="1">WEB</option>
                                             <option value="2">写真</option>
                                             <option value="3">動画</option>
@@ -77,41 +73,23 @@
                                 </tr>
                                 <tr>
                                     <td colspan="10" height="250px" id="input_td">
-                                        {{-- <textarea placeholder="+" class="imageText" name="image1"></textarea>
-                                        <textarea placeholder="+" class="imageText" name="image2"></textarea>
-                                        <textarea placeholder="+" class="imageText" name="image3"></textarea> --}}
-                                        <span class="input_span">
+                                        <div class="input_span" id="Area0">
                                             <div class="imageText">Click or Drop here</div>
                                             <input type="file" class="imageInput" name="image1">
-                                        </span>
-                                        <span class="input_span">
+                                        </div>
+                                        <div class="input_span" id="Area1">
                                             <div class="imageText">Click or Drop here</div>
                                             <input type="file" class="imageInput" name="image2">
-                                        </span>
-                                        <span class="input_span">
+                                        </div>
+                                        <div class="input_span" id="Area2">
                                             <div class="imageText">Click or Drop here</div>
                                             <input type="file" class="imageInput" name="image3">
-                                        </span>
-                                        
-                                        {{-- <p style="color:red;">一旦上か下使う</p>
-
-                                        <div>
-                                            <label for="image1">画像1:</label>
-                                            <input name="image1" type="file">
                                         </div>
-                                        <div>
-                                            <label for="image2">画像2:</label>
-                                            <input name="image2" type="file">
-                                        </div>
-                                        <div>
-                                            <label for="image3">画像3:</label>
-                                            <input name="image3" type="file">
-                                        </div> --}}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="10" height="250px">
-                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText" required name="body"></textarea>
+                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText" id="ref_des" required name="body"></textarea>
                                     </td>
                                 </tr>
                             </table>
@@ -127,6 +105,8 @@
                 </section>
             </div>
         </main>
+
     @include('footer')
+
 </body>
 </html>

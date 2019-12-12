@@ -25,6 +25,18 @@
 			</div>
 		</div>
 
+		    {{-- エラーの表示を追加 --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+				<script>alert();</script>
+            </ul>
+        </div>
+    @endif
+
 		<section>
 		    <div id="back">
                 {{-- 戻るボタン --}}
