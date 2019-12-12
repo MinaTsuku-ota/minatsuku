@@ -35,6 +35,7 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 // Route::get('articles/{id}/edit', 'ArticlesController@edit')->name('articles.edit');  // 記事の編集
 // Route::patch('articles/{id}', 'ArticlesController@update')->name('articles.update');  // 記事の更新 メソッド:patch
 // Route::delete('articles/{id}', 'ArticlesController@destroy')->name('articles.destroy'); // 記事の削除
+Route::delete('articles/{id}','DashboardController@destroy')->name('articles.destroy');
 // 上7行は1行で
 Route::resource('articles', 'ArticlesController');
 
@@ -53,5 +54,7 @@ Route::post('test', 'PagesController@post')->name('test.post');
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
 
+// Route::get('articles/{id}/edit', 'DashboardController@edit');
+// Route::patch('articles/{id}', 'DashboardController@update');
 // dashboardでgoogle reCAPTHA v3を使ってみる
 // Route::post('dashboard', 'DashboardController@send')->name('dashboard');
