@@ -24,7 +24,7 @@ function descriptionReflect() {
 }
 
 function imageReflect() {
-  window.alert("geting OK.");
+  // window.alert("geting OK.");
 }
 
 var ppTitEvn = document.getElementById("ref_tit");

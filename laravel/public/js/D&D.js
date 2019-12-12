@@ -1,30 +1,26 @@
 $(function () {
 
-    // if(window.File && window.FileReader && window.FileList && window.Blob){
-    //     alert('Yes!!!!');
-    // }else{
-    //     alert('Noooooo');
-    // }
-
     //.imageTextとinputの変数宣言
     var imageArea = $('.imageText'),
-        imageInput = $('.imageInput'),
-        imageOutput = $('.input_span');
+    imageInput = $('.imageInput'),
+    imageOutput = $('.input_span');
 
     //修正をかけたいグローバル変数（要素番号用）
     var span_num = 0;
 
+    //input_spanをドロップエリアとして３つに分ける
+    var $Area0 = $('#Area0'),
+        $Area1 = $('#Area1'),
+        $Area2 = $('#Area2');
 
     //各imageAreaに関数を反映
-    imageArea.each(function () {
+    imageInput.each(function () {
 
         // ----------D&Dぞーん----------
 
         imageArea.on('dragover', function (ev) {
             ev.preventDefault();
             ev.stopPropagation();
-
-
 
             //dataTransferがJQOによって使えないので.originalEventとして使えるようにする
            
@@ -46,43 +42,73 @@ $(function () {
             ev.stopPropagation();
         });
 
-        imageArea.on('drop', function (ev) {
-            ev.preventDefault();
-            ev.stopPropagation();
+        // imageArea.on('drop', function (ev) {
+        //     ev.preventDefault();
+        //     ev.stopPropagation();
 
+        //     // var data = $(this).get()[0].files;
 
+        //     var files = ev.originalEvent.dataTransfer.files[0];
 
-            // var data = $(this).get()[0].files;
+        //     // files.item(0);
 
-            var files = ev.originalEvent.dataTransfer.files;
+        //     //要素番号をグローバル変数に格納
+        //     // var name_num = $(this).parent().find('input').attr('name');
 
-            // files.item(0);
+        //     // if (name_num == 'file0') {
+        //     //     span_num = 0;
+        //     // } else if (name_num == 'file1') {
+        //     //     span_num = 1;
+        //     // } else if (name_num == 'file2') {
+        //     //     span_num = 2
+        //     // };
 
-            //要素番号をグローバル変数に格納
-            var name_num = $(this).parent().find('input').attr('name');
+        //     var index = $(this).closest().index();
+        //     console.log(ev);
+        //     console.log($('img'));
 
-            if (name_num == 'file0') {
-                span_num = 0;
-            } else if (name_num == 'file1') {
-                span_num = 1;
-            } else if (name_num == 'file2') {
-                span_num = 2
-            };
+        //     var image = new Image(),
+        //     blobURL = URL.createObjectURL(files);
+  
+        //     image.src = blobURL;
+  
+        //   $(image).on('load', function () {
+        //     //必ず解放してあげないといけない
+  
+  
+        //     URL.revokeObjectURL(blobURL);
+  
+        //     console.log(blobURL);
+  
+        //     $.ajax({
+        //       url: "/laravel/public/js/sample.php",
+        //       type: "GET",
+        //       data: {
+        //         'url': blobURL
+        //       }
+        //     }).done(function(){
+        //       // console.log('Yeeeees');
+        //       // alert('test');
+        //       imageOutput.eq(index).find('.imageText').html(image);
+        //     })
+  
+        //   });
+  
 
-            // files.prototype.length = 0;
+        //     // files.prototype.length = 0;
 
-            var fileReader = new FileReader();
+        //     // var fileReader = new FileReader();
 
-            fileReader.readAsDataURL(files[0]);
-            console.log(fileReader.result);
+        //     // fileReader.readAsDataURL(files[0]);
+        //     // console.log(fileReader.result);
 
-            fileReader.onload = function(files){
-                console.log(files.result);
-                alert('読み込まれてはいる');
-            };
-            checkFiles(files);
-            // return;
-        });
+        //     // fileReader.onload = function(files){
+        //     //     console.log(files.result);
+        //     //     alert('読み込まれてはいる');
+        //     // };
+        //     // checkFiles(files);
+        //     // return;
+        // });
 
         // ----------Clickぞーん----------
 
@@ -116,7 +142,6 @@ $(function () {
     //inputに画像が読み込まれたら
     imageInput.on('change', function (ev) {
         checkFiles(ev.target.files);
-        console.log(ev.target.files);
     });
 
     //画像の拡張子とファイルサイズを調べる
@@ -144,10 +169,149 @@ $(function () {
 
             //要素番号が取得できなかったのでグローバル変数を用いてdivタグにぶちこんでみた
             imageOutput.eq(span_num).find('.imageText').html(image);
-            console.log(blobURL);
         });
 
     };
+
+
+//----------バグのためDrop処理を単体にした----------
+        $Area0.on('drop', function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+    
+            //
+            var InputData = $Area0.find($('[type=file')).get()[0];
+    
+            var files = ev.originalEvent.dataTransfer.files;
+    
+            var index = $(this).index();
+    
+            var image = new Image(),
+            blobURL = URL.createObjectURL(files[0]);
+    
+            image.src = blobURL;
+    
+          $(image).on('load', function () {
+            //必ず解放してあげないといけない
+            URL.revokeObjectURL(blobURL);
+
+            imageOutput.eq(index).find('.imageText').html(image);
+    
+            InputData.files = files;
+
+    
+            // console.log(blobURL);
+    
+            // $.ajax({
+            //   url: "/laravel/public/js/sample.php",
+            //   type: "GET",
+            //   data: {
+            //     'url': blobURL
+            //   }
+            // }).done(function(){
+    
+            //   console.log(imageOutput);
+            //   console.log(InputData);
+      
+            // })
+    
+          });
+    
+    
+        });
+    
+        $Area1.on('drop', function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            
+            var InputData = $Area1.find($('[type=file')).get()[0];
+    
+            var files = ev.originalEvent.dataTransfer.files;
+    
+    
+            var index = $(this).index();
+    
+            var image = new Image(),
+            blobURL = URL.createObjectURL(files[0]);
+    
+            image.src = blobURL;
+    
+          $(image).on('load', function () {
+            //必ず解放してあげないといけない
+            URL.revokeObjectURL(blobURL);
+
+            imageOutput.eq(index).find('.imageText').html(image);
+    
+            InputData.files = files;
+
+    
+            // console.log(blobURL);
+    
+            // $.ajax({
+            //   url: "/laravel/public/js/sample.php",
+            //   type: "GET",
+            //   data: {
+            //     'url': blobURL
+            //   }
+            // }).done(function(){
+            //   imageOutput.eq(index).find('.imageText').html(image);
+    
+            //   InputData.files = files;
+    
+            // })
+    
+          });
+    
+    
+        });
+    
+        $Area2.on('drop', function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+    
+            var InputData = $Area2.find($('[type=file')).get()[0];
+    
+            var files = ev.originalEvent.dataTransfer.files;
+    
+            var index = $(this).index();
+    
+            var image = new Image(),
+            blobURL = URL.createObjectURL(files[0]);
+    
+            image.src = blobURL;
+    
+          $(image).on('load', function () {
+            //必ず解放してあげないといけない
+    
+    
+            URL.revokeObjectURL(blobURL);
+
+            imageOutput.eq(index).find('.imageText').html(image);
+    
+            InputData.files = files;
+
+    
+            // console.log(blobURL);
+    
+            // $.ajax({
+            //   url: "/laravel/public/js/sample.php",
+            //   type: "GET",
+            //   data: {
+            //     'url': blobURL
+            //   }
+            // }).done(function(){
+            //   imageOutput.eq(index).find('.imageText').html(image);
+    
+            //   InputData.files = files;
+    
+            // })
+    
+          });
+    
+        });
+//----------ドロップ処理ここまで----------
+    
+    
 
 });
 
