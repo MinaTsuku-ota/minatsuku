@@ -13,20 +13,9 @@ body{
     left: 0px;
     z-index: 10;
 }
-
-#back{
-  position: relative;
-  top: 73px;
-  left: 40px;
-  
+.sinki_daimei{
+  height: 90px;
 }
-
-
-
-.backbutton {
-  color: #97d3e3;
-}
-
 
 .header-left{
   text-align: center;
@@ -38,22 +27,23 @@ body{
   background-color: #97d3e3;
   color: #fff;
   line-height: 30px;
-  margin-top: 90px;
   margin-bottom: 20px;
   border-radius: 20px;
 }
 
-#login_syoudai{
-  text-align: center;
+#sinki_syoudai{
+  color: #45A1CF;
+ font-size: 25px;
 }
 
-.login_daimei{
- color: #45A1CF;
- font-size: 40px;
+#back{
+  position: relative;
+  top: 82px;
+  left: 10px;
 }
 
-dd{
-  margin-left: 0px;
+.backbutton {
+  color: #97d3e3;
 }
 
 dl {
@@ -61,7 +51,18 @@ dl {
  
 }
 
-#loginsuru{
+
+
+dd{
+  margin-left: 0px;
+}
+
+.kome{
+  color: #808080;
+  padding-top: 5px;
+}
+
+#tourokusuru{
   width: 160px;
   padding: 0.8em;
   text-align: center;
@@ -73,11 +74,11 @@ dl {
   margin-bottom: 0px;
 }
 
-#loginsuru:hover{
+#tourokusuru:hover{
   opacity: 0.8;
 }
 
-#loginsuru:active{
+#tourokusuru:active{
   cursor: pointer;
   text-decoration: none;
   background-color: #ca6900;
@@ -86,38 +87,22 @@ dl {
   border-radius: 10px;
 }
 
-.button{
-  text-align: center;
+
+
+.tyuukikakko{
+  height: 260px;
+  width: 160px;
+  float: right;
 }
 
-#modorubotan{
-  display: inline-block;
-  float: left;
-  margin: 120px 15%;
-  max-width: 180px;
-  text-align: left;
-  border: 2px solid #97d3e3;
-  font-size: 16px;
-  color: #97d3e3;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: .4s;
-}
 
-#modorubotan:hover {
-  background-color: #97d3e3;
-  border-color: #97d3e3;
-  color: #FFF;
-}
 
 section{
   margin: 7% 25%;
   padding: 50px 30px;
   background-color: #fff;
   border-radius: 50px;
-  min-width: 420px;
+  min-width: 430px;
 }
 .syoudai{
   width:80%;
@@ -125,13 +110,13 @@ section{
 }
 
 .nyuuryoku{
-  text-align: center;
   width: 50%;
   line-height: 30px;
 }
 
 select{
   width: 30%;
+  height: 35px;
 }
 
 
@@ -152,7 +137,6 @@ footer ul li{
   margin:40px 60px;
   font-weight: bold;
 }
-
 footer ul li a{
   color: #fff;
 }
