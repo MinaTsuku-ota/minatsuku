@@ -11,16 +11,7 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/D&D.js"></script>
 
-<script src="https://www.google.com/recaptcha/api.js?render={{ config('app.captcha_sitekey') }}"></script>
-<script>
-    grecaptcha.ready(function () {
-        grecaptcha.execute('{{ config('app.captcha_sitekey') }}', { action: 'localhost' }).then(function (token) {
-            if (token) {
-                document.getElementById('recaptcha').value = token;
-            }
-        });
-    });
-</script>
+    @include('recaptcha_js')
 </head>
 <body>
     <div id="wrap">

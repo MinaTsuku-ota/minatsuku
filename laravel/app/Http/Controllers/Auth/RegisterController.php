@@ -62,7 +62,7 @@ class RegisterController extends Controller
         // !! validationに失敗した場合は前の画面へgetメソッドでリダイレクトされる !!
         // これで3時間苦しめられた
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'subject' => ['required'],
