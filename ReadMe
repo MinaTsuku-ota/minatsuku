@@ -120,6 +120,8 @@ php artisan db:seed
 9..google reCAPTCHA v3を導入する。laravelフォルダにて以下のコマンド
 composer require google/recaptcha
 
+10..reCAPTCHAの為にホストネーム(ローカルIPアドレス)を登録する:伊計にご連絡を
+
 「.env」に以下の行を追加
 RECAPTCHA_SITEKRY={サイトキー}
 RECAPTCHA_SECRET={シークレットキー}
