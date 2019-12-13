@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../laravel/public/css/new_common.css">
     <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <script src="../laravel/public/js/jquery-3.4.1.min.js"></script>
-    <script src="../laravel/public/js/jquery-ui.min.js"></script>
-    <script src="../laravel/public/js/comment.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/comment.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -43,18 +43,18 @@
 
 
         <div class="navBox">
-            <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
+            <input type="radio" name="tabs" id="tab01" class="radioboxNone" checked="checked">
             <label for="tab01" class="label01 janru">HOME</label>
-            <input type="radio" name="tabs" id="tab02" class="menu02">
+            <input type="radio" name="tabs" id="tab02" class="radioboxNone">
             <label for="tab02" class="label02 janru">WEB</label>
-            <input type="radio" name="tabs" id="tab03" class="menu03">
+            <input type="radio" name="tabs" id="tab03" class="radioboxNone">
             <label for="tab03" class="label03 janru">写真</label>
-            <input type="radio" name="tabs" id="tab04" class="menu04">
+            <input type="radio" name="tabs" id="tab04" class="radioboxNone">
             <label for="tab04" class="label04 janru">動画</label>
 
         <section class="homeContent clearfix">
 
-        <div class="toukouPanel">
+        <div id="toukouPanel">
 
             <p>投稿</p>
             
@@ -171,7 +171,7 @@
             
         </div>
 
-        <div class="commentPanel">
+        <div id="commentPanel">
 
             <p>NEW コメント</p>
                 
