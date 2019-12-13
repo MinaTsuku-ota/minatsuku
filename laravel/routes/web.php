@@ -35,9 +35,12 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 // Route::get('articles/{id}/edit', 'ArticlesController@edit')->name('articles.edit');  // 記事の編集
 // Route::patch('articles/{id}', 'ArticlesController@update')->name('articles.update');  // 記事の更新 メソッド:patch
 // Route::delete('articles/{id}', 'ArticlesController@destroy')->name('articles.destroy'); // 記事の削除
-Route::delete('articles/{id}','DashboardController@destroy')->name('articles.destroy');
 // 上7行は1行で
 Route::resource('articles', 'ArticlesController');
+
+// ご意見ページ用
+Route::get('opinion', 'OpinionController@show')->name('opinion');
+Route::post('opinion', 'OpinionController@post')->name('opinion');
 
 // 認証関連のルート設定
 Auth::routes();
@@ -45,6 +48,7 @@ Auth::routes();
 
 // マイページ用
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+// dashboardでgoogle reCAPTHA v3を使ってみる
 Route::post('dashboard', 'DashboardController@dashboard_post')->name('dashboard.post');
 
 // テスト用ページ 既にあったPagesControllerを再利用
@@ -53,8 +57,3 @@ Route::post('test', 'PagesController@post')->name('test.post');
 // ajaxテスト用
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
-
-// Route::get('articles/{id}/edit', 'DashboardController@edit');
-// Route::patch('articles/{id}', 'DashboardController@update');
-// dashboardでgoogle reCAPTHA v3を使ってみる
-// Route::post('dashboard', 'DashboardController@send')->name('dashboard');
