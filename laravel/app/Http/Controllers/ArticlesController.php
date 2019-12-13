@@ -69,11 +69,14 @@ class ArticlesController extends Controller
     public function store(ArticleRequest $request)
     {
         // 画像はここでバリデート
-        // $request->validate([
-        //     'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-        //     'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-        //     'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-        // ]);
+        $request->validate([
+            // 'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            // 'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            // 'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'image1' => 'file|image',
+            'image2' => 'file|image',
+            'image3' => 'file|image',
+        ]);
 
         // // captcha data request
         // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
