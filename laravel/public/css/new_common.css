@@ -127,7 +127,7 @@ body{
      margin:100px;
  }
 
- .navBox input{
+ /* .navBox input{
      cursor: pointer;
      position: absolute;
      top: 0px;
@@ -135,8 +135,11 @@ body{
      width: 137px;
      height: 44px;
      opacity: 0;
+ } */
+ .navBox input{
+     display: none;
+     cursor: pointer;
  }
-
  .navBox input#tab02{
     left: 154px;
  }
