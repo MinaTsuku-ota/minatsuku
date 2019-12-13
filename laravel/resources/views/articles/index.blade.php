@@ -13,17 +13,17 @@
 @section('content')
 <div id="contens">
     <div class="navBox">
-        <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
+        <input type="radio" name="tabs" id="tab01" class="radioboxNone" checked="checked">
         <label for="tab01" class="label01 janru">HOME</label>
-        <input type="radio" name="tabs" id="tab02" class="menu02">
+        <input type="radio" name="tabs" id="tab02" class="radioboxNone">
         <label for="tab02" class="label02 janru">WEB</label>
-        <input type="radio" name="tabs" id="tab03" class="menu03">
+        <input type="radio" name="tabs" id="tab03" class="radioboxNone">
         <label for="tab03" class="label03 janru">写真</label>
-        <input type="radio" name="tabs" id="tab04" class="menu04">
+        <input type="radio" name="tabs" id="tab04" class="radioboxNone">
         <label for="tab04" class="label04 janru">動画</label>
 
         <section class="homeContent clearfix">
-        	<div class="toukouPanel">
+        	<div id="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
                 @foreach($articles as $article)
@@ -57,7 +57,7 @@
                 @endforeach
                 {{ $articles->onEachSide(2)->links()}}
         	</div>
-            <div class="commentPanel">
+            <div id="commentPanel">
                 <p>NEW コメント</p>
                 {{-- コメント --}}
                 @for($i=1;$i<=1;$i++)

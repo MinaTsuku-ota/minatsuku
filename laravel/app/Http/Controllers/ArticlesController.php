@@ -89,6 +89,7 @@ class ArticlesController extends Controller
         //     abort(403);
         //     // dd($response);
         // }
+        recaptcha($request); // helper.php参照
 
         // フォームの入力値を取得
         // $inputs = \Request::all();

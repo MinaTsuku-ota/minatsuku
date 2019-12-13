@@ -107,6 +107,7 @@ class RegisterController extends Controller
         //     // abort(403);
         //     dd($response);
         // }
+        recaptcha($request); // helper.php参照
 
         event(new Registered($user = $this->create($request->all())));
 

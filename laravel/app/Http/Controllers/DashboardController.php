@@ -42,11 +42,12 @@ class DashboardController extends Controller
             'text' => 'required',
         ]);
         
-        // captcha data request
-        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        ->setExpectedAction('localhost')
-        // ->setScoreThreshold(0.5)
-        ->verify($request->input('recaptcha'), $request->ip());
+        // // captcha data request
+        // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
+        // ->setExpectedAction('localhost')
+        // // ->setScoreThreshold(0.5)
+        // ->verify($request->input('recaptcha'), $request->ip());
+        $response = recaptcha($request); // helper.php参照
 
         // $responseによって条件判断
         if (!$response->isSuccess()) {
