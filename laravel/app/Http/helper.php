@@ -12,14 +12,14 @@ function delete_form($url, $label = '削除')
 function recaptcha($request){
     // captcha data request
     $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        ->setExpectedAction('localhost')
+        ->setExpectedAction('recaptcha_action')
         // ->setScoreThreshold(0.5)
         ->verify($request->input('recaptcha'), $request->ip());
 
     // $responseによって条件判断
     if (!$response->isSuccess()) {
-        abort(403);
-        // dd($response);
+        // abort(403);
+        dd($response);
     }
     return $response;
 }

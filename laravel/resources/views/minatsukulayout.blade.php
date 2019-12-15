@@ -26,7 +26,7 @@
     @include('header')
 
     <main>
-        <!-- header dummy-->
+        <!-- header dummy -->
         @include('header_dummy')
 
         {{-- フラッシュメッセージの表示 --}}
@@ -45,14 +45,14 @@
     @include('footer')
 </div>
 
+{{--
+    アラート条件:
+    ログインしているが編集権限が無い
+    記事を削除した
+    記事を追加した
+--}}
 @if (session('message'))
-<script>alert({{ session('message') }});</script>
-@endif
-
-{{-- 編集権限が無い場合にアラート --}}
-{{-- 何かしら文字が入っていないとfalseになるので注意。valueを使わないとしてもkeyだけではだめ --}}
-@if(session('no_edit_permission'))
-    <script>alert('編集権限がないよ!');</script>
+<script>alert('{{ session('message') }}');</script>
 @endif
 
 </body>

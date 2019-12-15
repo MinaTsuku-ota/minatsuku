@@ -24,6 +24,7 @@ class ArticlesController extends Controller
     }
 
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
+    // public function index()
     public function index()
     {
         // $articles = Article::all();
@@ -78,7 +79,7 @@ class ArticlesController extends Controller
             'image3' => 'file|image',
         ]);
 
-        // helper.php参照
+        // app/Http/helper.php
         recaptcha($request);
 
         // フォームの入力値を取得
@@ -143,7 +144,8 @@ class ArticlesController extends Controller
             return view('articles.edit', compact('article'));
         } else {
             // 編集の権限がない場合は記事一覧へ飛ばす(暫定)
-            return redirect()->route('articles.index')->with('no_edit_permission', 'no_edit_permission');
+            // 注意: with()に値をいれないとnullになってしまう
+            return redirect()->route('articles.index')->with('message', '編集権限が無いよ!');
         }
 
         // return view('articles.edit', compact('article'));
