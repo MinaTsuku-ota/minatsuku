@@ -54,17 +54,8 @@ class PagesController extends Controller
             'text' => 'required',
         ]);
 
-        // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        // ->setExpectedAction('localhost')
-        // // ->setScoreThreshold(0.5)
-        // ->verify($request->input('recaptcha'), $request->ip());
-
-        // // $responseによって条件判断
-        // if (!$response->isSuccess()) {
-        //     abort(403);
-        //     // dd($response);
-        // }
-        $response = recaptcha($request); // helper.php参照
+        // helper.php参照
+        $response = recaptcha($request);
         if ($response->getScore() < 0.6) {
             return response()->view('test', ['status' => false]);
         }

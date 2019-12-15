@@ -17,6 +17,13 @@
 	"html.format.endWithNewline": true,
 	"emmet.triggerExpansionOnTab": true, // enable tab to expanse emmet tags
 	"blade.format.enable": true,
+	"workbench.enableExperiments": false,
+	"workbench.settings.enableNaturalLanguageSearch": false,
+	"typescript.disableAutomaticTypeAcquisition": true,
+	"extensions.showRecommendationsOnlyOnDemand": true,
+	"telemetry.enableCrashReporter": false,
+	"telemetry.enableTelemetry": false,
+	"npm.fetchOnlinePackageInfo": false,
 	// "beautify.language": {
 	//     "js": {
 	//         "type": [

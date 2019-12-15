@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td colspan="6" height="180px">詳細説明<br/>{{ $article->body }}</td>
-                        <td colspan="4" height="180px"><img src="{{ asset('storage/'.$article->image1) }}" alt="no_image"></td>
+                        <td colspan="4" height="180px"><img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>

@@ -41,13 +41,9 @@ class DashboardController extends Controller
         $this->validate($request, [
             'text' => 'required',
         ]);
-        
-        // // captcha data request
-        // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        // ->setExpectedAction('localhost')
-        // // ->setScoreThreshold(0.5)
-        // ->verify($request->input('recaptcha'), $request->ip());
-        $response = recaptcha($request); // helper.php参照
+
+        // helper.php参照
+        $response = recaptcha($request);
 
         // $responseによって条件判断
         if (!$response->isSuccess()) {
@@ -82,5 +78,5 @@ class DashboardController extends Controller
     //     $article->update($request->validated());
 
     //     return redirect(url('dashboard', [$article->id]));
-    // } 
+    // }
 }

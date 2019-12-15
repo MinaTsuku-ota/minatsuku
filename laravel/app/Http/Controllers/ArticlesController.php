@@ -78,18 +78,8 @@ class ArticlesController extends Controller
             'image3' => 'file|image',
         ]);
 
-        // // captcha data request
-        // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        // ->setExpectedAction('localhost')
-        // // ->setScoreThreshold(0.5)
-        // ->verify($request->input('recaptcha'), $request->ip());
-
-        // // $responseによって条件判断
-        // if (!$response->isSuccess()) {
-        //     abort(403);
-        //     // dd($response);
-        // }
-        recaptcha($request); // helper.php参照
+        // helper.php参照
+        recaptcha($request);
 
         // フォームの入力値を取得
         // $inputs = \Request::all();
@@ -124,13 +114,13 @@ class ArticlesController extends Controller
         // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
         // basename()はパスの最下層の名前を返す(拡張子含む)
         if ($request->hasFile('image1')) {
-            $article->image1 = basename($request->image1->store('public'));
+            $article->image1 = basename($request->image1->store('public/uploaded_images'));
         }
         if ($request->hasFile('image2')) {
-            $article->image2 = basename($request->image2->store('public'));
+            $article->image2 = basename($request->image2->store('public/uploaded_images'));
         }
         if ($request->hasFile('image3')) {
-            $article->image3 = basename($request->image3->store('public'));
+            $article->image3 = basename($request->image3->store('public/uploaded_images'));
         }
         $article->save();
 
@@ -147,6 +137,7 @@ class ArticlesController extends Controller
         // return view('articles.edit', compact('article, tag_list'));
 
         // ユーザに編集の権限があるかチェック
+        // ログインしていない場合はコンストラクタのmiddleware('auth')によってログイン画面へ
         if ($article->user_id == Auth::user()->id) {
             // 編集の権限があれば編集画面へ
             return view('articles.edit', compact('article'));
@@ -176,16 +167,16 @@ class ArticlesController extends Controller
     { // $id から $article へ変更
         // $id で記事を検索し、delete() メソッドで削除しています
         // $article = Article::findOrFail($id);
-        
+
         // 画像の削除
         if(isset($article->image1)){
-            Storage::disk('public')->delete($article->image1);
+            Storage::disk('public/uploaded_images')->delete($article->image1);
         }
         if(isset($article->image2)){
-            Storage::disk('public')->delete($article->image2);
+            Storage::disk('public/uploaded_images')->delete($article->image2);
         }
         if(isset($article->image3)){
-            Storage::disk('public')->delete($article->image3);
+            Storage::disk('public/uploaded_images')->delete($article->image3);
         }
         // 記事レコードを削除
         $article->delete();

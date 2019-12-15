@@ -30,9 +30,9 @@ class UpdateUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->dropUnique('users_name_unique');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->dropUnique('users_name_unique');
         });
     }
 }
