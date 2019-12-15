@@ -28,7 +28,7 @@ class ArticleRequest extends FormRequest
     // rules メソッドでは、バリデーションルールを返します
     public function rules()
     {
-        return [  // ②
+        return [
             'title' => 'required|min:3',
             'body' => 'required',
             // 'published_at' => 'required|date',
