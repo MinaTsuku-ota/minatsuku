@@ -45,6 +45,10 @@ https://www.youtube.com/playlist?list=PLh6V6_7fbbo_M3CqTeJvuXB08--fibyBu 「Git+
 https://laravel10.wordpress.com/ 「ララ帳」
 https://blog.capilano-fw.com/?p=665#i-2 「Laravel・データベースからデータ取得する全実例 – console dot log」
 
+https://higehito.qrunch.io/entries/DOthrJZ1hPaBV2jQ 「XAMPPで立ち上げたローカルサーバーとSSL通信をしたい。オレオレ証明書で - 髭人学習帳(仮)」
+https://qiita.com/sutara79/items/21a068494bc3a08a4803「XAMPP for WindowsでSSLを有効にする - Qiita」
+
+
 /*** Laravel環境設定 ***/
 ローカル環境下ではいくつか自前で用意する必要がある
 0...xampp(https://www.apachefriends.org/jp/index.html)をダウンロード(ReadMe記載時のバージョンは7.3.11)
@@ -121,9 +125,9 @@ php artisan db:seed
 9..google reCAPTCHA v3を導入する。laravelフォルダにて以下のコマンド
 composer require google/recaptcha
 
-10..reCAPTCHAの為にホストネーム(ローカルIPアドレス)を登録する:伊計にご連絡を
+10..reCAPTCHAの為にホストネーム(ローカルIPアドレス)を登録する:一旦サーバチームにご連絡を(recaptcha関連でエラーが出ていないなら登録済み)
 
-「.env」に以下の行を追加
+11..「.env」に以下の行を追加
 RECAPTCHA_SITEKRY={サイトキー}
 RECAPTCHA_SECRET={シークレットキー}
 {サイトキー}、{シークレットキー}については聞いてください
@@ -136,42 +140,6 @@ php artisan db:seed // seederで用意した初期値でレコードを登録す
 ~~~おまじない~~~
 composer dump-autoload (下のcomposer関連)
 
-(コマンドメモ)
-/*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)
-php artisan list // artisanコマンドリストを表示
-php artisan route:list // ルートリストを表示
-
-php artisan make:model Image -m -c -r // テーブルに対するモデルに加えて、migrationファイル、コントローラを自動生成
-php artisan make:controller CONTROLLER_NAME // コントローラ作成
-
-php artisan make:migration create_TABLENAME_table // テーブルを作成するマイグレーションの作成
-php artisan make:migration add_COLUMNNAME_to_TABLENAME_table --table=TABLENAME // テーブルの変更を行うマイグレーションの作成
-例)php artisan make:migration update_users_table --table=users
-php artisan migrate // マイグレーション実行
-php artisan migrate:rollback // マイグレーションを1つ戻す
-php artisan migrate:refresh // reset + migrate ※テーブルの中身は全て消える
-php artisan db:seed // ダミーデータの挿入
-
-php artisan make:model Somemodel // モデル作成
-php artisan make:seeder SometableTableSeeder // Seeder作成
-php artisan make:factory SamtableFactory // Factory作成
-php artisan make:request SometableRequest // Form Request作成 送られてくるリクエストに対してバリデーションを行う時に使う
-php artisan make:middleware Somemiddleware // ミドルウェア作成
-
-/*** tinker関連 ***/
-php artisan tinkerでtinkerを実行
-\App\User::all()->toArray(); // ユーザ一覧の取得
-
-/*** モデル関連 ***/
-protected $fillable = ['カラム1', 'カラム2', ...]; // マスアサインメントは$fillableに。
-protected $dates = ['カラム1', 'カラム2']; // 日付ミューテータは$datesに。
-getカラム名Attribute() // アクセサメソッドはこう書く。メソッド名だけ書いて中身がないと取り出せない
-setカラム名Attribute() // ミューテータメソッド名はこう書く。メソッド名だけ書いて中身がないとセットできない
-
-/** composer関連 **/
-(autoload設定にて)
-composer.json の自動ロード設定を変更した後は以下のコマンドで設定を反映する必要があります
-composer dump-autoload
 
 (その他メモ)
 ローカルブランチをリモートへのプッシュは
