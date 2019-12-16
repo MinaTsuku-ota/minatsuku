@@ -13,6 +13,10 @@ $(function() {
         $Area1 = $('#Area1'),
         $Area2 = $('#Area2');
 
+    //fileListの格納場所
+    var $file0 = $Area0.find('[type=file]'),
+        $file1 = $Area1.find('[type=file]'),
+        $file2 = $Area2.find('[type=file]');
 
     //各imageAreaに関数を反映
     imageArea.each(function() {
@@ -75,7 +79,9 @@ $(function() {
 
         var InputData = $(this).get()[0];
         console.log(InputData);
+
         InputData.files = ev.files;
+        $(this).get()[0].files = ev.files;
         console.log(InputData.files)
 
         checkFiles(ev.target.files);
@@ -238,7 +244,22 @@ $(function() {
 
     //----------ドロップ処理ここまで----------
 
+    //submitクリック時に無理やり取得しているfileデータをphpに飛ばす
+    $('.STbtnChild').on('click', function() {
 
+        $.ajax({
+            url: 'sample.php',
+            type: 'GET',
+            datatype: 'json',
+            data: $file0,
+            $file1,
+            $file2
+        }).done(function(data) {
+            console.log('success');
+        });
+
+        console.log($file0, $file1, $file2);
+    });
 
 });
 
