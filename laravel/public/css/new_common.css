@@ -112,40 +112,14 @@ body {
     left: 0;
 }
 
-#content {
-    width: 958px;
-    /* height: 850px; */
-    border: dashed 1px #999;
-    margin: 10px 0;
-}
-
 .navBox {
-    position: relative;
     width: 850px;
     margin: 100px;
 }
 
-
-/* .navBox input {
+.radioboxNone {
+    display: none;
     cursor: pointer;
-    position: absolute;
-    top: 0px;
-    left: 14px;
-    width: 137px;
-    height: 44px;
-    opacity: 0;
-} */
-
-.navBox input#tab02 {
-    left: 154px;
-}
-
-.navBox input#tab03 {
-    left: 294px;
-}
-
-.navBox input#tab04 {
-    left: 431px;
 }
 
 .home_daimei {
@@ -174,22 +148,18 @@ body {
 .navBox label.label01 {
     margin-left: 14px;
     background-color: #b22222;
-    background: -webkit-gradient(linear, left top, left bottm, from(red), to(red));
 }
 
 .navBox label.label02 {
     background-color: #008b8b;
-    background: -webkit-gradient(linear, left top, left bottm, from(royalblue), to(royalblue));
 }
 
 .navBox label.label03 {
     background-color: #ffcc33;
-    background: -webkit-gradient(linear, left top, left bottm, from(yellow), to(yellow));
 }
 
 .navBox label.label04 {
     background-color: #2e8b57;
-    background: -webkit-gradient(linear, left top, left bottm, from(#f0e68c), to(green));
 }
 
 .navBox label:after {
@@ -228,15 +198,6 @@ body {
     padding: 10px 50px 20px;
 }
 
-.navBox input.menu01:checked~.homeContent .homeContent .clearfix,
-.navBox input.menu02:checked~.homeContent .content02,
-.navBox input.menu03:checked~.homeContent .content03,
-.navBox input.menu04:checked~.homeContent .content04 {
-    opacity: 1;
-    -webkit-transition: all ease-out 0.4s 0.4s;
-    transition: all ease-out 0.4s 0.4s;
-}
-
 .homeContent {
     width: 850px;
     height: auto;
@@ -245,7 +206,6 @@ body {
     z-index: 5;
     box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 0 3px 3px 3px;
-    /* background-color: peachpuff; */
 }
 
 .clearfix::after {
@@ -254,7 +214,7 @@ body {
     clear: both;
 }
 
-.toukouPanel {
+#toukouPanel {
     margin: 10px 10px;
     float: left;
     width: 500px;
@@ -265,7 +225,7 @@ body {
     /*角の丸み*/
 }
 
-.toukouPanel p {
+#toukouPanel p {
     text-align: center;
     margin-top: 0;
     margin-bottom: 10px;
@@ -276,7 +236,7 @@ body {
     border-radius: 5px;
 }
 
-.commentPanel {
+#commentPanel {
     margin: 10px 10px;
     float: right;
     width: 290px;
@@ -287,7 +247,7 @@ body {
     /*角の丸み*/
 }
 
-.commentPanel p {
+#commentPanel p {
     text-align: center;
     margin-top: 0;
     color: #ffffff;
@@ -323,19 +283,15 @@ table.comment {
 }
 
 
-/*comment.jsに必要なcssここから*/
+/* コメント表示機能 */
 
 .comment_none {
     display: none;
-    background: #996633;
 }
 
 .comment_none li {
     list-style-type: none;
 }
-
-
-/*comment.jsに必要なcssここまで*/
 
 footer {
     width: 100%;
