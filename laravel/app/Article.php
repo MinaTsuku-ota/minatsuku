@@ -48,4 +48,10 @@ class Article extends Model
     {
         return $this->belongsTo('App\Genre');
     }
+    
+    //commentに一対多の関係
+    public function comment()
+    {
+        return $this->belongsTo('App\Comment');
+    }
 }

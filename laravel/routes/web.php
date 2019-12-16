@@ -23,6 +23,7 @@
 // Route::get('/', 'ArticlesController@index')->name('home');
 
 // root
+
 Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('about', 'PagesController@about')->name('about');
@@ -53,6 +54,8 @@ Route::post('test', 'PagesController@post')->name('test.post');
 // ajaxテスト用
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
+
+Route::post('articles', 'ArticlesController@comment');
 
 // Route::get('articles/{id}/edit', 'DashboardController@edit');
 // Route::patch('articles/{id}', 'DashboardController@update');

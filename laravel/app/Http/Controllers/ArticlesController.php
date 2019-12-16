@@ -172,15 +172,15 @@ class ArticlesController extends Controller
     { // $id から $article へ変更
         // $id で記事を検索し、delete() メソッドで削除しています
         // $article = Article::findOrFail($id);
-        
+
         // 画像の削除
-        if(isset($article->image1)){
+        if (isset($article->image1)) {
             Storage::disk('public')->delete($article->image1);
         }
-        if(isset($article->image2)){
+        if (isset($article->image2)) {
             Storage::disk('public')->delete($article->image2);
         }
-        if(isset($article->image3)){
+        if (isset($article->image3)) {
             Storage::disk('public')->delete($article->image3);
         }
         // 記事レコードを削除
@@ -193,5 +193,13 @@ class ArticlesController extends Controller
     public function id()
     {
         return $this->hasOne('App\id');
+    }
+    //コメントの保存
+    public function comment()
+    {
+        $inputs = \Request::all();
+        Comment::create($inputs);
+
+        return redirect('articles');
     }
 }

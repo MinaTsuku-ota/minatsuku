@@ -37,11 +37,18 @@
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
-                            <td colspan="1" class="comment_button">コメント</td>
-                            <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
-                            <td colspan="5">科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}</td>
+                            <td colspan="1" class="comment_button">コメント</br>
+                                {{ App\comment::find($article->id)->comment }}
+                            <form action="{{ url('articles.index') }}" method="POST">
+                            {{ csrf_field() }}
+                        <textarea rows="2" name="comment"></textarea>
+                    <button type="submit" name="コメントする">
+                    </button>
+                </form>
+                    </td>
+                        <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="5">科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}</td>
                         </tr>
-
                         <tr class="comment-none">
                             <td colspan="10">
                                 <ul>
