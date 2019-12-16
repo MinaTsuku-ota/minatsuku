@@ -24,7 +24,6 @@ $(function() {
             ev.stopPropagation();
 
             //dataTransferがJQOによって使えないので.originalEventとして使えるようにする
-
             ev.originalEvent.dataTransfer.dropEffect = 'copy';
 
             $(this).addClass('dropCSS');
@@ -55,18 +54,8 @@ $(function() {
         //要素番号をグローバル変数に格納
         var thisParent = $(this).parent();
 
-        // var name_num = thisParent.find('input').attr('name');
-
-        // if (name_num == 'file0') {
-        //     span_num = 0;
-        // } else if (name_num == 'file1') {
-        //     span_num = 1;
-        // } else if (name_num == 'file2') {
-        //     span_num = 2
-        // };
         span_num = thisParent.index();
 
-        console.log(span_num);
         thisParent.find('[type="file"]').click();
     });
 
@@ -74,9 +63,8 @@ $(function() {
     imageInput.on('change', function(ev) {
 
         var InputData = $(this).get()[0];
-        console.log(InputData);
-        InputData.files = ev.files;
-        console.log(InputData.files)
+
+        InputData.files = ev.filesList;
 
         checkFiles(ev.target.files);
     });
@@ -85,8 +73,8 @@ $(function() {
     function checkFiles(files) {
         var file = files[0];
 
-        if (!file || file.type.indexOf('image/') < 0) {
-            alert('画像形式が異なります!');
+        if (file.type.indexOf('image/') < 0) {
+            alert('画像形式がimage/*ではありません!');
         };
 
         outputImage(file);
@@ -107,8 +95,6 @@ $(function() {
             //要素番号が取得できなかったのでグローバル変数を用いてdivタグにぶちこんでみた
             imageOutput.eq(span_num).find('.imageText').html(image);
 
-
-
         });
 
     };
@@ -121,9 +107,6 @@ $(function() {
         ev.preventDefault();
         ev.stopPropagation();
 
-        console.log('drop');
-
-        //
         var InputData = $Area0.find($('[type=file')).get()[0];
         console.log(InputData);
         var files = ev.originalEvent.dataTransfer.files;
