@@ -15,10 +15,12 @@ class CreateFavsTable extends Migration
     {
         Schema::create('favs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+            $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')
             ->references('id')
             ->on('articles')
