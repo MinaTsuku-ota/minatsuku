@@ -55,4 +55,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\comment');
     }
 
+    public function favs()
+    {
+        return $this->hasMany(fav::class);
+    }
+
 }

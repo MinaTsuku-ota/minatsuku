@@ -54,4 +54,14 @@ class Article extends Model
     {
         return $this->belongsTo('App\Comment');
     }
+
+    public function favs()
+    {
+        return $this->hasMany('App\favs');
+    }
+
+    public function fav_by()
+    {
+        return fav::where('user_id', Auth::user()->id)->first();
+    }
 }

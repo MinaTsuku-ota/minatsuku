@@ -29,6 +29,7 @@ class CreateArticlesTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->integer('favs_count')->default(0);
         });
     }
 

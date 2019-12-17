@@ -59,6 +59,9 @@ Route::post('test', 'PagesController@post')->name('test.post');
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
 
+//fav機能
+Route::post('articles/{article}/fav', 'ArticleController@');
+
 // Route::get('articles/{id}/edit', 'DashboardController@edit');
 // Route::patch('articles/{id}', 'DashboardController@update');
 // dashboardでgoogle reCAPTHA v3を使ってみる

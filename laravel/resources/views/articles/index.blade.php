@@ -38,11 +38,11 @@
                         <tr>
                             <td colspan="1">いいね</td>
                             <td colspan="1" class="comment_button">コメント</br>
-                                {{ App\comment::where('article_id', $article->id)->select('comment')->get() }}
+                                {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                             <form action="{{ url('articles.index') }}" method="POST">
                             {{ csrf_field() }}
                         <textarea rows="2" name="comment"></textarea>
-                    <button type="submit" name="コメントする">
+                    <button type="submit" name="comment">
                     </button>
                 </form>
                     </td>
