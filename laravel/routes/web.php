@@ -58,7 +58,6 @@ Route::post('test', 'PagesController@post')->name('test.post');
 // ajaxテスト用
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
-<<<<<<< HEAD
 
 Route::post('articles', 'ArticlesController@comment');
 
@@ -66,5 +65,3 @@ Route::post('articles', 'ArticlesController@comment');
 // Route::patch('articles/{id}', 'DashboardController@update');
 // dashboardでgoogle reCAPTHA v3を使ってみる
 // Route::post('dashboard', 'DashboardController@send')->name('dashboard');
-=======
->>>>>>> 6ea7c78ad0b3f83028d976e4e5e3efaf903598ea
