@@ -46,12 +46,26 @@
                     </dt>
                     <dd><input type="text" name="name" id="name" class="nyuuryoku" required value="{{ old('name') }}"
                             autocomplete="name" autofocus></dd>
+                    {{-- バリデーション関連(https://readouble.com/laravel/6.x/ja/validation.html) --}}
+                    @error('name')
+                    <script>
+                        alert('{{ $message }}');
+
+                    </script>
+                    @enderror
                     <dt>
                         <label for="password">
                             <div class="daimei">パスワード</div>
                         </label>
                     </dt>
-                    <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
+                    <dd><input type="password" name="password" id="password" class="nyuuryoku"
+                            autocomplete="current-password" required></dd>
+                    @error('password')
+                    <script>
+                        alert('{{ $message }}');
+
+                    </script>
+                    @enderror
                 </dl>
                 <div class="login">
                     <p class="button"><input type="submit" value="ログイン" id="loginsuru"></p>
