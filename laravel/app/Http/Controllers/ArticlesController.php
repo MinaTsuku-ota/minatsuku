@@ -191,18 +191,5 @@ class ArticlesController extends Controller
     {
         return $this->hasOne('App\id');
     }
-    //コメントの保存
-    public function comment()
-    {
-        $inputs = \Request::all();
-        Comment::create($inputs);
 
-        return redirect('articles');
-    }
-
-    public function comments()
-    {
-        $comments = Article::latest('created_at');
-        return view('articles.index', compact('comments'));
-    }
 }

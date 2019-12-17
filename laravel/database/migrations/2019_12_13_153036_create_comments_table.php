@@ -19,13 +19,14 @@ class CreateCommentsTable extends Migration
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
-            
-            $table->timestamps();
-            $table->text('comment');
+            $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')
             ->references('id')
             ->on('articles')
             ->onDelete('cascade');
+            $table->timestamps();
+            $table->text('comment');
+ 
 
 
         });
