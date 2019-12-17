@@ -127,7 +127,7 @@
                                 </table>
                             </div>
                             <!-- Preview area End -->
-                            
+
                             <div class="STbtn">
                                 {{-- <a href="#" class="STbtnChild">投稿</a> --}}
                                 {{-- 一旦inputタグにする --}}

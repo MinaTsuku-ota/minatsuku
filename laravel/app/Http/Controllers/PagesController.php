@@ -5,8 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Image;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ArticleRequest;
+
 class PagesController extends Controller
 {
+    // ミドルウェアの設定
+    public function __construct()
+    {
+        // indexとshowビュー以外にauthを適用
+        // auth:ログインしていなかったらloginビューへリダイレクト
+        $this->middleware('auth');
+    }
+
     public function about(){
         // 配列に値をセット
         // $data = [];
@@ -54,8 +65,7 @@ class PagesController extends Controller
             'text' => 'required',
         ]);
 
-        // helper.php参照
-        $response = recaptcha($request);
+        $response = recaptcha($request); // helper.php参照
         if ($response->getScore() < 0.6) {
             return response()->view('test', ['status' => false]);
         }
@@ -103,5 +113,33 @@ class PagesController extends Controller
     // ajaxテスト用(ボタンクリックGET)
     public function ajaxtest_get(){
         return view('ajaxtest.sample');
+    }
+
+    // ドラッグアンドドロップテスト用
+    public function ddtest(){
+        $this->middleware('auth');
+        return view('test_dd.ddtest');
+    }
+
+    // ドラッグアンドドロップテスト用(送信)
+    public function ddtest_post(ArticleRequest $request){
+        recaptcha($request); // app/Http/helper.php
+
+        // 画像はここでバリデート
+        $request->validate([
+            'image1' => 'file|image',
+            'image2' => 'file|image',
+            'image3' => 'file|image',
+        ]);
+
+        $article = Auth::user()->articles()->create($request->validated());
+
+        if ($request->image) {
+            $article->image1 = basename($request->image->store('public/uploaded_images'));
+        }
+        $article->save();
+
+        // dd($request->image); // デバッグ
+        return redirect()->route('articles.index')->with('message', '送信完了(ﾟДﾟ)');
     }
 }
