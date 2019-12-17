@@ -14,5 +14,6 @@ class OpinionController extends Controller
     // ご意見ご要望の投稿処理
     public function post(){
         //
+        return redirect()->route('opinion')->with('message', '送信完了☆。');
     }
 }

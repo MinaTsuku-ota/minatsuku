@@ -24,6 +24,9 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected $maxAttempts = 5;     // ログイン試行回数（回）
+    protected $decayMinutes = 1;   // ログインロックタイム（分）
+
     /**
      * Where to redirect users after login.
      *
@@ -65,8 +68,10 @@ class LoginController extends Controller
         return redirect()->route('articles.index');
     }
 
-        /**
+    /**
      * Handle a login request to the application.
+     * ログイン時にの動作
+     * Illuminate\Foundation\Auth\AuthenticatesUsersのloginメソッドをオーバーライドする
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
