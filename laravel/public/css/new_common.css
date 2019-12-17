@@ -294,18 +294,19 @@ table.comment {
 }
 
 .comment_none li {
-    list-style-type: none;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    padding: 0.5em 1em;
     height: auto;
-    text-align: left;
+    list-style-type: none;
     border-left: 5px solid #996633;
     border-radius: 9px;
+    margin-top: 1em;
+    margin-right: 30px;
+    margin-bottom: 0.5em;
+    padding: 0.5em 1em;
     background: #f5deb3;
     background-image: url('../image/kitcut.png');
-    margin-right: 30px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    letter-spacing: 1px;
 }
 
 .comment_none li:first-child {
@@ -315,6 +316,7 @@ table.comment {
     border-radius: 0;
     background: #f5deb3;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    letter-spacing: 0;
 }
 
 .comment_none .comment_text {
