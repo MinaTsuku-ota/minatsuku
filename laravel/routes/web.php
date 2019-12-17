@@ -41,7 +41,7 @@ Route::resource('articles', 'ArticlesController');
 
 // ご意見ページ用
 Route::get('opinion', 'OpinionController@show')->name('opinion');
-Route::post('opinion', 'OpinionController@post')->name('opinion');
+Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
 
 // 認証関連のルート設定
 Auth::routes();
