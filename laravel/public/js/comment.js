@@ -38,15 +38,21 @@ $(function() {
             var comment_data = thisParent.find('.comment_text').val();
             var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
 
-            $(comments).appendTo(thisParentParent);
+            // $(comments).appendTo(thisParentParent);
+
+            // $.ajaxSetup({
+            //     type: "POST",
+            //     timeout: 10000,
+            // });
 
             $.ajax({
                 url: 'sample.php',
                 type: 'GET',
                 datatype: 'text',
-                data: comment_data
-            }).done(function() {
-                console.log('success');
+                data: comment_data,
+            }).done(function(data) {
+                $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
+                console.log(data);
             })
 
             console.log(comment_data);
