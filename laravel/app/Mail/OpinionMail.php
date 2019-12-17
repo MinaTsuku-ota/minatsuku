@@ -35,9 +35,9 @@ class OpinionMail extends Mailable
         // dd($contact); // デバッグ用
 
         return $this->from('hoge@hoge.com') // 送信元
-            ->subject('テスト送信') // メールタイトル
+            ->subject('Laravelユーザよりご意見・ご要望が届きました') // メールタイトル
             // ->view('opinion.mail', compact('contact')); // どのテンプレートを呼び出すか
-            ->view('opinion.mail')
+            ->view('opinion.mail') // メールビュー(resources/views/opinion/mail.blade.php)
             ->with(['contact' => $this->contact]); // withオプションでセットしたデータをテンプレートへ受け渡す
     }
 }
