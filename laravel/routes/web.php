@@ -41,13 +41,13 @@ Route::resource('articles', 'ArticlesController');
 
 // ご意見ページ用
 Route::get('opinion', 'OpinionController@show')->name('opinion');
-Route::post('opinion', 'OpinionController@post')->name('opinion');
+Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
 
 // 認証関連のルート設定
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
-// マイページ用
+// マイページ用(dashboard)
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 // dashboardでgoogle reCAPTHA v3を使ってみる
 Route::post('dashboard', 'DashboardController@dashboard_post')->name('dashboard.post');
