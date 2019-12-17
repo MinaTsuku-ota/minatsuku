@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>みなツク</title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/post.css">
@@ -68,7 +68,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="10" height="30px">
-                                        <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" required>
+                                        <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" id="ref_tit" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -93,6 +93,41 @@
                                     </td>
                                 </tr>
                             </table>
+
+                            <!-- Preview area -->
+                            <div id="preview_wrap">
+                                <h2>Simple preview feature.</h2>
+                                <table class="preview_area">
+                                    <tr>
+                                        <td colspan="10">
+                                            <p id="pre_gen">Genre</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="10">
+                                            <p id="pre_tit">Title</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" height="180px">
+                                            <p id="pre_des">Description</p>
+                                        </td>
+                                        <td colspan="4" height="180px" id="pre_img">
+                                            <div class="preImgPosition1"></div>
+                                            <div class="preImgPosition2"></div>
+                                            <div class="preImgPosition3"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1"></td>
+                                        <td colspan="1"></td>
+                                        <td colspan="3">Your name</td>
+                                        <td colspan="5">Your department</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- Preview area End -->
+                            
                             <div class="STbtn">
                                 {{-- <a href="#" class="STbtnChild">投稿</a> --}}
                                 {{-- 一旦inputタグにする --}}
@@ -107,6 +142,6 @@
         </main>
 
     @include('footer')
-
+    <script src="/js/instantPreview.js"></script>
 </body>
 </html>

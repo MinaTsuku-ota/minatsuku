@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 // use Carbon\Carbon;
 // use App\Article;
 
+use Illuminate\Support\Facades\Storage;
+
 class ArticlesTableSeeder extends Seeder
 {
     /**
@@ -18,6 +20,12 @@ class ArticlesTableSeeder extends Seeder
     {
         // Query Builderを使ってArticlesテーブルのレコードを全て削除
         DB::table('articles')->delete();
+
+        // storageの画像も削除
+        // delete()はファイルの存在チェックをしなくて良い(ファイルが存在しない場合にエラーを返さない)
+        Storage::disk('uploaded_images')->delete(Storage::disk('uploaded_images')->files());
+
+        // autoincrementをリセット
         DB::statement("ALTER TABLE articles AUTO_INCREMENT = 1;");
 
         // // Faker を使用してダミーデータを作成

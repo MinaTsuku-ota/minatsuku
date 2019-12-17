@@ -94,19 +94,10 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
+        // app/Http/helper.php
+        recaptcha($request);
+
         $this->validator($request->all())->validate();
-
-        // // captcha data request
-        // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        // ->setExpectedAction('localhost')
-        // // ->setScoreThreshold(0.5)
-        // ->verify($request->input('recaptcha'), $request->ip());
-
-        // // $responseによって条件判断
-        // if (!$response->isSuccess()) {
-        //     // abort(403);
-        //     dd($response);
-        // }
 
         event(new Registered($user = $this->create($request->all())));
 

@@ -24,6 +24,7 @@ class ArticlesController extends Controller
     }
 
     // Articles テーブルのデータ全てを抽出し、ビューに渡す
+    // public function index()
     public function index()
     {
         // $articles = Article::all();
@@ -69,23 +70,17 @@ class ArticlesController extends Controller
     public function store(ArticleRequest $request)
     {
         // 画像はここでバリデート
-        // $request->validate([
-        //     'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-        //     'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-        //     'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-        // ]);
+        $request->validate([
+            // 'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            // 'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            // 'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'image1' => 'file|image',
+            'image2' => 'file|image',
+            'image3' => 'file|image',
+        ]);
 
-        // // captcha data request
-        // $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        // ->setExpectedAction('localhost')
-        // // ->setScoreThreshold(0.5)
-        // ->verify($request->input('recaptcha'), $request->ip());
-
-        // // $responseによって条件判断
-        // if (!$response->isSuccess()) {
-        //     abort(403);
-        //     // dd($response);
-        // }
+        // app/Http/helper.php
+        recaptcha($request);
 
         // フォームの入力値を取得
         // $inputs = \Request::all();
@@ -120,13 +115,13 @@ class ArticlesController extends Controller
         // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
         // basename()はパスの最下層の名前を返す(拡張子含む)
         if ($request->hasFile('image1')) {
-            $article->image1 = basename($request->image1->store('public'));
+            $article->image1 = basename($request->image1->store('public/uploaded_images'));
         }
         if ($request->hasFile('image2')) {
-            $article->image2 = basename($request->image2->store('public'));
+            $article->image2 = basename($request->image2->store('public/uploaded_images'));
         }
         if ($request->hasFile('image3')) {
-            $article->image3 = basename($request->image3->store('public'));
+            $article->image3 = basename($request->image3->store('public/uploaded_images'));
         }
         $article->save();
 
@@ -143,12 +138,14 @@ class ArticlesController extends Controller
         // return view('articles.edit', compact('article, tag_list'));
 
         // ユーザに編集の権限があるかチェック
+        // ログインしていない場合はコンストラクタのmiddleware('auth')によってログイン画面へ
         if ($article->user_id == Auth::user()->id) {
             // 編集の権限があれば編集画面へ
             return view('articles.edit', compact('article'));
         } else {
             // 編集の権限がない場合は記事一覧へ飛ばす(暫定)
-            return redirect()->route('articles.index')->with('no_edit_permission', 'no_edit_permission');
+            // 注意: with()に値をいれないとnullになってしまう
+            return redirect()->route('articles.index')->with('message', '編集権限が無いよ!');
         }
 
         // return view('articles.edit', compact('article'));
@@ -174,6 +171,7 @@ class ArticlesController extends Controller
         // $article = Article::findOrFail($id);
 
         // 画像の削除
+<<<<<<< HEAD
         if (isset($article->image1)) {
             Storage::disk('public')->delete($article->image1);
         }
@@ -182,6 +180,16 @@ class ArticlesController extends Controller
         }
         if (isset($article->image3)) {
             Storage::disk('public')->delete($article->image3);
+=======
+        if(isset($article->image1)){
+            Storage::disk('public/uploaded_images')->delete($article->image1);
+        }
+        if(isset($article->image2)){
+            Storage::disk('public/uploaded_images')->delete($article->image2);
+        }
+        if(isset($article->image3)){
+            Storage::disk('public/uploaded_images')->delete($article->image3);
+>>>>>>> 6ea7c78ad0b3f83028d976e4e5e3efaf903598ea
         }
         // 記事レコードを削除
         $article->delete();

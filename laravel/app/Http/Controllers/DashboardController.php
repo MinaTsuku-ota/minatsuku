@@ -41,45 +41,19 @@ class DashboardController extends Controller
         $this->validate($request, [
             'text' => 'required',
         ]);
-        
-        // captcha data request
-        $response = (new \ReCaptcha\ReCaptcha( config('app.captcha_secret') ))
-        ->setExpectedAction('localhost')
-        // ->setScoreThreshold(0.5)
-        ->verify($request->input('recaptcha'), $request->ip());
 
-        // $responseによって条件判断
-        if (!$response->isSuccess()) {
-            abort(403);
-            // dd($response);
-        }
+        // app/Http/helper.php
+        $response = recaptcha($request);
+
         if ($response->getScore() < 0.6) {
-            $status = false;
-            return response()->view('dashboard', ['status' => false]);
+            // $status = false;
+            // return response()->view('dashboard', ['status' => false]);
+            return redirect()->route('dashboard')->with('message', '送信に失敗しました!');
         }
-        $articles = Article::where('user_id', Auth::user()->id)->get();
-        $status = true;
-        $score = $response->getScore();
-        return response()->view('dashboard', compact('articles', 'status', 'score'));
+        // $articles = Article::where('user_id', Auth::user()->id)->get();
+        // $status = true;
+        // $score = $response->getScore();
+        // return response()->view('dashboard', compact('articles', 'status', 'score'));
+        return redirect()->route('dashboard')->with('message', '送信に成功しました!');
     }
-
-    public function destroy($id) {
-        $Article = Article::findOrFail($id);
-        $Article->delete();
-        return redirect()->route('dashboard')->with('message', '記事を削除しました。');
-    }
-    // 編集
-    // public function edit($id) {
-    //     $article = Article::findOrfail($id);
-
-    //     return view('articles.edit', compact('article'));
-    // }
-
-    // public function update(ArticleRequest $request, $id) {
-    //     $article = Article::findOrFail($id);
-
-    //     $article->update($request->validated());
-
-    //     return redirect(url('dashboard', [$article->id]));
-    // } 
 }

@@ -51,12 +51,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\Subject');
     }
     // テーブルcommentに対して一対多の関係
-    public function comment(){
+    public function comments(){
         return $this->belongsTo('App\comment');
     }
 
-    public function article_id()
-    {
-        return $this->belongsToMany('App\Comment\article_id')->withPivot('created_at', 'updated_at');
-    }
 }
