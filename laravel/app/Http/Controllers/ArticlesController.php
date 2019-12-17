@@ -171,16 +171,6 @@ class ArticlesController extends Controller
         // $article = Article::findOrFail($id);
 
         // 画像の削除
-<<<<<<< HEAD
-        if (isset($article->image1)) {
-            Storage::disk('public')->delete($article->image1);
-        }
-        if (isset($article->image2)) {
-            Storage::disk('public')->delete($article->image2);
-        }
-        if (isset($article->image3)) {
-            Storage::disk('public')->delete($article->image3);
-=======
         if(isset($article->image1)){
             Storage::disk('public/uploaded_images')->delete($article->image1);
         }
@@ -189,7 +179,6 @@ class ArticlesController extends Controller
         }
         if(isset($article->image3)){
             Storage::disk('public/uploaded_images')->delete($article->image3);
->>>>>>> 6ea7c78ad0b3f83028d976e4e5e3efaf903598ea
         }
         // 記事レコードを削除
         $article->delete();
@@ -209,5 +198,11 @@ class ArticlesController extends Controller
         Comment::create($inputs);
 
         return redirect('articles');
+    }
+
+    public function comments()
+    {
+        $comments = Article::latest('created_at');
+        return view('articles.index', compact('comments'));
     }
 }
