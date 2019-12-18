@@ -23,6 +23,7 @@
 // Route::get('/', 'ArticlesController@index')->name('home');
 
 // root
+
 Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('about', 'PagesController@about')->name('about');
@@ -38,7 +39,34 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 // 上7行は1行で
 Route::resource('articles', 'ArticlesController');
 
+// ご意見ページ用
+Route::get('opinion', 'OpinionController@show')->name('opinion');
+Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
+
 // 認証関連のルート設定
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+// マイページ用(dashboard)
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+// dashboardでgoogle reCAPTHA v3を使ってみる
+Route::post('dashboard', 'DashboardController@dashboard_post')->name('dashboard.post');
+
+// テスト用ページ 既にあったPagesControllerを再利用
+Route::get('test', 'PagesController@test')->name('test');
+Route::post('test', 'PagesController@post')->name('test.post');
+// ajaxテスト用
+Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
+Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
+
+//fav機能
+Route::post('articles/{article}/fav', 'ArticlesController@');
+
+// ドラッグアンドドロップテスト用
+Route::get('ddtest', 'PagesController@ddtest')->name('ddtest');
+Route::post('ddtest', 'PagesController@ddtest_post')->name('ddtest');
+
+// Route::get('articles/{id}/edit', 'DashboardController@edit');
+// Route::patch('articles/{id}', 'DashboardController@update');
+// dashboardでgoogle reCAPTHA v3を使ってみる
+// Route::post('dashboard', 'DashboardController@send')->name('dashboard');

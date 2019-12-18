@@ -1,75 +1,81 @@
-{{-- @extends('layouts.app') --}}
-{{-- @extends('layout') --}}
-@extends('minatsukulayout')
+<!DOCTYPE html>
+<html lang="ja">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<head>
+    <meta charset="utf-8">
+    <title>みなツク -MINATUKU-</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    @include('recaptcha_js')
+</head>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+<body>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+    <header class="header clearfix">
+        <div class="header-left clearfix">
+            <a href="{{ route('articles.index') }}"><img src="/image/home_daimei.png" class="sinki_daimei"
+                    alt="みなツク"></a>
+        </div>
+    </header>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <main>
+        <div class="header clearfix dummy">
+            <div class="header-left clearfix">
+                <a href="#"><img src="/image/home_daimei.png" class="sinki_daimei" alt="みなツク"></a>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+
+        <section>
+            <div id="back">
+                <a href="{{ route('articles.index') }}"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+            </div>
+            <div id="login_syoudai">
+                <h1 class="login_daimei">ログイン</h1>
+            </div>
+
+            <form class="clearfix" method="POST" action="{{ route('login') }}">
+                @csrf
+                <dl>
+                    <dt>
+                        <label for="name">
+                            <div class="daimei">ニックネーム</div>
+                        </label>
+                    </dt>
+                    <dd><input type="text" name="name" id="name" class="nyuuryoku" required value="{{ old('name') }}"
+                            autocomplete="name" autofocus></dd>
+                    {{-- バリデーション関連(https://readouble.com/laravel/6.x/ja/validation.html) --}}
+                    @error('name')
+                    <script>
+                        alert('{{ $message }}');
+
+                    </script>
+                    @enderror
+                    <dt>
+                        <label for="password">
+                            <div class="daimei">パスワード</div>
+                        </label>
+                    </dt>
+                    <dd><input type="password" name="password" id="password" class="nyuuryoku"
+                            autocomplete="current-password" required></dd>
+                    @error('password')
+                    <script>
+                        alert('{{ $message }}');
+
+                    </script>
+                    @enderror
+                </dl>
+                <div class="login">
+                    <p class="button"><input type="submit" value="ログイン" id="loginsuru"></p>
+                </div>
+                <input type="hidden" name="recaptcha" id="recaptcha">
+            </form>
+        </section>
+    </main>
+
+    @include('footer')
+</body>
+
+</html>

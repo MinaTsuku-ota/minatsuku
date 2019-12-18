@@ -16,12 +16,57 @@ body{
 
 #back{
   position: relative;
-  top: 73px;
-  left: 40px;
+  top: 70px;
+  left: 0px;
   
 }
 
+#setumei{
+  text-align: center;
+  margin:0px 100px;
+}
 
+#request{
+  text-align: center;
+  margin: 30px 10% 20px 10%;
+}
+
+#sousinnsuru{
+  width: 160px;
+  padding: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color:  #ff8400;
+  border-bottom: 4px solid #ca6900;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+#sousinnsuru:hover{
+  opacity: 0.8;
+}
+
+#sousinnsuru:active{
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #ca6900;
+  transform: translate3d( 0, 4px, 0);
+  border-bottom: none;
+  border-radius: 10px;
+}
+
+.button{
+  text-align: center;
+}
+
+
+textarea{
+  background-color:#F3F1F1;
+  height: 250px;
+  width: 100%;
+}
 
 .backbutton {
   color: #97d3e3;
@@ -55,6 +100,12 @@ section{
   height: 600px;
 }
 
+.request_daimei{
+  color: #45A1CF;
+  font-size: 40px;
+  padding: 0% 10%;
+  text-align: center;
+}
 footer{
   width:100%;
   background-color:#0cf;

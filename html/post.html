@@ -48,47 +48,43 @@
                     <div class="toukouPanel">
 
                         <div class="STimg"><img src="../image/toukou_daimei.png" alt="新規投稿"></div>
-
+                    <form>
                         <table class="toukou">
 
                             <tr>
                                 <td>ジャンル?</td>
-                                <form>
-                                    <td style="border-style:none;">
-                                        <select size="1" class="genre" id="ref_gen">
-                      <option value="0">Please&nbsp;select&nbsp;a&nbsp;genre.</option>
-                      <option value="1">Web</option>
-                      <option value="2">Picture</option>
-                      <option value="3">Movie</option>
-                      <option value="4">Other...</option>
-                    </select>
-                                    </td>
-                                </form>
+                                <td style="border-style:none;">
+                                    <select size="1" class="genre" id="ref_gen">
+                                        <option value="0">Please&nbsp;select&nbsp;a&nbsp;genre.</option>
+                                        <option value="1">Web</option>
+                                        <option value="2">Picture</option>
+                                        <option value="3">Movie</option>
+                                        <option value="4">Other...</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
-                                <form action="#" method="#">
-                                    <td colspan="10" height="30px">
-                                        <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" id="ref_tit">
-                                    </td>
-                                </form>
+                                <td colspan="10" height="30px">
+                                    <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力"
+                                        id="ref_tit">
+                                </td>
                             </tr>
 
                             <tr>
-                                <form action="#" method="#">
-                                    <td colspan="10" height="250px" id="input_td">
-                                        <div class="input_span" id="Area0">
-                                            <div class="imageText">Click or Drop here</div>
-                                            <input type="file" class="imageInput" name="file0">
-                                        </div>
-                                        <div class="input_span" id="Area1">
-                                            <div class="imageText">Click or Drop here</div>
-                                            <input type="file" class="imageInput" name="file1">
-                                        </div>
-                                        <div class="input_span" id="Area2">
-                                            <div class="imageText">Click or Drop here</div>
-                                            <input type="file" class="imageInput" name="file2">
-                                        </div>
-                                    </td>
+                                <td colspan="10" height="250px" id="input_td">
+                                    <div class="input_span" id="Area0">
+                                        <div class="imageText">Click or Drop here</div>
+                                        <input type="file" class="imageInput" name="file0">
+                                    </div>
+                                    <div class="input_span" id="Area1">
+                                        <div class="imageText">Click or Drop here</div>
+                                        <input type="file" class="imageInput" name="file1">
+                                    </div>
+                                    <div class="input_span" id="Area2">
+                                        <div class="imageText">Click or Drop here</div>
+                                        <input type="file" class="imageInput" name="file2">
+                                    </div>
+                                </td>
                                 </form>
                             </tr>
 
@@ -99,7 +95,7 @@
                             </tr>
 
                         </table>
-
+                    </form>
                         <!-- Preview area -->
                         <div id="preview_wrap">
                             <h2>Simple preview feature.</h2>
@@ -143,7 +139,7 @@
 
                         </div>
 
-                    </div>
+                    <//div>
 
 
                 </section>
@@ -159,8 +155,8 @@
                 <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
             </ul>
         </footer>
-        </div>
-        <script src="../laravel/public/js/instantPreview.js"></script>
+    </div>
+    <script src="../laravel/public/js/instantPreview.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,36 @@
+(コマンドメモ)
+/*** php arisan関連 ***/ artisan は Laravel に含まれているユーティリティコマンドである(?)
+php artisan list // artisanコマンドリストを表示
+php artisan route:list // ルートリストを表示
+
+php artisan make:model Image -m -c -r // テーブルに対するモデルに加えて、migrationファイル、コントローラを自動生成
+php artisan make:controller CONTROLLER_NAME // コントローラ作成
+
+php artisan make:migration create_TABLENAME_table // テーブルを作成するマイグレーションの作成
+php artisan make:migration add_COLUMNNAME_to_TABLENAME_table --table=TABLENAME // テーブルの変更を行うマイグレーションの作成
+例)php artisan make:migration update_users_table --table=users
+php artisan migrate // マイグレーション実行
+php artisan migrate:rollback // マイグレーションを1つ戻す
+php artisan migrate:refresh // reset + migrate ※テーブルの中身は全て消える
+php artisan db:seed // ダミーデータの挿入
+
+php artisan make:model Somemodel // モデル作成
+php artisan make:seeder SometableTableSeeder // Seeder作成
+php artisan make:factory SamtableFactory // Factory作成
+php artisan make:request SometableRequest // Form Request作成 送られてくるリクエストに対してバリデーションを行う時に使う
+php artisan make:middleware Somemiddleware // ミドルウェア作成
+
+/*** tinker関連 ***/
+php artisan tinkerでtinkerを実行
+\App\User::all()->toArray(); // ユーザ一覧の取得
+
+/*** モデル関連 ***/
+protected $fillable = ['カラム1', 'カラム2', ...]; // マスアサインメントは$fillableに。
+protected $dates = ['カラム1', 'カラム2']; // 日付ミューテータは$datesに。
+getカラム名Attribute() // アクセサメソッドはこう書く。メソッド名だけ書いて中身がないと取り出せない
+setカラム名Attribute() // ミューテータメソッド名はこう書く。メソッド名だけ書いて中身がないとセットできない
+
+/** composer関連 **/
+(autoload設定にて)
+composer.json の自動ロード設定を変更した後は以下のコマンドで設定を反映する必要があります
+composer dump-autoload

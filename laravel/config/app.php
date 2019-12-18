@@ -228,4 +228,7 @@ return [
 
     ],
 
+    'captcha_sitekey' => env('CAPTCHA_SITEKEY'),
+    'captcha_secret' => env('CAPTCHA_SECRET'),
+
 ];
