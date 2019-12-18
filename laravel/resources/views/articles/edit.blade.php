@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="/css/new_common.css">
 @endsection
 
+@section('addjs')
+@include('recaptcha_js')
+@endsection
+
 @section('content')
     <h1>Edit: {{ $article->title }}</h1>
 
@@ -22,5 +26,6 @@
             // 'published_at' => $article->published_at->format('Y-m-d'),
             'submitButton' => 'Edit Article'
             ])
+    <input type="hidden" name="recaptcha" id="recaptcha">
     {!! Form::close() !!}
 @endsection
