@@ -3,3 +3,36 @@
 2.ログイン可能
 3.ユーザごとのManagement.html
 4.ユーザごとに制作物をDBに保持する(タイトル名/説明文/画像PATH/URL/ジャンル/年月日)
+
+Auth機能を拡張
+https://www.ritolab.com/entry/86
+
+ログアウト時の動作
+https://teratail.com/questions/163019
+
+Laravelでフォームで送信した値を取得する
+http://cly7796.net/wp/php/to-get-the-value-that-was-sent-in-the-form-in-laravel/
+
+BladeでSelectボックス
+http://recipes.laravel.jp/recipe/231
+
+index指定でのマイグレートの為に(dropUnique()等)mysqlでindexを確認するコマンド:
+show index from TABLENAME;
+
+LaravelのAuth認証機能をカスタマイズし意図した挙動へ変更するTips
+https://www.ritolab.com/entry/86
+
+ログイン機能とカスタマイズ方法
+https://shared-blog.kddi-web.com/webinfo/laravel-login/
+
+migration-seederの良い記事
+【Laravel】Seederとバッチを使って初期データを揃える - Qiita
+https://qiita.com/vivid_colors/items/766c541038b53a4095c8
+
+laravel/storage/app/publicをブラウザからアクセスできるようにする
+php artisan storage:link
+
+basename()という関数: https://www.php.net/manual/ja/function.basename.php
+
+バリデーションルール
+https://readouble.com/laravel/6.x/ja/validation.html

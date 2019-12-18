@@ -2,57 +2,59 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>みなツク -MINATUKU-</title>
+    <title>みなツク</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{-- BootstrapのCSS読み込み --}}
-    {{-- <link href="/css/app.css" rel="stylesheet"> --}}
-    {{-- jQuery読み込み --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    {{-- BootstrapのJS読み込み --}}
-    <script src="/js/app.js"></script>
-
-    {{-- header.htmlの分 --}}
     <link rel="stylesheet" href="/css/normalize.css">
-    {{-- <link rel="stylesheet" href="/css/header.css"> --}}
+
+    {{-- 追加CSS --}}
+    @yield('addcss')
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    {{-- base.htmlの分 --}}
-    <link rel="stylesheet" href="/css/new_common.css">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/jquery-ui.min.js"></script>
-    <script src="/js/jquery.js"></script>
-    
+
+    {{-- 追加javascript --}}
+    @yield('addjs')
 </head>
+
 <body>
-    {{-- headerの読み込み --}}
+
+<div id="wrap">
+    <!-- header -->
     @include('header')
 
     <main>
-        <header class="clearfix dummy">
-            <div id="header-left" class="clearfix">
-                <a href="#"><img src="/image/home_daimei.png" id="home_daimei"></a>
-            </div>
-            <div id="header-right">
-                <div class="btn login "><a href="#">ログイン</a></div>
-                <div class="btn sinki "><a href="#">新規登録</a></div>
-            </div>
-        </header>
+        <!-- header dummy -->
+        @include('header_dummy')
 
         {{-- フラッシュメッセージの表示 --}}
-        {{-- セッションに"message"をキーに持つ情報があれば、表示するように修正 --}}
+        {{-- セッションに"message"をキーに持つ情報があれば表示 --}}
         {{-- class="alert alert-success"というのは Bootstrap の CSSで、この class を指定すると、正常時のアラートとして div を緑に装飾して表示してくれます --}}
-        {{-- @if (Session::has('flash_message')) --}}
-        @if (session('message'))
-            <div class="alert alert-success">{{ session('message') }}</div>
-        @endif
+        {{-- @if (Session::has('flash_message'))でも良い --}}
+        {{-- @if (session('message'))
+        <div class="alert alert-success">{{ session('message') }}</div>
+        @endif --}}
 
-        {{-- コンテンツの表示 --}}
+        <!-- content -->
         @yield('content')
     </main>
 
-    {{-- footerの読み込み--}}
+    <!-- footer -->
     @include('footer')
+</div>
+
+{{--
+    アラート条件:
+    - ログインしているが編集権限が無い
+    - 記事を削除した
+    - 記事を追加した
+    - 
+--}}
+@if (session('message'))
+<script>alert('{{ session('message') }}');</script>
+@endif
+
 </body>
 </html>

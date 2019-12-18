@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <!-- ブランド表示 -->
-    <a class="navbar-brand" href="{{ route('home') }}">My Blog</a>
- 
+    <a class="navbar-brand" href="{{ route('articles.index') }}">My Blog</a>
+
     <!-- スマホやタブレットで表示した時のメニューボタン -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
- 
+
     <!-- メニュー -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- 左寄せメニュー -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('home') }}">Home</a>
+          <a class="nav-link" href="{{ route('articles.index') }}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('about') }}">About</a>
@@ -22,7 +22,7 @@
           <a class="nav-link" href="{{ route('contact') }}">Contact</a>
         </li>
       </ul>
- 
+
       <!-- 右寄せメニュー -->
       <ul class="navbar-nav">
         {{-- @guest を使って、ゲスト（ログインしていない）の時とログインしている時でメニューの表示を分けています --}}
@@ -42,7 +42,7 @@
             {{-- リンク先にダッシュボードヘのルートを指定 --}}
             <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
           </li>
- 
+
           <!-- ドロップダウンメニュー -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -50,7 +50,7 @@
               {{-- ログインユーザーの名前を表示 --}}
               {{ Auth::user()->name }}<span class="caret"></span>
             </a>
- 
+
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
               <a class="dropdown-item" href="#"

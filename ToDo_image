@@ -1,0 +1,38 @@
+Laravelで画像をアップロードする方法
+https://php-junkie.net/framework/laravel/upload_image/
+
+Laravelを使った画像アップロード実装法3選 - Qiita
+https://qiita.com/RitaChan/items/d59001430f50789c570f
+
+画像サイズの上限はphp.iniにて設定
+php.ini の設定を適用するためには public ディレクトリに.user.iniというファイルを作成し、そこに以下の設定を書き込みます。
+post_max_size = 20M
+upload_max_filesize = 20M
+
+1.Migration作ってmigrate実行、image用のテーブル作る
+2.Model作ってテーブル操作する準備
+3.Routing
+4.Controllerいじる
+
+laravelマニュアル(日本語)
+https://readouble.com/laravel/6.x/ja/filesystem.html
+
+画像の削除はstorageの画像を消すことと、DBの画像情報を消すことを行う
+
+画像ファイル名を以下のようにする。
+{記事id}_{1or2or3}_{一意の文字列}.{拡張子}
+
+投稿ファイルのバリデーションはArticleRequestを参照
+
+storeAs('', 'dummy.pdf', ['disk' => 'local'])
+１つめの引数が、設定ファイルで指定されているストレージのルートディレクトリからのパスになります。上記の例では、ストレージのルートディレクトリ直下です。
+２つめの引数が、保存する際のファイル名になります。３つめの引数で、どのストレージを利用するかを指定しています。上の例では、local を指定しています。
+
+バリデーションルールはこちら
+https://readouble.com/laravel/6.x/ja/validation.html
+
+バリデーションに関わる秀逸な記事
+https://liginc.co.jp/359544
+
+xamppのローカルホスト設定の記事
+http://www.initialsite.com/g07/16062

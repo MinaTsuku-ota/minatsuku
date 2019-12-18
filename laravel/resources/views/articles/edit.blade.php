@@ -1,4 +1,13 @@
-@extends('layout')
+{{-- @extends('layout') --}}
+@extends('minatsukulayout')
+
+@section('addcss')
+<link rel="stylesheet" href="/css/new_common.css">
+@endsection
+
+@section('addjs')
+@include('recaptcha_js')
+@endsection
 
 @section('content')
     <h1>Edit: {{ $article->title }}</h1>
@@ -13,11 +22,10 @@
     {{-- METHOD に PATCH を指定し、url へは $article の idをパラメータとして引き渡します --}}
     {{-- {!! Form::model($article, ['method' => 'PATCH', 'url' => ['articles', $article->id]]) !!} --}}
     {!! Form::model($article, ['method' => 'PATCH', 'route' => ['articles.update', $article->id]]) !!}
-            {{-- published_at の入力項目の初期値を date(‘Y-m-d’)から $article->publieshed_at の値に変更 --}}
-            {{-- $article->published_at は Article クラスで日付ミューテーターを指定している為、参照すると Carbon クラスのインスタンスが返ってきます。format()メソッドで文字列に変換して初期値とします --}}
         @include('articles.form', [
-            'published_at' => $article->published_at->format('Y-m-d'),
+            // 'published_at' => $article->published_at->format('Y-m-d'),
             'submitButton' => 'Edit Article'
             ])
+    <input type="hidden" name="recaptcha" id="recaptcha">
     {!! Form::close() !!}
 @endsection

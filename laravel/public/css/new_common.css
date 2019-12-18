@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body{
-    background-image : url(../image/haikei.png);
+    background-image : url(/image/haikei.png);
 }
 
 #warp{
@@ -34,7 +34,7 @@ body{
   }
 
   /* ログイン後 */
-  /* .mypage{
+.mypage{
     float: left;
     margin-right: 30px;
     background-color: #f90;
@@ -43,7 +43,6 @@ body{
     padding: 15px;
     border-radius: 4px;
   }
-   */
 
   
   .btn a:visited{

@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Http\Request;
+
+use Illuminate\Auth\Events\Registered;
+
 class RegisterController extends Controller
 {
     /*
@@ -29,13 +33,13 @@ class RegisterController extends Controller
      * @var string
      */
     // protected $redirectTo = '/home';
- 
+
     // named route で指定したいので function にします
     protected function redirectTo ()
     {
         return route('dashboard');
     }
-    
+
     /**
      * Create a new controller instance.
      *
@@ -52,12 +56,16 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    // 一旦名前とパスワードだけにする
     protected function validator(array $data)
     {
+        // !! validationに失敗した場合は前の画面へgetメソッドでリダイレクトされる !!
+        // これで3時間苦しめられた
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'subject' => ['required'],
         ]);
     }
 
@@ -71,8 +79,31 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            // 一旦名前とパスワードだけにする
+            // 'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'subject_id' => $data['subject'],
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        // app/Http/helper.php
+        recaptcha($request);
+
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
     }
 }
