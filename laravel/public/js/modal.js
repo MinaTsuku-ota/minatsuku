@@ -1,6 +1,6 @@
 $(function() {
 
-    $('.js-modal-open').each(function() {
+    $('#js-modal-open').each(function() {
         $(this).on('click', function() {
             var target = $(this).data('target');
             var modal = document.getElementById(target);
@@ -9,7 +9,7 @@ $(function() {
         });
     });
 
-    $('.js-modal-close').on('click', function() {
+    $('#js-modal-close').on('click', function() {
         $('.js-modal').fadeOut();
         return false;
     });
