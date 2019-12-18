@@ -40,11 +40,11 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 Route::resource('articles', 'ArticlesController');
 
 // ご意見ページ用
-Route::get('opinion', 'OpinionController@show')->name('opinion');
+Route::get('opinion', 'OpinionController@index')->name('opinion');
 Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
 
 // ぽりしぃ
-Route::get('policy', 'PolicyController@show')->name('policy');
+Route::get('policy', 'PolicyController@index')->name('policy');
 Route::get('policy_iframe', 'PolicyController@show_iframe')->name('policy_iframe');
 
 
@@ -75,3 +75,6 @@ Route::post('ddtest', 'PagesController@ddtest_post')->name('ddtest');
 // Route::patch('articles/{id}', 'DashboardController@update');
 // dashboardでgoogle reCAPTHA v3を使ってみる
 // Route::post('dashboard', 'DashboardController@send')->name('dashboard');
+
+// 開発者用ページ
+Route::get('dev', 'DeveloperController@index')->name('dev');

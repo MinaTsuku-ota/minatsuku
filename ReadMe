@@ -132,8 +132,7 @@ RECAPTCHA_SITEKRY={サイトキー}
 RECAPTCHA_SECRET={シークレットキー}
 {サイトキー}、{シークレットキー}については聞いてください
 
-12..メール用の設定
-// めんてなんすちゅう！
+12..メール用に「.env」の設定: mailmemo参照
 
 ~~~環境設定はここまで~~~
 ※データベースのテーブルの構造を変更した場合は以下のコマンド
@@ -142,10 +141,3 @@ php artisan db:seed // seederで用意した初期値でレコードを登録す
 
 ~~~おまじない~~~
 composer dump-autoload
-
-
-(その他メモ)
-ローカルブランチをリモートへのプッシュは
-git push -u origin HEAD
-
-factoryはseederでつかうやつ.

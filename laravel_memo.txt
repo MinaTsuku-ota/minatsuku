@@ -37,3 +37,9 @@ composer dump-autoload
 
 /* laravelインストール後にやっておいた方がいいこと */
 https://qiita.com/horikeso/items/393663f1bffe63bd937e
+
+(その他メモ)
+ローカルブランチをリモートへのプッシュは
+git push -u origin HEAD
+
+factoryはseederでつかうやつ（忘れがち）

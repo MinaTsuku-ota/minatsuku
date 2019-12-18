@@ -52,12 +52,15 @@ class User extends Authenticatable
     }
     // テーブルcommentに対して一対多の関係
     public function comments(){
-        return $this->belongsTo('App\comment');
+        return $this->belongsTo('App\Comment');
     }
 
     public function favs()
     {
         return $this->hasMany(fav::class);
     }
-
+    // Userは複数のOpinionを持つ
+    public function opinions(){
+        return $this->hasMany('App\Opinion');
+    }
 }

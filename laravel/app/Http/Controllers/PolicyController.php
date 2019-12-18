@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PolicyController extends Controller
 {
-    public function show(){
+    public function index(){
         return view('policy.policy');
     }
     // policy_iframeを表示
