@@ -139,7 +139,7 @@ class PagesController extends Controller
         }
         $article->save();
 
-        // dd($request->image); // デバッグ
+        dd($request->image); // デバッグ(画像の送信確認)
         return redirect()->route('articles.index')->with('message', '送信完了(ﾟДﾟ)');
     }
 }

@@ -114,16 +114,19 @@ class ArticlesController extends Controller
         // storeメソッドは、一意のIDをファイル名として生成します。ファイルの拡張子は、MIMEタイプの検査により決まります
         // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
         // basename()はパスの最下層の名前を返す(拡張子含む)
-        if ($request->hasFile('image1')) {
+        // if ($request->hasFile('image1')) {
+        if ($request->image1) { // シンプルにnull値をチェックできる
             $article->image1 = basename($request->image1->store('public/uploaded_images'));
         }
-        if ($request->hasFile('image2')) {
+        if ($request->image2) {
             $article->image2 = basename($request->image2->store('public/uploaded_images'));
         }
-        if ($request->hasFile('image3')) {
+        if ($request->image3) {
             $article->image3 = basename($request->image3->store('public/uploaded_images'));
         }
         $article->save();
+
+        dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
 
         // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');
@@ -171,14 +174,14 @@ class ArticlesController extends Controller
         // $article = Article::findOrFail($id);
 
         // 画像の削除
-        if(isset($article->image1)){
-            Storage::disk('public/uploaded_images')->delete($article->image1);
+        if($article->image1){
+            Storage::disk('uploaded_images')->delete($article->image1);
         }
-        if(isset($article->image2)){
-            Storage::disk('public/uploaded_images')->delete($article->image2);
+        if($article->image2){
+            Storage::disk('uploaded_images')->delete($article->image2);
         }
-        if(isset($article->image3)){
-            Storage::disk('public/uploaded_images')->delete($article->image3);
+        if($article->image3){
+            Storage::disk('uploaded_images')->delete($article->image3);
         }
         // 記事レコードを削除
         $article->delete();
