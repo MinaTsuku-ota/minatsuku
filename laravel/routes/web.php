@@ -43,6 +43,11 @@ Route::resource('articles', 'ArticlesController');
 Route::get('opinion', 'OpinionController@show')->name('opinion');
 Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
 
+// ぽりしぃ
+Route::get('policy', 'PolicyController@show')->name('policy');
+Route::get('policy_iframe', 'PolicyController@show_iframe')->name('policy_iframe');
+
+
 // 認証関連のルート設定
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');

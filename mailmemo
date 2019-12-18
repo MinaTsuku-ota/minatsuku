@@ -1,0 +1,23 @@
+### メール関連で.envに設定する項目
+
+### メール関連
+MAIL_DRIVER=smtp
+MAIL_PORT=587
+MAIL_ENCRYPTION=tls # null,tls,sslなど
+MAIL_FROM_NAME=minatsuku
+
+#-- mailtrap
+# MAIL_HOST=smtp.mailtrap.io
+# 送信元は適当。アドレスの後にコメントアウトしちゃだめ
+# MAIL_FROM_ADDRESS=minatsuku@example.com
+# MAIL_USERNAME=**** # mailtrapのUSERNAME
+# MAIL_PASSWORD=**** # mailtrapのPASSWORD
+
+#-- gmail
+MAIL_HOST=smtp.gmail.com
+MAIL_FROM_ADDRESS=****@gmail.com
+# gmailの場合、USERNAMEはFROM_ADDRESSと同じ
+MAIL_USERNAME=****@gmail.com
+# gmail 2段階認証のアプリパスワード16桁
+# 「メール」、「Windows」としてアプリパスワードを生成
+MAIL_PASSWORD=****

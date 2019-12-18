@@ -24,7 +24,7 @@ class OpinionController extends Controller
 
     public function show(){
         // ご意見ページビューを表示
-        return view('opinion');
+        return view('opinion.opinion');
     }
 
     // ご意見ご要望の投稿処理
@@ -35,6 +35,6 @@ class OpinionController extends Controller
         // dd($contact); // デバッグ用
         Mail::to('ryu.e115752@gmail.com')->send(new OpinionMail($contact));
 
-        return redirect()->route('opinion')->with('message', '送信完了☆');
+        return redirect()->route('articles.index')->with('message', '送信完了！');
     }
 }
