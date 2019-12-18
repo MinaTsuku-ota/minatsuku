@@ -33,7 +33,7 @@ class OpinionController extends Controller
         // フォームからのリクエストデータ全てを$contactに代入
         $contact = $request->all();
         // dd($contact); // デバッグ用
-        Mail::to('somebody@example.com')->send(new OpinionMail($contact));
+        Mail::to('ryu.e115752@gmail.com')->send(new OpinionMail($contact));
 
         return redirect()->route('opinion')->with('message', '送信完了☆');
     }

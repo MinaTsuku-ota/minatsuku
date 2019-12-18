@@ -23,6 +23,9 @@ class OpinionMail extends Mailable
     {
         // 引数で受け取ったデータを変数にセット
         $this->contact = $contact;
+        
+        // ログインしていない場合リダイレクト
+        $this->middleware('auth');
     }
 
     /**
@@ -34,10 +37,11 @@ class OpinionMail extends Mailable
     {
         // dd($contact); // デバッグ用
 
-        return $this->from('hoge@hoge.com') // 送信元
-            ->subject('Laravelユーザよりご意見・ご要望が届きました') // メールタイトル
+        return $this
+            // ->from('minatsuku@example.com') // 送信元(MAIL_FROM_ADDRESS)
+            ->subject('minatsukuユーザよりご意見・ご要望が届きました') // メールタイトル
             // ->view('opinion.mail', compact('contact')); // どのテンプレートを呼び出すか
-            ->view('opinion.mail') // メールビュー(resources/views/opinion/mail.blade.php)
+            ->view('opinion.mail') // メールビュー(resources/views/opinion/mail.blade.php) textだと改行がそのまま表示
             ->with(['contact' => $this->contact]); // withオプションでセットしたデータをテンプレートへ受け渡す
     }
 }
