@@ -89,29 +89,50 @@ body {
     border-radius: 4px;
 }
 
+<<<<<<< HEAD
 .header-left {
+=======
+.header-left{
+>>>>>>> c91ca5019dc077b9d0a275c9b2c03593065022b2
     float: left;
     margin: 10px 0px 0px 10px;
 }
 
+<<<<<<< HEAD
 .header-right {
+=======
+.header-right{
+>>>>>>> c91ca5019dc077b9d0a275c9b2c03593065022b2
     float: right;
     margin: 22px 30px;
 }
 
+<<<<<<< HEAD
 #contens {
+=======
+#contens{
+>>>>>>> c91ca5019dc077b9d0a275c9b2c03593065022b2
     margin: 0px 20%;
     position: relative;
     top: 0;
     left: 0;
 }
 
+<<<<<<< HEAD
 .navBox {
     width: 850px;
     margin: 100px;
 }
 
 .radioboxNone {
+=======
+.navBox{
+        width: 850px;
+        margin:100px;
+}
+
+.radioboxNone{
+>>>>>>> c91ca5019dc077b9d0a275c9b2c03593065022b2
     display: none;
     cursor: pointer;
 }
@@ -298,13 +319,19 @@ footer ul {
     margin: 0px;
 }
 
+<<<<<<< HEAD
 footer ul li {
+=======
+
+footer ul li{
+>>>>>>> c91ca5019dc077b9d0a275c9b2c03593065022b2
     display: inline-block;
     margin: 40px 60px;
     font-weight: bold;
     color: #fff;
 }
 
+<<<<<<< HEAD
 footer ul li a {
     color: #fff;
 }
@@ -312,3 +339,14 @@ footer ul li a {
 footer ul li a:visited {
     color: #fff;
 }
+=======
+footer ul li a{
+    color: #fff;
+}
+
+footer ul li a:visited{
+    color: #fff;
+}
+
+
+>>>>>>> c91ca5019dc077b9d0a275c9b2c03593065022b2
