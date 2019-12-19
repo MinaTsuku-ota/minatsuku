@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-    {{-- @include('recaptcha_js') --}}
+    @include('recaptcha_js')
 </head>
 
 <body>
@@ -27,11 +27,28 @@
         </div>
         <section>
             <div id="back">
-                <a href="#"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+                <a href="{{ route('articles.index') }}"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
             </div>
+            <div id="request_syoudai">
+                <h1 class="request_daimei">ご意見・ご感想</h1>
+            </div>
+            <div>
+                <div id="setumei">
+                    頂戴いたしましたご意見については今後のサイト運営の参考にさせていただきます。
+                </div>
+            </div>
+            <form method="POST" action="{{ route('opinion') }}">
+                @csrf
+                <div id="request"><textarea name="body" required></textarea></div>
+                <div class="sousin">
+                    <p class="button"><input type="submit" value="送信" id="sousinnsuru"></p>
+                </div>
+                <input type="hidden" name="recaptcha" id="recaptcha">
+            </form>
         </section>
     </main>
 
-@include('footer')
+    @include('footer')
 </body>
+
 </html>

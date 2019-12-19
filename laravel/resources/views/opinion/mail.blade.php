@@ -11,7 +11,7 @@
 <hr/>
 <div>
 	ニックネーム：{{ Auth::user()->name }}<br/>
-	タイトル：{{ $contact['title'] }}<br/>
+	{{-- タイトル：{{ $contact['title'] }}<br/> --}}
 	本文：<br/>
 	{{ $contact['body'] }}
 </div>

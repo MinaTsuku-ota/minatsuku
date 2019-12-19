@@ -125,16 +125,12 @@ $(function() {
     //----------バグのためDrop処理を単体にした----------
     $Area0.on('drop', function(ev) {
         ev.preventDefault();
-        ev.stopPropagation();
+        var index = $(this).index();
 
-        console.log('drop');
-
-        //
-        var InputData = $Area0.find($('[type=file')).get()[0];
-        console.log(InputData);
         var files = ev.originalEvent.dataTransfer.files;
 
-        var index = $(this).index();
+        // $('#input_file')のchangeイベントが発火
+        $Area0.get()[0].files = files;
 
         var image = new Image(),
             blobURL = URL.createObjectURL(files[0]);
@@ -146,10 +142,6 @@ $(function() {
             URL.revokeObjectURL(blobURL);
 
             imageOutput.eq(index).find('.imageText').html(image);
-
-            InputData.files = files;
-            console.log(InputData.files)
-
 
         });
 
@@ -167,14 +159,12 @@ $(function() {
 
     $Area1.on('drop', function(ev) {
         ev.preventDefault();
-        ev.stopPropagation();
-
-        var InputData = $Area1.find($('[type=file')).get()[0];
+        var index = $(this).index();
 
         var files = ev.originalEvent.dataTransfer.files;
 
-
-        var index = $(this).index();
+        // $('#input_file')のchangeイベントが発火
+        $Area1.get()[0].files = files;
 
         var image = new Image(),
             blobURL = URL.createObjectURL(files[0]);
@@ -186,8 +176,6 @@ $(function() {
             URL.revokeObjectURL(blobURL);
 
             imageOutput.eq(index).find('.imageText').html(image);
-
-            InputData.files = files;
 
         });
 
@@ -206,13 +194,12 @@ $(function() {
 
     $Area2.on('drop', function(ev) {
         ev.preventDefault();
-        ev.stopPropagation();
-
-        var InputData = $Area2.find($('[type=file')).get()[0];
+        var index = $(this).index();
 
         var files = ev.originalEvent.dataTransfer.files;
 
-        var index = $(this).index();
+        // $('#input_file')のchangeイベントが発火
+        $Area2.get()[0].files = files;
 
         var image = new Image(),
             blobURL = URL.createObjectURL(files[0]);
@@ -221,13 +208,9 @@ $(function() {
 
         $(image).on('load', function() {
             //必ず解放してあげないといけない
-
-
             URL.revokeObjectURL(blobURL);
 
             imageOutput.eq(index).find('.imageText').html(image);
-
-            InputData.files = files;
 
         });
 

@@ -51,7 +51,7 @@
                     <div class="toukouPanel">
                         <div class="STimg"><img src="/image/toukou_daimei.png" alt="新規投稿"></div>
 
-                        {{-- 投稿フォーム --}}
+                        <!-- 投稿フォーム -->
                         <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                             @csrf
                             <table class="toukou">
@@ -129,9 +129,7 @@
                             <!-- Preview area End -->
 
                             <div class="STbtn">
-                                {{-- <a href="#" class="STbtnChild">投稿</a> --}}
-                                {{-- 一旦inputタグにする --}}
-                                <input type="submit" class="STbtnChild" value="投稿">
+                                <button type="submit" class="STbtnChild">投稿</button>
                             </div>
                             <input type="hidden" name="recaptcha" id="recaptcha">
                         </form>
