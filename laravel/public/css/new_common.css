@@ -285,7 +285,27 @@ table.comment {
 
 .comment_none li {
     list-style-type: none;
+    text-align: left;
+    border-bottom: 1px solid #000;
 }
+
+.comment_none li:first-child {
+    border-bottom: none;
+    text-align: center;
+}
+
+.profile {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #000;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 7px;
+}
+
+
+/*コメント表示機能ここまで*/
 
 footer {
     width: 100%;
