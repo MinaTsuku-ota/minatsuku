@@ -5,3 +5,7 @@
     cursor: pointer;
     margin: 70px 0 5px 0;
 }
+
+svg {
+    background-color: #000;
+}
