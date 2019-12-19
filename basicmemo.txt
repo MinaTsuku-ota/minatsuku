@@ -18,9 +18,13 @@ AuthenticateWithBasicAuthではデフォルトでusersテーブルのemailカラ
 https://qiita.com/moobay9/items/10a7cb29b9ecbc4b5acf
 
 Laravelに独自のBASIC認証を作るという英語の記事があった
+この記事でMIDDLEWAREを作ってまずBASIC認証を組み立てる。
 https://medium.com/oceanize-geeks/laravel-middleware-basic-auth-implementation-88b777361b5c
 中身の理解には下の記事が助かりそう
 https://qiita.com/mpyw/items/dc2cb3632370389d700e
 https://design-remarks.com/basic-authentication-php/
+
+BASIC認証を組み立てたらこれを元にしてDigest認証に切り替えていく
+https://qiita.com/mpyw/items/bb8305ba196f5105be15
 
 よく出てくるけどコールバックってなんだろう
