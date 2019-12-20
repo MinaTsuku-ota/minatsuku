@@ -4,6 +4,13 @@
 
 @section('addcss')
 <link rel="stylesheet" href="/css/new_common.css">
+<style>
+    body {
+        background-image: none;
+        background-color: #fff2f2;
+    }
+
+</style>
 @endsection
 
 @section('addjs')
@@ -13,11 +20,14 @@
 @section('content')
 <h1>Dashboard</h1>
 
-<hr/>
+<hr />
 
 <div>
-    You are logged in!
-    <h2>ようこそ、{{ Auth::user()->name }}さん！</h2>
+    <h2>
+        ようこそ、
+        <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="avater" style="height:50px; width:auto;">
+        {{ Auth::user()->name }}さん！
+    </h2>
     <h3>あなたの学科は：{{ App\Subject::find(Auth::user()->subject_id)->subject }}</h3>
 </div>
 
@@ -38,7 +48,8 @@
         </tr>
         <tr>
             <td colspan="6" height="180px">詳細説明<br />{{ $article->body }}</td>
-            <td colspan="4" height="180px"><img src="{{ asset('storage/uploaded_images'.$article->image1) }}" alt="no_image"></td>
+            <td colspan="4" height="180px"><img src="{{ asset('storage/uploaded_images/'.$article->image1) }}"
+                    alt="no_image"></td>
         </tr>
         <tr>
             <td colspan="1">いいね</td>
@@ -57,19 +68,6 @@
             </td>
         </tr>
     </table>
-
-    {{-- asset()はlaravel/publicディレクトリへのパスを返す --}}
-    {{-- "$image"はimagesテーブルの1レコード分のデータ --}}
-    {{-- "$image->image"はimagesテーブルのimageカラムの内容(画像ファイル名が格納されている) --}}
-    {{-- @if(isset($article->image1))
-    <img src="{{ asset('storage/'.$article->image1) }}" style="width: 10%; height: auto;"/>
-    @endif
-    @if(isset($article->image2))
-    <img src="{{ asset('storage/'.$article->image2) }}" style="width: 10%; height: auto;" />
-    @endif
-    @if(isset($article->image3))
-    <img src="{{ asset('storage/'.$article->image3) }}" style="width: 10%; height: auto;" />
-    @endif --}}
 </div>
 @endforeach
 
@@ -81,12 +79,6 @@
         <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tbvxFW4UJdU" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <form method="POST" action="{{ route('dashboard.post')}}">
-        @csrf
-        <p><input type="text" name="text" required></p>
-        <p><button type="submit">送信</button></p>
-        <input type="hidden" name="recaptcha" id="recaptcha">
-    </form>
 </div>
 <form method="POST" action="{{ route('dashboard.post') }}">
     @csrf
@@ -104,14 +96,15 @@
 </form>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-    $notification = $delete.parentNode;
-    $delete.addEventListener('click', () => {
-      $notification.parentNode.removeChild($notification);
+    document.addEventListener('DOMContentLoaded', () => {
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+            $notification = $delete.parentNode;
+            $delete.addEventListener('click', () => {
+                $notification.parentNode.removeChild($notification);
+            });
+        });
     });
-  });
-});
+
 </script>
 
 @endsection
