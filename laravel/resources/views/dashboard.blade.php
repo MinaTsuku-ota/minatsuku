@@ -25,10 +25,21 @@
 <div>
     <h2>
         ようこそ、
-        <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="avater" style="height:50px; width:auto;">
+        <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="avater" style="height: 50px;">
         {{ Auth::user()->name }}さん！
     </h2>
     <h3>あなたの学科は：{{ App\Subject::find(Auth::user()->subject_id)->subject }}</h3>
+    {!! Form::open(['method' => 'PATCH', 'route' => 'dashboard.update', 'files' => true]) !!}
+    <div>
+        {!! Form::label('avater', 'ユーザサムネイルを更新:') !!}
+        {!! Form::file('avater', ['required']) !!}
+    </div>
+    {!! Form::hidden('id', Auth::user()->id) !!}
+    <div>
+        {!! Form::submit('送信') !!}
+    </div>
+    <input type="hidden" name="recaptcha" id="recaptcha">
+    {!! Form::close() !!}
 </div>
 
 <hr />

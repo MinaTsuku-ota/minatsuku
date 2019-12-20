@@ -11,7 +11,7 @@
 
     {{-- ログインしている時のメニュー --}}
     @else
-        <div class="btn mypage "><a href="{{ route('dashboard') }}">マイページ</a></div>
+        <div class="btn mypage "><a href="{{ route('dashboard.index') }}">マイページ</a></div>
 
         {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
         <div class="btn sinki "><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></div>

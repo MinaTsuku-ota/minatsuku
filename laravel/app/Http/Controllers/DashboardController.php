@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,7 +37,7 @@ class DashboardController extends Controller
     }
 
     // google reCAPTCHA v3を使って送信
-    public function dashboard_post(Request $request){
+    public function post(Request $request){
         // validate
         $this->validate($request, [
             'text' => 'required',
@@ -55,5 +56,12 @@ class DashboardController extends Controller
         // $score = $response->getScore();
         // return response()->view('dashboard', compact('articles', 'status', 'score'));
         return redirect()->route('dashboard')->with('message', '送信に成功しました!');
+    }
+    // サムネイルの更新
+    public function update(Request $request) {
+        // dd($request->all()); // デバッグ
+        $avater = basename($request->avater->store('public/avaters'));
+        User::where('id', $request->id)->update(['avater' => $avater]);
+        return redirect()->route('dashboard.index')->with('message', 'サムネイルを更新しました！');
     }
 }

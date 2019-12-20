@@ -124,7 +124,7 @@ class ArticlesController extends Controller
         }
         $article->save();
 
-        dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
+        // dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
 
         // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');
