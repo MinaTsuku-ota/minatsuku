@@ -68,6 +68,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/uploaded_images'),
         ],
+        'avaters' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/avaters'),
+        ],
     ],
 
 ];

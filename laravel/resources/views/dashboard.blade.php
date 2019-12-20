@@ -29,12 +29,12 @@
         {{ Auth::user()->name }}さん！
     </h2>
     <h3>あなたの学科は：{{ App\Subject::find(Auth::user()->subject_id)->subject }}</h3>
+    
     {!! Form::open(['method' => 'PATCH', 'route' => 'dashboard.update', 'files' => true]) !!}
     <div>
         {!! Form::label('avater', 'ユーザサムネイルを更新:') !!}
         {!! Form::file('avater', ['required']) !!}
     </div>
-    {!! Form::hidden('id', Auth::user()->id) !!}
     <div>
         {!! Form::submit('送信') !!}
     </div>
