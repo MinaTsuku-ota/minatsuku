@@ -1,0 +1,293 @@
+@charset "utf-8";
+
+body{
+  background-image: url("../image/haikei.png");
+  background-size: contain;
+ 
+}
+
+.header{
+  width:100%;
+  padding: 5px 0px;
+  background-color:#0cf;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}
+
+.dummy{
+  position: static;
+}
+
+.login{
+  float: left;
+  margin-right: 30px;
+  background-color: #f90;
+  color:#fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+/* ログイン後 */
+/* .mypage{
+  float: left;
+  margin-right: 30px;
+  background-color: #f90;
+  color:#fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
+}
+ */
+
+
+.btn a:visited{
+  color:#fff;
+}
+
+.btn a{
+  text-decoration: none;
+  color: #fff;
+}
+.btn:hover{
+  opacity: 0.8;
+}
+
+.sinki{
+  float:right;
+  background-color: #c06;
+  color:#fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.header-left{
+  float: left;
+    margin: 10px 0px 0px 10px;
+}
+
+.header-right{
+    float: right;
+    margin: 22px 30px;
+}
+
+.home_daimei{
+  width: 300px;
+}
+
+.clearfix::after{
+  display: block;
+  content:"";
+  clear: both;
+}
+
+
+main{
+  position: relative;
+}
+
+#back{
+  position: relative;
+  top: 50px;
+  left: 70px;
+  
+}
+
+#center{
+  text-align: center;
+}
+
+
+
+section{
+  position: absolute;
+  left:40%;
+  top: 300px;
+  padding: 30px 10px;
+  background-color: #6BB8FF;
+  border-radius: 600px;
+  min-width: 350px;
+  /* -------いったん高さとる--------- */
+  width: 100px;
+  height: 290px;
+}
+
+#space{
+  height: 900px;
+  background-color: rgb(247, 213, 112);
+}
+
+#profil{
+  text-align: center;
+  padding-top: 15px;
+}
+
+
+
+#toukouitiran{
+  background-color: #fff;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding: 20px 50px;
+  display: inline-block;
+  border-radius: 80px;
+  text-align: center;
+  margin-left: 25%;
+  /* ここ*/
+  width: 800px;
+}
+
+#toukouitiran h1{
+  background-color: #0cf;
+  display: inline-block;
+  padding: 10px 50px;
+  border-radius: 30px;
+  color: #fff;
+}
+
+
+
+#good{
+  background-color: #0cf;
+  display: inline-block;
+  float: right;
+  font-size: 30px;
+  margin-right: 50px;
+  border-radius: 20px;
+  width: 200px;
+  color: #fff;
+}
+
+#sougood_dai{
+  font-size: 50px;
+}
+
+#sougood{
+  float: right;
+}
+
+
+#toukou{
+  background-color: #0cf;
+  display: inline-block;
+  float: right;
+  font-size: 30px;
+  margin-right: 15px;
+  border-radius: 20px;
+  width: 200px;
+  color: #fff;
+}
+
+#soutoukou_dai{
+  font-size: 50px;
+}
+
+#soutoukou{
+  float: right;
+}
+
+
+
+#puro_text{
+ margin-top: 10px;
+}
+
+
+#nikku{
+  text-align: center;
+  font-size: 30px;
+}
+
+#gakka{
+  margin-top: 15px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#matome{
+  margin-right: 50px;
+}
+
+
+
+#parson{
+  width: 150px;
+}
+
+
+#toukouPanel{
+    margin: 10px 10px;
+    float: left;
+    width: 770px;
+    height: auto;
+    border: solid 5px #ffffff;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+
+table.toukou{
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+  text-align: center;
+  width: 100%;
+  border: solid 1px black;
+  margin-bottom: 20px;
+}
+
+table.toukou td{
+  border: solid 1px black;
+}
+.comment_none{
+  display:none;
+}
+.comment_none li{
+  list-style-type: none;
+}
+
+
+footer{
+  width:100%;
+  background-color:#0cf;
+  text-align: center;
+}
+
+footer ul{
+  margin: 0px;
+}
+
+
+footer ul li{
+  display: inline-block;
+  margin:40px 60px;
+  font-weight: bold;
+}
+
+footer ul li a{
+  color: #fff;
+}
+
+footer ul li a:visited{
+  color: #fff;
+}
+
+.dummy{
+  position: static;
+}
+
+.clearfix::after{
+  content:"";
+  display: block;
+  clear: both;
+  
+}
+
+#nikku_dai{
+  color: #45A1CF;
+  font-size: 40px;
+  padding: 0% 10%;
+  text-align: center;
+}
