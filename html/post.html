@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="Jp">
+
 <head>
     <meta charset="UTF-8">
     <title>みなツク</title>
@@ -18,104 +19,109 @@
             <div class="header-left clearfix">
                 <a href="home.html"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
             </div>
-    
+
             <div class="header-right">
-                <a href="login.html"><div class="btn login ">ログイン</div></a>
+                <a href="login.html">
+                    <div class="btn login ">ログイン</div>
+                </a>
                 <!-- ログイン後 -->
                 <!-- <a href="#"><div class="btn mypage ">マイページ</div></a> -->
-                <a href="create.html"><div class="btn sinki ">新規登録</div></a>
+                <a href="create.html">
+                    <div class="btn sinki ">新規登録</div>
+                </a>
             </div>
         </header>
         <main>
-          <div class="header clearfix dummy">
-              <div class="header-left clearfix">
-                  <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
-              </div>
-                     
-              <div class="header-right">
-                  <div class="btn login "><a href="#">ログイン</a></div>
-                  <div class="btn sinki "><a href="#">新規登録</a></div>
-               </div>
-          </div>
-
-        <div id="contens">
-
-
-        <section class="homeContent clearfix">
-
-        <div class="toukouPanel">
-
-            <div id="post_syoudai">
-                <h1 class="post_daimei">新規投稿</h1>
-              </div>
-              <div id="ookisa">
-                <table class="toukou">
-
-                    <tr>
-                        <td>ジャンル?</td>
-                        <form>
-                        <td style="border-style:none;">
-                            <select size="1" class="genre">
-                                        <option>WEB</option>
-                                        <option>写真</option>
-                                        <option>動画</option>
-                            </select>
-                        </td>
-                        </form>
-                    </tr>
-                    <tr>
-                        <form action="#" method="#">
-                        <td colspan="10" height="30px">
-                                <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力">
-                        </td>
-                        </form>
-                    </tr>
-
-                    <tr>
-                        <form action="#" method="#">
-                        <td colspan="10" height="250px" id="input_td">
-                            <span class="input_span">
-                                <div class="imageText">Click or Drop here</div>
-                                <input type="file" class="imageInput" name="file0">
-                            </span>
-                            <span class="input_span">
-                                <div class="imageText">Click or Drop here</div>
-                                <input type="file" class="imageInput" name="file1">
-                            </span>
-                            <span class="input_span">
-                                <div class="imageText">Click or Drop here</div>
-                                <input type="file" class="imageInput" name="file2">
-                            </span>
-                        </td>
-                        </form>
-                    </tr>
-
-                    <tr>
-                        <td colspan="10" height="250px">
-                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText"></textarea>
-                        </td>
-                    </tr>
-
-                </table>
+            <div class="header clearfix dummy">
+                <div class="header-left clearfix">
+                    <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
                 </div>
-            <div class="STbtn">
-                    <a href="#" class="STbtnChild">投稿</a>
+
+                <div class="header-right">
+                    <div class="btn login "><a href="#">ログイン</a></div>
+                    <div class="btn sinki "><a href="#">新規登録</a></div>
+                </div>
             </div>
 
-        <div>
-
-            
-        </div>
-
-        </div>
+            <div id="contens">
 
 
-        </section>
+                <section class="homeContent clearfix">
 
-        <div>
+                    <div class="toukouPanel">
 
-    </main>
-    <footer>
+                        <div id="post_syoudai">
+                            <h1 class="post_daimei">新規投稿</h1>
+                        </div>
+                        <div id="ookisa">
+                            <table class="toukou">
+
+                                <tr>
+                                    <td>ジャンル?</td>
+                                    <form>
+                                        <td style="border-style:none;">
+                                            <select size="1" class="genre">
+                                                <option>WEB</option>
+                                                <option>写真</option>
+                                                <option>動画</option>
+                                            </select>
+                                        </td>
+                                    </form>
+                                </tr>
+                                <tr>
+                                    <form action="#" method="#">
+                                        <td colspan="10" height="30px">
+                                            <input type="text1" name="title" size="50" maxlength="20"
+                                                placeholder="題名入力">
+                                        </td>
+                                    </form>
+                                </tr>
+
+                                <tr>
+                                    <form action="#" method="#">
+                                        <td colspan="10" height="300px" id="input_td">
+                                            <span class="input_span">
+                                                <div class="imageText">Click or Drop here</div>
+                                                <input type="file" class="imageInput" name="file0">
+                                            </span>
+                                            <span class="input_span">
+                                                <div class="imageText">Click or Drop here</div>
+                                                <input type="file" class="imageInput" name="file1">
+                                            </span>
+                                            <span class="input_span">
+                                                <div class="imageText">Click or Drop here</div>
+                                                <input type="file" class="imageInput" name="file2">
+                                            </span>
+                                        </td>
+                                    </form>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="10" height="350px">
+                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText"></textarea>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="STbtn">
+                            <a href="#" class="STbtnChild">投稿</a>
+                        </div>
+
+                        <div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+                <div>
+
+        </main>
+        <footer>
             <ul>
                 <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
                 <li><a href="request.html"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
@@ -125,4 +131,5 @@
         </footer>
     </div>
 </body>
+
 </html>

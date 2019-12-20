@@ -105,8 +105,8 @@ body{
   }
 
 .homeContent{
-  min-width: 470px;
-  max-width: 770px;
+  min-width: 600px;
+  max-width: 890px;
   /* height: 90%; */
   margin: 100px auto 50px auto;
   border-radius: 10px;
@@ -124,8 +124,8 @@ body{
 .toukouPanel{
   margin: auto;
   margin-top: 20px;
-  min-width: 500px;
-  max-width: 770px;
+  min-width: 600px;
+  max-width: 890px;
   border: solid 5px #ffffff;/*線*/
   border-radius: 10px;/*角の丸み*/
 }
@@ -136,7 +136,7 @@ table.toukou{
     word-wrap: break-all;
     text-align: center;
     min-width: 600px;
-    max-width: 750px;
+    max-width: 900px;
     /* max-height: 80%; */
     margin: auto;
     border-style: none;
@@ -145,6 +145,8 @@ table.toukou{
 table.toukou td{
     border: solid 3px  #996633;
     border-radius: 4px;
+    width: 400px;
+    min-width: 250px;
 }
 
 .genre select{
@@ -167,7 +169,7 @@ table.toukou td{
 }
 .genre{
   text-align: center;
-  width: 90%;
+  width: 100%;
   color: #ffffff;
   border-radius: 2px;
   border-radius: 50px;
