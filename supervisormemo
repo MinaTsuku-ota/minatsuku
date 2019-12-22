@@ -1,0 +1,19 @@
+supervisor for windows
+https://pypi.org/project/supervisor-win/
+
+minatsuku/laravelにて
+supervisord -c ./etc/supervisord.conf // supervisor起動
+
+プロンプトを新規に起動して
+supervisorctl status all // 起動中のワーカ出力
+
+http://localhost:9001
+でsupervisor起動中にGUI操作も可能
+
+/* supervisorをwindowsのサービスとして常駐化する */
+pythonでのWindowsサービスの書き方:https://masahito.hatenablog.com/entry/20110511/1305107553
+
+// タスクキルを試してみる
+https://qiita.com/nasum/items/22585cff8745fa61d187
+コマンド:
+taskkill /pid **PID** /f
