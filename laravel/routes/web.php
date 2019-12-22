@@ -74,3 +74,8 @@ Route::post('ddtest', 'PagesController@ddtest_post')->name('ddtest');
 
 // 開発者用ページ
 Route::get('dev', 'DeveloperController@index')->name('dev');
+
+// キューテスト用
+Route::get('sample/queues', 'SampleController@queues');
+Route::get('sample/queues/none', 'SampleController@queuesNone');
+Route::get('sample/queues/database', 'SampleController@queuesDatabase');

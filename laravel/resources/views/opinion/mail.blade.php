@@ -10,7 +10,7 @@
 <h3>問い合わせ内容を以下で受け取りました。</h3>
 <hr/>
 <div>
-	ニックネーム：{{ Auth::user()->name }}<br/>
+	ニックネーム：{{ $name }}<br/>
 	{{-- タイトル：{{ $contact['title'] }}<br/> --}}
 	本文：<br/>
 	{{ $contact['body'] }}

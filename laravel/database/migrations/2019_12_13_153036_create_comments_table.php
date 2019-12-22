@@ -26,7 +26,7 @@ class CreateCommentsTable extends Migration
             ->onDelete('cascade');
             $table->timestamps();
             $table->text('comment');
- 
+
 
 
         });

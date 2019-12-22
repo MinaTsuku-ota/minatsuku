@@ -13,6 +13,7 @@ class BasicAuth
      * @param  \Closure  $next
      * @return mixed
      */
+    // https://medium.com/oceanize-geeks/laravel-middleware-basic-auth-implementation-88b777361b5c
     public function handle($request, Closure $next)
     {
         $AUTH_USER = 'admin';
