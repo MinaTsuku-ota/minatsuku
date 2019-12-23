@@ -39,33 +39,11 @@ $(function() {
 
         // $(comments).appendTo(thisParentParent);
 
-<<<<<<< HEAD
-        // $.ajaxSetup({
-        //     type: "POST",
-        //     timeout: 10000,
-        // });
-
-        // var postData = { "comment_data": comment_data };
-
-        var xhr = new XMLHttpRequest();
-
-        xhr.open('POST', 'sample.php');
-        xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+        $.ajaxSetup({
+            type: 'POST'
+        })
 
         $.ajax({
-                url: 'sample.php',
-                type: "POST",
-                datatype: 'json',
-                contentType: "application/json; charset=utf-8",
-                data: {
-                    "comment_data": comment_data
-                }
-=======
-            $.ajaxSetup({
-                type: 'POST'
-            })
-
-            $.ajax({
                 url: '/sample.php',
                 type: 'POST',
                 crossDomain: true,
@@ -77,7 +55,6 @@ $(function() {
                 processData: false,
                 datatype: 'text',
                 data: $('.comment_text').val(),
->>>>>>> f561d309d13228e1cb5ac9710c062e738f3c6fb4
             }).done(function(data) {
                 console.log('done');
                 console.log(data.comment_data);
