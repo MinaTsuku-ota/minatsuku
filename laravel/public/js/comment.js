@@ -39,6 +39,7 @@ $(function() {
 
         // $(comments).appendTo(thisParentParent);
 
+<<<<<<< HEAD
         // $.ajaxSetup({
         //     type: "POST",
         //     timeout: 10000,
@@ -59,6 +60,24 @@ $(function() {
                 data: {
                     "comment_data": comment_data
                 }
+=======
+            $.ajaxSetup({
+                type: 'POST'
+            })
+
+            $.ajax({
+                url: '/sample.php',
+                type: 'POST',
+                crossDomain: true,
+                contentType: 'text/plain',
+                accepts: '*/*',
+                xhrFields: {
+                    withCredentials: true
+                },
+                processData: false,
+                datatype: 'text',
+                data: $('.comment_text').val(),
+>>>>>>> f561d309d13228e1cb5ac9710c062e738f3c6fb4
             }).done(function(data) {
                 console.log('done');
                 console.log(data.comment_data);
