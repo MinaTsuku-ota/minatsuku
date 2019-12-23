@@ -19,6 +19,7 @@ body{
     top: 0px;
     left: 0px;
     z-index: 10;
+    border-bottom: 2px solid #3080B5;
 }
 
 .dummy{
@@ -333,6 +334,7 @@ footer{
     background-color:#0cf;
     text-align: center;
     min-width: 877px;
+    border-top: 2px solid #3080B5;
   }
   
   footer ul {
