@@ -1,12 +1,8 @@
 <?php
   header('Content-type: application/json; charset=utf-8');
 
-  // $files[] = $_GET($file0,$file1,$file2);
+  $comment_data = $_POST['comment_data'];
 
-  $text = $_GET('comment_data');
+  $result = 'これはテストです' . $comment_data;
 
-  if(isset($text)){
-
-    echo mb_convert_encode($text,'UTF-8');
-
-  };
+  echo json_encode($result);

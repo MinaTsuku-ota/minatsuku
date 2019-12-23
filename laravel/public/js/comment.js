@@ -25,39 +25,67 @@ $(function() {
 
     });
 
-    $('.comment_submit').each(function() {
 
-        $('[type="submit"]').on('click', function(ev) {
-            ev.preventDefault();
+    $('.comment_submit').on('click', function(ev) {
+        ev.preventDefault();
 
-            var thisParent = $(this).parent();
+        var thisParent = $(this).parent();
 
-            console.log(thisParent);
+        console.log(thisParent);
 
-            var thisParentParent = thisParent.parents('ul');
-            var comment_data = thisParent.find('.comment_text').val();
-            var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
+        var thisParentParent = thisParent.parents('ul');
+        var comment_data = thisParent.find('.comment_text').val();
+        var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
 
-            // $(comments).appendTo(thisParentParent);
+        // $(comments).appendTo(thisParentParent);
 
-            // $.ajaxSetup({
-            //     type: "POST",
-            //     timeout: 10000,
-            // });
+        // $.ajaxSetup({
+        //     type: "POST",
+        //     timeout: 10000,
+        // });
 
-            $.ajax({
+        // var postData = { "comment_data": comment_data };
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('POST', 'sample.php');
+        xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+
+        $.ajax({
                 url: 'sample.php',
-                type: 'GET',
-                datatype: 'text',
-                data: comment_data,
+                type: "POST",
+                datatype: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: {
+                    "comment_data": comment_data
+                }
             }).done(function(data) {
-                $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
+                console.log('done');
+                console.log(data.comment_data);
+            }).fail(function(data) {
+                console.log('fail');
                 console.log(data);
             })
+            // $.post(
+            //     "sample.php",
+            //     postData,
+            //     function(data) {
+            //         console.log(data);
+            //         alert(data);
+            //     });
 
-            console.log(comment_data);
+        // $.ajax({
+        //     url: 'sample.php',
+        //     type: 'GET',
+        //     datatype: 'text',
+        //     data: comment_data,
+        // }).done(function(data) {
+        //     $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
+        //     console.log(data);
+        // })
 
-        })
+        console.log(comment_data);
+
     })
 
     // $('.comment_text').each(function() {
