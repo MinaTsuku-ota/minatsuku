@@ -37,7 +37,7 @@ class RegisterController extends Controller
     // named route で指定したいので function にします
     protected function redirectTo ()
     {
-        return route('dashboard');
+        return route('dashboard.index');
     }
 
     /**
@@ -83,6 +83,7 @@ class RegisterController extends Controller
             // 'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'subject_id' => $data['subject'],
+            'avater' => "default_avater.png"
         ]);
     }
 
