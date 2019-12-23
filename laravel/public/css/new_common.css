@@ -129,33 +129,33 @@ body{
     margin:100px;
 }
 
- .navBox input{
-     cursor: pointer;
-     position: absolute;
-     top: 0px;
-     left: 14px;
-     width: 137px;
-     height: 44px;
-     opacity: 0;
- }
+.navBox input{
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 14px;
+    width: 137px;
+    height: 44px;
+    opacity: 0;
+}
 
- .navBox i{
-     margin-top: 6px;
- }
+.navBox i{
+    margin-top: 6px;
+}
 
- .navBox input#tab02{
+.navBox input#tab02{
     left: 154px;
- }
- .navBox input#tab03{
+}
+.navBox input#tab03{
     left: 294px;
- }
+}
 
- .navBox input#tab04{
+.navBox input#tab04{
     left: 431px;
 }
 .home_daimei{
     width: 300px;
-  }
+}
 
 .navBox label{
     background: -webkit-gradient(linear,left top,left bottm,from(#cb8f4b),to(#cfa060));
