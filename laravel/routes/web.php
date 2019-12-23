@@ -38,6 +38,10 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 // Route::delete('articles/{id}', 'ArticlesController@destroy')->name('articles.destroy'); // 記事の削除
 // 上7行は1行で
 Route::resource('articles', 'ArticlesController');
+// WEB、写真、動画タブの画面遷移する仮ページ
+Route::get('articles2', 'ArticlesController@index2')->name('articles.index2');
+Route::get('articles3', 'ArticlesController@index3')->name('articles.index3');
+Route::get('articles4', 'ArticlesController@index4')->name('articles.index4');
 
 // ご意見ページ用
 Route::get('opinion', 'OpinionController@index')->name('opinion');

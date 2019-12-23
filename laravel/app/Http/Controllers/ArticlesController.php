@@ -41,8 +41,12 @@ class ArticlesController extends Controller
         // ->get();
         // published_atを使わない
         $articles = Article::latest('created_at')->paginate(10);
+        $articles2 = Article::where('genre_id','1')->latest('created_at')->paginate(10); // WEB
+        $articles3 = Article::where('genre_id','2')->latest('created_at')->paginate(10); // 写真
+        $articles4 = Article::where('genre_id','3')->latest('created_at')->paginate(10); // 動画
+
         // return view('articles.index', compact('articles'));
-        return view('articles.index', compact('articles'));
+        return view('articles.index', compact('articles','articles2','articles3','articles4'));
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -68,7 +72,7 @@ class ArticlesController extends Controller
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
     public function store(ArticleRequest $request){
-        dd($request->all()); // デバッグ
+        // dd($request->all()); // デバッグ
         recaptcha($request); // app/Http/helper.php
 
         // 画像はここでバリデート
@@ -190,6 +194,20 @@ class ArticlesController extends Controller
     public function id()
     {
         return $this->hasOne('App\id');
+    }
+
+    // WEB、写真、動画用の仮ページ
+    public function index2(){
+        $articles = Article::where('genre_id','1')->latest('created_at')->paginate(10);
+        return view('articles.index2', compact('articles'));
+    }
+    public function index3(){
+        $articles = Article::where('genre_id','2')->latest('created_at')->paginate(10);
+        return view('articles.index3', compact('articles'));
+    }
+    public function index4(){
+        $articles = Article::where('genre_id','3')->latest('created_at')->paginate(10);
+        return view('articles.index4', compact('articles'));
     }
 
 }
