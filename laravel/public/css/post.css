@@ -1,7 +1,8 @@
 @charset "utf-8";
 
 body{
-    background-image : url(../image/haikei.png);
+  background-image: url("../image/aozora1.png");
+  background-size: 1950px 1100px;
 }
 
 #warp{
@@ -10,59 +11,92 @@ body{
 }
 
 .header{
-    width:100%;
-    padding: 5px 0px;
-    background-color:#0cf;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 10;
+  width:100%;
+  padding: 5px 0px;
+  background-color:#0cf;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  border-bottom: 2px solid #3080B5;
 }
 
 .dummy{
-    position: static;
-  }
-  
-  .login{
-    float: left;
-    margin-right: 30px;
-    background-color: #f90;
-    color:#fff;
-    font-weight: bold;
-    padding: 15px;
-    border-radius: 4px;
-  }
-  
-  .btn a:visited{
-    color:#fff;
-  }
-  
-  .btn a{
-    text-decoration: none;
-    color: #fff;
-  }
-  .btn:hover{
-    opacity: 0.8;
-  }
-  
-  .sinki{
-    float:right;
-    background-color: #c06;
-    color:#fff;
-    font-weight: bold;
-    padding: 15px;
-    border-radius: 4px;
-  }
-  
-  .header-left{
-    float: left;
+  position: static;
+}
+
+.login{
+  float: left;
+  margin-right: 30px;
+  background-color: #f90;
+  color:#fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+/* ログイン後 */
+/* .mypage{
+  float: left;
+  margin-right: 30px;
+  background-color: #f90;
+  color:#fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
+}
+ */
+
+
+.btn a:visited{
+  color:#fff;
+}
+
+.btn a{
+  text-decoration: none;
+  color: #fff;
+}
+.btn:hover{
+  opacity: 0.8;
+}
+
+.sinki{
+  float:right;
+  background-color: #c06;
+  color:#fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.header-left{
+  float: left;
     margin: 10px 0px 0px 10px;
-  }
-  
-  .header-right{
+}
+
+.header-right{
     float: right;
-    margin: 40px 30px;
-  }
+    margin: 22px 30px;
+}
+
+.home_daimei{
+  width: 300px;
+}
+
+.clearfix::after{
+  display: block;
+  content:"";
+  clear: both;
+}
+
+.post_daimei{
+  color: #45A1CF;
+  font-size: 40px;
+ }
+
+ #post_syoudai {
+  text-align: center;
+}
   
   
   #content{
@@ -73,8 +107,8 @@ body{
   }
 
 .homeContent{
-  min-width: 470px;
-  max-width: 770px;
+  min-width: 600px;
+  max-width: 890px;
   /* height: 90%; */
   margin: 100px auto 50px auto;
   border-radius: 10px;
@@ -92,8 +126,8 @@ body{
 .toukouPanel{
   margin: auto;
   margin-top: 20px;
-  min-width: 500px;
-  max-width: 770px;
+  min-width: 600px;
+  max-width: 890px;
   border: solid 5px #ffffff;/*線*/
   border-radius: 10px;/*角の丸み*/
 }
@@ -104,7 +138,7 @@ table.toukou{
     word-wrap: break-all;
     text-align: center;
     min-width: 600px;
-    max-width: 750px;
+    max-width: 900px;
     /* max-height: 80%; */
     margin: auto;
     border-style: none;
@@ -113,6 +147,8 @@ table.toukou{
 table.toukou td{
     border: solid 3px  #996633;
     border-radius: 4px;
+    width: 400px;
+    min-width: 250px;
 }
 
 .genre select{
@@ -135,7 +171,7 @@ table.toukou td{
 }
 .genre{
   text-align: center;
-  width: 90%;
+  width: 100%;
   color: #ffffff;
   border-radius: 2px;
   border-radius: 50px;
@@ -257,27 +293,12 @@ input[type="text1"]{
   box-shadow: 0 2px 2px rgb(121, 55, 8);
 }
 
-/* Preview area css Start */
-div#preview_wrap{width: 500px; margin: 15px auto;}
-div#preview_wrap h2{text-align: center;}
-div#preview_wrap p{margin: 0;}
-table.preview_area{
-  table-layout: fixed;
-  word-break: break-all;
-  word-wrap: break-all;
-  text-align: center;
-  margin: 5px 10px 10px 15px;
-  width: 470px;
-  border: solid 1px black;
-}
-table.preview_area td{border: solid 1px black;}
-p#pre_gen, p#pre_tit{height: 20px;}
-/* Preview area css End */
 
 footer{
     width:100%;
     background-color:#0cf;
     text-align: center;
+    border-top: 2px solid #3080B5;
   }
   
   footer ul {
