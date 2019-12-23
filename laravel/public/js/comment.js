@@ -40,16 +40,22 @@ $(function() {
 
             // $(comments).appendTo(thisParentParent);
 
-            // $.ajaxSetup({
-            //     type: "POST",
-            //     timeout: 10000,
-            // });
+            $.ajaxSetup({
+                type: 'POST'
+            })
 
             $.ajax({
-                url: 'sample.php',
-                type: 'GET',
+                url: '/sample.php',
+                type: 'POST',
+                crossDomain: true,
+                contentType: 'text/plain',
+                accepts: '*/*',
+                xhrFields: {
+                    withCredentials: true
+                },
+                processData: false,
                 datatype: 'text',
-                data: comment_data,
+                data: $('.comment_text').val(),
             }).done(function(data) {
                 $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
                 console.log(data);
