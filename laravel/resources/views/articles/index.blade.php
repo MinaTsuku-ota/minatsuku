@@ -2,6 +2,8 @@
 
 @section('addcss')
 <link rel="stylesheet" href="/css/new_common.css">
+<link rel="shortcut icon" href="/image/favicon.png" type="image/png">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 @endsection
 
 @section('addjs')
@@ -12,37 +14,34 @@
 @endsection
 
 @section('content')
-<div id="contens">
-    <div class="navBox">
-        <input type="radio" name="tabs" id="tab01" class="radioboxNone" checked="checked">
-        <label for="tab01" class="label01 janru">HOME</label>
-        {{-- <label for="tab01" class="label01 janru"><a href="{{ route('articles.index') }}">HOME</a></label> --}}
-        <input type="radio" name="tabs" id="tab02" class="radioboxNone">
-        {{-- <label for="tab02" class="label02 janru">WEB</label> --}}
-        <label for="tab02" class="label02 janru"><a href="{{ route('articles.index2') }}">WEB</a></label>
-        <input type="radio" name="tabs" id="tab03" class="radioboxNone">
-        {{-- <label for="tab03" class="label03 janru">写真</label> --}}
-        <label for="tab03" class="label03 janru"><a href="{{ route('articles.index3') }}">写真</a></label>
-        <input type="radio" name="tabs" id="tab04" class="radioboxNone">
-        {{-- <label for="tab04" class="label04 janru">動画</label> --}}
-        <label for="tab04" class="label04 janru"><a href="{{ route('articles.index4') }}">動画</a></label>
+    <section class="navBox">
+        <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
+        <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
+        <input type="radio" name="tabs" id="tab02" class="menu02">
+        <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
+        <input type="radio" name="tabs" id="tab03" class="menu03">
+        <label for="tab03" class="label03 janru"><i class="fas fa-camera fa-2x"></i></label>
+        <input type="radio" name="tabs" id="tab04" class="menu04">
+        <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
 
         <section class="homeContent clearfix">
 
             {{-- HOME --}}
-            <div id="toukouPanel">
+            <div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
                 @foreach($articles as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br /><a
-                                href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                        <td colspan="10">タイトル<br />
+                            <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="180px">詳細説明<br />{{ $article->body }}</td>
-                        <td colspan="4" height="180px"><img
-                                src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
+                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="4" height="250px">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="1">いいね</td>
@@ -78,19 +77,31 @@
                 {{ $articles->onEachSide(2)->links()}}
             </div>
 
+            <!-- comments -->
+            <div class="commentPanel">
+                    <p>NEW コメント</p>
+                    {{-- コメント --}}
+                    @for($i=1;$i<=1;$i++) <table class="comment">
+                        <tr>
+                            <td colspan="10">オリジナルテトリス</td>
+                        </tr>
+                        </table>
+                        @endfor
+            </div>
+
             {{-- WEB --}}
-            <div id="toukouPanel" class="genre2">
+            <div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
-                @foreach($articles2 as $article)
+                @foreach($articles1 as $article)
                 <table class="toukou">
                     <tr>
                         <td colspan="10">タイトル<br /><a
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="180px">詳細説明<br />{{ $article->body }}</td>
-                        <td colspan="4" height="180px"><img
+                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="4" height="250px"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
@@ -128,18 +139,18 @@
             </div>
 
             {{-- 写真 --}}
-            <div id="toukouPanel">
+            <div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
-                @foreach($articles3 as $article)
+                @foreach($articles2 as $article)
                 <table class="toukou">
                     <tr>
                         <td colspan="10">タイトル<br /><a
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="180px">詳細説明<br />{{ $article->body }}</td>
-                        <td colspan="4" height="180px"><img
+                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="4" height="250px"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
@@ -177,18 +188,18 @@
             </div>
 
             {{-- 動画 --}}
-            <div id="toukouPanel">
+            <div class="toukouPanel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
-                @foreach($articles4 as $article)
+                @foreach($articles3 as $article)
                 <table class="toukou">
                     <tr>
                         <td colspan="10">タイトル<br /><a
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="180px">詳細説明<br />{{ $article->body }}</td>
-                        <td colspan="4" height="180px"><img
+                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="4" height="250px"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
@@ -225,18 +236,6 @@
                 {{ $articles->onEachSide(2)->links()}}
             </div>
 
-
-            <div id="commentPanel">
-                <p>NEW コメント</p>
-                {{-- コメント --}}
-                @for($i=1;$i<=1;$i++) <table class="comment">
-                    <tr>
-                        <td colspan="10">オリジナルテトリス</td>
-                    </tr>
-                    </table>
-                    @endfor
-            </div>
-
             <!-- 投稿ボタン -->
             <div id="toukou_button">
                 <div id="toukou0">
@@ -248,7 +247,5 @@
                 </div>
             </div>
         </section>
-    </div>
-</div>
-<script></script>
+    </section>
 @endsection
