@@ -11,18 +11,30 @@
 <body>
   <header class="header clearfix">
     <div class="header-left clearfix">
-          <a href="#"><img src="../image/home_daimei.png" class="sinki_daimei" alt="みなツク"></a>
+        <a href="home.html"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
     </div>
-  </header>
-  <main>
-      <div class="header clearfix dummy">
-          <div class="header-left clearfix">
-              <a href="#"><img src="../image/home_daimei.png" class="sinki_daimei" alt="みなツク"></a>
-          </div>
+
+    <div class="header-right">
+        <a href="login.html"><div class="btn login ">ログイン</div></a>
+        <!-- ログイン後 -->
+        <!-- <a href="#"><div class="btn mypage ">マイページ</div></a> -->
+        <a href="create.html"><div class="btn sinki ">新規登録</div></a>
+    </div>
+</header>
+<main>
+  <div class="header clearfix dummy">
+      <div class="header-left clearfix">
+          <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
       </div>
+             
+      <div class="header-right">
+          <div class="btn login "><a href="#">ログイン</a></div>
+          <div class="btn sinki "><a href="#">新規登録</a></div>
+       </div>
+  </div>
       <section>
         <div id="back">
-            <a href="#"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+            <a href="home.html"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
         </div>
         <div id="login_syoudai">
           <h1 class="login_daimei">ログイン</h1>
@@ -39,7 +51,7 @@
             <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
             
           </dl>
-          <div class="login">
+          <div class="login-bo">
             <p class="button"><input type="submit" value="ログイン" id="loginsuru"></p>
           </div>
           
@@ -50,9 +62,9 @@
 
   <footer>
     <ul>
-        <li><a href="#"><i class="fas fa-home">ホーム</i></a></li>
-        <li><a href="#"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
-        <li><a href="#"><i class="fas fa-exclamation-triangle">注記</i></a></li>
+        <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
+        <li><a href="request.html"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
+        <li><a href="policy"><i class="fas fa-exclamation-triangle">注記</i></a></li>
         <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
     </ul>
 </footer>

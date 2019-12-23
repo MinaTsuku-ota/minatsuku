@@ -1,0 +1,11 @@
+diff a/html/create.html b/html/create.html	(rejected hunks)
+@@ -62,9 +62,6 @@
+                 <option>オフィスビジネス化</option>
+                 <option>総合実務科</option>
+               </select>
+-                <div class="tyuukikakko">
+-                    <span href="#" id="js-modal-open" data-target="modal01"><img src="../image/tyuuki0.png" onmouseover="this.src='../image/tyuuki1.png'" onmouseout="this.src='../image/tyuuki0.png'" class="tyuuki" alt="注記"></span>
+-                </div>
+             </dd>
+           </dl>
+           <div class="touroku">
