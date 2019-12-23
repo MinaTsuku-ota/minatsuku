@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
             // 'email' => 'root@example.com',
             'password' => Hash::make('password'),
             'subject_id' => 4,
+            'avater' => "default_avater.png"
         ]);
     }
 }

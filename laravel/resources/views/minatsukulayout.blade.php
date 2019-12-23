@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    @yield('title')
     <title>みなツク</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +51,7 @@
     - ログインしているが編集権限が無い
     - 記事を削除した
     - 記事を追加した
-    - 
+    -
 --}}
 @if (session('message'))
 <script>alert('{{ session('message') }}');</script>

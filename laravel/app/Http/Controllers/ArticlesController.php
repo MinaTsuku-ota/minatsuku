@@ -68,16 +68,15 @@ class ArticlesController extends Controller
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
     public function store(ArticleRequest $request){
+        dd($request->all()); // デバッグ
         recaptcha($request); // app/Http/helper.php
 
         // 画像はここでバリデート
         $request->validate([
-            // 'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-            // 'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-            // 'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-            'image1' => 'file|image',
-            'image2' => 'file|image',
-            'image3' => 'file|image',
+            // 'file|image|mimes:jpeg,jpg,png,gif|max:2048' などなど
+            'image1' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'image2' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'image3' => 'file|image|mimes:jpeg,jpg,png,gif',
         ]);
 
         // フォームの入力値を取得
@@ -122,9 +121,9 @@ class ArticlesController extends Controller
         if ($request->image3) {
             $article->image3 = basename($request->image3->store('public/uploaded_images'));
         }
-        $article->save();
+        $article->save(); // updateにしないといけないかも
 
-        dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
+        // dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
 
         // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');

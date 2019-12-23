@@ -53,9 +53,10 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
 // マイページ用(dashboard)
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 // dashboardでgoogle reCAPTHA v3を使ってみる
-Route::post('dashboard', 'DashboardController@dashboard_post')->name('dashboard.post');
+Route::post('dashboard', 'DashboardController@post')->name('dashboard.post');
+Route::patch('dashboard', 'DashboardController@update')->name('dashboard.update'); // ユーザデータの更新
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
@@ -71,10 +72,10 @@ Route::post('articles/{article}/fav', 'ArticlesController@');
 Route::get('ddtest', 'PagesController@ddtest')->name('ddtest');
 Route::post('ddtest', 'PagesController@ddtest_post')->name('ddtest');
 
-// Route::get('articles/{id}/edit', 'DashboardController@edit');
-// Route::patch('articles/{id}', 'DashboardController@update');
-// dashboardでgoogle reCAPTHA v3を使ってみる
-// Route::post('dashboard', 'DashboardController@send')->name('dashboard');
-
 // 開発者用ページ
 Route::get('dev', 'DeveloperController@index')->name('dev');
+
+// キューテスト用
+Route::get('sample/queues', 'SampleController@queues');
+Route::get('sample/queues/none', 'SampleController@queuesNone');
+Route::get('sample/queues/database', 'SampleController@queuesDatabase');
