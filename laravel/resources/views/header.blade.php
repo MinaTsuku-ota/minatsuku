@@ -20,9 +20,14 @@
             <div class="btn mypage ">マイページ</div>
         </a>
         {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
-        <div class="btn sinki "><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></div>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+        <div class="btn sinki ">
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+        </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
         @endguest
     </div>
 </header>
-@include('header_dummy')
+<main>
+    @include('header_dummy')
