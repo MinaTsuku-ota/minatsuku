@@ -15,19 +15,39 @@
 <body>
     <header class="header clearfix">
         <div class="header-left clearfix">
-            <a href="#"><img src="/image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
+            <a href="{{ route('articles.index') }}">
+                <img src="/image/home_daimei.png" class="home_daimei" alt="みなツク">
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="{{ route('dashboard.index') }}">
+                <div class="btn mypage ">マイページ</div>
+            </a>
+            {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
+            <div class="btn sinki ">
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+            </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
     </header>
 
     <main>
         <div class="header clearfix dummy">
             <div class="header-left clearfix">
-                <a href="#"><img src="/image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
+                <a href="#"><img src="/image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+            </div>
+            <div class="header-right">
+                <div class="btn login "><a href="#">ログイン</a></div>
+                <div class="btn sinki "><a href="#">新規登録</a></div>
             </div>
         </div>
         <section>
             <div id="back">
-                <a href="{{ route('articles.index') }}"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+                <a href="{{ route('articles.index') }}">
+                    <i class="backbutton fas fa-arrow-circle-left fa-3x"></i>
+                </a>
             </div>
             <div id="request_syoudai">
                 <h1 class="request_daimei">ご意見・ご感想</h1>
@@ -47,7 +67,6 @@
             </form>
         </section>
     </main>
-
     @include('footer')
 </body>
 
