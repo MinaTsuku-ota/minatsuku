@@ -78,9 +78,9 @@ class ArticlesController extends Controller
         // 画像はここでバリデート
         $request->validate([
             // 'file|image|mimes:jpeg,jpg,png,gif|max:2048' などなど
-            'image1' => 'file|image|mimes:jpeg,jpg,png,gif',
-            'image2' => 'file|image|mimes:jpeg,jpg,png,gif',
-            'image3' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file0' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file1' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file2' => 'file|image|mimes:jpeg,jpg,png,gif',
         ]);
 
         // フォームの入力値を取得
@@ -117,13 +117,13 @@ class ArticlesController extends Controller
         // basename()はパスの最下層の名前を返す(拡張子含む)
         // if ($request->hasFile('image1')) {
         if ($request->image1) { // シンプルにnull値をチェックできる
-            $article->image1 = basename($request->image1->store('public/uploaded_images'));
+            $article->image1 = basename($request->file0->store('public/uploaded_images'));
         }
         if ($request->image2) {
-            $article->image2 = basename($request->image2->store('public/uploaded_images'));
+            $article->image2 = basename($request->file1->store('public/uploaded_images'));
         }
         if ($request->image3) {
-            $article->image3 = basename($request->image3->store('public/uploaded_images'));
+            $article->image3 = basename($request->file2->store('public/uploaded_images'));
         }
         $article->save(); // updateにしないといけないかも
 

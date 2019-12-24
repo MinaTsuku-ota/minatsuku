@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>みなツク</title>
@@ -13,25 +14,25 @@
 
     @include('recaptcha_js')
 </head>
+
 <body>
     <div id="wrap">
         <header class="header clearfix">
             <div class="header-left clearfix">
-                <a href="{{ route('articles.index')}}"><img src="/image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+                <a href="{{ route('articles.index')}}">
+                    <img src="/image/home_daimei.png" class="home_daimei" alt="みなツク">
+                </a>
             </div>
             <div class="header-right">
-                {{-- <div class="btn login "><a href="route{{ route('login') }}">ログイン</a></div>
-                <div class="btn sinki "><a href="route{{ route('register') }}">新規登録</a></div> --}}
-
-                @guest {{--ログインしていない時のメニュー --}}
-                <div class="btn login "><a href="{{ route('login') }}">ログイン</a></div>
-                <div class="btn sinki "><a href="{{ route('register') }}">新規登録</a></div>
-                @else {{-- ログインしている時のメニュー --}}
-                <div class="btn login "><a href="{{ route('dashboard.index') }}">マイページ</a></div>
+                <div class="btn login ">
+                    <a href="{{ route('dashboard.index') }}">マイページ</a>
+                </div>
                 {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
-                <div class="btn sinki "><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></div>
+                <div class="btn sinki ">
+                    <a href="#"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+                </div>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                @endguest
             </div>
         </header>
 
@@ -49,97 +50,68 @@
             <div id="contens">
                 <section class="homeContent clearfix">
                     <div class="toukouPanel">
-                        <div class="STimg"><img src="/image/toukou_daimei.png" alt="新規投稿"></div>
+                        <div id="post_syoudai">
+                            <h1 class="post_daimei">新規投稿</h1>
+                        </div>
 
                         <!-- 投稿フォーム -->
                         <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                             @csrf
-                            <table class="toukou">
-                                <tr>
-                                    <td>ジャンル?</td>
-                                    <td style="border-style:none;">
-                                        <select size="1" class="genre"  id="ref_gen" name="genre_id">
-                                            {{-- <option value="0">Please&nbsp;select&nbsp;a&nbsp;genre.</option> --}}
-                                            <option value="1">WEB</option>
-                                            <option value="2">写真</option>
-                                            <option value="3">動画</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="10" height="30px">
-                                        <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" id="ref_tit" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="10" height="250px" id="input_td">
-                                        <div class="input_span" id="Area0">
-                                            <div class="imageText">Click or Drop here</div>
-                                            <input type="file" class="imageInput" name="image1">
-                                        </div>
-                                        <div class="input_span" id="Area1">
-                                            <div class="imageText">Click or Drop here</div>
-                                            <input type="file" class="imageInput" name="image2">
-                                        </div>
-                                        <div class="input_span" id="Area2">
-                                            <div class="imageText">Click or Drop here</div>
-                                            <input type="file" class="imageInput" name="image3">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="10" height="250px">
-                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText" id="ref_des" required name="body"></textarea>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <!-- Preview area -->
-                            <div id="preview_wrap">
-                                <h2>Simple preview feature.</h2>
-                                <table class="preview_area">
+                            <div id="ookisa">
+                                <table class="toukou">
                                     <tr>
-                                        <td colspan="10">
-                                            <p id="pre_gen">Genre</p>
+                                        <td>ジャンル?</td>
+                                        <td style="border-style:none;">
+                                            <select size="1" class="genre">
+                                                <option value="1">WEB</option>
+                                                <option value="2">写真</option>
+                                                <option value="3">動画</option>
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="10">
-                                            <p id="pre_tit">Title</p>
+                                        <td colspan="10" height="30px">
+                                            <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力"
+                                                required>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="6" height="180px">
-                                            <p id="pre_des">Description</p>
-                                        </td>
-                                        <td colspan="4" height="180px" id="pre_img">
-                                            <div class="preImgPosition1"></div>
-                                            <div class="preImgPosition2"></div>
-                                            <div class="preImgPosition3"></div>
+                                        <td colspan="10" height="300px" id="input_td">
+                                            <span class="input_span">
+                                                <div class="imageText">Click or Drop here</div>
+                                                <input type="file" class="imageInput" name="file0">
+                                            </span>
+                                            <span class="input_span">
+                                                <div class="imageText">Click or Drop here</div>
+                                                <input type="file" class="imageInput" name="file1">
+                                            </span>
+                                            <span class="input_span">
+                                                <div class="imageText">Click or Drop here</div>
+                                                <input type="file" class="imageInput" name="file2">
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="1"></td>
-                                        <td colspan="1"></td>
-                                        <td colspan="3">Your name</td>
-                                        <td colspan="5">Your department</td>
+                                        <td colspan="10" height="350px">
+                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText" name="body"
+                                                required></textarea>
+                                        </td>
                                     </tr>
                                 </table>
-                            </div>
-                            <!-- Preview area End -->
 
-                            <div class="STbtn">
-                                <button type="submit" class="STbtnChild">投稿</button>
+                                <div class="STbtn">
+                                    <button type="submit" class="STbtnChild">投稿</button>
+                                </div>
+                                <input type="hidden" name="recaptcha" id="recaptcha">
                             </div>
-                            <input type="hidden" name="recaptcha" id="recaptcha">
                         </form>
-
                     </div>
                 </section>
             </div>
         </main>
-
+    </div>
     @include('footer')
-    <script src="/js/instantPreview.js"></script>
+    </div>
 </body>
+
 </html>
