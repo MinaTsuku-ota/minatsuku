@@ -71,7 +71,7 @@
             </td>
         </tr>
 
-        <tr class="comment-none">
+        <tr class="comment_none">
             <td colspan="10">
                 <ul>
                     <li>コメント内容の予定</li>

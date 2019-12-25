@@ -16,7 +16,8 @@
 <body>
     <header class="header clearfix">
         <div class="header-left clearfix">
-            <a href="{{ route('articles.index') }}"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+            <a href="{{ route('articles.index') }}"><img src="../image/home_daimei.png" class="home_daimei"
+                    alt="みなツク"></a>
         </div>
         <div class="header-right">
             <a href="{{ route('dashboard.index') }}">
@@ -61,7 +62,7 @@
         <div id="matome">
             <div id="toukou">
                 <div id="soutoukou_dai">総投稿</div>
-                <div id="soutoukou">4件</div>
+                <div id="soutoukou">{{ $articles->count() }}件</div>
             </div>
             <div id="sougou">
                 <div id="good">
@@ -75,21 +76,31 @@
             <h1>投稿一覧</h1>
             <div id="toukouPanel">
 
-            
+                @foreach($articles as $article)
                 <table class="toukou">
                     <tbody>
                         <tr>
-                            <td colspan="10">オリジナルテトリス</td>
+                            <td colspan="10">
+                                {!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
+                                {!! Form::submit('削除') !!}
+                                {!! Form::close() !!}
+                                <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
+                                <a href="{{ route('articles.edit', [$article->id]) }}">編集</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="6" height="180px">詳細説明</td>
-                            <td colspan="4" height="180px">画像</td>
+                            <td colspan="6" height="180px">{{ $article->body }}</td>
+                            <td colspan="4" height="180px">
+                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="1">いいね</td>
                             <td colspan="1" class="comment_button">コメント</td>
-                            <td colspan="3">名前</td>
-                            <td colspan="5">科の名前</td>
+                            <td colspan="3">名前<br/>{{ App\User::find($article->user_id)->name }}</td>
+                            <td colspan="5">科の名前<br/>
+                                {{ App\Subject::find( App\User::find($article->user_id)->subject_id )->subject }}
+                            </td>
                         </tr>
                         <tr class="comment_none">
                             <td colspan="10">
@@ -105,7 +116,7 @@
                         </tr>
                     </tbody>
                 </table>
-
+                @endforeach
 
             </div>
         </div>
