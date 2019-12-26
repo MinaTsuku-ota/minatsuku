@@ -72,7 +72,7 @@ class ArticlesController extends Controller
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
     public function store(ArticleRequest $request){
-        // dd($request->all()); // デバッグ
+        dd($request->all()); // デバッグ
         recaptcha($request); // app/Http/helper.php
 
         // 画像はここでバリデート

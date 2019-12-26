@@ -10,7 +10,8 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
-    <script src="/js/D&D.js"></script>
+    {{-- <script src="/js/D&D.js"></script> --}}
+    <script src="/js/test_D&D.js"></script>
 
     @include('recaptcha_js')
 </head>
@@ -62,7 +63,7 @@
                                     <tr>
                                         <td>ジャンル?</td>
                                         <td style="border-style:none;">
-                                            <select size="1" class="genre">
+                                            <select size="1" class="genre" name="genre_id">
                                                 <option value="1">WEB</option>
                                                 <option value="2">写真</option>
                                                 <option value="3">動画</option>
@@ -79,15 +80,15 @@
                                         <td colspan="10" height="300px" id="input_td">
                                             <span class="input_span">
                                                 <div class="imageText">Click or Drop here</div>
-                                                <input type="file" class="imageInput" name="file0">
+                                                <input type="file" class="imageInput" id="Area0" name="file0">
                                             </span>
                                             <span class="input_span">
                                                 <div class="imageText">Click or Drop here</div>
-                                                <input type="file" class="imageInput" name="file1">
+                                                <input type="file" class="imageInput" id="Area1" name="file1">
                                             </span>
                                             <span class="input_span">
                                                 <div class="imageText">Click or Drop here</div>
-                                                <input type="file" class="imageInput" name="file2">
+                                                <input type="file" class="imageInput" id="Area2" name="file2">
                                             </span>
                                         </td>
                                     </tr>
@@ -112,6 +113,11 @@
     </div>
     @include('footer')
     </div>
+    @if($errors->any())
+    <script>
+        alert("{{ $errors->first() }}")
+    </script>
+    @endif
 </body>
 
 </html>
