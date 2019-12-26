@@ -1,14 +1,14 @@
-$(function() {
+$(function () {
     var duration = 300;
 
     var position = $('tbody').offset();
     console.log(position);
 
     //全てのコメント要素に関数を反映
-    $('.comment_button').each(function() {
+    $('.comment_button').each(function () {
 
         //クリック時
-        $(this).click(function() {
+        $(this).click(function () {
 
             //コメント内容の要素をJQOにする
             var $comment = $(this).parent().next('.comment_none');
@@ -20,13 +20,11 @@ $(function() {
             } else {
                 $comment.fadeOut(duration);
             };
-
         });
-
     });
 
 
-    $('.comment_submit').on('click', function(ev) {
+    $('.comment_submit').on('click', function (ev) {
         ev.preventDefault();
 
         var thisParent = $(this).parent();
@@ -44,31 +42,34 @@ $(function() {
         })
 
         $.ajax({
-                url: '/sample.php',
-                type: 'POST',
-                crossDomain: true,
-                contentType: 'text/plain',
-                accepts: '*/*',
-                xhrFields: {
-                    withCredentials: true
-                },
-                processData: false,
-                datatype: 'text',
-                data: $('.comment_text').val(),
-            }).done(function(data) {
-                console.log('done');
-                console.log(data.comment_data);
-            }).fail(function(data) {
-                console.log('fail');
-                console.log(data);
-            })
-            // $.post(
-            //     "sample.php",
-            //     postData,
-            //     function(data) {
-            //         console.log(data);
-            //         alert(data);
-            //     });
+            url: '/sample.php',
+            type: 'POST',
+            crossDomain: true,
+            contentType: 'text/plain',
+            accepts: '*/*',
+            xhrFields: {
+                withCredentials: true
+            },
+            processData: false,
+            datatype: 'text',
+            data: $('.comment_text').val(),
+        }).done(function (data) {
+            console.log('done');
+            console.log(data.comment_data);
+        }).fail(function (data) {
+            console.log('fail');
+            console.log(data);
+        }).fail(function (data) {
+            console.log('fail');
+            console.log(data);
+        })
+        // $.post(
+        //     "sample.php",
+        //     postData,
+        //     function(data) {
+        //         console.log(data);
+        //         alert(data);
+        //     });
 
         // $.ajax({
         //     url: 'sample.php',
@@ -83,24 +84,4 @@ $(function() {
         console.log(comment_data);
 
     })
-
-    // $('.comment_text').each(function() {
-
-    //     $(this).on('click', function() {
-
-    //         var thisParentParent = $(this).parents('ul');
-    //         $(thisParentParent).append("<li class='output'><span class='profile'></span> : " + "</li>");
-
-    //     });
-
-    //     var $input = $(this),
-    //         $output = $input.parent().find('.output');
-
-    //     $input.on('input', function(event) {
-    //         var value = $input.val();
-    //         $output.append(value);
-    //         console.log($output);
-    //     });
-    // });
-
 })

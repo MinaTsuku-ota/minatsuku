@@ -7,9 +7,9 @@
 @endsection
 
 @section('addjs')
-<script src="/js/jquery-3.4.1.min.js"></script>
-<script src="/js/jquery-ui.min.js"></script>
-<script src="/js/comment.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/comment.js"></script>
 @include('recaptcha_js')
 @endsection
 
@@ -106,28 +106,27 @@
                     </tr>
                     <tr>
                         <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment_button">コメント</br>
-                            {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
+                        <td colspan="1" class="comment_button">コメント<br>
+                            {{-- {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                             <form action="{{ url('articles.index') }}" method="POST">
-                                @csrf
-                                <textarea rows="2" name="comment"></textarea>
-                                <button type="submit" name="comment"></button>
+                                @csrf --}}
                                 <input type="hidden" name="recaptcha" id="recaptcha">
-                            </form>
+                            {{-- </form> --}}
                         </td>
-                        <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                    <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">
                         <td colspan="10">
                             <ul>
                                 <li>
-                                    <form action="#">
+                                <form>
                                         @csrf
-                                        <input type="text">
+                                        <input type="text" class="comment_text" name="comment">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <button class="comment_submit">送信</button>
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
@@ -135,7 +134,7 @@
                     </tr>
                 </table>
                 @endforeach
-                {{ $articles->onEachSide(2)->links()}}
+                {{ $articles->onEachSide(2)->links() }}
             </div>
 
             {{-- 写真 --}}

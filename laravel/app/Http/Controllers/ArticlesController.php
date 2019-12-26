@@ -9,6 +9,9 @@ use App\Article;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use App\Comment;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -41,12 +44,12 @@ class ArticlesController extends Controller
         // ->get();
         // published_atを使わない
         $articles = Article::latest('created_at')->paginate(10);
-        $articles1 = Article::where('genre_id','1')->latest('created_at')->paginate(10); // WEB
-        $articles2 = Article::where('genre_id','2')->latest('created_at')->paginate(10); // 写真
-        $articles3 = Article::where('genre_id','3')->latest('created_at')->paginate(10); // 動画
+        $articles1 = Article::where('genre_id', '1')->latest('created_at')->paginate(10); // WEB
+        $articles2 = Article::where('genre_id', '2')->latest('created_at')->paginate(10); // 写真
+        $articles3 = Article::where('genre_id', '3')->latest('created_at')->paginate(10); // 動画
 
         // return view('articles.index', compact('articles'));
-        return view('articles.index', compact('articles','articles1','articles2','articles3'));
+        return view('articles.index', compact('articles', 'articles1', 'articles2', 'articles3'));
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -71,8 +74,14 @@ class ArticlesController extends Controller
 
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
+<<<<<<< HEAD
     public function store(ArticleRequest $request){
         dd($request->all()); // デバッグ
+=======
+    public function store(ArticleRequest $request)
+    {
+        // dd($request->all()); // デバッグ
+>>>>>>> 2b4ce972ab0c7c9d6c21a4589d8ef4a70075490c
         recaptcha($request); // app/Http/helper.php
 
         // 画像はここでバリデート
@@ -136,6 +145,7 @@ class ArticlesController extends Controller
     // 記事の編集
     public function edit(Article $article)
     { // $id から $article へ変更
+
         // $article = Article::findOrFail($id);
         // タグ名と id の一覧を View に渡す
         // $tag_list = Tag::pluck('name', 'id');
@@ -175,13 +185,13 @@ class ArticlesController extends Controller
         // $article = Article::findOrFail($id);
 
         // 画像の削除
-        if($article->image1){
+        if ($article->image1) {
             Storage::disk('uploaded_images')->delete($article->image1);
         }
-        if($article->image2){
+        if ($article->image2) {
             Storage::disk('uploaded_images')->delete($article->image2);
         }
-        if($article->image3){
+        if ($article->image3) {
             Storage::disk('uploaded_images')->delete($article->image3);
         }
         // 記事レコードを削除
@@ -197,17 +207,51 @@ class ArticlesController extends Controller
     }
 
     // WEB、写真、動画用の仮ページ
-    public function index2(){
-        $articles = Article::where('genre_id','1')->latest('created_at')->paginate(10);
+    public function index2()
+    {
+        $articles = Article::where('genre_id', '1')->latest('created_at')->paginate(10);
         return view('articles.index2', compact('articles'));
     }
-    public function index3(){
-        $articles = Article::where('genre_id','2')->latest('created_at')->paginate(10);
+    public function index3()
+    {
+        $articles = Article::where('genre_id', '2')->latest('created_at')->paginate(10);
         return view('articles.index3', compact('articles'));
     }
-    public function index4(){
-        $articles = Article::where('genre_id','3')->latest('created_at')->paginate(10);
+    public function index4()
+    {
+        $articles = Article::where('genre_id', '3')->latest('created_at')->paginate(10);
         return view('articles.index4', compact('articles'));
     }
+
+    public function post_ajax(Request $request)
+    {
+        // modelクラスのインスタンス生成
+        $comments = new Comment();
+        // header("Content-type: text/plain; charset=UTF-8");
+        // 持ってくる
+        // if (isset($_POST['comment_data'])) { } else {
+        //     $comment = $_POST['comment_data'];
+        // }
+        $comments = $request->comment_data;
+
+        // DBに保存
+        Comment::create([
+            'comment' => 'aou',
+            'user_id' => '1',
+            'article_id' => '3'
+        ]);
+        // return Response::json($comment);
+    }
+    // public function comment(Request $request)
+    // {
+    //     $comments = new Comment();
+    //     $comments = $request->comment;
+
+    //     Comment::create([
+    //         'comment' => $comments,
+    //         'user_id' => '1',
+    //         'article_id' => '3'
+    //     ]);
+    // }
 
 }
