@@ -1,16 +1,9 @@
 @extends('minatsukulayout')
 
 @section('addcss')
-<<<<<<< HEAD
-<link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/new_common.css">
-<link rel="shortcut icon" href="image/favicon.png" type="image/png">
-<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-=======
 <link rel="stylesheet" href="/css/new_common.css">
 <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
->>>>>>> 6306945be9946318dd9e77dbba2839a4815dae5b
 @endsection
 
 @section('addjs')
