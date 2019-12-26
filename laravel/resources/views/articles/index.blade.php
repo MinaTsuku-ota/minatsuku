@@ -1,17 +1,21 @@
 @extends('minatsukulayout')
 
 @section('addcss')
-<link rel="stylesheet" href="/css/new_common.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/new_common.css">
+<link rel="shortcut icon" href="image/favicon.png" type="image/png">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 @endsection
 
 @section('addjs')
-<script src="/js/jquery-3.4.1.min.js"></script>
-<script src="/js/jquery-ui.min.js"></script>
-<script src="/js/comment.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/comment.js"></script>
 @include('recaptcha_js')
 @endsection
 
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div id="contens">
     <div class="navBox">
         <input type="radio" name="tabs" id="tab01" class="radioboxNone" checked="checked">
@@ -34,34 +38,33 @@
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="180px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="6" height="180px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="180px"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
                         <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment_button">コメント</br>
-                            {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
+                        <td colspan="1" class="comment_button">コメント<br>
+                            {{-- {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                             <form action="{{ url('articles.index') }}" method="POST">
-                                @csrf
-                                <textarea rows="2" name="comment"></textarea>
-                                <button type="submit" name="comment"></button>
+                                @csrf --}}
                                 <input type="hidden" name="recaptcha" id="recaptcha">
-                            </form>
+                            {{-- </form> --}}
                         </td>
-                        <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                    <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">
                         <td colspan="10">
                             <ul>
                                 <li>
-                                    <form action="#">
+                                <form>
                                         @csrf
-                                        <input type="text">
+                                        <input type="text" class="comment_text" name="comment">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <button class="comment_submit">送信</button>
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
@@ -69,7 +72,7 @@
                     </tr>
                 </table>
                 @endforeach
-                {{ $articles->onEachSide(2)->links()}}
+                {{ $articles->onEachSide(2)->links() }}
             </div>
             <div id="commentPanel">
                 <p>NEW コメント</p>

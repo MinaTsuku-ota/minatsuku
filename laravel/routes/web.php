@@ -71,10 +71,13 @@ Route::post('articles/{article}/fav', 'ArticlesController@');
 Route::get('ddtest', 'PagesController@ddtest')->name('ddtest');
 Route::post('ddtest', 'PagesController@ddtest_post')->name('ddtest');
 
+//ajax用
+Route::match(['get', 'post'], '/', 'ArticlesController@post_ajax')->name('articles.post_ajax');
+// Route::post('articles', 'ArticlesController@comment');
 // Route::get('articles/{id}/edit', 'DashboardController@edit');
 // Route::patch('articles/{id}', 'DashboardController@update');
 // dashboardでgoogle reCAPTHA v3を使ってみる
-// Route::post('dashboard', 'DashboardController@send')->name('dashboard');
+Route::post('dashboard', 'DashboardController@send')->name('dashboard');
 
 // 開発者用ページ
 Route::get('dev', 'DeveloperController@index')->name('dev');

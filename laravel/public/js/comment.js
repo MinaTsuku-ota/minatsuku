@@ -1,14 +1,14 @@
-$(function() {
+$(function () {
     var duration = 300;
 
     var position = $('tbody').offset();
     console.log(position);
 
     //全てのコメント要素に関数を反映
-    $('.comment_button').each(function() {
+    $('.comment_button').each(function () {
 
         //クリック時
-        $(this).click(function() {
+        $(this).click(function () {
 
             //コメント内容の要素をJQOにする
             var $comment = $(this).parent().next('.comment_none');
@@ -20,63 +20,52 @@ $(function() {
             } else {
                 $comment.fadeOut(duration);
             };
-
         });
-
     });
 
-    $('.comment_submit').each(function() {
+    $('.comment_submit').on('click', function (ev) {
+        ev.preventDefault();
+        var thisParent = $(this).parent();
 
-        $('[type="submit"]').on('click', function(ev) {
-            ev.preventDefault();
+        console.log(thisParent);
 
-            var thisParent = $(this).parent();
+        var thisParentParent = thisParent.parents('ul');
+        var comment_data = thisParent.find('.comment_text').val();
+        var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
 
-            console.log(thisParent);
+        var xhr = new XMLHttpRequest();
 
-            var thisParentParent = thisParent.parents('ul');
-            var comment_data = thisParent.find('.comment_text').val();
-            var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
+        // xhr.open('POST', 'articles/sample.php', false);
+        // // POST 送信の場合は Content-Type は固定.
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        // // 
+        // xhr.send(comment_data);
 
-            // $(comments).appendTo(thisParentParent);
+        // xhr.abort(); // 再利用する際にも abort() しないと再利用できないらしい.
 
-            // $.ajaxSetup({
-            //     type: "POST",
-            //     timeout: 10000,
-            // });
 
+        function ajax(id) {
+            $.ajaxSetup({
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            console.log('OK');
             $.ajax({
-                url: 'sample.php',
-                type: 'GET',
+                url: "{{ route('articles.post_ajax') }}",
+                type: 'POST',
                 datatype: 'text',
-                data: comment_data,
-            }).done(function(data) {
+                data: 'yeeeeee'
+            }).done(function (data) {
                 $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
                 console.log(data);
+            }).fail(function (data) {
+                console.log('fail');
+                console.log(data);
             })
-
             console.log(comment_data);
-
-        })
+        }
+        ajax(comment_data);
     })
-
-    // $('.comment_text').each(function() {
-
-    //     $(this).on('click', function() {
-
-    //         var thisParentParent = $(this).parents('ul');
-    //         $(thisParentParent).append("<li class='output'><span class='profile'></span> : " + "</li>");
-
-    //     });
-
-    //     var $input = $(this),
-    //         $output = $input.parent().find('.output');
-
-    //     $input.on('input', function(event) {
-    //         var value = $input.val();
-    //         $output.append(value);
-    //         console.log($output);
-    //     });
-    // });
-
 })
