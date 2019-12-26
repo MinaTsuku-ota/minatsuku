@@ -120,13 +120,13 @@ class ArticlesController extends Controller
         // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
         // basename()はパスの最下層の名前を返す(拡張子含む)
         // if ($request->hasFile('image1')) {
-        if ($request->image1) { // シンプルにnull値をチェックできる
+        if ($request->file0) { // シンプルにnull値をチェックできる
             $article->image1 = basename($request->file0->store('public/uploaded_images'));
         }
-        if ($request->image2) {
+        if ($request->file1) {
             $article->image2 = basename($request->file1->store('public/uploaded_images'));
         }
-        if ($request->image3) {
+        if ($request->file2) {
             $article->image3 = basename($request->file2->store('public/uploaded_images'));
         }
         $article->save(); // updateにしないといけないかも
