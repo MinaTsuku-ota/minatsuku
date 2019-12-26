@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <title>みなツク -MINATUKU-</title>
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/sinki.css">
+    <link rel="stylesheet" href="/css/create.css">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/modal.js"></script>
     @include('recaptcha_js')
 </head>
 
@@ -91,15 +93,29 @@
                 </div>
 
                 <div class="tyuukikakko">
-                    <a href="#">
-                        <img src="/image/tyuuki0.png" onmouseover="this.src='/image/tyuuki1.png'"
-                            onmouseout="this.src='/image/tyuuki0.png'" class="tyuuki" alt="注記">
-                    </a>
+                    <span href="#" id="js-modal-open" data-target="modal01">
+                        <img src="/image/tyuuki0.png" onmouseover="this.src='/image/tyuuki1.png'" onmouseout="this.src='/image/tyuuki0.png'" class="tyuuki" alt="注記">
+                    </span>
                 </div>
                 <input type="hidden" name="recaptcha" id="recaptcha">
             </form>
         </section>
     </main>
+
+    <div id="modal01" class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <div id="daimei">
+                <h1>利用規約</h1>
+                <p>当サイトを閲覧・ご利用においては、<br> 下記の内容を十分にお読みください。
+                </p>
+            </div>
+            <div id="policy">
+                <iframe src="/html/policy_iframe.html"></iframe>
+            </div>
+            <button href="#" id="js-modal-close">閉じる</button>
+        </div>
+    </div>
 
     @include('footer')
 </body>

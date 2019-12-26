@@ -37,7 +37,7 @@ class LoginController extends Controller
     // named route で指定したいので function にします
     protected function redirectTo ()
     {
-        return route('dashboard');
+        return route('dashboard.index');
     }
 
     /**

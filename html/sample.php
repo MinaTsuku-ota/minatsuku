@@ -1,12 +1,12 @@
 <?php
-  header('Content-type: application/json; charset=utf-8');
+  header("Access-Control-Allow-Credentials: true");
+  header("Access-Control-Allow-Origin: http://127.0.0.1:5500");
+  header("Allow: POST");
+  header("Accept: text/html");
+  header('Content-type: text/plain; charset=utf-8');
 
-  // $files[] = $_GET($file0,$file1,$file2);
+  $comment_data = $_POST['comment_data'];
 
-  $text = $_GET('comment_data');
+  $text = $_POST('comment_data');
 
-  if(isset($text)){
-
-    echo mb_convert_encode($text,'UTF-8');
-
-  };
+  echo $text;

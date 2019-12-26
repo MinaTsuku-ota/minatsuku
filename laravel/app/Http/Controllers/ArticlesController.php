@@ -43,9 +43,13 @@ class ArticlesController extends Controller
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // published_atを使わない
-        $articles = Article::latest('created_at')->paginate(1);
+        $articles = Article::latest('created_at')->paginate(10);
+        $articles1 = Article::where('genre_id', '1')->latest('created_at')->paginate(10); // WEB
+        $articles2 = Article::where('genre_id', '2')->latest('created_at')->paginate(10); // 写真
+        $articles3 = Article::where('genre_id', '3')->latest('created_at')->paginate(10); // 動画
+
         // return view('articles.index', compact('articles'));
-        return view('articles.index', compact('articles'));
+        return view('articles.index', compact('articles', 'articles1', 'articles2', 'articles3'));
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -72,16 +76,15 @@ class ArticlesController extends Controller
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
     public function store(ArticleRequest $request)
     {
+        // dd($request->all()); // デバッグ
         recaptcha($request); // app/Http/helper.php
 
         // 画像はここでバリデート
         $request->validate([
-            // 'image1' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-            // 'image2' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-            // 'image3' => 'file|image|mimes:jpeg,jpg,png,gif|max:2048',
-            'image1' => 'file|image',
-            'image2' => 'file|image',
-            'image3' => 'file|image',
+            // 'file|image|mimes:jpeg,jpg,png,gif|max:2048' などなど
+            'file0' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file1' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file2' => 'file|image|mimes:jpeg,jpg,png,gif',
         ]);
 
         // フォームの入力値を取得
@@ -118,17 +121,17 @@ class ArticlesController extends Controller
         // basename()はパスの最下層の名前を返す(拡張子含む)
         // if ($request->hasFile('image1')) {
         if ($request->image1) { // シンプルにnull値をチェックできる
-            $article->image1 = basename($request->image1->store('public/uploaded_images'));
+            $article->image1 = basename($request->file0->store('public/uploaded_images'));
         }
         if ($request->image2) {
-            $article->image2 = basename($request->image2->store('public/uploaded_images'));
+            $article->image2 = basename($request->file1->store('public/uploaded_images'));
         }
         if ($request->image3) {
-            $article->image3 = basename($request->image3->store('public/uploaded_images'));
+            $article->image3 = basename($request->file2->store('public/uploaded_images'));
         }
-        $article->save();
+        $article->save(); // updateにしないといけないかも
 
-        dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
+        // dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
 
         // return redirect('articles')->with('message', '記事を追加しました。'); // 記事一覧へリダイレクト
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');
@@ -198,6 +201,23 @@ class ArticlesController extends Controller
         return $this->hasOne('App\id');
     }
 
+    // WEB、写真、動画用の仮ページ
+    public function index2()
+    {
+        $articles = Article::where('genre_id', '1')->latest('created_at')->paginate(10);
+        return view('articles.index2', compact('articles'));
+    }
+    public function index3()
+    {
+        $articles = Article::where('genre_id', '2')->latest('created_at')->paginate(10);
+        return view('articles.index3', compact('articles'));
+    }
+    public function index4()
+    {
+        $articles = Article::where('genre_id', '3')->latest('created_at')->paginate(10);
+        return view('articles.index4', compact('articles'));
+    }
+
     public function post_ajax(Request $request)
     {
         // modelクラスのインスタンス生成
@@ -228,4 +248,5 @@ class ArticlesController extends Controller
     //         'article_id' => '3'
     //     ]);
     // }
+
 }

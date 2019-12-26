@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="utf-8">
-  <title>みなツク -MINATUKU-</title>
-  <link rel="stylesheet" href="../laravel/public/css/normalize.css">
-  <link rel="stylesheet" href="../laravel/public/css/create.css">
-  <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>みなツク -MINATUKU-</title>
+    <link rel="stylesheet" href="../laravel/public/css/normalize.css">
+    <link rel="stylesheet" href="../laravel/public/css/create.css">
+    <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="../laravel/public/js/jquery-3.4.1.min.js"></script>
+    <script src="../laravel/public/js/jquery-ui.min.js"></script>
+    <script src="../laravel/public/js/modal.js"></script>
 </head>
+
 <body>
-  <header class="header clearfix">
-    <div class="header-left clearfix">
-          <a href="#"><img src="../image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
-    </div>
-  </header>
-  <main>
-      <div class="header clearfix dummy">
-          <div class="header-left clearfix">
-              <a href="#"><img src="../image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
-          </div>
-      </div>
-      <section>
-          <div id="back">
-              <a href="#"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
-          </div>
-        <div id="sinki_syoudai">
-          <h1>はじめの一歩</h1>
+    <header class="header clearfix">
+        <div class="header-left clearfix">
+            <a href="#"><img src="../image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
         </div>
-        <form class="clearfix" >
-          <dl>
-            <dt>
+    </header>
+    <main>
+        <div class="header clearfix dummy">
+            <div class="header-left clearfix">
+                <a href="#"><img src="../image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
+            </div>
+        </div>
+        <section>
+            <div id="back">
+                <a href="#"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+            </div>
+            <div id="sinki_syoudai">
+                <h1>はじめの一歩</h1>
+            </div>
+            <form class="clearfix">
+                <dl>
+                    <dt>
                 <label for="name"><div class="daimei">ニックネーム</div></label>
             </dt>
-            <dd><input type="text" name="name" id="name" class="nyuuryoku" required></dd>
-            <dt>
+                    <dd><input type="text" name="name" id="name" class="nyuuryoku" required></dd>
+                    <dt>
                 <label for="password"><div class="daimei">パスワード</div></label>
             </dt>
-            <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
-            <dd class="kome">※パスワードは8文字以上</dd>
-            <dt>
+                    <dd><input type="password" name="password" id="password" class="nyuuryoku" required></dd>
+                    <dd class="kome">※パスワードは8文字以上</dd>
+                    <dt>
               <div class="daimei">科名</div>
             </dt>
-            <dd>
-              <select >
+                    <dd>
+                        <select>
                 <option>自動車整備科</option>
                 <option>電機システム科</option>
                 <option>メディアアート科</option>
@@ -50,27 +55,43 @@
                 <option>オフィスビジネス化</option>
                 <option>総合実務科</option>
               </select>
-            </dd>
-          </dl>
-          <div class="touroku">
-            <p class="button"><input type="submit" value="登録する" id="tourokusuru"></p>
-          </div>
-          
-          <div class="tyuukikakko">
-            <a href="#"><img src="../image/tyuuki0.png" onmouseover="this.src='../image/tyuuki1.png'" onmouseout="this.src='../image/tyuuki0.png'" class="tyuuki" alt="注記"></a>
-          </div>
-        </form>
-      </section>
-  </main>
+                    </dd>
+                </dl>
+                <div class="touroku">
+                    <p class="button"><input type="submit" value="登録する" id="tourokusuru"></p>
+                </div>
 
-  <footer>
-    <ul>
-        <li><a href="#"><i class="fas fa-home">ホーム</i></a></li>
-        <li><a href="#"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
-        <li><a href="#"><i class="fas fa-exclamation-triangle">注記</i></a></li>
-        <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
-    </ul>
-</footer>
+                <div class="tyuukikakko">
+                    <span href="#" id="js-modal-open" data-target="modal01"><img src="../image/tyuuki0.png" onmouseover="this.src='../image/tyuuki1.png'" onmouseout="this.src='../image/tyuuki0.png'" class="tyuuki" alt="注記"></span>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <div id="modal01" class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <div id="daimei">
+                <h1>利用規約</h1>
+                <p>当サイトを閲覧・ご利用においては、<br> 下記の内容を十分にお読みください。
+                </p>
+            </div>
+            <div id="policy">
+                <iframe src="policy_iframe.html"></iframe>
+            </div>
+            <button href="#" id="js-modal-close">閉じる</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <ul>
+            <li><a href="#"><i class="fas fa-home">ホーム</i></a></li>
+            <li><a href="#"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
+            <li><a href="#"><i class="fas fa-exclamation-triangle">注記</i></a></li>
+            <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
+        </ul>
+    </footer>
 
 
 

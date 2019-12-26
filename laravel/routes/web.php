@@ -38,6 +38,10 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 // Route::delete('articles/{id}', 'ArticlesController@destroy')->name('articles.destroy'); // 記事の削除
 // 上7行は1行で
 Route::resource('articles', 'ArticlesController');
+// WEB、写真、動画タブの画面遷移する仮ページ
+Route::get('articles2', 'ArticlesController@index2')->name('articles.index2');
+Route::get('articles3', 'ArticlesController@index3')->name('articles.index3');
+Route::get('articles4', 'ArticlesController@index4')->name('articles.index4');
 
 // ご意見ページ用
 Route::get('opinion', 'OpinionController@index')->name('opinion');
@@ -53,9 +57,10 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
 // マイページ用(dashboard)
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 // dashboardでgoogle reCAPTHA v3を使ってみる
-Route::post('dashboard', 'DashboardController@dashboard_post')->name('dashboard.post');
+Route::post('dashboard', 'DashboardController@post')->name('dashboard.post');
+Route::patch('dashboard', 'DashboardController@update')->name('dashboard.update'); // ユーザデータの更新
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
@@ -71,13 +76,10 @@ Route::post('articles/{article}/fav', 'ArticlesController@');
 Route::get('ddtest', 'PagesController@ddtest')->name('ddtest');
 Route::post('ddtest', 'PagesController@ddtest_post')->name('ddtest');
 
-//ajax用
-Route::match(['get', 'post'], '/', 'ArticlesController@post_ajax')->name('articles.post_ajax');
-// Route::post('articles', 'ArticlesController@comment');
-// Route::get('articles/{id}/edit', 'DashboardController@edit');
-// Route::patch('articles/{id}', 'DashboardController@update');
-// dashboardでgoogle reCAPTHA v3を使ってみる
-Route::post('dashboard', 'DashboardController@send')->name('dashboard');
-
 // 開発者用ページ
 Route::get('dev', 'DeveloperController@index')->name('dev');
+
+// キューテスト用
+Route::get('sample/queues', 'SampleController@queues');
+Route::get('sample/queues/none', 'SampleController@queuesNone');
+Route::get('sample/queues/database', 'SampleController@queuesDatabase');

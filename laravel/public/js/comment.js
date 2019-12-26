@@ -23,8 +23,10 @@ $(function () {
         });
     });
 
+
     $('.comment_submit').on('click', function (ev) {
         ev.preventDefault();
+
         var thisParent = $(this).parent();
 
         console.log(thisParent);
@@ -33,39 +35,53 @@ $(function () {
         var comment_data = thisParent.find('.comment_text').val();
         var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
 
-        var xhr = new XMLHttpRequest();
+        // $(comments).appendTo(thisParentParent);
 
-        // xhr.open('POST', 'articles/sample.php', false);
-        // // POST 送信の場合は Content-Type は固定.
-        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        // // 
-        // xhr.send(comment_data);
+        $.ajaxSetup({
+            type: 'POST'
+        })
 
-        // xhr.abort(); // 再利用する際にも abort() しないと再利用できないらしい.
+        $.ajax({
+            url: '/sample.php',
+            type: 'POST',
+            crossDomain: true,
+            contentType: 'text/plain',
+            accepts: '*/*',
+            xhrFields: {
+                withCredentials: true
+            },
+            processData: false,
+            datatype: 'text',
+            data: $('.comment_text').val(),
+        }).done(function (data) {
+            console.log('done');
+            console.log(data.comment_data);
+        }).fail(function (data) {
+            console.log('fail');
+            console.log(data);
+        }).fail(function (data) {
+            console.log('fail');
+            console.log(data);
+        })
+        // $.post(
+        //     "sample.php",
+        //     postData,
+        //     function(data) {
+        //         console.log(data);
+        //         alert(data);
+        //     });
 
+        // $.ajax({
+        //     url: 'sample.php',
+        //     type: 'GET',
+        //     datatype: 'text',
+        //     data: comment_data,
+        // }).done(function(data) {
+        //     $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
+        //     console.log(data);
+        // })
 
-        function ajax(id) {
-            $.ajaxSetup({
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            console.log('OK');
-            $.ajax({
-                url: "{{ route('articles.post_ajax') }}",
-                type: 'POST',
-                datatype: 'text',
-                data: 'yeeeeee'
-            }).done(function (data) {
-                $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
-                console.log(data);
-            }).fail(function (data) {
-                console.log('fail');
-                console.log(data);
-            })
-            console.log(comment_data);
-        }
-        ajax(comment_data);
+        console.log(comment_data);
+
     })
 })

@@ -20,6 +20,10 @@ php artisan make:factory SamtableFactory // Factory作成
 php artisan make:request SometableRequest // Form Request作成 送られてくるリクエストに対してバリデーションを行う時に使う
 php artisan make:middleware Somemiddleware // ミドルウェア作成
 
+php artisan queue:table // キュー用のjobsテーブルを作成するマイグレーションを生成
+php artisan make:job Somejob // ジョブを定義するファイルを生成
+php artisan queue:work // queue workerを起動してキューを処理する
+
 /*** tinker関連 ***/
 php artisan tinkerでtinkerを実行
 \App\User::all()->toArray(); // ユーザ一覧の取得
