@@ -97,8 +97,8 @@ body{
  #post_syoudai {
   text-align: center;
 }
-  
-  
+
+
   #content{
     width: 958px;
     /* height: 850px; */
@@ -204,7 +204,7 @@ input[type="text1"]{
   padding: 2px;          /* 内側の余白量 */
   background-color:  #FFFFFF;  /* 背景色 */
   /* width: 20em;       */
-} 
+}
 
 .test{
   max-width: 250px;
@@ -234,8 +234,10 @@ input[type="text1"]{
   margin-right:5px;
 }
 .input_span img{
-  width:100%;
-  height:100%;
+  /* width:100%;
+  height:100%; */
+  max-width:100%;
+  max-height:100%;
 }
 .dropCSS{
   background:#996633;
@@ -300,22 +302,21 @@ footer{
     text-align: center;
     border-top: 2px solid #3080B5;
   }
-  
+
   footer ul {
     margin: 0px;
   }
-  
-  
+
+
   footer ul li{
     display: inline-block;
     margin:40px 60px;
     font-weight: bold;
     color: #fff;
   }
-  
+
   footer ul li a:visited{
       color: #fff;
   }
-  
-  
-  
+
+

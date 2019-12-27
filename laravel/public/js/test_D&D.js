@@ -1,21 +1,17 @@
 /*
- * バブリング参考(stopPropagation、preventDefault)
+ * 参考:
+ *
+ * バブリング(stopPropagation、preventDefault)
  * https://www.tam-tam.co.jp/tipsnote/javascript/post5050.html
  *
- * 拡張子チェック参考
+ * 拡張子チェック
  * https://stackoverflow.com/questions/651700/how-to-have-jquery-restrict-file-types-on-upload
- *
- * プレビュー表示参考
- * https://qiita.com/kon_yu/items/f98df7ac826e7c36cc6c
- *
- * 縦横サイズチェック参考
- * https://qiita.com/zenpou/items/4b1a0946b120fecd4494
  */
 
 $(function () {
     /*** ファイルドロップ時の処理 ***/
     $('.imageText').on('drop', function (e) {
-        console.log('dropped');
+        // console.log('dropped');
         e.stopPropagation();
         e.preventDefault();
 
@@ -30,7 +26,7 @@ $(function () {
 
     /*** クリック時の処理 ***/
     $('.imageText').on('click', function (e) {
-        console.log('clicked');
+        // console.log('clicked');
         e.stopPropagation();
         e.preventDefault();
 
@@ -40,15 +36,20 @@ $(function () {
 
     /*** inputにデータが入力された時の処理 ***/
     $('.imageInput').on('change', function (e) {
-        console.log('changed');
-        console.log($(this)[0].files[0]);
+        // console.log('changed');
+        // console.log($(this)[0].files[0]);
         // console.log($(this)[0].files);
         // console.log($(this).val());
+        // console.log($(this).siblings('.imageText'));
+
+        // inputされたタグのid値を得る
+        var area_id = $(this)[0].id;
 
         /** バリデーション等 **/
+
         /* 拡張子チェック */
-        var ext = $(this).val().split('.').pop().toLowerCase();
-        console.log(ext);
+        // var ext = $(this).val().split('.').pop().toLowerCase();
+        // console.log(ext);
         // if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
         //     $(this).val(''); // inputのデータを消去
         //     alert('許可されていない拡張子です( ᐪᐤᐪ )');
@@ -62,15 +63,30 @@ $(function () {
             /* 画像プレビュー */
             image = new Image();
             image.src = URL.createObjectURL($(this)[0].files[0]);
+
             image.onload = function () {
-                if(image.naturalHeight > image.naturalWidth){
-                    console.log('height');
-                }else{
-                    console.log('width');
-                    console.log($(this).parent());
-                }
+                // 画像がロードされたらプレビューエリアを空にしてからimgタグを追加
+                // $('#' + area_id).siblings('.imageText').empty(); // いらないかも
+                $('#' + area_id).siblings('.imageText').html(image);
             }
         }
+    });
+
+    /* ドラッグ時の装飾 */
+    $('.imageText').on('dragenter', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).addClass('dropCSS');
+    });
+    $('.imageText').on('dragleave', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).removeClass('dropCSS');
+    });
+    $('.imageText').on('drop', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).removeClass('dropCSS');
     });
 
     /* form以外でファイルがドロップされた場合、ブラウザで画像を開いてしまうのを防ぐ */
