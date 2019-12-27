@@ -111,7 +111,7 @@
                 </p>
             </div>
             <div id="policy">
-                <iframe src="/html/policy_iframe.html"></iframe>
+            <iframe src="{{ route('policy_iframe') }}"></iframe>
             </div>
             <button href="#" id="js-modal-close">閉じる</button>
         </div>

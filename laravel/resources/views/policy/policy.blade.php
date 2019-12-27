@@ -64,7 +64,7 @@
                     下記の内容を十分にお読みください。</p>
             </div>
             <div id="policy">
-                <iframe src="{{ URL::to('/') }}./policy_iframe"></iframe>
+                <iframe src="{{ route('policy_iframe') }}"></iframe>
             </div>
         </section>
     </main>
