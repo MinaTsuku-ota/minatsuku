@@ -11,13 +11,16 @@
     @yield('addjs')
 </head>
 <body>
-    <section id="wrap">
-        <!-- header -->
+    <div id="wrap">
+        {{-- header --}}
         @include('header')
-        <!-- content -->
-        @yield('content')
-    </section>
-    <!-- footer -->
+        <main>
+            @include('header_dummy')
+            <!-- content -->
+            @yield('content')
+        </main>
+    </div>
+    {{-- footer --}}
     @include('footer')
         {{-- アラート条件 1ログインしているが編集権限が無い 2記事を削除した 3記事を追加した --}}
     @if (session('message'))

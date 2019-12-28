@@ -14,11 +14,11 @@ body {
     z-index: 10;
     border-bottom: 2px solid #3080B5;
   }
-  
+
   .dummy{
     position: static;
   }
-  
+
   .login{
     float: left;
     margin-right: 30px;
@@ -28,9 +28,9 @@ body {
     padding: 15px;
     border-radius: 4px;
   }
-  
+
   /* ログイン後 */
-  /* .mypage{
+  .mypage{
     float: left;
     margin-right: 30px;
     background-color: #f90;
@@ -39,13 +39,12 @@ body {
     padding: 15px;
     border-radius: 4px;
   }
-   */
-  
-  
+
+
   .btn a:visited{
     color:#fff;
   }
-  
+
   .btn a{
     text-decoration: none;
     color: #fff;
@@ -53,7 +52,7 @@ body {
   .btn:hover{
     opacity: 0.8;
   }
-  
+
   .sinki{
     float:right;
     background-color: #c06;
@@ -62,21 +61,21 @@ body {
     padding: 15px;
     border-radius: 4px;
   }
-  
+
   .header-left{
     float: left;
       margin: 10px 0px 0px 10px;
   }
-  
+
   .header-right{
       float: right;
       margin: 22px 30px;
   }
-  
+
   .home_daimei{
     width: 300px;
   }
-  
+
   .clearfix::after{
     display: block;
     content:"";

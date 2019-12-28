@@ -18,14 +18,23 @@
 
     <header class="header clearfix">
         <div class="header-left clearfix">
-            <a href="#"><img src="/image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
+            <a href="{{ route('articles.index') }}"><img src="/image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+        </div>
+
+        <div class="header-right">
+            <a href="{{ route('login') }}"><div class="btn login ">ログイン</div></a>
+            <a href="{{ route('register') }}"><div class="btn sinki ">新規登録</div></a>
         </div>
     </header>
 
     <main>
         <div class="header clearfix dummy">
             <div class="header-left clearfix">
-                <a href="#"><img src="/image/touroku_daimei.png" class="sinki_daimei" alt="新規登録"></a>
+                <a href="#"><img src="/image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+            </div>
+            <div class="header-right">
+                <div class="btn login "><a href="#">ログイン</a></div>
+                <div class="btn sinki "><a href="#">新規登録</a></div>
             </div>
         </div>
 

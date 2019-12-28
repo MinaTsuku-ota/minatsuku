@@ -14,6 +14,7 @@
 @endsection
 
 @section('content')
+<div id="contens">
     <section class="navBox">
         <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
         <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
@@ -247,4 +248,5 @@
             </div>
         </section>
     </section>
+</div>
 @endsection

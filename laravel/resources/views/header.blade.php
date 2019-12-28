@@ -29,5 +29,3 @@
         @endguest
     </div>
 </header>
-<main>
-    @include('header_dummy')
