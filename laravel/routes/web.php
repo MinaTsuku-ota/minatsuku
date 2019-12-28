@@ -21,9 +21,6 @@
 
 // root
 // Route::get('/', 'ArticlesController@index')->name('home');
-
-// root
-
 Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('about', 'PagesController@about')->name('about');
@@ -38,6 +35,7 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 // Route::delete('articles/{id}', 'ArticlesController@destroy')->name('articles.destroy'); // 記事の削除
 // 上7行は1行で
 Route::resource('articles', 'ArticlesController');
+
 // WEB、写真、動画タブの画面遷移する仮ページ
 Route::get('articles2', 'ArticlesController@index2')->name('articles.index2');
 Route::get('articles3', 'ArticlesController@index3')->name('articles.index3');
@@ -51,20 +49,19 @@ Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
 Route::get('policy', 'PolicyController@index')->name('policy');
 Route::get('policy_iframe', 'PolicyController@show_iframe')->name('policy_iframe');
 
-
 // 認証関連のルート設定
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
 // マイページ用(dashboard)
 Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
-// dashboardでgoogle reCAPTHA v3を使ってみる
-Route::post('dashboard', 'DashboardController@post')->name('dashboard.post');
+Route::post('dashboard', 'DashboardController@post')->name('dashboard.post'); // dashboardでgoogle reCAPTHA v3を使ってみる
 Route::patch('dashboard', 'DashboardController@update')->name('dashboard.update'); // ユーザデータの更新
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
 Route::post('test', 'PagesController@post')->name('test.post');
+
 // ajaxテスト用
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');

@@ -6,8 +6,10 @@
  *
  * 拡張子チェック
  * https://stackoverflow.com/questions/651700/how-to-have-jquery-restrict-file-types-on-upload
+ *
+ * jQuery - on()によるイベント処理
+ * https://www.sejuku.net/blog/38774
  */
-
 $(function () {
     /*** ファイルドロップ時の処理 ***/
     $('.imageText').on('drop', function (e) {
@@ -30,11 +32,11 @@ $(function () {
         e.stopPropagation();
         e.preventDefault();
 
-        // clickイベント発火（デフォルト動作）、データが入力されたらchangeイベント発火
+        // clickイベント発火、ウィンドウが開く。データが入力されたらchangeイベント発火
         $(this).siblings('input:file').click();
     });
 
-    /*** inputにデータが入力された時の処理 ***/
+    /*** .imageInputにデータが入力された時の処理 ***/
     $('.imageInput').on('change', function (e) {
         // console.log('changed');
         // console.log($(this)[0].files[0]);
@@ -42,7 +44,7 @@ $(function () {
         // console.log($(this).val());
         // console.log($(this).siblings('.imageText'));
 
-        // inputされたタグのid値を得る
+        // データが入力されたinputタグのid値を得る
         var area_id = $(this)[0].id;
 
         /** バリデーション等 **/
@@ -72,37 +74,23 @@ $(function () {
         }
     });
 
-    /* ドラッグ時の装飾 */
-    $('.imageText').on('dragenter', function(e){
-        e.stopPropagation();
-        e.preventDefault();
-        $(this).addClass('dropCSS');
-    });
-    $('.imageText').on('dragleave', function(e){
-        e.stopPropagation();
-        e.preventDefault();
-        $(this).removeClass('dropCSS');
-    });
-    $('.imageText').on('drop', function(e){
-        e.stopPropagation();
-        e.preventDefault();
-        $(this).removeClass('dropCSS');
+    /* エリア内ドラッグ、マウスオーバ時の装飾 */
+    $('.imageText').on({
+        'mouseenter dragenter': function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            $(this).addClass('dropCSS');
+        },
+        'mouseleave dragleave drop': function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            $(this).removeClass('dropCSS');
+        }
     });
 
     /* form以外でファイルがドロップされた場合、ブラウザで画像を開いてしまうのを防ぐ */
-    $(document).on('dragenter', function (e) {
+    $(document).on('dragenter dragover drop', function (e) {
         e.stopPropagation();
         e.preventDefault();
     });
-    $(document).on('dragover', function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-    });
-    // $(document).on('dropleave', function (e) {
-    // });
-    $(document).on('drop', function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-    });
-
 });
