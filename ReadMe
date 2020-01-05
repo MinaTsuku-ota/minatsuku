@@ -80,6 +80,7 @@ MAIL_PORTはデフォルトの2525ではなく587を使用すると良い
 カレントディレクトリをlaravelフォルダに移動して以下のコマンドを実行する。(composerは自前で用意https://getcomposer.org/)
 composer install
 
+// composer installで自動で入るっぽい
 3...laravelcollectiveをインストール(vender関連)
 以下のコマンドを実行
 composer require laravelcollective/html
@@ -97,6 +98,7 @@ php artisan key:generate を実行すると .env 内の APP_KEY にアプリケ�
 php artisan migrate // テーブル作成
 php artisan db:seed // テーブルにダミーデータを挿入
 
+// composer installで自動で入るっぽい
 6..認証関連ファイルのインストールとjsビルド
 ///// 認証関連:php artisan make:authが実行できないことについて
 make:authはLaravel6.xではできなくなっている。以下のURLを参考にして認証関連のファイルを作成する(Qiita記事)
@@ -122,6 +124,7 @@ composer dump-autoload // もっと早い段階でやる必要があるかも
 php artisan migrate:refresh // migrate:reset + migrate
 php artisan db:seed
 
+// composer installで自動で入るっぽい
 9..google reCAPTCHA v3を導入する。laravelフォルダにて以下のコマンド
 composer require google/recaptcha
 
