@@ -2,7 +2,7 @@
 
 body{
   background-image: url("../image/aozora1.png");
-  background-size: 1950px 1100px;
+  background-size: 1950px 1400px;
 }
 .header{
   width:100%;
@@ -109,7 +109,7 @@ section{
   border-radius: 50px;
   min-width: 420px;
   /* -------いったん高さとる--------- */
-  height: 600px;
+  height: 800px;
 }
 
 #daimei{
@@ -123,7 +123,7 @@ section{
 
 iframe{
   width: 80%;
-  height:400px;
+  height:600px;
 }
 
 footer{
