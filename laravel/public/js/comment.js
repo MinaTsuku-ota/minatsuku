@@ -44,63 +44,49 @@ $(function() {
         })
 
         $.ajax({
-                url: '/sample.php',
-                type: 'POST',
-                crossDomain: true,
-                contentType: 'text/plain',
-                accepts: '*/*',
-                xhrFields: {
-                    withCredentials: true
-                },
-                processData: false,
-                datatype: 'text',
-                data: $('.comment_text').val(),
-            }).done(function(data) {
-                console.log('done');
-                console.log(data.comment_data);
-            }).fail(function(data) {
-                console.log('fail');
-                console.log(data);
-            })
-            // $.post(
-            //     "sample.php",
-            //     postData,
-            //     function(data) {
-            //         console.log(data);
-            //         alert(data);
-            //     });
+            url: '/sample.php',
+            type: 'POST',
+            crossDomain: true,
+            contentType: 'text/plain',
+            accepts: '*/*',
+            xhrFields: {
+                withCredentials: true
+            },
+            processData: false,
+            datatype: 'text',
+            data: $('.comment_text').val(),
+        }).done(function(data) {
+            console.log('done');
+            console.log(data.comment_data);
+        }).fail(function(data) {
+            console.log('fail');
+            console.log(data);
+        })
+    })
+})
 
-        // $.ajax({
-        //     url: 'sample.php',
-        //     type: 'GET',
-        //     datatype: 'text',
-        //     data: comment_data,
-        // }).done(function(data) {
-        //     $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
-        //     console.log(data);
-        // })
-
-        console.log(comment_data);
+$(function() {
+    $('svg').hover(function() {
+        $('svg').stop();
+        anime({
+            targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
+            points: '64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96',
+            baseFrequency: .05,
+            scale: 1,
+            easing: 'easeInOutExpo'
+        })
+    }, function() {
+        $('svg').stop();
+        $('filter feTurbulence').attr('style', '');
+        anime({
+            targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
+            points: '64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100',
+            baseFrequency: .05,
+            type: 'turbulence',
+            style: '',
+            scale: 1,
+            easing: 'easeInOutExpo'
+        })
 
     })
-
-    // $('.comment_text').each(function() {
-
-    //     $(this).on('click', function() {
-
-    //         var thisParentParent = $(this).parents('ul');
-    //         $(thisParentParent).append("<li class='output'><span class='profile'></span> : " + "</li>");
-
-    //     });
-
-    //     var $input = $(this),
-    //         $output = $input.parent().find('.output');
-
-    //     $input.on('input', function(event) {
-    //         var value = $input.val();
-    //         $output.append(value);
-    //         console.log($output);
-    //     });
-    // });
-
 })
