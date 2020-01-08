@@ -16,19 +16,19 @@
 @section('content')
 <div id="contens">
     <section class="navBox">
-        <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
+        <input type="radio" name="tabs" id="tab01" class="menu01 article-tab tag-active" checked="checked">
         <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab02" class="menu02">
+        <input type="radio" name="tabs" id="tab02" class="menu02 article-tab">
         <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab03" class="menu03">
+        <input type="radio" name="tabs" id="tab03" class="menu03 article-tab">
         <label for="tab03" class="label03 janru"><i class="fas fa-camera fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab04" class="menu04">
+        <input type="radio" name="tabs" id="tab04" class="menu04 article-tab">
         <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
 
         <section class="homeContent clearfix">
 
             {{-- HOME --}}
-            <div class="toukouPanel">
+            <div class="toukouPanel article-panel panel-show">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
                 @foreach($articles as $article)
@@ -91,7 +91,7 @@
             </div>
 
             {{-- WEB --}}
-            <div class="toukouPanel">
+            <div class="toukouPanel article-panel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
                 @foreach($articles1 as $article)
@@ -139,7 +139,7 @@
             </div>
 
             {{-- 写真 --}}
-            <div class="toukouPanel">
+            <div class="toukouPanel article-panel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
                 @foreach($articles2 as $article)
@@ -188,7 +188,7 @@
             </div>
 
             {{-- 動画 --}}
-            <div class="toukouPanel">
+            <div class="toukouPanel article-panel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
                 @foreach($articles3 as $article)
@@ -249,4 +249,20 @@
         </section>
     </section>
 </div>
+<style>
+	.article-tab{
+		cursor:pointer;
+	}
+	.article-panel{
+		display:none;
+	}
+	.article-tab.tag-active{
+		background:#f5deb3;
+		color:#ffffff;
+		transition:all 0.2s ease-out;
+	}
+	.article-panel.panel-show{
+		display:block;
+	}
+</style>
 @endsection
