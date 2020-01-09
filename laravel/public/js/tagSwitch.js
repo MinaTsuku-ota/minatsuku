@@ -1,19 +1,31 @@
+function ppp(){
+	// URL解析
+	var murl = /http(s)?:\/\/localhost\/([\w- ./?%&=]*)/gi;
+	var htsrc = document.body.innerHTML;
+	var result = htsrc.match(murl);
+	console.log(result);
+	for(var i=0, len=result.length; i<len; i++){
+		console.log(result[i]);
+	}
+}
+
 document.addEventListener('DOMContentLoaded', function(){
-	// タブに対してクリックイベントを適用
+	// genreタブに対してイベントリスナー
 	const tabs = document.getElementsByClassName('article-tab');
 	for(let i = 0; i < tabs.length; i++) {
-			tabs[i].addEventListener('click', tabSwitch);
+		tabs[i].addEventListener('click', tabSwitch);
 	}
-
-	// タブをクリックすると実行する関数
+	
 	function tabSwitch(){
-			// タブのclassの値を変更
-			document.getElementsByClassName('tag-active')[0].classList.remove('tag-active');
-			this.classList.add('tag-active');
-			// コンテンツのclassの値を変更
-			document.getElementsByClassName('panel-show')[0].classList.remove('panel-show');
-			const arrayTabs = Array.prototype.slice.call(tabs);
-			const index = arrayTabs.indexOf(this);
-			document.getElementsByClassName('article-panel')[index].classList.add('panel-show');
+		// genreタブの切り替え(いらなくね？)
+		document.getElementsByClassName('tag-active')[0].classList.remove('tag-active');
+		this.classList.add('tag-active');
+		// toukouPanelの切り替え
+		document.getElementsByClassName('panel-show')[0].classList.remove('panel-show');
+		const arrayTabs = Array.prototype.slice.call(tabs);
+		const index = arrayTabs.indexOf(this);
+		document.getElementsByClassName('article-panel')[index].classList.add('panel-show');
 	}
 });
+
+window.onload = ppp;
