@@ -10,6 +10,7 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/comment.js"></script>
+<script src="js/tagSwitch.js"></script>
 @include('recaptcha_js')
 @endsection
 
@@ -249,20 +250,4 @@
         </section>
     </section>
 </div>
-<style>
-	.article-tab{
-		cursor:pointer;
-	}
-	.article-panel{
-		display:none;
-	}
-	.article-tab.tag-active{
-		background:#f5deb3;
-		color:#ffffff;
-		transition:all 0.2s ease-out;
-	}
-	.article-panel.panel-show{
-		display:block;
-	}
-</style>
 @endsection

@@ -353,6 +353,19 @@ footer{
 
   footer ul li a:visited{
       color: #fff;
-  }
+	}
 
-
+	.article-tab{
+		cursor:pointer;
+	}
+	.article-panel{
+		display:none;
+	}
+	.article-tab.tag-active{
+		background:#f5deb3;
+		color:#ffffff;
+		transition:all 0.2s ease-out;
+	}
+	.article-panel.panel-show{
+		display:block;
+	}
