@@ -43,13 +43,17 @@ class ArticlesController extends Controller
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // published_atを使わない
+
+        //new コメントで表示するためのやつ
+        $comments = Comment::latest()->get();
+
         $articles = Article::latest('created_at')->paginate(10);
         $articles1 = Article::where('genre_id', '1')->latest('created_at')->paginate(10); // WEB
         $articles2 = Article::where('genre_id', '2')->latest('created_at')->paginate(10); // 写真
         $articles3 = Article::where('genre_id', '3')->latest('created_at')->paginate(10); // 動画
 
         // return view('articles.index', compact('articles'));
-        return view('articles.index', compact('articles', 'articles1', 'articles2', 'articles3'));
+        return view('articles.index', compact('articles', 'articles1', 'articles2', 'articles3', 'comments'));
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -233,4 +237,11 @@ class ArticlesController extends Controller
             'article_id' => $article_id
         ]);
     }
+
+    // public function comments()
+    // {
+    //     $comments = Comment::latest()->get();
+
+    //     return view('articles.index', compact('comments'));
+    // }
 }

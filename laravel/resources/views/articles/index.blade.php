@@ -38,7 +38,7 @@
                 <table class="toukou">
                     <tr>
                         <td colspan="10">タイトル<br>
-                            <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
+                        <a href="{{ url('articles', $article->id) }}" id="{{ $article->id }}">{{ $article->title }}</a>
                         </td>
                     </tr>
                     <tr>
@@ -80,12 +80,13 @@
             <div class="commentPanel">
                     <p>NEW コメント</p>
                     {{-- コメント --}}
-                    @for($i=1;$i<=1;$i++) <table class="comment">
+                    @foreach($comments as $comment) 
+                    <table class="comment">
                         <tr>
-                            <td colspan="10">オリジナルテトリス</td>
+                        <td colspan="10">タイトル<a href="#{{ App\article::find($comment->article_id)->id }}">{{ App\article::find($comment->article_id)->title }}</a><br>コメント<br>{{ $comment->comment }}<br>名前{{ App\user::find($comment->user_id)->name }}</td>
                         </tr>
-                        </table>
-                        @endfor
+                    </table>
+                    @endforeach
             </div>
 
             {{-- WEB --}}
@@ -106,11 +107,6 @@
                     <tr>
                         <td colspan="1">いいね</td>
                         <td colspan="1" class="comment_button">コメント<br>
-                            {{-- {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
-                            <form action="{{ url('articles.index') }}" method="POST">
-                                @csrf --}}
-                                <input type="hidden" name="recaptcha" id="recaptcha">
-                            {{-- </form> --}}
                         </td>
                     <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
@@ -125,7 +121,7 @@
                                         @csrf
                                         <input type="text" class="comment_text" name="comment">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <button class="comment_submit"></button>
+                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
@@ -154,13 +150,6 @@
                     <tr>
                         <td colspan="1">いいね</td>
                         <td colspan="1" class="comment_button">コメント<br>
-                            {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
-                            <form action="{{ url('articles.index') }}" method="POST">
-                                @csrf
-                                <textarea rows="2" name="comment"></textarea>
-                                <button type="submit" name="comment"></button>
-                                <input type="hidden" name="recaptcha" id="recaptcha">
-                            </form>
                         </td>
                         <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
@@ -173,8 +162,9 @@
                                 <li>
                                     <form action="#">
                                         @csrf
-                                        <input type="text">
+                                        <input type="text" class="comment_text">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <input type="submit" class="comment_submit" id="submit{{ $article->id }}">
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
@@ -203,13 +193,6 @@
                     <tr>
                         <td colspan="1">いいね</td>
                         <td colspan="1" class="comment_button">コメント<br>
-                            {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
-                            <form action="{{ url('articles.index') }}" method="POST">
-                                @csrf
-                                <textarea rows="2" name="comment"></textarea>
-                                <button type="submit" name="comment"></button>
-                                <input type="hidden" name="recaptcha" id="recaptcha">
-                            </form>
                         </td>
                         <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
@@ -222,8 +205,9 @@
                                 <li>
                                     <form action="#">
                                         @csrf
-                                        <input type="text">
+                                        <input type="text" class="comment_text">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
