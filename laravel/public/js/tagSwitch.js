@@ -6,7 +6,8 @@ function ppp(){
 	console.log(result);
 	for(var i=0, len=result.length; i<len; i++){
 		console.log(result[i]);
-	}
+  }
+  const purl = /\/articles[?]id=([\d]*)/gi;
 }
 
 document.addEventListener('DOMContentLoaded', function(){
