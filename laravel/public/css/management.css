@@ -92,43 +92,10 @@ main {
     position: relative;
 }
 
-<<<<<<< HEAD
-#toukou0{
-  position: fixed;
-  bottom: 10.5%;
-  right: 0%;
-}
-
-#toukou1{
-position: fixed;
-bottom: 11%;
-right:0%;
-opacity: 0;
-
-}
-
-#toukou_button img{
-  width: 200px;
-  height: 160px;
-  
-}
-
-
-#toukou1:hover{
-  opacity: 1;
-}
-
-#back{
-  position: relative;
-  top: 50px;
-  left: 70px;
-  
-=======
 #back {
     position: relative;
     top: 50px;
     left: 70px;
->>>>>>> 93019b9e60031ee6fdba2eb89a8d01ab052a2de8
 }
 
 #center {
