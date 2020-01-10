@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../laravel/public/css/post.css">
     <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/jquery-ui.min.js"></script>
-    <script src="../js/D&D.js"></script>
+		<script src="../laravel/public/js/jquery-3.4.1.min.js"></script>
+		<script src="../laravel/public/js/jquery-ui.min.js"></script>
+		<script src="../laravel/public/js/D&D.js"></script>
 </head>
 
 <body>
@@ -60,10 +60,12 @@
                                     <td>ジャンル?</td>
                                     <form>
                                         <td style="border-style:none;">
-                                            <select size="1" class="genre">
-                                                <option>WEB</option>
-                                                <option>写真</option>
-                                                <option>動画</option>
+                                            <select size="1" class="genre" id="ref_gen">
+																							<option value="0">Please&nbsp;select&nbsp;a&nbsp;genre.</option>
+																							<option value="1">Web</option>
+																							<option value="2">Picture</option>
+																							<option value="3">Movie</option>
+																							<option value="4">Other...</option>
                                             </select>
                                         </td>
                                     </form>
@@ -71,8 +73,7 @@
                                 <tr>
                                     <form action="#" method="#">
                                         <td colspan="10" height="30px">
-                                            <input type="text1" name="title" size="50" maxlength="20"
-                                                placeholder="題名入力">
+																						<input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" id="ref_tit">
                                         </td>
                                     </form>
                                 </tr>
@@ -98,11 +99,39 @@
 
                                 <tr>
                                     <td colspan="10" height="350px">
-                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText"></textarea>
+                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText" id="ref_des"></textarea>
                                     </td>
-                                </tr>
+																</tr>
 
-                            </table>
+																
+															</table>
+														<!-- Preview area -->
+														<div id="preview_wrap">
+															<h2>Simple preview feature.</h2>
+															<table class="preview_area">
+																<tr>
+																	<td colspan="10" id="pre_gen">Genre</td>
+																</tr>
+																<tr>
+																	<td colspan="10" id="pre_tit">Title</td>
+																</tr>
+																<tr>
+																	<td colspan="6" height="220px" id="pre_des">Description</td>
+																	<td colspan="4" height="220px" id="pre_img">
+																		<output class="preImgPosition1"></output>
+																		<output class="preImgPosition2"></output>
+																		<output class="preImgPosition3"></output>
+																	</td>
+																</tr>
+																<tr>
+																	<td colspan="1"></td>
+																	<td colspan="1"></td>
+																	<td colspan="3" id="pre_name">Your name</td>
+																	<td colspan="5" id="pre_dep">Your department</td>
+																</tr>
+															</table>
+														</div>
+														<!-- Preview area End -->
                         </div>
                         <div class="STbtn">
                             <a href="#" class="STbtnChild">投稿</a>
@@ -120,7 +149,8 @@
 
                 <div>
 
-        </main>
+				</main>
+				<div class="goReflect"><a href="#" role="button" id="gR">プレビュー画面に反映するゾ</a></div>
         <footer>
             <ul>
                 <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
@@ -129,7 +159,8 @@
                 <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
             </ul>
         </footer>
-    </div>
+		</div>
+		<script src="../laravel/public/js/instantPreview.js"></script>
 </body>
 
 </html>

@@ -293,6 +293,68 @@ input[type="text1"]{
   box-shadow: 0 2px 2px rgb(121, 55, 8);
 }
 
+/* Preview area css Start */
+div#preview_wrap{width: auto; margin: 15px auto;}
+div#preview_wrap h2{text-align: center;}
+div#preview_wrap p{margin: 0;}
+table.preview_area{
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+  text-align: center;
+  margin: 20px auto 20px auto;
+	width: 740px;
+	height: 350px;
+  border: solid 1px black;
+}
+table.preview_area td{border: solid 1px black;}
+#pre_gen, #pre_tit, #pre_name, #pre_dep{height: 25px;}
+#pre_gen, #pre_tit, #pre_des, #pre_name, #pre_dep{font-size: 1.2em;}
+#pre_img{position: relative;}
+output.preImgPosition1{
+  position: absolute;
+  top:17px; left:17px;
+  width:160px; height:160px;
+  border: solid 2px black;
+  background-color: white;
+}
+output.preImgPosition2{
+  position: absolute;
+  top:37px; left:50px;
+  width:160px; height:160px;
+  border: solid 2px black;
+  background-color: white;
+}
+output.preImgPosition3{
+  position: absolute;
+  top:57px; left:83px;
+  width:160px; height:160px;
+  border: solid 2px black;
+  background-color: white;
+}
+
+.goReflect {
+  background-color: rgba(150, 149, 149, 0.5);
+  bottom: 0px;
+  padding: 15px;
+  text-align: center;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.goReflect a {
+  background-color: #50c8da;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  height: 80px;
+  line-height: 80px;
+  max-width: 600px;
+  text-decoration: none;
+  width: 100%;
+}
+/* Preview area css End */
 
 footer{
     width:100%;
