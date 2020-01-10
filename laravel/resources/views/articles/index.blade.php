@@ -12,6 +12,8 @@
 <script src="js/comment.js"></script>
 <script src="js/tagSwitch.js"></script>
 @include('recaptcha_js')
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('content')
@@ -35,30 +37,24 @@
                 @foreach($articles as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br />
+                        <td colspan="10">タイトル<br>
                             <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="250px">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment_button">コメント</br>
+                        <td colspan="1" class="comment_button">コメント<br>
                             {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
-                            <form action="{{ url('articles.index') }}" method="POST">
-                                @csrf
-                                <textarea rows="2" name="comment"></textarea>
-                                <button type="submit" name="comment"></button>
-                                <input type="hidden" name="recaptcha" id="recaptcha">
-                            </form>
                         </td>
-                        <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -67,8 +63,9 @@
                                 <li>
                                     <form action="#">
                                         @csrf
-                                        <input type="text">
+                                        <input type="text" class="comment_text">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
+                                    <input type="submit" class="comment_submit" id="{{ $article->id }}">
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
@@ -98,11 +95,11 @@
                 @foreach($articles1 as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br /><a
+                        <td colspan="10">タイトル<br><a
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="250px"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
@@ -128,7 +125,7 @@
                                         @csrf
                                         <input type="text" class="comment_text" name="comment">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <button class="comment_submit">送信</button>
+                                        <button class="comment_submit"></button>
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
@@ -146,17 +143,17 @@
                 @foreach($articles2 as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br /><a
+                        <td colspan="10">タイトル<br><a
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="250px"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
                         <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment_button">コメント</br>
+                        <td colspan="1" class="comment_button">コメント<br>
                             {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                             <form action="{{ url('articles.index') }}" method="POST">
                                 @csrf
@@ -165,9 +162,9 @@
                                 <input type="hidden" name="recaptcha" id="recaptcha">
                             </form>
                         </td>
-                        <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -195,17 +192,17 @@
                 @foreach($articles3 as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br /><a
+                        <td colspan="10">タイトル<br><a
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="250px"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
                         <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment_button">コメント</br>
+                        <td colspan="1" class="comment_button">コメント<br>
                             {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                             <form action="{{ url('articles.index') }}" method="POST">
                                 @csrf
@@ -214,9 +211,9 @@
                                 <input type="hidden" name="recaptcha" id="recaptcha">
                             </form>
                         </td>
-                        <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">

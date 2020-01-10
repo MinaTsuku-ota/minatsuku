@@ -34,53 +34,29 @@ $(function () {
         var thisParentParent = thisParent.parents('ul');
         var comment_data = thisParent.find('.comment_text').val();
         var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
-
-        // $(comments).appendTo(thisParentParent);
+        var article_id = this.getAttribute('id');
 
         $.ajaxSetup({
-            type: 'POST'
-        })
-
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
-            url: '/sample.php',
+            //特殊文字使用{{ action(articlesController@post_ajax) }}
+            url: '&#123;&#123;action&#40;articlesController&#169;post_ajax&#41;&#125;&#125;',
             type: 'POST',
-            crossDomain: true,
-            contentType: 'text/plain',
-            accepts: '*/*',
-            xhrFields: {
-                withCredentials: true
-            },
-            processData: false,
-            datatype: 'text',
-            data: $('.comment_text').val(),
+            datatype: 'json',
+            data: {
+                comment_data: comment_data,
+                article_id: article_id
+            }
         }).done(function (data) {
             console.log('done');
             console.log(data.comment_data);
         }).fail(function (data) {
             console.log('fail');
             console.log(data);
-        }).fail(function (data) {
-            console.log('fail');
-            console.log(data);
         })
-        // $.post(
-        //     "sample.php",
-        //     postData,
-        //     function(data) {
-        //         console.log(data);
-        //         alert(data);
-        //     });
-
-        // $.ajax({
-        //     url: 'sample.php',
-        //     type: 'GET',
-        //     datatype: 'text',
-        //     data: comment_data,
-        // }).done(function(data) {
-        //     $("<li><span class='profile'></span> : " + comment_data + "</li>").appendTo(thisParentParent);
-        //     console.log(data);
-        // })
-
         console.log(comment_data);
 
     })

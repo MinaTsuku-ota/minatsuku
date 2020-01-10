@@ -128,7 +128,7 @@ body{
     margin:100px;
 }
 
-.navBox input{
+.navBox input[type="radio"]{
     cursor: pointer;
     position: absolute;
     top: 0px;

@@ -218,35 +218,19 @@ class ArticlesController extends Controller
         return view('articles.index4', compact('articles'));
     }
 
-    public function post_ajax(Request $request)
+    //コメントのajax通信
+    public function post_ajax()
     {
-        // modelクラスのインスタンス生成
-        $comments = new Comment();
-        // header("Content-type: text/plain; charset=UTF-8");
-        // 持ってくる
-        // if (isset($_POST['comment_data'])) { } else {
-        //     $comment = $_POST['comment_data'];
-        // }
-        $comments = $request->comment_data;
+        $comment_data = filter_input(INPUT_POST, 'comment_data');
+        // $article_id = filter_input(INPUT_POST, 'article_id');
+        $user_id = Auth::User()->id;
+        $article_id = filter_input(INPUT_POST, 'article_id');
 
         // DBに保存
         Comment::create([
-            'comment' => 'aou',
-            'user_id' => '1',
-            'article_id' => '3'
+            'comment' => $comment_data,
+            'user_id' => $user_id,
+            'article_id' => $article_id
         ]);
-        // return Response::json($comment);
     }
-    // public function comment(Request $request)
-    // {
-    //     $comments = new Comment();
-    //     $comments = $request->comment;
-
-    //     Comment::create([
-    //         'comment' => $comments,
-    //         'user_id' => '1',
-    //         'article_id' => '3'
-    //     ]);
-    // }
-
 }

@@ -21,6 +21,9 @@
 
 // root
 // Route::get('/', 'ArticlesController@index')->name('home');
+//コメントのajax通信
+Route::post('&', 'ArticlesController@post_ajax');
+
 Route::get('/', 'IndexController@index')->name('index');
 
 Route::get('about', 'PagesController@about')->name('about');
