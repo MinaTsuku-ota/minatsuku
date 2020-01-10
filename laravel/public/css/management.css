@@ -279,6 +279,13 @@ table.toukou td {
 
 /*編集・削除ボタンここまで*/
 
+.fa-thumbs-up:hover,.fa-comment:hover,.fa-cog:hover{
+    opacity: 0.5;
+}
+
+
+
+
 footer {
     width: 100%;
     background-color: #0cf;
