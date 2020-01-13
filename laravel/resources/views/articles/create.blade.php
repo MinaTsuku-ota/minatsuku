@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
+	
+	<head>
+		<meta charset="UTF-8">
     <title>みなツク</title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/post.css">
@@ -12,6 +12,7 @@
     <script src="/js/jquery-ui.min.js"></script>
     {{-- <script src="/js/D&D.js"></script> --}}
     <script src="/js/test_D&D.js"></script>
+		<script src="/js/instantPreview.js"></script>
 
     @include('recaptcha_js')
 </head>
@@ -63,7 +64,7 @@
                                     <tr>
                                         <td>ジャンル?</td>
                                         <td style="border-style:none;">
-                                            <select size="1" class="genre" name="genre_id">
+                                            <select size="1" class="genre pre_gen" name="genre_id">
                                                 <option value="1">WEB</option>
                                                 <option value="2">写真</option>
                                                 <option value="3">動画</option>
@@ -73,7 +74,7 @@
                                     <tr>
                                         <td colspan="10" height="30px">
                                             <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力"
-                                                required>
+                                                required class="ref_tit">
                                         </td>
                                     </tr>
                                     <tr>
@@ -94,7 +95,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="350px">
-                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText" name="body"
+                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText ref_des" name="body"
                                                 required></textarea>
                                         </td>
                                     </tr>
@@ -137,14 +138,15 @@
                     </div>
                 </section>
             </div>
-        </main>
+				</main>
+		<div class="goReflect"><a href="#" role="button" id="gR">プレビュー画面に反映するゾ</a></div>
     </div>
     @include('footer')
     </div>
     @if($errors->any())
     <script>
         alert("{{ $errors->first() }}")
-    </script>
+		</script>
     @endif
 </body>
 

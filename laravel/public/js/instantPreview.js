@@ -1,39 +1,32 @@
-function titleReflect() {
-    const kbtit = document.getElementById("ref_tit").value;
+// Instant Preview Feature start
+	var img_obj = {img0:"",img1:"",img2:""};
+  var preButton = document.getElementById("gR");
+  
+  preButton.addEventListener("click", ReflectToPreview, false);
+  function ReflectToPreview(e){
+    // デフォルトの動き(#)を無くす
+    e.preventDefault();
+    // タイトルの値をプレビューに渡す
+    const kbtit = document.getElementsByClassName("ref_tit").value;
     document.getElementById("pre_tit").textContent = "";
     document.getElementById("pre_tit").textContent = kbtit;
-}
-
-function genreReflect() {
+    //ジャンルの値をプレビューに渡す
     const inm = document.getElementById("pre_gen");
-    const i = document.getElementById("ref_gen");
+    const i = document.getElementsByClassName("ref_gen");
     var j = i.selectedIndex;
     var k = i.options[j].value;
     var yjsnpi = i.options[j].text;
-
     inm.textContent = "";
     inm.textContent = yjsnpi;
-    if (k == 0) {
-        inm.textContent = "";
+    if(k == 0) {
+      inm.textContent = "";
     }
-}
-
-function descriptionReflect() {
-    const kmr = document.getElementById("ref_des").value;
+    // 説明文をプレビューに渡す
+    const kmr = document.getElementsByClassName("ref_des").value;
     document.getElementById("pre_des").textContent = "";
     document.getElementById("pre_des").textContent = kmr;
-}
-
-function imageReflect() {
-    // window.alert("geting OK.");
-}
-
-var ppTitEvn = document.getElementById("ref_tit");
-var ppGenEvn = document.getElementById("ref_gen");
-var ppDesEvn = document.getElementById("ref_des");
-var ppImgEvn = document.getElementById("input_td");
-
-ppTitEvn.addEventListener("keyup", titleReflect, false);
-ppGenEvn.addEventListener("change", genreReflect, false);
-ppDesEvn.addEventListener("keyup", descriptionReflect, false);
-ppImgEvn.addEventListener("click", imageReflect, false);
+		// 画像をプレビューに渡す
+		var files = e.target.files;
+		var reader = new FileReader;
+  } // <-- function end
+  // end
