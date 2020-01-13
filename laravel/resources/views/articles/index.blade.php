@@ -71,9 +71,16 @@
                             </ul>
                         </td>
                     </tr>
-                </table>
+								</table>
                 @endforeach
                 {{ $articles->onEachSide(2)->links()}}
+								<div class="page_nation_a">
+									<ul>
+										<li><a href="http://localhost/articles?id=2">page2</a></li>
+										<li><a href="http://localhost/articles?id=3">page3</a></li>
+										<li><a href="http://localhost/articles?id=4">page4</a></li>
+									</ul>
+								</div>
             </div>
 
             <!-- comments -->
@@ -127,10 +134,17 @@
                             </ul>
                         </td>
                     </tr>
-                </table>
+								</table>
                 @endforeach
                 {{ $articles->onEachSide(2)->links() }}
-            </div>
+								<div class="page_nation_a">
+									<ul>
+										<li><a href="http://localhost/articles2?id=2">page2</a></li>
+										<li><a href="http://localhost/articles2?id=3">page3</a></li>
+										<li><a href="http://localhost/articles2?id=4">page4</a></li>
+									</ul>
+								</div>
+						</div>
 
             {{-- 写真 --}}
             <div class="toukouPanel article-panel">
@@ -170,10 +184,17 @@
                             </ul>
                         </td>
                     </tr>
-                </table>
+								</table>
                 @endforeach
                 {{ $articles->onEachSide(2)->links()}}
-            </div>
+								<div class="page_nation_a">
+									<ul>
+										<li><a href="http://localhost/articles3?id=2">page2</a></li>
+										<li><a href="http://localhost/articles3?id=3">page3</a></li>
+										<li><a href="http://localhost/articles3?id=4">page4</a></li>
+									</ul>
+								</div>
+							</div>
 
             {{-- 動画 --}}
             <div class="toukouPanel article-panel">
@@ -213,9 +234,16 @@
                             </ul>
                         </td>
                     </tr>
-                </table>
+								</table>
                 @endforeach
                 {{ $articles->onEachSide(2)->links()}}
+								<div class="page_nation_a">
+									<ul>
+										<li><a href="http://localhost/articles4?id=2">page2</a></li>
+										<li><a href="http://localhost/articles4?id=3">page3</a></li>
+										<li><a href="http://localhost/articles4?id=4">page4</a></li>
+									</ul>
+								</div>
             </div>
 
             <!-- 投稿ボタン -->
