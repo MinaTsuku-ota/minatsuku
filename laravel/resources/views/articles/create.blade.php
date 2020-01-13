@@ -98,7 +98,35 @@
                                                 required></textarea>
                                         </td>
                                     </tr>
-                                </table>
+																</table>
+																
+																<!-- Preview area -->
+																<div id="preview_wrap">
+																	<h2>Simple preview feature.</h2>
+																	<table class="preview_area">
+																		<tr>
+																			<td colspan="10" id="pre_gen">Genre</td>
+																		</tr>
+																		<tr>
+																			<td colspan="10" id="pre_tit">Title</td>
+																		</tr>
+																		<tr>
+																			<td colspan="6" height="220px" id="pre_des">Description</td>
+																			<td colspan="4" height="220px" id="pre_img">
+																				<output class="preImgPosition1"></output>
+																				<output class="preImgPosition2"></output>
+																				<output class="preImgPosition3"></output>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td colspan="1"></td>
+																			<td colspan="1"></td>
+																			<td colspan="3" id="pre_name">Your name</td>
+																			<td colspan="5" id="pre_dep">Your department</td>
+																		</tr>
+																	</table>
+																</div>
+																<!-- Preview area End -->
 
                                 <div class="STbtn">
                                     <button type="submit" class="STbtnChild">投稿</button>
