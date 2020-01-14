@@ -4,6 +4,12 @@ body{
   background-image: url("../image/aozora1.png");
   background-size: 1950px 1400px;
 }
+
+#wrapper {
+  width:100%;
+  overflow:hidden;
+}
+
 .header{
   width:100%;
   padding: 5px 0px;

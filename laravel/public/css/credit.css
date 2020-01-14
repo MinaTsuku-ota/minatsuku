@@ -1,7 +1,12 @@
 @charset "utf-8";
 
 body{
-  
+ 
+}
+
+#wrapper {
+  width:100%;
+  overflow:hidden;
 }
 
 .header{
@@ -87,16 +92,19 @@ body{
 #back{
   position: relative;
   top: 73px;
-  left: 40px;
+  left: 100px;
   
 }
 
 
 
 .backbutton {
-  color: #97d3e3;
+  color: #fff;
 }
 
+.backbutton:hover{
+  opacity: 0.8;
+}
 
 
 
@@ -133,10 +141,9 @@ body{
 
 section{
   background-image: url("../image/edit.jpg");
-  /*background-size: 1950px 1100px;*/
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  height:1000px;
+  height:1200px;
 }
 
 
