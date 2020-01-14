@@ -12,7 +12,6 @@
     <script src="/js/jquery-ui.min.js"></script>
     {{-- <script src="/js/D&D.js"></script> --}}
     <script src="/js/test_D&D.js"></script>
-		<script src="/js/instantPreview.js"></script>
 
     @include('recaptcha_js')
 </head>
@@ -64,7 +63,7 @@
                                     <tr>
                                         <td>ジャンル?</td>
                                         <td style="border-style:none;">
-                                            <select size="1" class="genre pre_gen" name="genre_id">
+                                            <select size="1" class="genre" name="genre_id" id="ref_gen">
                                                 <option value="1">WEB</option>
                                                 <option value="2">写真</option>
                                                 <option value="3">動画</option>
@@ -73,8 +72,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="30px">
-                                            <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力"
-                                                required class="ref_tit">
+                                            <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" id="ref_tit" required>
                                         </td>
                                     </tr>
                                     <tr>
@@ -95,7 +93,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="350px">
-                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText ref_des" name="body"
+                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText" name="body" id="ref_des"
                                                 required></textarea>
                                         </td>
                                     </tr>
@@ -146,8 +144,9 @@
     @if($errors->any())
     <script>
         alert("{{ $errors->first() }}")
-		</script>
+				</script>
     @endif
+				<script src="/js/instantPreview.js"></script>
 </body>
 
 </html>

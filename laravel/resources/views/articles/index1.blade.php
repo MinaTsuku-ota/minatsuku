@@ -21,11 +21,11 @@
     <section class="navBox">
         <input type="radio" name="tabs" id="tab01" class="menu01 article-tab">
         <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab02" class="menu02 article-tab">
+        <input type="radio" name="tabs" id="tab02" class="menu02 article-tab tag-active" checked="checked">
         <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
         <input type="radio" name="tabs" id="tab03" class="menu03 article-tab">
         <label for="tab03" class="label03 janru"><i class="fas fa-camera fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab04" class="menu04 article-tab tag-active" checked="checked">
+        <input type="radio" name="tabs" id="tab04" class="menu04 article-tab">
         <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
 
         <section class="homeContent clearfix">
