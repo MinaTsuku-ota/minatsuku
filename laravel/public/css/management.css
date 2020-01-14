@@ -254,7 +254,9 @@ table.toukou td {
     left: 76px;
     border: 1px solid #000;
     width: 60px;
+    /*60px*/
     height: 50px;
+    /*50px*/
     padding: 0;
     line-height: 20px;
     background-color: #0cf;
