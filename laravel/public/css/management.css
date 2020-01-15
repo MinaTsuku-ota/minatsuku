@@ -6,6 +6,11 @@ body {
     background-position: 0 1000px;
 }
 
+#wrapper {
+    width:100%;
+    overflow:hidden;
+  }
+
 .header {
     width: 100%;
     padding: 5px 0px;
@@ -326,4 +331,26 @@ footer ul li a:visited {
     font-size: 40px;
     padding: 0% 10%;
     text-align: center;
+}
+
+
+@media screen and (max-width:900px) { 
+    section {
+        padding: 0px;
+        position: absolute;
+        left: 10%;
+        top: 300px;
+     }
+     #good {
+        
+        margin-right: 15px;
+        margin-top: 5px;
+    }
+    #toukouitiran {
+        width: 100%;
+        padding-left: 0px;
+        
+        margin-left: 0px;
+    }
+     
 }
