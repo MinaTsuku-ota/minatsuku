@@ -19,15 +19,16 @@
 @section('content')
 <div id="contens">
     <section class="navBox">
-        <input type="radio" name="tabs" id="tab01" class="menu01 article-tab tag-active" checked="checked">
-        <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab02" class="menu02 article-tab">
-        <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab03" class="menu03 article-tab">
-        <label for="tab03" class="label03 janru"><i class="fas fa-camera fa-2x"></i></label>
-        <input type="radio" name="tabs" id="tab04" class="menu04 article-tab">
-        <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
-
+        <form id="radio">
+            <input type="radio" name="tabs" id="tab01" class="menu01 article-tab tag-active" value="1" checked="check">
+            <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
+            <input type="radio" name="tabs" id="tab02" class="menu02 article-tab" value="2" >
+            <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
+            <input type="radio" name="tabs" id="tab03" class="menu03 article-tab" value="3">
+            <label for="tab03" class="label03 janru"><i class="fas fa-camera fa-2x"></i></label>
+            <input type="radio" name="tabs" id="tab04" class="menu04 article-tab" value="4">
+            <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
+        </form>
         <section class="homeContent clearfix">
 
             {{-- HOME --}}
@@ -71,16 +72,9 @@
                             </ul>
                         </td>
                     </tr>
-								</table>
+                </table>
                 @endforeach
                 {{ $articles->onEachSide(2)->links()}}
-								<div class="page_nation_a">
-									<ul>
-										<li><a href="http://localhost/articles?id=2">page2</a></li>
-										<li><a href="http://localhost/articles?id=3">page3</a></li>
-										<li><a href="http://localhost/articles?id=4">page4</a></li>
-									</ul>
-								</div>
             </div>
 
             <!-- comments -->
@@ -134,17 +128,10 @@
                             </ul>
                         </td>
                     </tr>
-								</table>
+                </table>
                 @endforeach
-                {{ $articles->onEachSide(2)->links() }}
-								<div class="page_nation_a">
-									<ul>
-										<li><a href="http://localhost/articles2?id=2">page2</a></li>
-										<li><a href="http://localhost/articles2?id=3">page3</a></li>
-										<li><a href="http://localhost/articles2?id=4">page4</a></li>
-									</ul>
-								</div>
-						</div>
+                {{ $articles1->onEachSide(2)->links()}}
+            </div>
 
             {{-- 写真 --}}
             <div class="toukouPanel article-panel">
@@ -184,17 +171,10 @@
                             </ul>
                         </td>
                     </tr>
-								</table>
+                </table>
                 @endforeach
-                {{ $articles->onEachSide(2)->links()}}
-								<div class="page_nation_a">
-									<ul>
-										<li><a href="http://localhost/articles3?id=2">page2</a></li>
-										<li><a href="http://localhost/articles3?id=3">page3</a></li>
-										<li><a href="http://localhost/articles3?id=4">page4</a></li>
-									</ul>
-								</div>
-							</div>
+                {{ $articles2->onEachSide(2)->links()}}
+            </div>
 
             {{-- 動画 --}}
             <div class="toukouPanel article-panel">
@@ -234,16 +214,9 @@
                             </ul>
                         </td>
                     </tr>
-								</table>
+                </table>
                 @endforeach
-                {{ $articles->onEachSide(2)->links()}}
-								<div class="page_nation_a">
-									<ul>
-										<li><a href="http://localhost/articles4?id=2">page2</a></li>
-										<li><a href="http://localhost/articles4?id=3">page3</a></li>
-										<li><a href="http://localhost/articles4?id=4">page4</a></li>
-									</ul>
-								</div>
+                {{ $articles3->onEachSide(2)->links()}}
             </div>
 
             <!-- 投稿ボタン -->

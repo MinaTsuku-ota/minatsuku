@@ -60,4 +60,30 @@ $(function () {
         console.log(comment_data);
 
     })
+
+    //ページネーション機能
+    $('.page-link').on('click', function () {
+        var element = document.getElementById("radio");
+        var elements = element.tabs;
+        var article_tab = $('.article-tab');
+        console.log(article_tab);
+        for (var i = 0; i < 4; i++) {
+            if (article_tab[i].checked) {
+                var index = $(article_tab[i]).val();
+                console.log(index);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    crossDomain: true
+                })
+                // $.post('articles', index).done(function (data) { alert(data); });
+            }
+        }
+        console.log(elements[index].name);
+        console.log('ロード後に出力')
+        elements[index - 1].checked = true;
+        console.log(elements[index].id);
+    })
 })
