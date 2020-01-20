@@ -27,7 +27,7 @@
                 <div class="btn login "><a href="{{ route('login') }}">ログイン</a></div>
                 <div class="btn sinki "><a href="{{ route('register') }}">新規登録</a></div>
                 @else {{-- ログインしている時のメニュー --}}
-                <div class="btn login "><a href="{{ route('dashboard') }}">マイページ</a></div>
+                <div class="btn login "><a href="{{ route('dashboard.index') }}">マイページ</a></div>
                 {{-- クリックされた時に下のlogout-formをsubmitするようにjavascriptで記述しています --}}
                 <div class="btn sinki "><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a></div>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>

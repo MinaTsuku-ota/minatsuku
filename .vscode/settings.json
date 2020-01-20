@@ -1,49 +1,26 @@
 {
 	"C_Cpp.updateChannel": "Insiders",
-	// "editor.tabSize": 2,
 	"editor.wordWrap": "on",
 	// ファイルの読み取り/書き込みで使用する既定の文字セット エンコーディング。言語ごとに構成することも可能です。
 	"files.encoding": "utf8",
-	// 言語ごとの構成例
-	/*
-    "[c]": {
-        "files.encoding": "utf8",    
-    },
-    */
-	"editor.minimap.enabled": false,
 	"files.autoSave": "off",
 	"files.eol": "\n",
+
+	"editor.minimap.enabled": false,
 	"editor.insertSpaces": false,
+
 	"html.format.endWithNewline": true,
 	"emmet.triggerExpansionOnTab": true, // enable tab to expanse emmet tags
 	"blade.format.enable": true,
+	
 	"workbench.enableExperiments": false,
 	"workbench.settings.enableNaturalLanguageSearch": false,
+
 	"typescript.disableAutomaticTypeAcquisition": true,
 	"extensions.showRecommendationsOnlyOnDemand": true,
+
 	"telemetry.enableCrashReporter": false,
 	"telemetry.enableTelemetry": false,
+
 	"npm.fetchOnlinePackageInfo": false,
-	// "beautify.language": {
-	//     "js": {
-	//         "type": [
-	//             "javascript",
-	//             "json",
-	//             "jsonc"
-	//         ],
-	//         "filename": [
-	//             ".jshintrc",
-	//             ".jsbeautifyrc"
-	//         ]
-	//     },
-	//     "css": [
-	//         "css",
-	//         "scss"
-	//     ],
-	//     "html": [
-	//         "htm",
-	//         "html",
-	//         "blade"
-	//     ]
-	// },
 }

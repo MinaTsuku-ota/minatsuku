@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Mail\OpinionMail;
 use Illuminate\Support\Facades\Mail;
-
-use App\Opinion;
 use Illuminate\Support\Facades\Auth;
 
 class OpinionController extends Controller
@@ -30,6 +28,8 @@ class OpinionController extends Controller
 
     // ご意見ご要望の投稿処理
     public function post(Request $request){
+        // dd($request->all()); // デバッグ用
+
         recaptcha($request); // app/Http/helper.php
 
         /* 入力したデータをDBに保存する */
@@ -41,10 +41,9 @@ class OpinionController extends Controller
         Auth::user()->opinions()->create($this->validate($request, $rules));
 
         /* 入力したデータをメールで送信する */
-        // フォームからのリクエストデータ全てを$contactに代入
-        $contact = $request->all();
-        // dd($contact); // デバッグ用
-        Mail::to('ryu.e115752@gmail.com')->send(new OpinionMail($contact));
+        // 送信内容とユーザネームをOpinionMailへ渡す
+        // Mail::to('ryu.e115752@gmail.com')->send(new OpinionMail($request->all(), Auth::user()->name));
+        Mail::to('ryu.e115752@gmail.com')->queue(new OpinionMail($request->all(), Auth::user()->name));
 
         return redirect()->route('articles.index')->with('message', '送信完了！');
     }

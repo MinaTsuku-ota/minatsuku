@@ -15,13 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        // 一旦emailは使わない
-        // 'email',
-        'password',
-        'subject_id',
-    ];
+    protected $fillable = ['name', 'password', 'subject_id', 'avater'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -37,30 +31,27 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 
     // Articleと関連付ける
     public function articles() {
         return $this->hasMany('App\Article');
     }
-
     // Subjectが親
-    public function subject(){
+    public function subject() {
         return $this->belongsTo('App\Subject');
     }
     // テーブルcommentに対して一対多の関係
-    public function comments(){
+    public function comments() {
         return $this->belongsTo('App\Comment');
     }
-
-    public function favs()
-    {
+    public function favs() {
         return $this->hasMany(fav::class);
     }
     // Userは複数のOpinionを持つ
-    public function opinions(){
+    public function opinions() {
         return $this->hasMany('App\Opinion');
     }
 }
