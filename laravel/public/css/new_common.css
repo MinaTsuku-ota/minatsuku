@@ -131,12 +131,6 @@ body {
 
 .navBox input {
     cursor: pointer;
-    position: absolute;
-    top: 0px;
-    left: 14px;
-    width: 137px;
-    height: 44px;
-    opacity: 0;
 }
 
 .navBox i {
@@ -238,8 +232,7 @@ body {
 .navBox input.menu01:checked~.homeContent .homeContent .clearfix,
 .navBox input.menu02:checked~.homeContent .content02,
 .navBox input.menu03:checked~.homeContent .content03,
-.navBox input.menu04:checked~.homeContent .content04,
-{
+.navBox input.menu04:checked~.homeContent .content04 {
     opacity: 1;
     -webkit-transition: all ease-out 0.4s 0.4s;
     transition: all ease-out 0.4s 0.4s;
