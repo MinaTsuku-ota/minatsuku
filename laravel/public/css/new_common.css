@@ -331,17 +331,36 @@ table.toukou td {
     width: 270px;
     height: auto;
     border: solid 1px black;
+    position: relative;
 }
 
 .userName{
     font-size: 20px;
     font-weight: bold;
-    margin: 5px;
-    margin-top: 0;
 }
 
+/* .useruuu{
+    position: absolute;
+    bottom: 120px;
+} */
+
 #parson{
-    width: 30px;
+    width: 28px;
+    position: absolute;
+    left: 70px;
+    top: 15px;
+    padding: 0;
+}
+
+.circle{
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    background: skyblue;/*背景色*/
+    display: inline-block;
+    margin: 0;
+    left: 100px;
+    top: 5px;
 }
 
 
