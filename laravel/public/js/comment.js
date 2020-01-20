@@ -42,48 +42,49 @@ $(function () {
             }
         });
         $.ajax({
-            //特殊文字使用{{ action(articlesController@post_ajax) }}
-            url: '&#123;&#123;action&#40;articlesController&#169;post_ajax&#41;&#125;&#125;',
+            url: '/sample.php',
             type: 'POST',
-            datatype: 'json',
-            data: {
-                comment_data: comment_data,
-                article_id: article_id
-            }
-        }).done(function (data) {
+            crossDomain: true,
+            contentType: 'text/plain',
+            accepts: '*/*',
+            xhrFields: {
+                withCredentials: true
+            },
+            processData: false,
+            datatype: 'text',
+            data: $('.comment_text').val(),
+        }).done(function(data) {
             console.log('done');
             console.log(data.comment_data);
-        }).fail(function (data) {
+        }).fail(function(data) {
             console.log('fail');
             console.log(data);
         })
-        console.log(comment_data);
-
     })
+})
 
-    //ページネーション機能
-    $('.page-link').on('click', function () {
-        var element = document.getElementById("radio");
-        var elements = element.tabs;
-        var article_tab = $('.article-tab');
-        console.log(article_tab);
-        for (var i = 0; i < 4; i++) {
-            if (article_tab[i].checked) {
-                var index = $(article_tab[i]).val();
-                console.log(index);
+$(function() {
+    $('svg').hover(function() {
+        $('svg').stop();
+        anime({
+            targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
+            points: '64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96',
+            baseFrequency: .05,
+            scale: 1,
+            easing: 'easeInOutExpo'
+        })
+    }, function() {
+        $('svg').stop();
+        $('filter feTurbulence').attr('style', '');
+        anime({
+            targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
+            points: '64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100',
+            baseFrequency: .05,
+            type: 'turbulence',
+            style: '',
+            scale: 1,
+            easing: 'easeInOutExpo'
+        })
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    crossDomain: true
-                })
-                // $.post('articles', index).done(function (data) { alert(data); });
-            }
-        }
-        console.log(elements[index].name);
-        console.log('ロード後に出力')
-        elements[index - 1].checked = true;
-        console.log(elements[index].id);
     })
 })

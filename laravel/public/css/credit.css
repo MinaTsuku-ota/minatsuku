@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 body{
-  background-image: url("../image/aozora1.png");
-  background-size: 1950px 1100px;
+ 
 }
 
 #wrapper {
@@ -36,7 +35,7 @@ body{
 }
 
 /* ログイン後 */
- .mypage{
+/* .mypage{
   float: left;
   margin-right: 30px;
   background-color: #f90;
@@ -45,6 +44,8 @@ body{
   padding: 15px;
   border-radius: 4px;
 }
+ */
+
 
 .btn a:visited{
   color:#fff;
@@ -91,72 +92,26 @@ body{
 #back{
   position: relative;
   top: 73px;
-  left: 40px;
+  left: 100px;
   
 }
 
 
 
 .backbutton {
-  color: #97d3e3;
-}
-
-
-
-
-.daimei{
-  margin: 80px auto;
-  width:200px;
-  background-color: #97d3e3;
   color: #fff;
-  line-height: 30px;
-  margin-top: 90px;
-  margin-bottom: 20px;
-  border-radius: 20px;
 }
 
-#login_syoudai{
-  text-align: center;
-}
-
-.login_daimei{
- color: #45A1CF;
- font-size: 40px;
-}
-
-dd{
-  margin-left: 0px;
-}
-
-dl {
-  text-align: center;
- 
-}
-
-#loginsuru{
-  width: 160px;
-  padding: 0.8em;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  background-color:  #ff8400;
-  border-bottom: 4px solid #ca6900;
-  border-radius: 10px;
-  margin-bottom: 0px;
-}
-
-#loginsuru:hover{
+.backbutton:hover{
   opacity: 0.8;
 }
 
-#loginsuru:active{
-  cursor: pointer;
-  text-decoration: none;
-  background-color: #ca6900;
-  transform: translate3d( 0, 4px, 0);
-  border-bottom: none;
-  border-radius: 10px;
-}
+
+
+
+
+
+
 
 .button{
   text-align: center;
@@ -185,26 +140,12 @@ dl {
 }
 
 section{
-  margin: 7% 25%;
-  padding: 0px 30px 50px 30px;
-  background-color: #fff;
-  border-radius: 50px;
-  min-width: 420px;
-}
-.syoudai{
-  width:80%;
-  margin:5px 30px 10px 40px;
+  background-image: url("../image/edit1.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height:1200px;
 }
 
-.nyuuryoku{
-  text-align: center;
-  width: 50%;
-  line-height: 30px;
-}
-
-select{
-  width: 30%;
-}
 
 
 
@@ -275,12 +216,4 @@ input{
   display: block;
   clear: both;
   
-}
-
-@media screen and (max-width:600px) { 
-  section {
-      margin: 0px;
-   }
-
-   
 }

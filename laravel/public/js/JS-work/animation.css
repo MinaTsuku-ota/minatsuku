@@ -3,9 +3,10 @@
     width: 60px;
     height: 60px;
     cursor: pointer;
-    margin: 70px 0 5px 0;
+    margin: 70px 0 5px 50px;
 }
 
-svg {
-    background-color: #000;
+.count {
+    font-family: 'Consolas', monospace;
+    width: 1000px;
 }

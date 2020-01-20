@@ -10,6 +10,7 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="../laravel/public/js/jquery-3.4.1.min.js"></script>
     <script src="../laravel/public/js/jquery-ui.min.js"></script>
+    <script src="../laravel/public/js/JS-work/anime.min.js"></script>
     <script src="../laravel/public/js/comment.js"></script>
 </head>
 
@@ -90,7 +91,7 @@
                                                     <input type="text">
                                                 </form>
 
-                                                <li>コメント内容の予定</li>
+                                            <li>コメント内容の予定</li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -245,14 +246,32 @@
 
                             </table>
 
+                            <div class="comment">
+                                <div class="userName">
+                                        <div id="profil">
+                                            <img src="../image/parson.jpg" alt="プロフィール画像" id="parson">
+                                        </div>
+                                        userName
+                                    </div>
 
-                            <table class="comment">
 
-                                <tr>
-                                    <td colspan="10">オリジナルテトリス</td>
-                                </tr>
 
-                            </table>
+                                <div class="newComment">
+                                    昨晩、彼氏と大喧嘩をしまして
+                                        『もう顔も見たくない！』
+                                        って私が家を飛び出したと同時に
+                                        『俺も顔見たくない！』
+                                </div>
+
+                                <div class="toukouName">
+                                    投稿名：オリジナルテトリス
+                                </div>
+
+                                <div class="commentFooter">
+                                    <time>2020-01-12</time>
+                                </div>
+
+                            </div>
 
 
 
@@ -264,24 +283,39 @@
                                 <img src="../image/toukoubotan0.png " alt="投稿する">
                             </div>
                             <div id="toukou1">
-                                <a href="post.html"><img src="../image/toukoubotan1.png " alt="投稿する" id="toukou1"></a>
+                                <a href="#"><img src="../image/toukoubotan1.png " alt="投稿する" id="toukou1"></a>
                             </div>
                         </div>
 
 
 
                 </div>
+                <div id="svgAttributes">
+                    <svg width="50%" height="100" viewBox="0 0 128 128">
+                        <filter id="displacementFilter">
+                            <feTurbulence type="turbulence" baseFrequency=".05" numOctaves="2" result="turbulence">
+                            </feTurbulence>
+                            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="15" xChannelSelector="R"
+                                yChannelSelector="G"></feDisplacementMap>
+                        </filter>
+                        <polygon points="64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100"
+                            style="filter: url(#displacementFilter)" fill="currentColor"></polygon>
+                    </svg>
+                </div>
 
         </main>
-        <footer>
-            <ul>
-                <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
-                <li><a href="request.html"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
-                <li><a href="policy.html"><i class="fas fa-exclamation-triangle">注記</i></a></li>
-                <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
-            </ul>
-        </footer>
-        </div>
+    </div>
+    </div>
+    <footer>
+
+        <ul>
+            <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
+            <li><a href="request.html"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
+            <li><a href="policy.html"><i class="fas fa-exclamation-triangle">注記</i></a></li>
+            <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
+        </ul>
+    </footer>
+
 </body>
 
 </html>

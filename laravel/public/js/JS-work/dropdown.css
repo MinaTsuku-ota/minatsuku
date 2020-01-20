@@ -1,0 +1,20 @@
+.menuBar {
+    border: 1px solid #000;
+}
+
+.menuButton {
+    border: 1px solid #000;
+    width: 30px;
+    text-align: center;
+}
+
+.menuInfo li {
+    list-style-type: none;
+    width: 200px;
+    border: 1px solid #000;
+}
+
+.menuInfo {
+    display: none;
+    width: 200px;
+}
