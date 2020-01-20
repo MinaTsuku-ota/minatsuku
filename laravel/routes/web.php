@@ -52,6 +52,9 @@ Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
 Route::get('policy', 'PolicyController@index')->name('policy');
 Route::get('policy_iframe', 'PolicyController@show_iframe')->name('policy_iframe');
 
+// くれじっと
+Route::get('credit', 'CreditController@index')->name('credit');
+
 // 認証関連のルート設定
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<div id="wrapper">
     <header class="header clearfix">
         <div class="header-left clearfix">
             <a href="{{ route('articles.index') }}">
@@ -84,6 +85,7 @@
     </main>
 
     @include('footer')
+</div>
 </body>
 
 </html>

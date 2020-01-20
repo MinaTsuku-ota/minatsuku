@@ -11,9 +11,11 @@
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/comment.js"></script>
+    <script src="/js/dropdown.js"></script>
 </head>
 
 <body>
+<div id="wrapper">
     <header class="header clearfix">
         <div class="header-left clearfix">
             <a href="{{ route('articles.index') }}"><img src="../image/home_daimei.png" class="home_daimei"
@@ -80,12 +82,19 @@
                 <table class="toukou">
                     <tbody>
                         <tr>
-                            <td colspan="10">
-                                {!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
-                                {!! Form::submit('削除') !!}
-                                {!! Form::close() !!}
+                            <td colspan="9">
                                 <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
-                                <a href="{{ route('articles.edit', [$article->id]) }}">編集</a>
+                            </td>
+                            <td class="menuButton">
+                                <i class="fas fa-cog"></i>
+                                <div class="menuInfo">
+                                    <ul>
+                                        <li><a href="{{ route('articles.edit', [$article->id]) }}">編集</a></li>
+                                        <li>{!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
+                                {!! Form::submit('削除') !!}
+                                {!! Form::close() !!}</li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -95,10 +104,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1">いいね</td>
-                            <td colspan="1" class="comment_button">コメント</td>
-                            <td colspan="3">名前<br/>{{ App\User::find($article->user_id)->name }}</td>
-                            <td colspan="5">科の名前<br/>
+                            <td colspan="1"><i class="far fa-thumbs-up"></i></td>
+                            <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
+                            <td colspan="3">{{ App\User::find($article->user_id)->name }}</td>
+                            <td colspan="5">
                                 {{ App\Subject::find( App\User::find($article->user_id)->subject_id )->subject }}
                             </td>
                         </tr>
@@ -122,6 +131,7 @@
         </div>
     </main>
     @include('footer')
+</div>
 </body>
 
 </html>
