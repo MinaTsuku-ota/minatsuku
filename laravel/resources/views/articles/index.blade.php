@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/new_common.css">
 <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/fav.css">
 @endsection
 
 @section('addjs')
@@ -52,6 +53,10 @@
                     </tr>
                     <tr>
                         <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
+                            @guest
+                            <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
+                        
+                            @else {{-- ログインしている場合 --}}
                             <i class="
                             @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
                             {{ 'fas' }}
@@ -59,6 +64,8 @@
                             {{ 'far' }}
                             @endif
                             fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
+
+                            @endguest
                         </td>
                         <td colspan="1" class="comment_button">コメント<br>
                             {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
