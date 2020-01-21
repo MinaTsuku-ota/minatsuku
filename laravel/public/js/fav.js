@@ -1,25 +1,29 @@
 $(function () {
     $('.fav_btn').on('click', function (e) {
-		console.log('.fav_btn was clicked')
         e.preventDefault();
 
+        console.log('.fav_btn was clicked')
+        article_id = $(this).data('articleid')
+
+        /* アニメーション https://yuyauver98.me/twitter-like-animation/#_fontawesomecss */
+        if ($(this).hasClass('far')) { // 中抜きハート
+            $(this).removeClass('far fav_off');
+            $(this).addClass('fas fav_on'); // 塗り潰しハート
+        } else {
+            $(this).removeClass('fas fav_on')
+            $(this).addClass('far fav_off');
+        }
+
         $.ajaxSetup({
+            type: 'POST',
+            datatype: 'json',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
         $.ajax({
-			type: 'POST',
             url: 'favpost',
-            // crossDomain: true, // ?
-            contentType: '',
-			accepts: '*/*', // ?
-            xhrFields: { // ?
-                withCredentials: true
-            },
-            processData: false, // ?
-            datatype: '',
-            data: "",
+            data: { article_id: article_id }, //　{キー:記事ID}
         }).done(function (data) {
             console.log('ajax done');
         }).fail(function (data) {

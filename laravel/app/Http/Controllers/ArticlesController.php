@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Comment;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Fav;
 
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -244,4 +245,22 @@ class ArticlesController extends Controller
 
     //     return view('articles.index', compact('comments'));
     // }
+
+    public function favpost(){ // いいね送信
+        $article_id = filter_input(INPUT_POST, 'article_id'); // 受け取った記事ID
+        $article = Article::find($article_id);
+        $user_id = Auth::User()->id;
+        if(Fav::where('user_id', $user_id)->where('article_id', $article_id)->exists()){ // データが存在していれば削除
+            Fav::where('user_id', $user_id)->where('article_id', $article_id)->delete();
+            $article->decrement('favs_count');
+            echo('レコード削除!');
+        }else{ // データの追加
+            Fav::create([
+                'user_id' => $user_id,
+                'article_id' => $article_id
+            ]);
+            $article->increment('favs_count');
+            echo('レコード追加!');
+        }
+    }
 }

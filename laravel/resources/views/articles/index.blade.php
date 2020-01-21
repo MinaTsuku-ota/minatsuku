@@ -12,11 +12,8 @@
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/comment.js"></script>
 <script src="js/tagSwitch.js"></script>
-<<<<<<< HEAD
 <script src="js/fav.js"></script>
-=======
 <script src="js/tagSwitchGet.js"></script>
->>>>>>> 43788276742eea092ec6264248d415b44f8985ee
 @include('recaptcha_js')
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -55,7 +52,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="1"><i class="far fa-heart fav_btn" data-articleid="{{ $article->id }}"></i></td>
+                        <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
+                            <i class="
+                            @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
+                            {{ 'fas' }}
+                            @else
+                            {{ 'far' }}
+                            @endif
+                            fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
+                        </td>
                         <td colspan="1" class="comment_button">コメント<br>
                             {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                         </td>

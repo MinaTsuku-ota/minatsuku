@@ -29,13 +29,12 @@ class DashboardController extends Controller
      */
     public function index($array=null)
     {
-        // $imagesはimagesテーブルのレコードが配列で格納される
+        // $articlesはarticlesテーブルのレコードが配列で格納される
         // 後にビューでforeach文でアクセスするなどして扱う
         $articles = Article::where('user_id', Auth::user()->id)->get();
-
-        // return view('home');
-        // return view('dashboard');
-        return view('dashboard', compact('articles', 'array'));
+        $fav_count = $articles->sum('favs_count'); // いいね数を格納する変数
+    
+        return view('dashboard', compact('articles', 'fav_count', 'array'));
     }
 
     // google reCAPTCHA v3を使って送信

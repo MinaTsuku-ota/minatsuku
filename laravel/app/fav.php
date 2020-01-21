@@ -6,20 +6,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use lanazaca\CounterCache\CounterCache;
+// use kanazaca\CounterCache\CounterCache;
 
 class fav extends Model
 {
-    use CounterCache;
+    // use CounterCache;
     
-    public $counterCacheOptions = [
-        'article' => [
-            'field' => 'favs_count',
-            'foreignKey' => 'article_id'
-        ]
-    ];
+    // public $counterCacheOptions = [
+    //     'article' => [
+    //         'field' => 'favs_count',
+    //         'foreignKey' => 'article_id'
+    //     ]
+    // ];
 
-    protected $fillable = ['user_id', 'post_id'];
+    protected $fillable = ['user_id', 'article_id'];
     
     public function article(){ // Articleは子
         return $this->belongsTo('App\Article');

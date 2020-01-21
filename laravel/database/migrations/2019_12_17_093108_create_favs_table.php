@@ -25,6 +25,7 @@ class CreateFavsTable extends Migration
             ->references('id')
             ->on('articles')
             ->onDelete('cascade'); // Articleが削除されたときfavsテーブルの情報を削除
+            $table->timestamps();
         });
     }
 

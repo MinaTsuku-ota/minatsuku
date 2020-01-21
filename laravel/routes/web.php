@@ -41,7 +41,7 @@ Route::get('articles3', 'ArticlesController@index3')->name('articles.index3');
 Route::get('articles4', 'ArticlesController@index4')->name('articles.index4');
 
 // いいね機能
-Route::post('favpost', 'FavsController@favpost');
+Route::post('favpost', 'ArticlesController@favpost');
 
 // ご意見ページ用
 Route::get('opinion', 'OpinionController@index')->name('opinion');
