@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Image;
+use App\Article;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
@@ -15,7 +16,7 @@ class PagesController extends Controller
     {
         // indexとshowビュー以外にauthを適用
         // auth:ログインしていなかったらloginビューへリダイレクト
-        $this->middleware('auth');
+        $this->middleware('auth')->except('favtest_index');
     }
 
     public function about(){
@@ -141,5 +142,11 @@ class PagesController extends Controller
 
         // dd($request->image); // デバッグ(画像の送信確認)
         return redirect()->route('articles.index')->with('message', '送信完了(ﾟДﾟ)');
+    }
+
+    // いいねテスト用
+    public function favtest_index(){
+        $articles = Article::all();
+        return view('test/favtest', compact('articles'));
     }
 }

@@ -1,5 +1,4 @@
-{{-- @extends('layout') --}}
-@extends('minatsukulayout')
+@extends('layout')
 
 @section('content')
     <h1>
@@ -18,6 +17,7 @@
                 <a href="{{ url('articles', $article->id) }}">
                     {{ $article->title }}
                 </a>
+				<div class="iinebtn">いいね</div>
             </h2>
         </article>
     @endforeach

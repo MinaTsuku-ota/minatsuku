@@ -36,3 +36,6 @@ basename()という関数: https://www.php.net/manual/ja/function.basename.php
 
 バリデーションルール
 https://readouble.com/laravel/6.x/ja/validation.html
+
+PHPとAjaxでいいねボタンを作ってみた - Qiita
+https://qiita.com/kgkgon/items/4ea0675afde639e6d540

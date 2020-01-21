@@ -17,14 +17,10 @@
 //     return view('welcome');
 // });
 
-// Route::get('/', 'WelcomeController@index')->name('home');
-
-// root
-// Route::get('/', 'ArticlesController@index')->name('home');
 //コメントのajax通信
 Route::post('&', 'ArticlesController@post_ajax');
 
-Route::get('/', 'IndexController@index')->name('index');
+Route::get('/', 'IndexController@index')->name('index'); // root
 
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('contact', 'PagesController@contact')->name('contact');
@@ -43,6 +39,9 @@ Route::resource('articles', 'ArticlesController');
 Route::get('articles2', 'ArticlesController@index2')->name('articles.index2');
 Route::get('articles3', 'ArticlesController@index3')->name('articles.index3');
 Route::get('articles4', 'ArticlesController@index4')->name('articles.index4');
+
+// いいね機能
+Route::post('favpost', 'FavsController@favpost');
 
 // ご意見ページ用
 Route::get('opinion', 'OpinionController@index')->name('opinion');
@@ -72,9 +71,6 @@ Route::post('test', 'PagesController@post')->name('test.post');
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
 
-//fav機能
-Route::post('articles/{article}/fav', 'ArticlesController@');
-
 // ドラッグアンドドロップテスト用
 Route::get('ddtest', 'PagesController@ddtest')->name('ddtest');
 Route::post('ddtest', 'PagesController@ddtest_post')->name('ddtest');
@@ -86,3 +82,6 @@ Route::get('dev', 'DeveloperController@index')->name('dev');
 Route::get('sample/queues', 'SampleController@queues');
 Route::get('sample/queues/none', 'SampleController@queuesNone');
 Route::get('sample/queues/database', 'SampleController@queuesDatabase');
+
+// いいねテスト用
+Route::get('sample/fav', 'PagesController@favtest_index')->name('favtest');
