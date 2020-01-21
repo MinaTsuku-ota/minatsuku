@@ -10,16 +10,37 @@ $(function() {
         //クリック時
         $(this).click(function() {
 
-            //コメント内容の要素をJQOにする
+            //コメント内容の要素をjQOにする
             var $comment = $(this).parent().next('.comment_none');
 
             //開閉処理
             $comment.toggleClass('open');
             if ($comment.hasClass('open')) {
+
+                //コメントエリアの表示
+                $('.comment_none').fadeOut(duration).removeClass('open');
+                $comment.addClass('open');
                 $comment.fadeIn(duration);
+
+                //入力フォームの作成
+                $comment.find('.form_js').empty();
+                $comment.find('.form_js').append('<form action="#" method="post"><input type="text" class="comment_text"><input type="submit" id="Recapcha" class="comment_submit"></form>');
+
             } else {
-                $comment.fadeOut(duration);
+
+                $.when(
+
+                    $comment.fadeOut(duration)
+
+                ).done(function() {
+
+                    //入力フォームの削除
+                    $comment.find('.form_js').empty();
+
+                });
             };
+
+
 
         });
 
