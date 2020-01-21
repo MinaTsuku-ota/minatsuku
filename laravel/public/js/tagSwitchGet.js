@@ -17,7 +17,7 @@ function ppp(){
 	// panel_show[0].classList.remove('panel-show');
 	// tag_active.classList.remove('tag-active');
 	console.log(param);
-	/* 既にcheckedのcssが存在していたので、addClassは飾りですlol */
+	/* 既にcheckedのcssが存在していたので、add-Classは飾りです */
   switch (param) {
     case "web":
 			elems[1].checked = true;

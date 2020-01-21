@@ -20,6 +20,7 @@ window.onload = aaa;
 
 document.addEventListener('DOMContentLoaded', function(){
 	// genreタブに対してイベントリスナー
+	// tabsでも可能だが、一旦保留
 	var toukouPanel = document.getElementsByClassName('toukouPanel'),
 			panel_show = document.getElementsByClassName('panel-show'),
 			article_tab = document.getElementsByClassName('article-tab'),
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		// for(var i=0; i<4; i++){
 		// 	tabs[i].checked = false;
 		// }
-		// genreタブの切り替え(既にcheckedのcssが存在していたので、addClassは飾りです)
+		// genreタブの切り替え(既にcheckedのcssが存在していたので、add-Classは飾りです)
 		// this.classList.add('tag-active');
 		// toukouPanelの切り替え
 		panel_show[0].classList.remove('panel-show');
