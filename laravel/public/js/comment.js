@@ -2,9 +2,6 @@ $(function() {
     var duration = 300;
     var close_duration = 200;
 
-    var position = $('tbody').offset();
-    console.log(position);
-
     //全てのコメント要素に関数を反映
     $('.comment_button').each(function() {
 

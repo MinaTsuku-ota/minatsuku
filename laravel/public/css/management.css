@@ -281,6 +281,17 @@ table.toukou td {
 
 /*編集・削除ボタンここまで*/
 
+
+/*活動実績ここから*/
+
+.jelly {
+    position: absolute;
+    display: none;
+}
+
+
+/*活動実績ここまで*/
+
 footer {
     width: 100%;
     background-color: #0cf;

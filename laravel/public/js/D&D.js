@@ -259,7 +259,7 @@ $(function() {
         var $imageText = $(this).siblings('.imageText');
 
         $.when(
-            $imageText.find('img').hide('blind', '', 1000)
+            $imageText.find('img').hide('blind', '', 500)
             // $imageText.find('img').remove();
         ).done(function() {
             $imageText.text('Click or Drop here');
