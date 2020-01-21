@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="/css/new_common.css">
 <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/fav.css">
 @endsection
 
 @section('addjs')
@@ -12,8 +11,8 @@
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/comment.js"></script>
 <script src="js/tagSwitch.js"></script>
-<script src="js/fav.js"></script>
 <script src="js/tagSwitchGet.js"></script>
+<script src="js/fav.js"></script>
 @include('recaptcha_js')
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -99,6 +98,135 @@
                         </tr>
                     </table>
                     @endforeach
+            </div>
+
+            {{-- WEB --}}
+            <div class="toukouPanel article-panel">
+                <p>投稿</p>
+                {{-- 記事一覧 --}}
+                @foreach($articles1 as $article)
+                <table class="toukou">
+                    <tr>
+                        <td colspan="10">タイトル<br><a
+                                href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
+                        <td colspan="4" height="250px"><img
+                                src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">いいね</td>
+                        <td colspan="1" class="comment_button">コメント<br>
+                        </td>
+                    <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="5">
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                        </td>
+                    </tr>
+                    <tr class="comment-none">
+                        <td colspan="10">
+                            <ul>
+                                <li>
+                                <form>
+                                        @csrf
+                                        <input type="text" class="comment_text" name="comment">
+                                        <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
+                                    </form>
+                                <li>コメント内容の予定</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                @endforeach
+                {{ $articles1->onEachSide(2)->links()}}
+            </div>
+
+            {{-- 写真 --}}
+            <div class="toukouPanel article-panel">
+                <p>投稿</p>
+                {{-- 記事一覧 --}}
+                @foreach($articles2 as $article)
+                <table class="toukou">
+                    <tr>
+                        <td colspan="10">タイトル<br><a
+                                href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
+                        <td colspan="4" height="250px"><img
+                                src="/storage/{{ $article->image1 }}" alt="no_image"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">いいね</td>
+                        <td colspan="1" class="comment_button">コメント<br>
+                        </td>
+                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="5">
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                        </td>
+                    </tr>
+                    <tr class="comment-none">
+                        <td colspan="10">
+                            <ul>
+                                <li>
+                                    <form action="#">
+                                        @csrf
+                                        <input type="text" class="comment_text">
+                                        <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <input type="submit" class="comment_submit" id="submit{{ $article->id }}">
+                                    </form>
+                                <li>コメント内容の予定</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                @endforeach
+                {{ $articles2->onEachSide(2)->links()}}
+            </div>
+
+            {{-- 動画 --}}
+            <div class="toukouPanel article-panel">
+                <p>投稿</p>
+                {{-- 記事一覧 --}}
+                @foreach($articles3 as $article)
+                <table class="toukou">
+                    <tr>
+                        <td colspan="10">タイトル<br><a
+                                href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
+                        <td colspan="4" height="250px"><img
+                                src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">いいね</td>
+                        <td colspan="1" class="comment_button">コメント<br>
+                        </td>
+                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="5">
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                        </td>
+                    </tr>
+                    <tr class="comment-none">
+                        <td colspan="10">
+                            <ul>
+                                <li>
+                                    <form action="#">
+                                        @csrf
+                                        <input type="text" class="comment_text">
+                                        <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
+                                    </form>
+                                <li>コメント内容の予定</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                @endforeach
+                {{ $articles3->onEachSide(2)->links()}}
             </div>
 
             <!-- 投稿ボタン -->
