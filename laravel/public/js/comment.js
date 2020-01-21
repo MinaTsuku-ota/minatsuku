@@ -1,5 +1,6 @@
 $(function() {
     var duration = 300;
+    var close_duration = 200;
 
     var position = $('tbody').offset();
     console.log(position);
@@ -17,14 +18,16 @@ $(function() {
             $comment.toggleClass('open');
             if ($comment.hasClass('open')) {
 
+                //全体のフォームとエリアを削除
+                $comment.find('.form_js').empty();
+                $('.comment_none').fadeOut(close_duration).removeClass('open');
+
                 //コメントエリアの表示
-                $('.comment_none').fadeOut(duration).removeClass('open');
                 $comment.addClass('open');
                 $comment.fadeIn(duration);
 
                 //入力フォームの作成
-                $comment.find('.form_js').empty();
-                $comment.find('.form_js').append('<form action="#" method="post"><input type="text" class="comment_text"><input type="submit" id="Recapcha" class="comment_submit"></form>');
+                $comment.find('.form_js').append('<form action="#" method="post"><input type="text" class="comment_text"><input type="submit" id="recaptcha" class="comment_submit"></form>');
 
             } else {
 
