@@ -92,9 +92,9 @@ body{
 .post_daimei{
   color: #45A1CF;
   font-size: 40px;
- }
+}
 
- #post_syoudai {
+#post_syoudai {
   text-align: center;
 }
 
@@ -271,10 +271,10 @@ input[type="text1"]{
 }
 
 
-.STbtn{
+.STbtn {
   background-color: #d38334;
-  margin: 50px auto;
-  max-width: 50px;
+  margin: 50px 400px;
+  max-width: 100px;
   min-width: 30px;
   line-height: 30px;
   text-align: center;
@@ -286,7 +286,7 @@ input[type="text1"]{
   font-weight: bold;
 }
 
-.STbtnChild{
+#STbtnChild{
   display: inline-block;
 }
 

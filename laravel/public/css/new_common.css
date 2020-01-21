@@ -414,3 +414,22 @@ footer ul li a:visited {
     bottom: 0%;
     right: 80%;
 }
+
+/* ↓↓↓ genreタブ切り替えcss ↓↓↓ */
+.toukouPanel{
+    display:none;
+}
+/* input[type="radio"]:checked{
+    background:#f5deb3;
+    color:#FFF;
+    transition: all 0.2s ease-out;
+} */
+/* .article-tab.tag-active{
+    background:#f5deb3;
+    color:#FFF;
+    transition: all 0.2s ease-out;
+} */
+.toukouPanel.panel-show{
+    display:block;
+}
+/* ↑↑↑ genreタブ切り替えcss ↑↑↑ */

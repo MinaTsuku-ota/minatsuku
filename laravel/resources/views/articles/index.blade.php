@@ -10,10 +10,13 @@
 @section('addjs')
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
-<script src="js/JS-work/anime.min.js"></script>
 <script src="js/comment.js"></script>
 <script src="js/tagSwitch.js"></script>
+<<<<<<< HEAD
 <script src="js/fav.js"></script>
+=======
+<script src="js/tagSwitchGet.js"></script>
+>>>>>>> 43788276742eea092ec6264248d415b44f8985ee
 @include('recaptcha_js')
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -23,7 +26,7 @@
 <div id="contens">
     <section class="navBox">
         <form id="radio">
-            <input type="radio" name="tabs" id="tab01" class="menu01 article-tab tag-active" value="1" checked="check">
+            <input type="radio" name="tabs" id="tab01" class="menu01 article-tab" value="1">
             <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
             <input type="radio" name="tabs" id="tab02" class="menu02 article-tab" value="2">
             <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
@@ -35,15 +38,14 @@
         <section class="homeContent clearfix">
 
             {{-- HOME --}}
-            <div class="toukouPanel article-panel panel-show">
+            <div class="toukouPanel article-panel">
                 <p>投稿</p>
                 {{-- 記事一覧 --}}
                 @foreach($articles as $article)
                 <table class="toukou">
                     <tr>
                         <td colspan="10">タイトル<br>
-                            <a href="{{ url('articles', $article->id) }}"
-                                id="{{ $article->id }}">{{ $article->title }}</a>
+                        <a href="{{ url('articles', $article->id) }}" id="{{ $article->id }}">{{ $article->title }}</a>
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +72,7 @@
                                         @csrf
                                         <input type="text" class="comment_text">
                                         <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
+                                    <input type="submit" class="comment_submit" id="{{ $article->id }}">
                                     </form>
                                 <li>コメント内容の予定</li>
                             </ul>
@@ -83,30 +85,21 @@
 
             <!-- comments -->
             <div class="commentPanel">
-                <p>NEW コメント</p>
-                @foreach($comments as $comment)
-                <div class="comment">
-                    <div class="userName">
-                        <div id="profil"><img
-                                src="{{ asset('storage/avaters/'.App\User::find($comment->user_id)->avater) }}"
-                                alt="プロフィール画像" id="parson"></div>
-                        {{-- コメント投稿者名 --}}
-                        {{ App\User::find($comment->user_id)->name }}
-                    </div>
-                    <div class="newComment">
-                        {{-- コメント内容 --}}
-                        {{ $comment->comment }}
-                    </div>
-                    <div class="toukouName">投稿名：{{ App\Article::find($comment->article_id)->title }}</div>
-                    <div class="commentFooter"><time>{{ $comment->created_at }}</time></div>
-                </div>
-                @endforeach
+                    <p>NEW コメント</p>
+                    {{-- コメント --}}
+                    @foreach($comments as $comment) 
+                    <table class="comment">
+                        <tr>
+                        <td colspan="10">タイトル<a href="#{{ App\article::find($comment->article_id)->id }}">{{ App\article::find($comment->article_id)->title }}</a><br>コメント<br>{{ $comment->comment }}<br>名前{{ App\user::find($comment->user_id)->name }}</td>
+                        </tr>
+                    </table>
+                    @endforeach
             </div>
 
             <!-- 投稿ボタン -->
             <div id="toukou_button">
                 <div id="toukou0">
-                    <img src="image/toukoubotan0.png" alt="投稿する">
+                    <img src="/image/toukoubotan0.png " alt="投稿する">
                 </div>
                 <div id="toukou1">
                     <a href="{{ route('articles.create') }}"><img src="/image/toukoubotan1.png " alt="投稿する"
@@ -115,17 +108,5 @@
             </div>
         </section>
     </section>
-    <div id="svgAttributes">
-        <svg width="50%" height="100" viewBox="0 0 128 128">
-            <filter id="displacementFilter">
-                <feTurbulence type="turbulence" baseFrequency=".05" numOctaves="2" result="turbulence">
-                </feTurbulence>
-                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="15" xChannelSelector="R"
-                    yChannelSelector="G"></feDisplacementMap>
-            </filter>
-            <polygon points="64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100"
-                style="filter: url(#displacementFilter)" fill="currentColor"></polygon>
-        </svg>
-    </div>
 </div>
 @endsection
