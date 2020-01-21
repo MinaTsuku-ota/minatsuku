@@ -244,6 +244,25 @@ $(function() {
         console.log($file0, $file1, $file2);
     });
 
+
+    //---------------リセット処理-----------------
+
+    $('.reset_js').on('click', function(e) {
+        e.preventDefault();
+
+        console.log($(this).siblings('input').get()[0].files);
+
+        var $imageText = $(this).siblings('.imageText');
+        $imageText.find('img').remove();
+        $imageText.text('Click or Drop here');
+
+        $(this).siblings('input[type=file]').val('');
+
+        var input_data = $(this).siblings('input').get()[0].files;
+
+        console.log(input_data);
+    })
+
 });
 
 // メモ:
