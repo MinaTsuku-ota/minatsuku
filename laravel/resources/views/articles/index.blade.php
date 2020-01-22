@@ -65,12 +65,10 @@
                                 fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
                             @endguest
                         </td>
-                        <td colspan="1" class="comment_button">コメント<br>
-                            {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
-                        </td>
+                        <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                         <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -83,6 +81,7 @@
                                         <input type="hidden" name="recaptcha" id="recaptcha">
                                     <input type="submit" class="comment_submit" id="{{ $article->id }}">
                                     </form>
+                                </li>
                                 <li>コメント内容の予定</li>
                             </ul>
                         </td>
@@ -146,11 +145,11 @@
                                 fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
                             @endguest
                         </td>
-                        <td colspan="1" class="comment_button">コメント<br>
+                        <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                         </td>
                     <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -201,11 +200,10 @@
                                 fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
                             @endguest
                         </td>
-                        <td colspan="1" class="comment_button">コメント<br>
-                        </td>
+                        <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                         <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -256,11 +254,10 @@
                                 fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
                             @endguest
                         </td>
-                        <td colspan="1" class="comment_button">コメント<br>
-                        </td>
+                        <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                         <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">

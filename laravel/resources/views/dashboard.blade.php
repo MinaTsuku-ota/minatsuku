@@ -12,6 +12,7 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/comment.js"></script>
     <script src="/js/dropdown.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -130,7 +131,10 @@
                                 <ul>
                                     <li>
                                         <form action="#">
-                                            <input type="text">
+                                            @csrf
+                                            <input type="text" class="comment_text">
+                                            <input type="hidden" name="recaptcha" id="recaptcha">
+                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
                                         </form>
                                     </li>
                                     <li>コメント内容の予定</li>
