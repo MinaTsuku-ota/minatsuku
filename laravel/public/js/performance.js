@@ -83,7 +83,6 @@ $(function() {
             flag = true;
             $('.jelly').each(function() {
                 up($(this), Math.random() * 5);
-                console.log('ジャンプ');
             });
         } else if (space_position.top < $(window).scrollTop() && flag === true) {
             flag = false;
