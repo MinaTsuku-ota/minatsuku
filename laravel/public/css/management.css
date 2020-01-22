@@ -241,7 +241,7 @@ table.toukou td {
 }
 
 
-/*編集・削除ボタン*/
+/*----------編集・削除ボタン----------*/
 
 .menuButton {
     position: relative;
@@ -279,18 +279,28 @@ table.toukou td {
 }
 
 
-/*編集・削除ボタンここまで*/
+/*----------編集・削除ボタンここまで----------*/
 
 
-/*活動実績ここから*/
+/*----------活動実績ここから----------*/
 
 .jelly {
     position: absolute;
     display: none;
+    border-radius: 40px;
+}
+
+#area_js {
+    /* background: red; */
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 750px;
+    border-bottom: 3px solid #000;
 }
 
 
-/*活動実績ここまで*/
+/*----------活動実績ここまで----------*/
 
 footer {
     width: 100%;
