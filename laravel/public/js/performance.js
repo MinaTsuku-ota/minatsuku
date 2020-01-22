@@ -48,7 +48,7 @@ $(function() {
     $('.jelly').each(function() {
         //表示位置の設定
         var index = $(this).index();
-        $(this).offset({ top: 100 + Math.random() * 20, left: left + index * 60 });
+        $(this).offset({ top: 110 + Math.random() * 20, left: left + index * 60 });
 
         //いいね数に応じてサイズを変える
         $(this).find('img').css({
@@ -74,7 +74,7 @@ $(function() {
             left: '+=' + (Math.floor(Math.random() * 500) - 100) + 'px'
         }, 1500);
 
-        $(this).stop().effect('explode', '', 1000);
+        $(this).effect('explode', '', 1000);
     })
 
     //画面トップでスクロール時にアニメーション発火
@@ -92,7 +92,7 @@ $(function() {
 
     //アニメーションの繰り返し処理
     function up(is, num) {
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 5; i++) {
             is.animate({
                 top: '+=0px'
             }, 1000 + num * 700).animate({
