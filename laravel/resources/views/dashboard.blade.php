@@ -70,7 +70,7 @@
             <div id="sougou">
                 <div id="good">
                     <div id="sougood_dai">総グッド</div>
-                    <div id="sougood">{{ $fav_count }}件</div>
+                    <div id="sougood">{{ $fav_count }}件</div> {{-- $fav_count ... DashboardController@index --}}
                 </div>
             </div>
         </div>
