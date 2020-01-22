@@ -187,7 +187,8 @@ dl {
 }
 
 section{
-  margin: 7% 25%;
+  margin: 7% auto;
+  width: 50%;
   padding: 0px 30px 50px 30px;
   background-color: #fff;
   border-radius: 50px;
@@ -279,10 +280,3 @@ input{
   
 }
 
-@media screen and (max-width:600px) { 
-  section {
-      margin: 0px;
-   }
-
-   
-}
