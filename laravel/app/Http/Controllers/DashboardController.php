@@ -79,7 +79,7 @@ class DashboardController extends Controller
             }
             // 新サムネイルをユーザデータに反映
             User::where('id', Auth::user()->id)->update(['avater' => $avater]);
-            return redirect()->route('dashboard.index')->with('message', 'サムネイルを更新しました！');
+            return redirect()->route('dashboard.index')->with('message', 'プロフィール画像を更新しました！');
         }
         return redirect()->route('dashboard.index')->with('message', '更新失敗です!!');
     }

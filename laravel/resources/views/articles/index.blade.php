@@ -1,22 +1,21 @@
 @extends('minatsukulayout')
 
 @section('addcss')
-<link rel="stylesheet" href="/css/new_common.css">
-<link rel="shortcut icon" href="/image/favicon.png" type="image/png">
-<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/fav.css">
+    <link rel="stylesheet" href="/css/new_common.css">
+    <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/fav.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('addjs')
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/comment.js"></script>
-<script src="js/tagSwitch.js"></script>
-<script src="js/tagSwitchGet.js"></script>
-<script src="js/fav.js"></script>
-@include('recaptcha_js')
-
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/tagSwitch.js"></script>
+    <script src="js/tagSwitchGet.js"></script>
+    <script src="js/fav.js"></script>
+    @include('recaptcha_js')
 @endsection
 
 @section('content')
@@ -37,39 +36,38 @@
             {{-- HOME --}}
             <div class="toukouPanel article-panel">
                 <p>投稿</p>
-                {{-- 記事一覧 --}}
-                @foreach($articles as $article)
+                @foreach($articles as $article) {{-- 記事一覧 --}}
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br>
-                        <a href="{{ url('articles', $article->id) }}" id="{{ $article->id }}">{{ $article->title }}</a>
+                        <td colspan="10"> {{-- 記事タイトル --}}
+                            <a href="{{ url('articles', $article->id) }}" id="{{ $article->id }}">{{ $article->title }}</a>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
+                        <td colspan="6" height="250px">{{ $article->body }}</td> {{-- 記事本文 --}}
                         <td colspan="4" height="250px">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
+                        <td colspan="1"> {{-- いいねボタン far中抜き(いいね前) fas中埋め(いいね後) --}}
                             @guest
                                 <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
                             @else {{-- ログインしている場合 --}}
                                 <i class="
                                 @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
-                                {{ 'fas' }}
+                                {{ 'fas' }} {{-- いいね済 --}}
                                 @else
-                                {{ 'far' }}
+                                {{ 'far' }} {{-- いいね前 --}}
                                 @endif
-                                fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
+                                fa-heart fav_btn" data-articleid="{{ $article->id }}"></i> {{-- 記事IDの送信用 --}}
                             @endguest
                         </td>
-                        <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
-                        <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
-                        <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
-                        </td>
+                        <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td> {{-- コメントボタン --}}
+                        <td colspan="3">
+                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
+                        </td> {{-- ユーザ名@学科名 --}}
+                        <td colspan="5">{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}</td> {{-- 投稿日付 --}}
                     </tr>
                     <tr class="comment-none">
                         <td colspan="10">
@@ -123,13 +121,15 @@
                 @foreach($articles1 as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br><a
-                                href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                        <td colspan="10">
+                            <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
-                        <td colspan="4" height="250px"><img
-                                src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
+                        <td colspan="6" height="250px">{{ $article->body }}</td>
+                        <td colspan="4" height="250px">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
@@ -146,10 +146,11 @@
                             @endguest
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
+                        <td colspan="3">
+                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
                         </td>
-                    <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
+                            {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -178,13 +179,15 @@
                 @foreach($articles2 as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br><a
-                                href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                        <td colspan="10">
+                            <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
-                        <td colspan="4" height="250px"><img
-                                src="/storage/{{ $article->image1 }}" alt="no_image"></td>
+                        <td colspan="6" height="250px">{{ $article->body }}</td>
+                        <td colspan="4" height="250px">
+                            <img src="/storage/{{ $article->image1 }}" alt="no_image">
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
@@ -201,9 +204,11 @@
                             @endguest
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
-                        <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">
+                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
+                        </td>
                         <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
+                            {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -232,13 +237,15 @@
                 @foreach($articles3 as $article)
                 <table class="toukou">
                     <tr>
-                        <td colspan="10">タイトル<br><a
-                                href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
+                        <td colspan="10">
+                            <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
-                        <td colspan="4" height="250px"><img
-                                src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
+                        <td colspan="4" height="250px">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
@@ -255,9 +262,11 @@
                             @endguest
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
-                        <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">
+                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
+                        </td>
                         <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
+                            {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
