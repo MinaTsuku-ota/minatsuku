@@ -47,7 +47,7 @@ body {
     font-weight: bold;
     padding: 15px;
     border-radius: 4px;
-  }
+}
    */
 
 .btn a:visited {
@@ -315,11 +315,16 @@ table.toukou {
     /* ここ------------------------- */
     width: 570px;
     height: 330px;
-    border: solid 1px black;
+    font-weight: bold;
+    color: #111111;/*文字色*/
+    background:#f5deb3;
+    border: solid 3px #996633;/*線*/
+    border-radius: 10px;/*角の丸み*/ 
 }
 
 table.toukou td {
     border: solid 1px black;
+    border-radius: 5px;
 }
 
 .comment {
