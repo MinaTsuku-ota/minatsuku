@@ -99,7 +99,7 @@
                     <div class="comment">
                         <div class="userName">
                                 <div id="profil">
-                                    <img src="{{ asset('storage/uploaded_images/'.$article->avater) }}" alt="プロフィール画像" id="parson">
+                                    <img src="{{ asset('storage/avaters/'.App\user::find($comment->user_id)->avater) }}" alt="プロフィール画像" id="parson">
                                 </div>
                                 {{ App\user::find($comment->user_id)->name }}
                             </div>
