@@ -54,25 +54,23 @@
                     <tr>
                         <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
                             @guest
-                            <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
-                        
+                                <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
                             @else {{-- ログインしている場合 --}}
-                            <i class="
-                            @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
-                            {{ 'fas' }}
-                            @else
-                            {{ 'far' }}
-                            @endif
-                            fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
-
+                                <i class="
+                                @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
+                                {{ 'fas' }}
+                                @else
+                                {{ 'far' }}
+                                @endif
+                                fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
                             @endguest
                         </td>
                         <td colspan="1" class="comment_button">コメント<br>
                             {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                         </td>
-                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -123,12 +121,24 @@
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
-                        <td colspan="1">いいね</td>
+                        <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
+                            @guest
+                                <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
+                            @else {{-- ログインしている場合 --}}
+                                <i class="
+                                @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
+                                {{ 'fas' }}
+                                @else
+                                {{ 'far' }}
+                                @endif
+                                fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
+                            @endguest
+                        </td>
                         <td colspan="1" class="comment_button">コメント<br>
                         </td>
-                    <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
+                    <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -166,12 +176,24 @@
                                 src="/storage/{{ $article->image1 }}" alt="no_image"></td>
                     </tr>
                     <tr>
-                        <td colspan="1">いいね</td>
+                        <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
+                            @guest
+                                <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
+                            @else {{-- ログインしている場合 --}}
+                                <i class="
+                                @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
+                                {{ 'fas' }}
+                                @else
+                                {{ 'far' }}
+                                @endif
+                                fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
+                            @endguest
+                        </td>
                         <td colspan="1" class="comment_button">コメント<br>
                         </td>
-                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -209,12 +231,24 @@
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
-                        <td colspan="1">いいね</td>
+                        <td colspan="1"> {{-- いいねボタン far中抜き fas中埋め --}}
+                            @guest
+                                <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
+                            @else {{-- ログインしている場合 --}}
+                                <i class="
+                                @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
+                                {{ 'fas' }}
+                                @else
+                                {{ 'far' }}
+                                @endif
+                                fa-heart fav_btn" data-articleid="{{ $article->id }}"></i>
+                            @endguest
+                        </td>
                         <td colspan="1" class="comment_button">コメント<br>
                         </td>
-                        <td colspan="3">名前<br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                     </tr>
                     <tr class="comment-none">

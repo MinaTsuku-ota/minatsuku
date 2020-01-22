@@ -48,10 +48,10 @@ class ArticlesController extends Controller
         //new コメントで表示するためのやつ
         $comments = Comment::latest()->get();
 
-        $articles = Article::latest('created_at')->paginate(2, ["*"], 'home');
-        $articles1 = Article::where('genre_id', '1')->latest('created_at')->paginate(2, ["*"], 'web'); // WEB
-        $articles2 = Article::where('genre_id', '2')->latest('created_at')->paginate(2, ["*"], 'photo'); // 写真
-        $articles3 = Article::where('genre_id', '3')->latest('created_at')->paginate(2, ["*"], 'video'); // 動画
+        $articles = Article::latest('created_at')->paginate(5, ["*"], 'home');
+        $articles1 = Article::where('genre_id', '1')->latest('created_at')->paginate(5, ["*"], 'web'); // WEB
+        $articles2 = Article::where('genre_id', '2')->latest('created_at')->paginate(5, ["*"], 'photo'); // 写真
+        $articles3 = Article::where('genre_id', '3')->latest('created_at')->paginate(5, ["*"], 'video'); // 動画
 
         // return view('articles.index', compact('articles'));
         return view('articles.index', compact('articles', 'articles1', 'articles2', 'articles3', 'comments'));
