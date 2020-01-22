@@ -323,7 +323,7 @@ table.toukou {
 }
 
 table.toukou td {
-    border: solid 1px black;
+    border: solid 1px #996633;
     border-radius: 5px;
 }
 
@@ -335,8 +335,12 @@ table.toukou td {
     margin: 5px 5px 10px 10px;
     width: 270px;
     height: auto;
-    border: solid 1px black;
     position: relative;
+    font-weight: bold;
+    color: #111111;/*文字色*/
+    background:#f5deb3;
+    border: solid 2px #996633;/*線*/
+    border-radius: 10px;/*角の丸み*/ 
 }
 
 .userName{
