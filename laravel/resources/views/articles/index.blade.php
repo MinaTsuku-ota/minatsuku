@@ -70,7 +70,7 @@
                         </td>
                         <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -97,11 +97,23 @@
                     <p>NEW コメント</p>
                     {{-- コメント --}}
                     @foreach($comments as $comment) 
-                    <table class="comment">
-                        <tr>
-                        <td colspan="10">タイトル<a href="#{{ App\article::find($comment->article_id)->id }}">{{ App\article::find($comment->article_id)->title }}</a><br>コメント<br>{{ $comment->comment }}<br>名前{{ App\user::find($comment->user_id)->name }}</td>
-                        </tr>
-                    </table>
+                    <div class="comment">
+                        <div class="userName">
+                                <div id="profil">
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->avater) }}" alt="プロフィール画像" id="parson">
+                                </div>
+                                {{ App\user::find($comment->user_id)->name }}
+                            </div>
+                        <div class="newComment">
+                            {{ $comment->comment }}
+                        </div>
+                        <div class="toukouName">
+                            投稿記事：{{ App\article::find($comment->article_id)->title }}
+                        </div>
+                        <div class="commentFooter">
+                            <time>{{ strtr(substr($comment->created_at, 5, 5), '-', '/') }}</time>
+                        </div>
+                    </div>
                     @endforeach
             </div>
 
@@ -138,7 +150,7 @@
                         </td>
                     <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -193,7 +205,7 @@
                         </td>
                         <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">
@@ -248,7 +260,7 @@
                         </td>
                         <td colspan="3">{{ App\user::find($article->user_id)->name }}</td>
                         <td colspan="5">
-                            {{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
+                            科の名前<br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}<br>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
                     <tr class="comment-none">

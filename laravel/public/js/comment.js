@@ -42,29 +42,25 @@ $(function () {
             }
         });
         $.ajax({
-            url: '/sample.php',
+            url: '&',
             type: 'POST',
-            crossDomain: true,
-            contentType: 'text/plain',
-            accepts: '*/*',
-            xhrFields: {
-                withCredentials: true
-            },
-            processData: false,
-            datatype: 'text',
-            data: $('.comment_text').val(),
-        }).done(function(data) {
+            datatype: 'json',
+            data: {
+                comment_data: comment_data,
+                article_id: article_id
+            }
+        }).done(function (data) {
             console.log('done');
             console.log(data.comment_data);
-        }).fail(function(data) {
+        }).fail(function (data) {
             console.log('fail');
             console.log(data);
         })
     })
 })
 
-$(function() {
-    $('svg').hover(function() {
+$(function () {
+    $('svg').hover(function () {
         $('svg').stop();
         anime({
             targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
@@ -73,7 +69,7 @@ $(function() {
             scale: 1,
             easing: 'easeInOutExpo'
         })
-    }, function() {
+    }, function () {
         $('svg').stop();
         $('filter feTurbulence').attr('style', '');
         anime({

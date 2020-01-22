@@ -106,9 +106,23 @@
                         <tr>
                             <td colspan="1"><i class="far fa-thumbs-up"></i></td>
                             <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
-                            <td colspan="3">{{ App\User::find($article->user_id)->name }}</td>
+                            <td colspan="3">
+                                @switch($article->genre_id)
+                                    @case(1)
+                                        {{--webの画像--}}
+                                        <i class="fas fa-globe fa-2x"></i>
+                                        @break
+                                    @case(2)
+                                        {{--写真の画像--}}
+                                        <i class="fas fa-camera fa-2x"></i>
+                                        @break
+                                    @case(3)
+                                        {{--動画の画像--}}
+                                        <i class="fas fa-video fa-2x"></i>
+                                @endswitch
+                            </td>
                             <td colspan="5">
-                                {{ App\Subject::find( App\User::find($article->user_id)->subject_id )->subject }}
+                                {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                             </td>
                         </tr>
                         <tr class="comment_none">
