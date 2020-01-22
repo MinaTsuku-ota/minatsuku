@@ -1,40 +1,44 @@
 @charset "utf-8";
-
-body{
-  background-image: url("../image/aozora1.png");
-  background-size: 1950px 1700px;
-  background-repeat: no-repeat;
-  background-position: 0 1000px;
- 
+body {
+    background-image: url("../image/aozora1.png");
+    background-size: 1950px 1700px;
+    background-repeat: no-repeat;
+    background-position: 0 1000px;
 }
 
-.header{
-  width:100%;
-  padding: 5px 0px;
-  background-color:#0cf;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 10;
-  border-bottom: 2px solid #3080B5;
+#wrapper {
+    width:100%;
+    overflow:hidden;
+  }
+
+.header {
+    width: 100%;
+    padding: 5px 0px;
+    background-color: #0cf;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    border-bottom: 2px solid #3080B5;
 }
 
-.dummy{
-  position: static;
+.dummy {
+    position: static;
 }
 
-.login{
-  float: left;
-  margin-right: 30px;
-  background-color: #f90;
-  color:#fff;
-  font-weight: bold;
-  padding: 15px;
-  border-radius: 4px;
+.login {
+    float: left;
+    margin-right: 30px;
+    background-color: #f90;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 4px;
 }
+
 
 /* ログイン後 */
-/* .mypage{
+.mypage{
   float: left;
   margin-right: 30px;
   background-color: #f90;
@@ -43,255 +47,308 @@ body{
   padding: 15px;
   border-radius: 4px;
 }
- */
 
 
-.btn a:visited{
-  color:#fff;
+.btn a:visited {
+    color: #fff;
 }
 
-.btn a{
-  text-decoration: none;
-  color: #fff;
-}
-.btn:hover{
-  opacity: 0.8;
+.btn a {
+    text-decoration: none;
+    color: #fff;
 }
 
-.sinki{
-  float:right;
-  background-color: #c06;
-  color:#fff;
-  font-weight: bold;
-  padding: 15px;
-  border-radius: 4px;
+.btn:hover {
+    opacity: 0.8;
 }
 
-.header-left{
-  float: left;
+.sinki {
+    float: right;
+    background-color: #c06;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.header-left {
+    float: left;
     margin: 10px 0px 0px 10px;
 }
 
-.header-right{
+.header-right {
     float: right;
     margin: 22px 30px;
 }
 
-.home_daimei{
-  width: 300px;
+.home_daimei {
+    width: 300px;
 }
 
-.clearfix::after{
-  display: block;
-  content:"";
-  clear: both;
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
 }
 
-
-main{
-  position: relative;
+main {
+    position: relative;
 }
 
-#back{
-  position: relative;
-  top: 50px;
-  left: 70px;
-  
+#back {
+    position: relative;
+    top: 50px;
+    left: 70px;
 }
 
-#center{
-  text-align: center;
+#center {
+    text-align: center;
 }
 
-
-
-section{
-  position: absolute;
-  left:40%;
-  top: 300px;
-  padding: 30px 10px;
-  background-color: #6BB8FF;
-  border-radius: 600px;
-  min-width: 350px;
-  /* -------いったん高さとる--------- */
-  width: 100px;
-  height: 290px;
+section {
+    position: absolute;
+    left: 40%;
+    top: 300px;
+    padding: 30px 10px;
+    background-color: #6BB8FF;
+    border-radius: 600px;
+    min-width: 350px;
+    /* -------いったん高さとる--------- */
+    width: 100px;
+    height: 290px;
 }
 
-#space{
-  height: 900px;
-  background-color: rgb(247, 213, 112);
+#space {
+    height: 900px;
+    background-color: rgb(247, 213, 112);
 }
 
-#profil{
-  text-align: center;
-  padding-top: 15px;
+#profil {
+    text-align: center;
+    padding-top: 15px;
 }
 
-
-
-#toukouitiran{
-  background-color: #fff;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  padding: 20px 50px;
-  display: inline-block;
-  border-radius: 80px;
-  text-align: center;
-  margin-left: 25%;
-  /* ここ*/
-  width: 800px;
+#toukouitiran {
+    background-color: #fff;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    padding: 20px 50px;
+    display: inline-block;
+    border-radius: 80px;
+    text-align: center;
+    margin-left: 25%;
+    /* ここ*/
+    width: 800px;
 }
 
-#toukouitiran h1{
-  background-color: #0cf;
-  display: inline-block;
-  padding: 10px 50px;
-  border-radius: 30px;
-  color: #fff;
+#toukouitiran h1 {
+    background-color: #0cf;
+    display: inline-block;
+    padding: 10px 50px;
+    border-radius: 30px;
+    color: #fff;
 }
 
-
-
-#good{
-  background-color: #0cf;
-  display: inline-block;
-  float: right;
-  font-size: 30px;
-  margin-right: 50px;
-  border-radius: 20px;
-  width: 200px;
-  color: #fff;
+#good {
+    background-color: #0cf;
+    display: inline-block;
+    float: right;
+    font-size: 30px;
+    margin-right: 50px;
+    border-radius: 20px;
+    width: 200px;
+    color: #fff;
 }
 
-#sougood_dai{
-  font-size: 50px;
+#sougood_dai {
+    font-size: 50px;
 }
 
-#sougood{
-  float: right;
+#sougood {
+    float: right;
 }
 
-
-#toukou{
-  background-color: #0cf;
-  display: inline-block;
-  float: right;
-  font-size: 30px;
-  margin-right: 15px;
-  border-radius: 20px;
-  width: 200px;
-  color: #fff;
+#toukou {
+    background-color: #0cf;
+    display: inline-block;
+    float: right;
+    font-size: 30px;
+    margin-right: 15px;
+    border-radius: 20px;
+    width: 200px;
+    color: #fff;
 }
 
-#soutoukou_dai{
-  font-size: 50px;
+#soutoukou_dai {
+    font-size: 50px;
 }
 
-#soutoukou{
-  float: right;
+#soutoukou {
+    float: right;
 }
 
-
-
-#puro_text{
- margin-top: 10px;
+#puro_text {
+    margin-top: 10px;
 }
 
-
-#nikku{
-  text-align: center;
-  font-size: 30px;
+#nikku {
+    text-align: center;
+    font-size: 30px;
 }
 
-#gakka{
-  margin-top: 15px;
-  text-align: center;
-  font-size: 30px;
+#gakka {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 30px;
 }
 
-#matome{
-  margin-right: 50px;
+#matome {
+    margin-right: 50px;
 }
 
-
-
-#parson{
-  width: 150px;
+#parson {
+    width: 150px;
 }
 
-
-#toukouPanel{
+#toukouPanel {
     margin: 10px 10px;
     float: left;
     width: 770px;
     height: auto;
-    border: solid 5px #ffffff;/*線*/
-    border-radius: 10px;/*角の丸み*/
+    border: solid 5px #ffffff;
+    /*線*/
+    border-radius: 10px;
+    /*角の丸み*/
+}
+
+table.toukou {
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-all;
+    text-align: center;
+    width: 100%;
+    border: solid 1px black;
+    margin-bottom: 20px;
+}
+
+table.toukou td {
+    border: solid 1px black;
+}
+
+.comment_none {
+    display: none;
+}
+
+.comment_none li {
+    list-style-type: none;
 }
 
 
-table.toukou{
-  table-layout: fixed;
-  word-break: break-all;
-  word-wrap: break-all;
-  text-align: center;
-  width: 100%;
-  border: solid 1px black;
-  margin-bottom: 20px;
+/*編集・削除ボタン*/
+
+.menuButton {
+    position: relative;
 }
 
-table.toukou td{
-  border: solid 1px black;
+.menuInfo {
+    display: none;
+    position: absolute;
+    top: -4px;
+    left: 76px;
+    border: 1px solid #000;
+    width: 60px;
+    height: 50px;
+    padding: 0;
+    line-height: 20px;
+    background-color: #0cf;
 }
-.comment_none{
-  display:none;
+
+.menuInfo ul {
+    padding: 0;
+    margin: 5px 0;
+    text-align: center;
 }
-.comment_none li{
-  list-style-type: none;
+
+.menuInfo li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.menuInfo li:hover {
+    border-bottom: 2px dotted #000;
+}
+
+
+/*編集・削除ボタンここまで*/
+
+.fa-thumbs-up:hover,.fa-comment:hover,.fa-cog:hover{
+    opacity: 0.5;
+}
+
+
+
+
+footer {
+    width: 100%;
+    background-color: #0cf;
+    text-align: center;
+    border-top: 2px solid #3080B5;
+}
+
+footer ul {
+    margin: 0px;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 40px 60px;
+    font-weight: bold;
+}
+
+footer ul li a {
+    color: #fff;
+}
+
+footer ul li a:visited {
+    color: #fff;
+}
+
+.dummy {
+    position: static;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#nikku_dai {
+    color: #45A1CF;
+    font-size: 40px;
+    padding: 0% 10%;
+    text-align: center;
 }
 
 
-footer{
-  width:100%;
-  background-color:#0cf;
-  text-align: center;
-  border-top: 2px solid #3080B5;
-}
-
-footer ul{
-  margin: 0px;
-}
-
-
-footer ul li{
-  display: inline-block;
-  margin:40px 60px;
-  font-weight: bold;
-}
-
-footer ul li a{
-  color: #fff;
-}
-
-footer ul li a:visited{
-  color: #fff;
-}
-
-.dummy{
-  position: static;
-}
-
-.clearfix::after{
-  content:"";
-  display: block;
-  clear: both;
-  
-}
-
-#nikku_dai{
-  color: #45A1CF;
-  font-size: 40px;
-  padding: 0% 10%;
-  text-align: center;
+@media screen and (max-width:900px) { 
+    section {
+        padding: 0px;
+        position: absolute;
+        left: 10%;
+        top: 300px;
+     }
+     #good {
+        
+        margin-right: 15px;
+        margin-top: 5px;
+    }
+    #toukouitiran {
+        width: 100%;
+        padding-left: 0px;
+        
+        margin-left: 0px;
+    }
+     
 }

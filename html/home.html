@@ -10,13 +10,14 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="../laravel/public/js/jquery-3.4.1.min.js"></script>
     <script src="../laravel/public/js/jquery-ui.min.js"></script>
+    <script src="../laravel/public/js/JS-work/anime.min.js"></script>
     <script src="../laravel/public/js/comment.js"></script>
 </head>
 
 
 
 <body>
-    <section id="wrap">
+    <div id="wrap">
         <header class="header clearfix">
             <div class="header-left clearfix">
                 <a href="home.html"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
@@ -35,255 +36,288 @@
         </header>
 
 
+        <main>
+            <div class="header clearfix dummy">
+                <div class="header-left clearfix">
+                    <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+                </div>
 
-        <div class="header clearfix dummy">
-            <div class="header-left clearfix">
-                <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
+                <div class="header-right">
+                    <div class="btn login "><a href="#">ログイン</a></div>
+                    <div class="btn sinki "><a href="#">新規登録</a></div>
+                </div>
             </div>
 
-            <div class="header-right">
-                <div class="btn login "><a href="#">ログイン</a></div>
-                <div class="btn sinki "><a href="#">新規登録</a></div>
-            </div>
-        </div>
+            <div id="contens">
+
+
+                <div class="navBox">
+                    <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
+                    <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
+                    <input type="radio" name="tabs" id="tab02" class="menu02">
+                    <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
+                    <input type="radio" name="tabs" id="tab03" class="menu03">
+                    <label for="tab03" class="label03 janru"><i class="fas fa-camera fa-2x"></i></label>
+                    <input type="radio" name="tabs" id="tab04" class="menu04">
+                    <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
+
+                    <section class="homeContent clearfix">
+
+                        <div class="toukouPanel">
+
+                            <p>投稿</p>
+
+                            <table class="toukou">
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" height="250px">詳細説明</td>
+                                    <td colspan="4" height="250px">画像</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="1">いいね</td>
+                                    <td colspan="1" class="comment_button">コメント</td>
+                                    <td colspan="3">名前</td>
+                                    <td colspan="5">科の名前</td>
+                                </tr>
+
+                                <tr class="comment_none">
+                                    <td colspan="10">
+                                        <ul>
+                                            <li>
+
+                                                <form action="#">
+                                                    <input type="text">
+                                                </form>
+
+                                            <li>コメント内容の予定</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+
+                            <table class="toukou">
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" height="250px">詳細説明</td>
+                                    <td colspan="4" height="250px">画像</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="1">いいね</td>
+                                    <td colspan="1">コメント</td>
+                                    <td colspan="3">名前</td>
+                                    <td colspan="5">科の名前</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="toukou">
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" height="250px">詳細説明</td>
+                                    <td colspan="4" height="250px">画像</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="1">いいね</td>
+                                    <td colspan="1">コメント</td>
+                                    <td colspan="3">名前</td>
+                                    <td colspan="5">科の名前</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="toukou">
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" height="250px">詳細説明</td>
+                                    <td colspan="4" height="250px">画像</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="1">いいね</td>
+                                    <td colspan="1">コメント</td>
+                                    <td colspan="3">名前</td>
+                                    <td colspan="5">科の名前</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="toukou">
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" height="250px">詳細説明</td>
+                                    <td colspan="4" height="250px">画像</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="1">いいね</td>
+                                    <td colspan="1">コメント</td>
+                                    <td colspan="3">名前</td>
+                                    <td colspan="5">科の名前</td>
+                                </tr>
+
+                            </table>
+
+
+                        </div>
+
+                        <div class="commentPanel">
+
+                            <p>NEW コメント</p>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td>オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <table class="comment">
+
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                            </table>
+
+                            <div class="comment">
+                                <div class="userName">
+                                        <div id="profil">
+                                            <img src="../image/parson.jpg" alt="プロフィール画像" id="parson">
+                                        </div>
+                                        userName
+                                    </div>
 
 
 
-        <div class="navBox">
-            <input type="radio" name="tabs" id="tab01" class="menu01" checked="checked">
-            <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
-            <input type="radio" name="tabs" id="tab02" class="menu02">
-            <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
-            <input type="radio" name="tabs" id="tab03" class="menu03">
-            <label for="tab03" class="label03 janru"><i class="fas fa-camera fa-2x"></i></label>
-            <input type="radio" name="tabs" id="tab04" class="menu04">
-            <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
+                                <div class="newComment">
+                                    昨晩、彼氏と大喧嘩をしまして
+                                        『もう顔も見たくない！』
+                                        って私が家を飛び出したと同時に
+                                        『俺も顔見たくない！』
+                                </div>
 
-            <section class="homeContent clearfix">
+                                <div class="toukouName">
+                                    投稿名：オリジナルテトリス
+                                </div>
 
-                <div class="toukouPanel">
+                                <div class="commentFooter">
+                                    <time>2020-01-12</time>
+                                </div>
 
-                    <p>投稿</p>
-
-                    <table class="toukou">
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="6" height="250px">詳細説明</td>
-                            <td colspan="4" height="250px">画像</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="1">いいね</td>
-                            <td colspan="1" class="comment_button">コメント</td>
-                            <td colspan="3">名前</td>
-                            <td colspan="5">科の名前</td>
-                        </tr>
-
-                        <tr class="comment_none">
-                            <td colspan="10">
-                                <ul>
-                                    <li>
-
-                                        <form action="#">
-                                            <input type="text">
-                                        </form>
+                            </div>
 
 
-                                        <li>コメント内容の予定</li>
-                                </ul>
-                            </td>
-                        </tr>
 
 
-                    </table>
 
-                    <table class="toukou">
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
+                        </div>
+                        <div id="toukou_button">
+                            <div id="toukou0">
+                                <img src="../image/toukoubotan0.png " alt="投稿する">
+                            </div>
+                            <div id="toukou1">
+                                <a href="#"><img src="../image/toukoubotan1.png " alt="投稿する" id="toukou1"></a>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td colspan="6" height="250px">詳細説明</td>
-                            <td colspan="4" height="250px">画像</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="1">いいね</td>
-                            <td colspan="1">コメント</td>
-                            <td colspan="3">名前</td>
-                            <td colspan="5">科の名前</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="toukou">
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="6" height="250px">詳細説明</td>
-                            <td colspan="4" height="250px">画像</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="1">いいね</td>
-                            <td colspan="1">コメント</td>
-                            <td colspan="3">名前</td>
-                            <td colspan="5">科の名前</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="toukou">
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="6" height="250px">詳細説明</td>
-                            <td colspan="4" height="250px">画像</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="1">いいね</td>
-                            <td colspan="1">コメント</td>
-                            <td colspan="3">名前</td>
-                            <td colspan="5">科の名前</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="toukou">
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="6" height="250px">詳細説明</td>
-                            <td colspan="4" height="250px">画像</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="1">いいね</td>
-                            <td colspan="1">コメント</td>
-                            <td colspan="3">名前</td>
-                            <td colspan="5">科の名前</td>
-                        </tr>
-
-                    </table>
 
 
                 </div>
-
-                <div class="commentPanel">
-
-                    <p>NEW コメント</p>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td>オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-
-                    <table class="comment">
-
-                        <tr>
-                            <td colspan="10">オリジナルテトリス</td>
-                        </tr>
-
-                    </table>
-
-
-
-
-
-                </div>
-                <div id="toukou_button">
-                    <div id="toukou0">
-                        <img src="../image/toukoubotan0.png " alt="投稿する">
-                    </div>
-                    <div id="toukou1">
-                        <a href="#"><img src="../image/toukoubotan1.png " alt="投稿する" id="toukou1"></a>
-                    </div>
+                <div id="svgAttributes">
+                    <svg width="50%" height="100" viewBox="0 0 128 128">
+                        <filter id="displacementFilter">
+                            <feTurbulence type="turbulence" baseFrequency=".05" numOctaves="2" result="turbulence">
+                            </feTurbulence>
+                            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="15" xChannelSelector="R"
+                                yChannelSelector="G"></feDisplacementMap>
+                        </filter>
+                        <polygon points="64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100"
+                            style="filter: url(#displacementFilter)" fill="currentColor"></polygon>
+                    </svg>
                 </div>
 
-
-
-        </div>
-        </section>
         </main>
-        <footer>
-            <ul>
-                <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
-                <li><a href="request.html"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
-                <li><a href="policy.html"><i class="fas fa-exclamation-triangle">注記</i></a></li>
-                <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
-            </ul>
-        </footer>
-        </div>
+    </div>
+    </div>
+    <footer>
+
+        <ul>
+            <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
+            <li><a href="request.html"><i class="far fa-envelope">ご意見・ご要望</i></a></li>
+            <li><a href="policy.html"><i class="fas fa-exclamation-triangle">注記</i></a></li>
+            <li><a href="#"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
+        </ul>
+    </footer>
+
 </body>
 
 </html>

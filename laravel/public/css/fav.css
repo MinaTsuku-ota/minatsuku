@@ -1,0 +1,28 @@
+/* --- ハートアニメーション --- */
+@keyframes heartAnimation {
+    0% { transform: scale(0.5); }
+    10% { transform: scale(0.7); }
+    30% { transform: scale(0.9); }
+    50% { transform: scale(1.2); }
+    80% { transform: scale(1.5); }
+    100% { transform: scale(1); }/* もとのサイズに戻す */
+}
+@keyframes heartAnimation_r {
+    0% { transform: scale(0.5); }
+    10% { transform: scale(0.7); }
+    30% { transform: scale(0.9); }
+    50% { transform: scale(1.2); }
+    80% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+.fav_btn {
+    cursor: pointer;
+    color: #e2264d; /* アイコンを黒から赤へ */
+}
+.fav_on {
+	animation: heartAnimation .2s; /* 200ミリ秒かけて実行 */
+}
+.fav_off {
+	animation: heartAnimation_r .2s;
+}

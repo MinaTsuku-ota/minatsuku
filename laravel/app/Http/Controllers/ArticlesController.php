@@ -9,6 +9,10 @@ use App\Article;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use App\Comment;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Fav;
 
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -40,9 +44,17 @@ class ArticlesController extends Controller
         // ->published() // whereをscopeに差し替えた(Articleモデルを参照)
         // ->get();
         // published_atを使わない
-        $articles = Article::latest('created_at')->paginate(10);
+
+        //new コメントで表示するためのやつ
+        $comments = Comment::latest()->get();
+
+        $articles = Article::latest('created_at')->paginate(5, ["*"], 'home');
+        $articles1 = Article::where('genre_id', '1')->latest('created_at')->paginate(5, ["*"], 'web'); // WEB
+        $articles2 = Article::where('genre_id', '2')->latest('created_at')->paginate(5, ["*"], 'photo'); // 写真
+        $articles3 = Article::where('genre_id', '3')->latest('created_at')->paginate(5, ["*"], 'video'); // 動画
+
         // return view('articles.index', compact('articles'));
-        return view('articles.index', compact('articles'));
+        return view('articles.index', compact('articles', 'articles1', 'articles2', 'articles3', 'comments'));
     }
 
     // 引数で受け取ったidからデータベースの記事を取り出してshowビューに渡す
@@ -67,16 +79,17 @@ class ArticlesController extends Controller
 
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
-    public function store(ArticleRequest $request){
-        dd($request->all()); // デバッグ
+    public function store(ArticleRequest $request)
+    {
+        // dd($request->all()); // デバッグ
         recaptcha($request); // app/Http/helper.php
 
         // 画像はここでバリデート
         $request->validate([
             // 'file|image|mimes:jpeg,jpg,png,gif|max:2048' などなど
-            'image1' => 'file|image|mimes:jpeg,jpg,png,gif',
-            'image2' => 'file|image|mimes:jpeg,jpg,png,gif',
-            'image3' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file0' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file1' => 'file|image|mimes:jpeg,jpg,png,gif',
+            'file2' => 'file|image|mimes:jpeg,jpg,png,gif',
         ]);
 
         // フォームの入力値を取得
@@ -112,14 +125,14 @@ class ArticlesController extends Controller
         // storeメソッドからファイルパスが返されますので、生成されたファイル名を含めた、そのファイルパスをデータベースに保存できます
         // basename()はパスの最下層の名前を返す(拡張子含む)
         // if ($request->hasFile('image1')) {
-        if ($request->image1) { // シンプルにnull値をチェックできる
-            $article->image1 = basename($request->image1->store('public/uploaded_images'));
+        if ($request->file0) { // シンプルにnull値をチェックできる
+            $article->image1 = basename($request->file0->store('public/uploaded_images'));
         }
-        if ($request->image2) {
-            $article->image2 = basename($request->image2->store('public/uploaded_images'));
+        if ($request->file1) {
+            $article->image2 = basename($request->file1->store('public/uploaded_images'));
         }
-        if ($request->image3) {
-            $article->image3 = basename($request->image3->store('public/uploaded_images'));
+        if ($request->file2) {
+            $article->image3 = basename($request->file2->store('public/uploaded_images'));
         }
         $article->save(); // updateにしないといけないかも
 
@@ -132,6 +145,7 @@ class ArticlesController extends Controller
     // 記事の編集
     public function edit(Article $article)
     { // $id から $article へ変更
+
         // $article = Article::findOrFail($id);
         // タグ名と id の一覧を View に渡す
         // $tag_list = Tag::pluck('name', 'id');
@@ -171,13 +185,13 @@ class ArticlesController extends Controller
         // $article = Article::findOrFail($id);
 
         // 画像の削除
-        if($article->image1){
+        if ($article->image1) {
             Storage::disk('uploaded_images')->delete($article->image1);
         }
-        if($article->image2){
+        if ($article->image2) {
             Storage::disk('uploaded_images')->delete($article->image2);
         }
-        if($article->image3){
+        if ($article->image3) {
             Storage::disk('uploaded_images')->delete($article->image3);
         }
         // 記事レコードを削除
@@ -192,4 +206,61 @@ class ArticlesController extends Controller
         return $this->hasOne('App\id');
     }
 
+    // WEB、写真、動画用の仮ページ
+    public function index2()
+    {
+        $articles = Article::where('genre_id', '1')->latest('created_at')->paginate(10);
+        return view('articles.index2', compact('articles'));
+    }
+    public function index3()
+    {
+        $articles = Article::where('genre_id', '2')->latest('created_at')->paginate(10);
+        return view('articles.index3', compact('articles'));
+    }
+    public function index4()
+    {
+        $articles = Article::where('genre_id', '3')->latest('created_at')->paginate(10);
+        return view('articles.index4', compact('articles'));
+    }
+
+    //コメントのajax通信
+    public function post_ajax()
+    {
+        $comment_data = filter_input(INPUT_POST, 'comment_data');
+        // $article_id = filter_input(INPUT_POST, 'article_id');
+        $user_id = Auth::User()->id;
+        $article_id = filter_input(INPUT_POST, 'article_id');
+
+        // DBに保存
+        Comment::create([
+            'comment' => $comment_data,
+            'user_id' => $user_id,
+            'article_id' => $article_id
+        ]);
+    }
+
+    // public function comments()
+    // {
+    //     $comments = Comment::latest()->get();
+
+    //     return view('articles.index', compact('comments'));
+    // }
+
+    public function favpost(){ // いいね送信
+        $article_id = filter_input(INPUT_POST, 'article_id'); // 受け取った記事ID
+        $article = Article::find($article_id);
+        $user_id = Auth::User()->id;
+        if(Fav::where('user_id', $user_id)->where('article_id', $article_id)->exists()){ // データが存在していれば削除
+            Fav::where('user_id', $user_id)->where('article_id', $article_id)->delete();
+            $article->decrement('favs_count');
+            echo('レコード削除!');
+        }else{ // データの追加
+            Fav::create([
+                'user_id' => $user_id,
+                'article_id' => $article_id
+            ]);
+            $article->increment('favs_count');
+            echo('レコード追加!');
+        }
+    }
 }

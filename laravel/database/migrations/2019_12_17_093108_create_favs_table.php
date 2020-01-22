@@ -19,12 +19,13 @@ class CreateFavsTable extends Migration
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
-            ->onDelete('cascade');
+            ->onDelete('cascade'); // Userが削除されたときfavsテーブルの情報を削除
             $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')
             ->references('id')
             ->on('articles')
-            ->onDelete('cascade');
+            ->onDelete('cascade'); // Articleが削除されたときfavsテーブルの情報を削除
+            $table->timestamps();
         });
     }
 

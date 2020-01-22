@@ -40,7 +40,7 @@
           <!-- ログインしている時のメニュー -->
           <li class="nav-item">
             {{-- リンク先にダッシュボードヘのルートを指定 --}}
-            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+            <a class="nav-link" href="{{ route('dashboard.index') }}">Dashboard</a>
           </li>
 
           <!-- ドロップダウンメニュー -->

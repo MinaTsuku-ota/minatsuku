@@ -40,22 +40,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        // /* storageの画像を削除 */
-        // // 全記事データを配列で取得
-        // $articles = Article::get();
-        // // foreachでレコード毎に画像の有無をチェックしてstorageの画像を削除
-        // foreach($articles as $article){
-        //     // 記事に画像があるかチェック
-        //     // if(isset($article->image1) || isset($article->image2) || isset($article->image3)){
-        //         // storageの画像を削除
-        //         Storage::disk('public')->delete($article->image1);
-        //         Storage::disk('public')->delete($article->image2);
-        //         Storage::disk('public')->delete($article->image3);
-        //         echo 'create_articles_table echo';
-
-        //     // }
-        // }
-
         Schema::dropIfExists('articles');
     }
 }
