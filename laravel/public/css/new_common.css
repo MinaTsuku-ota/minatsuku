@@ -322,6 +322,14 @@ table.toukou {
     border-radius: 10px;/*角の丸み*/ 
 }
 
+.fa-thumbs-up{
+    margin-bottom: 7px;
+}
+
+.fa-comment{
+    margin-bottom: 7px;
+}
+
 table.toukou td {
     border: solid 1px #996633;
     border-radius: 5px;
