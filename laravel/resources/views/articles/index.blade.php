@@ -46,7 +46,9 @@
                     <tr>
                         <td colspan="6" height="250px">{{ $article->body }}</td> {{-- 記事本文 --}}
                         <td colspan="4" height="250px">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
                     </tr>
                     <tr>
@@ -128,7 +130,9 @@
                     <tr>
                         <td colspan="6" height="250px">{{ $article->body }}</td>
                         <td colspan="4" height="250px">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
                     </tr>
                     <tr>
@@ -186,7 +190,9 @@
                     <tr>
                         <td colspan="6" height="250px">{{ $article->body }}</td>
                         <td colspan="4" height="250px">
-                            <img src="/storage/{{ $article->image1 }}" alt="no_image">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
                     </tr>
                     <tr>
@@ -244,7 +250,9 @@
                     <tr>
                         <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="250px">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
                     </tr>
                     <tr>
