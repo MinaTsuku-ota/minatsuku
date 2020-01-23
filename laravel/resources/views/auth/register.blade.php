@@ -56,10 +56,8 @@
             @endif
 
             <section>
-                <div id="back">
-                    {{-- 戻るボタン --}}
-                    <a href="{{ route('articles.index') }}"><i
-                            class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+                <div id="back"> {{-- 戻るボタン --}}
+                    <a href="{{ route('articles.index') }}"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
                 </div>
                 <div id="sinki_syoudai">
                     <h1>新規登録</h1>

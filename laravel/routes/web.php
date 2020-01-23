@@ -82,6 +82,3 @@ Route::get('dev', 'DeveloperController@index')->name('dev');
 Route::get('sample/queues', 'SampleController@queues');
 Route::get('sample/queues/none', 'SampleController@queuesNone');
 Route::get('sample/queues/database', 'SampleController@queuesDatabase');
-
-// いいねテスト用
-Route::get('sample/fav', 'PagesController@favtest_index')->name('favtest');

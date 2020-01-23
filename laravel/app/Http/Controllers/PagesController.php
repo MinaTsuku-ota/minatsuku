@@ -143,10 +143,4 @@ class PagesController extends Controller
         // dd($request->image); // デバッグ(画像の送信確認)
         return redirect()->route('articles.index')->with('message', '送信完了(ﾟДﾟ)');
     }
-
-    // いいねテスト用
-    public function favtest_index(){
-        $articles = Article::all();
-        return view('test/favtest', compact('articles'));
-    }
 }

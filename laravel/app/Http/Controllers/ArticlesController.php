@@ -206,23 +206,6 @@ class ArticlesController extends Controller
         return $this->hasOne('App\id');
     }
 
-    // WEB、写真、動画用の仮ページ
-    public function index2()
-    {
-        $articles = Article::where('genre_id', '1')->latest('created_at')->paginate(10);
-        return view('articles.index2', compact('articles'));
-    }
-    public function index3()
-    {
-        $articles = Article::where('genre_id', '2')->latest('created_at')->paginate(10);
-        return view('articles.index3', compact('articles'));
-    }
-    public function index4()
-    {
-        $articles = Article::where('genre_id', '3')->latest('created_at')->paginate(10);
-        return view('articles.index4', compact('articles'));
-    }
-
     //コメントのajax通信
     public function post_ajax()
     {
