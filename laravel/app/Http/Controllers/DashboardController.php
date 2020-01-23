@@ -31,7 +31,7 @@ class DashboardController extends Controller
     {
         // $articlesはarticlesテーブルのレコードが配列で格納される
         // 後にビューでforeach文でアクセスするなどして扱う
-        $articles = Article::where('user_id', Auth::user()->id)->get();
+        $articles = Article::where('user_id', Auth::user()->id)->latest('created_at')->get();
         $fav_count = $articles->sum('favs_count'); // いいね数を格納する変数
     
         return view('dashboard', compact('articles', 'fav_count', 'array'));
