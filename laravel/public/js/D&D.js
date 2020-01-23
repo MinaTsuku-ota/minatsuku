@@ -296,15 +296,19 @@ $(function () {
             $(this).val(''); // inputのデータを消去
             alert('画像ファイルじゃないよ( ᐪᐤᐪ )');
         } else {
-            /* 画像プレビュー */
-            image = new Image();
+            /* 画像表示 */
+            var image = new Image();
             image.src = URL.createObjectURL($(this)[0].files[0]);
 
-            image.onload = function () {
+            $(image).on('load', function () {
                 // 画像がロードされたらプレビューエリアを空にしてからimgタグを追加
                 // $('#' + area_id).siblings('.imageText').empty(); // いらないかも
+                //URLの解放
+                URL.revokeObjectURL(image.src);
+
                 $('#' + area_id).siblings('.imageText').html(image);
-            }
+                $(this).addClass('imageCSS');
+            });
         }
     });
 
@@ -348,9 +352,10 @@ $(function () {
             // $imageText.find('img').remove();
         ).done(function () {
             $imageText.text('Click or Drop here');
-            //input.fileListに保存されているデータの初期化
+            $imageText.find(img).removeClass('imageCSS');
         });
 
+        //input.fileListに保存されているデータの初期化
         $(this).siblings('input[type=file]').val('');
 
         // console.log(input_data);
