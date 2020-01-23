@@ -19,7 +19,7 @@ $(function() {
     var scroll_border = top - $(window).height();
 
     //画像オブジェクトの生成
-    var jellyfish = new Image();
+    var jellyfish = new Image(70, 100);
     jellyfish.src = '/image/test.png';
 
     //投稿数の取得
@@ -29,7 +29,7 @@ $(function() {
     //いいね数の取得
     var good_num = $('#good_js').text();
     good_num = parseInt(good_num, 10);
-    var good_num_size = good_num / 10;
+    var good_num_param = good_num / 10;
 
     //ジャンプアニメーションで使う切り替え用flag
     var flag = false;
@@ -38,6 +38,12 @@ $(function() {
     for (var i = 0; i < post_num; i++) {
         $area.append('<div class="jelly"></div>').find('.jelly').html(jellyfish);
     };
+
+    //いいね数に応じてprofileの色を変える
+    var color_num = good_num_param;
+    $profile.css({
+        'background-color': CC(color_num)
+    });
 
     //ドラッグ可能にするjQuery.UI
     $('.jelly').draggable({
@@ -51,10 +57,10 @@ $(function() {
         $(this).offset({ top: 110 + Math.random() * 20, left: left + index * 60 });
 
         //いいね数に応じてサイズを変える
-        $(this).find('img').css({
-            'height': 30 * good_num_size + Math.random(),
-            'width': 20 * good_num_size + Math.random()
-        });
+        // $(this).find('img').css({
+        //     'height': 30 * good_num_param + Math.random(),
+        //     'width': 20 * good_num_param + Math.random()
+        // });
 
         //表示速度をバラバラにする
         $(this).fadeIn(1000 * Math.random() * 5);
@@ -88,6 +94,41 @@ $(function() {
             flag = false;
         };
     })
+
+    //色関数
+    function CC(num) {
+        var color;
+        switch (num) {
+            case 0:
+                color = '#FFFFFF';
+                break;
+            case 1:
+                color = '#FFE4E1';
+                break;
+            case 2:
+                color = '#FFFACD';
+                break;
+            case 3:
+                color = '#FFE4C4';
+                break;
+            case 4:
+                color = '#66CDAA';
+                break;
+            case 5:
+                color = '#87CEEB';
+                break;
+            case 6:
+                color = '#1E90FF';
+                break;
+            case 7:
+                color = '#6A5ACD';
+                break;
+            default:
+                color = '#000000';
+                break;
+        };
+        return color;
+    };
 
     //アニメーションの繰り返し処理
     function up(is, num) {
