@@ -8,6 +8,7 @@
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/jquery-ui.min.js"></script>
 <script src="/js/comment.js"></script>
+<script src="/js/loading.js"></script>
 @include('recaptcha_js')
 @endsection
 
