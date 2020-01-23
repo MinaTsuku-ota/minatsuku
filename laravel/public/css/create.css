@@ -168,7 +168,8 @@ dd {
 }
 
 section {
-    margin: 7% 25%;
+    width: 50%;
+    margin: 7% auto;
     padding: 50px 30px;
     background-color: #fff;
     border-radius: 50px;
@@ -321,9 +322,7 @@ input {
 }
 
 @media screen and (max-width:600px) { 
-    section {
-        margin: 0px;
-     }
+   
 
      .tyuukikakko {
         height: 260px;

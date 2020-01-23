@@ -216,3 +216,10 @@ input{
   clear: both;
   
 }
+
+@media screen and (max-width:900px) {
+  section{
+    background-size: 900px 100%;
+  }
+
+}
