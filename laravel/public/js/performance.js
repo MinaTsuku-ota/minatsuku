@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     //全体エリアの定義
     var $space = $('#space');
     var space_position = $space.offset();
@@ -51,10 +51,13 @@ $(function() {
     });
 
     //個別設定
-    $('.jelly').each(function() {
+    $('.jelly').each(function () {
         //表示位置の設定
         var index = $(this).index();
-        $(this).offset({ top: 110 + Math.random() * 20, left: left + index * 60 });
+        $(this).offset({
+            top: 110 + Math.random() * 20,
+            left: left + index * 60
+        });
 
         //いいね数に応じてサイズを変える
         // $(this).find('img').css({
@@ -71,7 +74,7 @@ $(function() {
     });
 
     //クリック時破裂
-    $('.jelly').on('click', function() {
+    $('.jelly').on('click', function () {
 
         $(this).stop(true).animate({
             top: '+=0px'
@@ -84,10 +87,10 @@ $(function() {
     })
 
     //画面トップでスクロール時にアニメーション発火
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if (space_position.top > $(window).scrollTop() && flag === false) {
             flag = true;
-            $('.jelly').each(function() {
+            $('.jelly').each(function () {
                 up($(this), Math.random() * 5);
             });
         } else if (space_position.top < $(window).scrollTop() && flag === true) {
@@ -142,10 +145,6 @@ $(function() {
             }, 500);
         };
     };
-
-    console.log(space_position);
-    console.log(profile_position);
-    console.log(top, left);
 });
 
 //.position()は親要素から見た座標

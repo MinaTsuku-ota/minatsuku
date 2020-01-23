@@ -76,12 +76,12 @@ $(function () {
 
     /* エリア内ドラッグ、マウスオーバ時の装飾 */
     $('.imageText').on({
-        'mouseenter dragenter': function(e){
+        'mouseenter dragenter': function (e) {
             e.stopPropagation();
             e.preventDefault();
             $(this).addClass('dropCSS');
         },
-        'mouseleave dragleave drop': function(e){
+        'mouseleave dragleave drop': function (e) {
             e.stopPropagation();
             e.preventDefault();
             $(this).removeClass('dropCSS');
