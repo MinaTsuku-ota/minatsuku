@@ -46,7 +46,11 @@
                     <tr>
                         <td colspan="6" height="250px">{{ $article->body }}</td> {{-- 記事本文 --}}
                         <td colspan="4" height="250px">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            @if($article->image1 === null)
+                                    <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
+                                @else
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="o_image">
+                                @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
@@ -130,7 +134,11 @@
                     <tr>
                         <td colspan="6" height="250px">{{ $article->body }}</td>
                         <td colspan="4" height="250px">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            @if($article->image1 === null)
+                                    <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
+                                @else
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="o_image">
+                                @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
@@ -190,7 +198,11 @@
                     <tr>
                         <td colspan="6" height="250px">{{ $article->body }}</td>
                         <td colspan="4" height="250px">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            @if($article->image1 === null)
+                                    <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
+                                @else
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="o_image">
+                                @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
@@ -250,7 +262,11 @@
                     <tr>
                         <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="250px">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" onerror="this.style.display='none'">
+                            @if($article->image1 === null)
+                                    <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
+                                @else
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="o_image">
+                                @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                         </td>
