@@ -58,12 +58,7 @@
                     <tr class="comment-none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                    <form action="#">
-                                        @csrf
-                                        <input type="text">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                    </form>
+                                <li class="form_js"></li>
                                 <li>コメント内容の予定</li>
                             </ul>
                         </td>

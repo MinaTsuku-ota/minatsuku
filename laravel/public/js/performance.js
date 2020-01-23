@@ -20,7 +20,7 @@ $(function() {
 
     //画像オブジェクトの生成
     var jellyfish = new Image(70, 100);
-    jellyfish.src = '/image/test.png';
+    jellyfish.src = '/image/manager.png';
 
     //投稿数の取得
     var post_num = $('#post_js').text();

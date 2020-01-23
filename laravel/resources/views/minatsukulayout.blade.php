@@ -21,7 +21,11 @@
 </head>
 
 <body>
-
+<div id="loading">
+    <div id="load_position">
+        <div id="loader"></div>
+    </div>
+</div>
 <div id="wrap">
     <!-- header -->
     @include('header')
