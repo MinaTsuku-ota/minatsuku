@@ -335,10 +335,13 @@ table.toukou td {
     margin-top: 0;
 }
 
-#parson {
-    width: 30px;
+.parson {
+    width: 50px;
 }
 
+.no_image {
+    width: 150px;
+}
 
 #profil {
     text-align: center;

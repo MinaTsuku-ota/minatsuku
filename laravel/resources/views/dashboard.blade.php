@@ -103,9 +103,9 @@
                             <td colspan="6" height="180px">{{ $article->body }}</td>
                             <td colspan="4" height="180px">
                                 @if($article->image1 === null)
-                                    <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
+                                    <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" class="no_image">
                                 @else
-                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="o_image">
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
                                 @endif
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
