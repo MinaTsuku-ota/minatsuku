@@ -1,12 +1,21 @@
-.square {
-    background-color: #1fc3cd;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    margin: 70px 0 5px 50px;
+div {
+    position: relative;
+    opacity: 0;
+    animation-fill-mode: both;
+    animation: anime 1s ease;
 }
 
-.count {
-    font-family: 'Consolas', monospace;
-    width: 1000px;
+@keyframes anime {
+    0% {
+        opacity: 1;
+        left: 0px;
+    }
+    50% {
+        opacity: 1;
+        left: 50px;
+    }
+    100% {
+        opacity: 1;
+        left: 100px;
+    }
 }

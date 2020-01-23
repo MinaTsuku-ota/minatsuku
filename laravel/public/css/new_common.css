@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('./loading.css');
 body {
     background-image: url(../image/aozora1.png);
     background-size: 1950px 2400px;
@@ -336,6 +337,54 @@ table.comment {
 .comment_none li {
     list-style-type: none;
 }
+
+
+/*ここまで*/
+
+
+/*----------ローディング画面----------*/
+
+#loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    /*変化速度*/
+    background-color: rgba(0, 204, 255, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+#load_position {
+    position: relative;
+    top: 50%;
+}
+
+#loader {
+    color: rgba(255, 255, 255, 1);
+    font-size: 50px;
+    margin: 100px auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-animation: load4 1.3s infinite linear;
+    animation: load4 1.3s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+    /*要素の消すわけじゃなく隠す(存在はする)*/
+}
+
+
+/*------------ここまで----------------*/
 
 footer {
     width: 100%;
