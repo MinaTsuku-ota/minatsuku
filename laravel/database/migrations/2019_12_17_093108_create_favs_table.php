@@ -17,15 +17,16 @@ class CreateFavsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade'); // Userが削除されたときfavsテーブルの情報を削除
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade'); // Userが削除されたときfavsテーブルの情報を削除
             $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')
-            ->references('id')
-            ->on('articles')
-            ->onDelete('cascade'); // Articleが削除されたときfavsテーブルの情報を削除
+                ->references('id')
+                ->on('articles')
+                ->onDelete('cascade'); // Articleが削除されたときfavsテーブルの情報を削除
             $table->timestamps();
+            $table->unique(['article_id', 'user_id']);
         });
     }
 
