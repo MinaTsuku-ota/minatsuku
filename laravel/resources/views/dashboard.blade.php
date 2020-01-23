@@ -12,6 +12,7 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/comment.js"></script>
     <script src="/js/dropdown.js"></script>
+    <script src="/js/fav.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -107,7 +108,17 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1"><i class="far fa-thumbs-up"></i></td>
+                            <td colspan="1">@guest
+                                <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
+                            @else {{-- ログインしている場合 --}}
+                                <i class="
+                                @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
+                                {{ 'fas' }} {{-- いいね済 --}}
+                                @else
+                                {{ 'far' }} {{-- いいね前 --}}
+                                @endif
+                                fa-heart fav_btn" data-articleid="{{ $article->id }}"></i> {{-- 記事IDの送信用 --}}
+                            @endguest</td>
                             <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                             <td colspan="3">
                                 @switch($article->genre_id)
