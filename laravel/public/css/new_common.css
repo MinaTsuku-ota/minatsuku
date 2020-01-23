@@ -1,5 +1,5 @@
 @charset "utf-8";
-
+@import url('./loading.css');
 body {
     background-image: url(../image/aozora1.png);
     background-size: 1950px 2400px;
@@ -40,16 +40,16 @@ body {
 /* ログイン後 */
 
 
-/* ログイン後 */
-.mypage {
+/* .mypage{
     float: left;
     margin-right: 30px;
     background-color: #f90;
-    color: #fff;
+    color:#fff;
     font-weight: bold;
     padding: 15px;
     border-radius: 4px;
-}
+  }
+   */
 
 .btn a:visited {
     color: #fff;
@@ -130,9 +130,8 @@ body {
     margin: 100px;
 }
 
-.navBox input[type="radio"] {
+.navBox input {
     cursor: pointer;
-    display: none;
 }
 
 .navBox i {
@@ -317,55 +316,15 @@ table.toukou td {
     border: solid 1px black;
 }
 
-.comment {
+table.comment {
     table-layout: fixed;
     word-break: break-all;
     word-wrap: break-all;
     text-align: center;
     margin: 5px 5px 10px 10px;
     width: 270px;
-    height: auto;
+    height: 200px;
     border: solid 1px black;
-}
-
-.userName {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 5px;
-    margin-top: 0;
-}
-
-.parson {
-    width: 50px;
-}
-
-.no_image {
-    width: 150px;
-}
-
-#profil {
-    text-align: center;
-    padding-top: 10px;
-}
-
-.newComment {
-    text-align: left;
-    margin: 5px 3px;
-}
-
-.toukouName {
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.commentFooter {
-    font-size: 13px;
-    text-align: right;
-    margin-right: 5px;
-    margin-top: 10px;
-    margin-bottom: 0;
 }
 
 
@@ -378,6 +337,54 @@ table.toukou td {
 .comment_none li {
     list-style-type: none;
 }
+
+
+/*ここまで*/
+
+
+/*----------ローディング画面----------*/
+
+#loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    /*変化速度*/
+    background-color: rgba(0, 204, 255, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+#load_position {
+    position: relative;
+    top: 50%;
+}
+
+#loader {
+    color: rgba(255, 255, 255, 1);
+    font-size: 50px;
+    margin: 100px auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-animation: load4 1.3s infinite linear;
+    animation: load4 1.3s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+    /*要素の消すわけじゃなく隠す(存在はする)*/
+}
+
+
+/*------------ここまで----------------*/
 
 footer {
     width: 100%;
@@ -412,24 +419,3 @@ footer ul li a:visited {
     bottom: 0%;
     right: 80%;
 }
-
-/* ↓↓↓ genreタブ切り替えcss ↓↓↓ */
-.toukouPanel {
-    display: none;
-}
-
-/* input[type="radio"]:checked{
-    background:#f5deb3;
-    color:#FFF;
-    transition: all 0.2s ease-out;
-} */
-/* .article-tab.tag-active{
-    background:#f5deb3;
-    color:#FFF;
-    transition: all 0.2s ease-out;
-} */
-.toukouPanel.panel-show {
-    display: block;
-}
-
-/* ↑↑↑ genreタブ切り替えcss ↑↑↑ */
