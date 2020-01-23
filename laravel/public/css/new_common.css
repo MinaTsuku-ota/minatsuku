@@ -26,6 +26,10 @@ body {
     position: static;
 }
 
+.home_daimei {
+    width: 300px;
+}
+
 .login {
     float: left;
     margin-right: 30px;
@@ -48,7 +52,7 @@ body {
     font-weight: bold;
     padding: 15px;
     border-radius: 4px;
-  }
+}
    */
 
 .btn a:visited {
@@ -109,6 +113,7 @@ body {
     margin: 22px 30px;
 }
 
+/*コンテンツページの大元の位置*/
 #contens {
     margin: 0px 20%;
     position: relative;
@@ -116,13 +121,7 @@ body {
     left: 0;
 }
 
-#content {
-    width: 958px;
-    /* height: 850px; */
-    border: dashed 1px #999;
-    margin: 10px 0;
-}
-
+/*大元のコンテンツの横幅の設定*/
 .navBox {
     position: relative;
     /* ここ -----------*/
@@ -130,30 +129,17 @@ body {
     margin: 100px;
 }
 
+/*タブを横並びに整列させる*/
 .navBox input {
     cursor: pointer;
 }
 
+/*アイコンの位置*/
 .navBox i {
     margin-top: 6px;
 }
 
-.navBox input#tab02 {
-    left: 154px;
-}
-
-.navBox input#tab03 {
-    left: 294px;
-}
-
-.navBox input#tab04 {
-    left: 431px;
-}
-
-.home_daimei {
-    width: 300px;
-}
-
+/*アイコンを選択するタブの幅と大きさ*/
 .navBox label {
     background: -webkit-gradient(linear, left top, left bottm, from(#cb8f4b), to(#cfa060));
     border-radius: 8px 8px 0 0;
@@ -163,9 +149,8 @@ body {
     float: left;
     font-size: 16px;
     font-weight: bold;
-    text-align: center;
+    text-align: center; 
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
-    line-height: 44px;
     position: relative;
     width: 117px;
     height: 44px;
@@ -173,36 +158,33 @@ body {
     padding: 0 10px;
 }
 
+/*アイコンhome～videoまでの色*/
 .navBox label.label01 {
+    /*立体感を出すために少しだけ左にマージンをいれました*/
     margin-left: 14px;
     background-color: #b22222;
-    background: -webkit-gradient(linear, left top, left bottm, from(red), to(red));
 }
 
 .navBox label.label02 {
     background-color: #008b8b;
-    background: -webkit-gradient(linear, left top, left bottm, from(royalblue), to(royalblue));
 }
 
 .navBox label.label03 {
     background-color: #ffcc33;
-    background: -webkit-gradient(linear, left top, left bottm, from(yellow), to(yellow));
 }
 
 .navBox label.label04 {
     background-color: #2e8b57;
-    background: -webkit-gradient(linear, left top, left bottm, from(#f0e68c), to(green));
 }
 
+/*アイコン選択時の色設定*/
 .navBox label:after {
-    background: #deb887;
-    content: '';
+    background: #ffffff;
     display: block;
-    position: absolute;
     left: 0;
     bottom: -5px;
+    position: absolute;
     width: 100%;
-    height: 5px;
 }
 
 .navBox input:checked+label {
@@ -210,10 +192,10 @@ body {
     color: #ffffff;
 }
 
+/*大元のホームコンテンツ内の装飾*/
 .navBox .homeContent {
     background: #f5deb3;
     border-radius: 10px;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1), -2px 0 6px rgba(0, 0, 0, 0.1);
     clear: both;
     position: relative;
     width: 100%;
@@ -229,7 +211,7 @@ body {
     overflow: hidden;
     padding: 10px 50px 20px;
 }
-
+/*------------怪しい-------------*/
 .navBox input.menu01:checked~.homeContent .homeContent .clearfix,
 .navBox input.menu02:checked~.homeContent .content02,
 .navBox input.menu03:checked~.homeContent .content03,
@@ -238,7 +220,7 @@ body {
     -webkit-transition: all ease-out 0.4s 0.4s;
     transition: all ease-out 0.4s 0.4s;
 }
-
+/*------------------------------*/
 .homeContent {
     width: 850px;
     height: auto;
@@ -247,7 +229,6 @@ body {
     z-index: 5;
     box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 0 3px 3px 3px;
-    /* background-color: peachpuff; */
 }
 
 .clearfix::after {
@@ -279,6 +260,10 @@ body {
     border-radius: 5px;
 }
 
+table.toukou tr:nth-child(2){
+    height: 250px;
+} 
+
 .commentPanel {
     margin: 10px 10px;
     float: right;
@@ -309,11 +294,24 @@ table.toukou {
     /* ここ------------------------- */
     width: 570px;
     height: 330px;
-    border: solid 1px black;
+    font-weight: bold;
+    color: #111111;/*文字色*/
+    background:#f5deb3;
+    border: solid 3px #996633;/*線*/
+    border-radius: 10px;/*角の丸み*/ 
+}
+
+.fa-thumbs-up{
+    margin-bottom: 7px;
+}
+
+.fa-comment{
+    margin-bottom: 7px;
 }
 
 table.toukou td {
-    border: solid 1px black;
+    border: solid 1px #996633;
+    border-radius: 5px;
 }
 
 table.comment {
@@ -336,11 +334,47 @@ table.comment {
 
 .comment_none li {
     list-style-type: none;
+    height: auto;
+    position: relative;
+    font-weight: bold;
+    color: #111111;/*文字色*/
+    background:#f5deb3;
+    border: solid 2px #996633;/*線*/
+    border-radius: 10px;/*角の丸み*/ 
+}
+
+.userName{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#parson{
+    width: 28px;
+    position: absolute;
+    left: 70px;
+    top: 15px;
+    padding: 0;
+}
+
+.circle{
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    background: skyblue;/*背景色*/
+    display: inline-block;
+    margin: 0;
+    left: 100px;
+    top: 5px;
 }
 
 
 /*ここまで*/
 
+/**/
+.newComment{
+    text-align: left;
+    margin: 5px 3px;
+}
 
 /*----------ローディング画面----------*/
 
