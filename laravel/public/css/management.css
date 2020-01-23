@@ -298,6 +298,10 @@ table.toukou td {
     border-bottom: 4px solid #000;
 }
 
+#main_js {
+    overflow: hidden;
+}
+
 
 /*----------活動実績ここまで----------*/
 
