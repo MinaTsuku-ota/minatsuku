@@ -14,8 +14,6 @@
     <script src="../laravel/public/js/comment.js"></script>
 </head>
 
-
-
 <body>
     <div id="wrap">
         <header class="header clearfix">
@@ -61,7 +59,7 @@
                     <input type="radio" name="tabs" id="tab04" class="menu04">
                     <label for="tab04" class="label04 janru"><i class="fas fa-video fa-2x"></i></label>
 
-                    <section class="homeContent clearfix">
+                    <li class="homeContent clearfix">
 
                         <div class="toukouPanel">
 
@@ -87,11 +85,9 @@
                                 <tr class="comment_none">
                                     <td colspan="10">
                                         <ul>
-                                            <li>
+                                            <li class="form_js">
 
-                                                <form action="#">
-                                                    <input type="text">
-                                                </form>
+                                            </li>
 
                                             <li>コメント内容の予定</li>
                                         </ul>
@@ -113,9 +109,52 @@
 
                                 <tr>
                                     <td colspan="1">いいね</td>
-                                    <td colspan="1">コメント</td>
+                                    <td colspan="1" class="comment_button">コメント</td>
                                     <td colspan="3">名前</td>
                                     <td colspan="5">科の名前</td>
+                                </tr>
+
+                                <tr class="comment_none">
+                                    <td colspan="10">
+                                        <ul>
+                                            <li class="form_js">
+
+                                            </li>
+
+                                            <li>コメント内容の予定</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+
+                            <table class="toukou">
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" height="250px">詳細説明</td>
+                                    <td colspan="4" height="250px">画像</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="1">いいね</td>
+                                    <td colspan="1" class="comment_button">コメント</td>
+                                    <td colspan="3">名前</td>
+                                    <td colspan="5">科の名前</td>
+                                </tr>
+                                <tr class="comment_none">
+                                    <td colspan="10">
+                                        <ul>
+                                            <li class="form_js">
+
+                                            </li>
+
+                                            <li>コメント内容の予定</li>
+                                        </ul>
+                                    </td>
                                 </tr>
 
                             </table>
@@ -132,9 +171,20 @@
 
                                 <tr>
                                     <td colspan="1">いいね</td>
-                                    <td colspan="1">コメント</td>
+                                    <td colspan="1" class="comment_button">コメント</td>
                                     <td colspan="3">名前</td>
                                     <td colspan="5">科の名前</td>
+                                </tr>
+                                <tr class="comment_none">
+                                    <td colspan="10">
+                                        <ul>
+                                            <li class="form_js">
+
+                                            </li>
+
+                                            <li>コメント内容の予定</li>
+                                        </ul>
+                                    </td>
                                 </tr>
 
                             </table>
@@ -151,28 +201,20 @@
 
                                 <tr>
                                     <td colspan="1">いいね</td>
-                                    <td colspan="1">コメント</td>
+                                    <td colspan="1" class="comment_button">コメント</td>
                                     <td colspan="3">名前</td>
                                     <td colspan="5">科の名前</td>
                                 </tr>
+                                <tr class="comment_none">
+                                    <td colspan="10">
+                                        <ul>
+                                            <li class="form_js">
 
-                            </table>
+                                            </li>
 
-                            <table class="toukou">
-                                <tr>
-                                    <td colspan="10">オリジナルテトリス</td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="6" height="250px">詳細説明</td>
-                                    <td colspan="4" height="250px">画像</td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="1">いいね</td>
-                                    <td colspan="1">コメント</td>
-                                    <td colspan="3">名前</td>
-                                    <td colspan="5">科の名前</td>
+                                            <li>コメント内容の予定</li>
+                                        </ul>
+                                    </td>
                                 </tr>
 
                             </table>
@@ -248,32 +290,14 @@
 
                             </table>
 
-                            <div class="comment">
-                                <div class="userName">
-                                        <div id="profil">
-                                            <img src="../image/parson.jpg" alt="プロフィール画像" id="parson">
-                                        </div>
-                                        userName
-                                    </div>
 
+                            <table class="comment">
 
+                                <tr>
+                                    <td colspan="10">オリジナルテトリス</td>
+                                </tr>
 
-                                <div class="newComment">
-                                    昨晩、彼氏と大喧嘩をしまして
-                                        『もう顔も見たくない！』
-                                        って私が家を飛び出したと同時に
-                                        『俺も顔見たくない！』
-                                </div>
-
-                                <div class="toukouName">
-                                    投稿名：オリジナルテトリス
-                                </div>
-
-                                <div class="commentFooter">
-                                    <time>2020-01-12</time>
-                                </div>
-
-                            </div>
+                            </table>
 
 
 
@@ -295,18 +319,15 @@
                 <div id="svgAttributes">
                     <svg width="50%" height="100" viewBox="0 0 128 128">
                         <filter id="displacementFilter">
-                            <feTurbulence type="turbulence" baseFrequency=".05" numOctaves="2" result="turbulence">
-                            </feTurbulence>
-                            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="15" xChannelSelector="R"
-                                yChannelSelector="G"></feDisplacementMap>
+                            <feTurbulence type="turbulence" baseFrequency=".05" numOctaves="2" result="turbulence"></feTurbulence>
+                            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="15" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
                         </filter>
-                        <polygon points="64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100"
-                            style="filter: url(#displacementFilter)" fill="currentColor"></polygon>
+                        <polygon points="64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100" style="filter: url(#displacementFilter)" fill="currentColor"></polygon>
                     </svg>
                 </div>
 
         </main>
-    </div>
+        </div>
     </div>
     <footer>
 

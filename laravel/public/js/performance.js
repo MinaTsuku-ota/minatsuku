@@ -96,7 +96,6 @@ $(function() {
                 top: '+=0px'
             }, 1000 + num * 700).animate({
                 top: '-=15px'
-
             }, 250).animate({
                 top: '+=15px'
             }, 500);

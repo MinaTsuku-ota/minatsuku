@@ -244,8 +244,56 @@ $(function() {
         console.log($file0, $file1, $file2);
     });
 
+
+    //---------------リセット処理-----------------
+
+    $('.reset_js').on('click', function(e) {
+        e.preventDefault();
+
+        //console用
+        var input_data = $(this).siblings('input').get()[0].files;
+
+        console.log(input_data);
+
+        //画像表示領域の変数定義・削除・テキストの挿入
+        var $imageText = $(this).siblings('.imageText');
+
+        $.when(
+            $imageText.find('img').hide('blind', '', 500)
+            // $imageText.find('img').remove();
+        ).done(function() {
+            $imageText.text('Click or Drop here');
+            //input.fileListに保存されているデータの初期化
+        });
+
+        $(this).siblings('input[type=file]').val('');
+
+        console.log(input_data);
+    })
+
+    //-------------リセット処理ここまで-------------
+
 });
 
+//     blind
+//     bounce
+//     clip
+//     drop
+
+//     explode
+//     fade
+//     fold
+//     highlight
+
+//     puff
+//     pulsate
+//     scale
+//     shake
+
+//     size
+//     slide
+//     transfer
+
 // メモ:
-// preventDefault() は、その要素のイベントをキャンセル
+// preventDefault() は、その要素のデフォルトで持つイベントをキャンセル
 // stopPropagation()は、親要素への伝播をキャンセル
