@@ -23,7 +23,7 @@
 <div id="contens">
     <section class="navBox">
         <form id="radio">
-            <input type="radio" name="tabs" id="tab01" class="menu01 article-tab" value="1">
+            <input type="radio" name="tabs" id="tab01" class="menu01 article-tab" value="1" checked>
             <label for="tab01" class="label01 janru"><i class="fas fa-home fa-2x"></i></label>
             <input type="radio" name="tabs" id="tab02" class="menu02 article-tab" value="2">
             <label for="tab02" class="label02 janru"><i class="fas fa-globe fa-2x"></i></label>
@@ -45,8 +45,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="250px">{{ $article->body }}</td> {{-- 記事本文 --}}
-                        <td colspan="4" height="250px">
+                        <td colspan="6">{{ $article->body }}</td> {{-- 記事本文 --}}
+                        <td colspan="4">
                             @if($article->image1 === null)
                             <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
                                 @else
@@ -69,6 +69,24 @@
                                 @endif
                                 fa-heart fav_btn" data-articleid="{{ $article->id }}"></i> {{-- 記事IDの送信用 --}}
                             @endguest
+                        <td colspan="6">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="4"><img
+                                src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"><i class="far fa-thumbs-up fa-lg"></i></td>
+                        <td colspan="1" class="comment_button"><i class="far fa-comment fa-lg"></i></br>
+                            {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
+                            <form action="{{ url('articles.index') }}" method="POST">
+                                @csrf
+                                <textarea rows="2" name="comment"></textarea>
+                                <button type="submit" name="comment"></button>
+                                <input type="hidden" name="recaptcha" id="recaptcha">
+                            </form>
+                        </td>
+                        <td colspan="3">名前</br>{{ App\user::find($article->user_id)->name }}</td>
+                        <td colspan="5">
+                            科の名前</br>{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject  }}
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td> {{-- コメントボタン --}}
                         <td colspan="3">
@@ -138,7 +156,7 @@
                             @if($article->image1 === null)
                             <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
                                 @else
-                                      <img src="storage/avaters/avater" alt="プロフィール画像" class="no_image">
+                                    <img src="storage/avaters/avater" alt="プロフィール画像" class="no_image">
                                 @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
@@ -200,7 +218,7 @@
                         <td colspan="6" height="250px">{{ $article->body }}</td>
                         <td colspan="4" height="250px">
                             @if($article->image1 === null)
-                                 <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
+                                <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
                             @else
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
                             @endif
@@ -305,6 +323,36 @@
                 </table>
                 @endforeach
                 {{ $articles3->onEachSide(2)->links()}}
+            <div id="commentPanel">
+                <p>NEW コメント</p>
+                {{-- コメント --}}
+                @for($i=1;$i<=1;$i++) <div class="comment">
+                <div class="userName">
+                                    <div id="profil">
+                                        <img src="../image/parson.jpg" alt="プロフィール画像" id="parson">
+                                    </div>
+                                    <span class="circle"></span>
+                                    <span class="useruuu">userName</span>
+                                </div>
+
+
+
+                                <div class="newComment">
+                                    昨晩、彼氏と大喧嘩をしまして
+                                    『もう顔も見たくない！』
+                                    って私が家を飛び出したと同時に
+                                    『俺も顔見たくない！』
+                                </div>
+
+                                <div class="toukouName">
+                                    投稿名：オリジナルテトリス
+                                </div>
+
+                                <div class="commentFooter">
+                                    <time>2020-01-12</time>
+                                </div>
+                    </div>
+                    @endfor
             </div>
 
             <!-- 投稿ボタン -->
