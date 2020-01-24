@@ -6,6 +6,7 @@
     <title>みなツク -MINATUKU-</title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/management.css">
+    <link rel="stylesheet" href="/css/fav.css">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="/js/jquery-3.4.1.min.js"></script>
