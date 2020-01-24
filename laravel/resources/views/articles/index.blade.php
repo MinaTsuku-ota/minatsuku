@@ -76,7 +76,7 @@
                         </td> {{-- ユーザ名@学科名 --}}
                         <td colspan="5">{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}</td> {{-- 投稿日付 --}}
                     </tr>
-                    <tr class="comment-none">
+                    <tr class="comment_none">
                         <td colspan="10">
                             <ul>
                                 <li>
@@ -166,7 +166,7 @@
                             {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
-                    <tr class="comment-none">
+                    <tr class="comment_none">
                         <td colspan="10">
                             <ul>
                                 <li>
@@ -230,7 +230,7 @@
                             {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
-                    <tr class="comment-none">
+                    <tr class="comment_none">
                         <td colspan="10">
                             <ul>
                                 <li class="form_js"></li>
@@ -288,7 +288,7 @@
                             {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
                         </td>
                     </tr>
-                    <tr class="comment-none">
+                    <tr class="comment_none">
                         <td colspan="10">
                             <ul>
                                 <li>

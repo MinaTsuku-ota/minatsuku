@@ -40,9 +40,8 @@ $(function () {
     };
 
     //いいね数に応じてprofileの色を変える
-    var color_num = good_num_param;
     $profile.css({
-        'background-color': CC(color_num)
+        'background-color': CC(Math.floor(good_num_param))
     });
 
     //ドラッグ可能にするjQuery.UI
