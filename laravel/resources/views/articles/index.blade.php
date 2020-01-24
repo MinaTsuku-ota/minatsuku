@@ -14,13 +14,13 @@
 @section('content')
 <div id="contens">
     <div class="navBox">
-        <input type="radio" name="tabs" id="tab01" class="radioboxNone" checked="checked">
+        <input type="radio" name="tabs" id="tab01" class="menu01" checked>
         <label for="tab01" class="label01 janru">HOME</label>
-        <input type="radio" name="tabs" id="tab02" class="radioboxNone">
+        <input type="radio" name="tabs" id="tab02" class="menu02">
         <label for="tab02" class="label02 janru">WEB</label>
-        <input type="radio" name="tabs" id="tab03" class="radioboxNone">
+        <input type="radio" name="tabs" id="tab03" class="menu03">
         <label for="tab03" class="label03 janru">写真</label>
-        <input type="radio" name="tabs" id="tab04" class="radioboxNone">
+        <input type="radio" name="tabs" id="tab04" class="menu04">
         <label for="tab04" class="label04 janru">動画</label>
 
         <section class="homeContent clearfix">
@@ -34,13 +34,13 @@
                                 href="{{ url('articles', $article->id) }}">{{ $article->title }}</a></td>
                     </tr>
                     <tr>
-                        <td colspan="6" height="180px">詳細説明<br />{{ $article->body }}</td>
-                        <td colspan="4" height="180px"><img
+                        <td colspan="6">詳細説明<br />{{ $article->body }}</td>
+                        <td colspan="4"><img
                                 src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image"></td>
                     </tr>
                     <tr>
-                        <td colspan="1">いいね</td>
-                        <td colspan="1" class="comment_button">コメント</br>
+                        <td colspan="1"><i class="far fa-thumbs-up fa-lg"></i></td>
+                        <td colspan="1" class="comment_button"><i class="far fa-comment fa-lg"></i></br>
                             {{ App\comment::where('article_id', $article->id)->pluck('comment') }}
                             <form action="{{ url('articles.index') }}" method="POST">
                                 @csrf
@@ -74,11 +74,32 @@
             <div id="commentPanel">
                 <p>NEW コメント</p>
                 {{-- コメント --}}
-                @for($i=1;$i<=1;$i++) <table class="comment">
-                    <tr>
-                        <td colspan="10">オリジナルテトリス</td>
-                    </tr>
-                    </table>
+                @for($i=1;$i<=1;$i++) <div class="comment">
+                <div class="userName">
+                                    <div id="profil">
+                                        <img src="../image/parson.jpg" alt="プロフィール画像" id="parson">
+                                    </div>
+                                    <span class="circle"></span>
+                                    <span class="useruuu">userName</span>
+                                </div>
+
+
+
+                                <div class="newComment">
+                                    昨晩、彼氏と大喧嘩をしまして
+                                    『もう顔も見たくない！』
+                                    って私が家を飛び出したと同時に
+                                    『俺も顔見たくない！』
+                                </div>
+
+                                <div class="toukouName">
+                                    投稿名：オリジナルテトリス
+                                </div>
+
+                                <div class="commentFooter">
+                                    <time>2020-01-12</time>
+                                </div>
+                    </div>
                     @endfor
             </div>
 
