@@ -134,6 +134,10 @@ body {
     cursor: pointer;
 }
 
+input[type="radio"]{
+display:none;
+}
+
 /*アイコンの位置*/
 .navBox i {
     margin-top: 6px;
