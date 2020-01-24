@@ -13,6 +13,7 @@
     <script src="/js/comment.js"></script>
     <script src="/js/dropdown.js"></script>
     <script src="/js/fav.js"></script>
+    <script src="/js/performance.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -36,7 +37,7 @@
             </form>
         </div>
     </header>
-    <main>
+    <main id="main_js">
         <div class="header clearfix dummy">
             <div class="header-left clearfix">
                 <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
@@ -49,7 +50,7 @@
         </div>
         <div id="space">
             <div id="center">
-                <section>
+                <section id="profile_js">
                     <div id="profil">
                         <div id="progazou" class="clearfix">
                             <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
@@ -61,17 +62,22 @@
                     </div>
                 </section>
             </div>
+
+            <div id="area_js">
+
+            </div>
+
         </div>
 
         <div id="matome">
             <div id="toukou">
                 <div id="soutoukou_dai">総投稿</div>
-                <div id="soutoukou">{{ $articles->count() }}件</div>
+                <div id="soutoukou"><span id="post_js">{{ $articles->count() }}</span>件</div>
             </div>
             <div id="sougou">
                 <div id="good">
                     <div id="sougood_dai">総グッド</div>
-                    <div id="sougood">{{ $fav_count }}件</div> {{-- $fav_count ... DashboardController@index --}}
+                    <div id="sougood"><span id="good_js">{{ $fav_count }}</span>件</div> {{-- $fav_count ... DashboardController@index --}}
                 </div>
             </div>
         </div>

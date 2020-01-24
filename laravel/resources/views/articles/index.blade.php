@@ -12,6 +12,7 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/comment.js"></script>
+    <script src="/js/loading.js"></script>
     <script src="js/tagSwitch.js"></script>
     <script src="js/tagSwitchGet.js"></script>
     <script src="js/fav.js"></script>
@@ -232,13 +233,7 @@
                     <tr class="comment-none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                    <form action="#">
-                                        @csrf
-                                        <input type="text" class="comment_text">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <input type="submit" class="comment_submit" id="submit{{ $article->id }}">
-                                    </form>
+                                <li class="form_js"></li>
                                 <li>コメント内容の予定</li>
                             </ul>
                         </td>

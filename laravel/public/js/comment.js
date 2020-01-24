@@ -24,7 +24,7 @@ $(function () {
                 $comment.fadeIn(duration);
 
                 //入力フォームの作成
-                $comment.find('.form_js').append('<form action="#" method="post"><input type="text" class="comment_text"><input type="submit" id="recaptcha" class="comment_submit"></form>');
+                $comment.find('.form_js').append('<form action="#" method="post">@csrf<input type="text" class="comment_text"><input type="hidden" name="recaptcha" id="recaptcha"><input type="submit" class="comment_submit"></form>');
 
             } else {
 
