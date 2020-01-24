@@ -139,6 +139,10 @@ body {
     opacity: 0;
 }
 
+input[type="radio"]{
+display:none;
+}
+
 /*アイコンの位置*/
 .navBox i {
     margin-top: 6px;
