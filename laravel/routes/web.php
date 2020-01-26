@@ -17,14 +17,10 @@
 //     return view('welcome');
 // });
 
-// Route::get('/', 'WelcomeController@index')->name('home');
+//コメントのajax通信
+Route::post('&', 'ArticlesController@post_ajax');
 
-// root
-// Route::get('/', 'ArticlesController@index')->name('home');
-
-// root
-
-Route::get('/', 'IndexController@index')->name('index');
+Route::get('/', 'IndexController@index')->name('index'); // root
 
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('contact', 'PagesController@contact')->name('contact');
@@ -39,6 +35,14 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 // 上7行は1行で
 Route::resource('articles', 'ArticlesController');
 
+// WEB、写真、動画タブの画面遷移する仮ページ
+Route::get('articles2', 'ArticlesController@index2')->name('articles.index2');
+Route::get('articles3', 'ArticlesController@index3')->name('articles.index3');
+Route::get('articles4', 'ArticlesController@index4')->name('articles.index4');
+
+// いいね機能
+Route::post('favpost', 'ArticlesController@favpost');
+
 // ご意見ページ用
 Route::get('opinion', 'OpinionController@index')->name('opinion');
 Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
@@ -47,6 +51,8 @@ Route::post('opinion', 'OpinionController@post')->name('opinion'); // 送信
 Route::get('policy', 'PolicyController@index')->name('policy');
 Route::get('policy_iframe', 'PolicyController@show_iframe')->name('policy_iframe');
 
+// くれじっと
+Route::get('credit', 'CreditController@index')->name('credit');
 
 // 認証関連のルート設定
 Auth::routes();
@@ -54,19 +60,16 @@ Auth::routes();
 
 // マイページ用(dashboard)
 Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
-// dashboardでgoogle reCAPTHA v3を使ってみる
-Route::post('dashboard', 'DashboardController@post')->name('dashboard.post');
+Route::post('dashboard', 'DashboardController@post')->name('dashboard.post'); // dashboardでgoogle reCAPTHA v3を使ってみる
 Route::patch('dashboard', 'DashboardController@update')->name('dashboard.update'); // ユーザデータの更新
 
 // テスト用ページ 既にあったPagesControllerを再利用
 Route::get('test', 'PagesController@test')->name('test');
 Route::post('test', 'PagesController@post')->name('test.post');
+
 // ajaxテスト用
 Route::get('ajaxtest', 'PagesController@ajaxtest')->name('ajaxtest');
 Route::get('ajaxtest.get', 'PagesController@ajaxtest_get')->name('ajaxtest.get');
-
-//fav機能
-Route::post('articles/{article}/fav', 'ArticlesController@');
 
 // ドラッグアンドドロップテスト用
 Route::get('ddtest', 'PagesController@ddtest')->name('ddtest');

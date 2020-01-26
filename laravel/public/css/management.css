@@ -1,10 +1,15 @@
 @charset "utf-8";
 body {
     background-image: url("../image/aozora1.png");
-    background-size: 1950px 1700px;
+    background-size: 1950px 1800px;
     background-repeat: no-repeat;
     background-position: 0 1000px;
 }
+
+#wrapper {
+    width:100%;
+    overflow:hidden;
+  }
 
 .header {
     width: 100%;
@@ -31,11 +36,8 @@ body {
     border-radius: 4px;
 }
 
-
 /* ログイン後 */
-
-
-/* .mypage{
+.mypage{
   float: left;
   margin-right: 30px;
   background-color: #f90;
@@ -44,7 +46,6 @@ body {
   padding: 15px;
   border-radius: 4px;
 }
- */
 
 .btn a:visited {
     color: #fff;
@@ -107,7 +108,7 @@ section {
     left: 40%;
     top: 300px;
     padding: 30px 10px;
-    background-color: #6BB8FF;
+    background-color: rgb(247, 213, 112);
     border-radius: 600px;
     min-width: 350px;
     /* -------いったん高さとる--------- */
@@ -305,6 +306,13 @@ table.toukou td {
 
 /*----------活動実績ここまで----------*/
 
+.fa-thumbs-up:hover,.fa-comment:hover,.fa-cog:hover{
+    opacity: 0.5;
+}
+
+
+
+
 footer {
     width: 100%;
     background-color: #0cf;
@@ -345,4 +353,25 @@ footer ul li a:visited {
     font-size: 40px;
     padding: 0% 10%;
     text-align: center;
+}
+
+
+@media screen and (max-width:900px) { 
+    section {
+        padding: 0px;
+        position: absolute;
+        left: 10%;
+        top: 300px;
+     }
+     #good {
+        
+        margin-right: 15px;
+    }
+    #toukouitiran {
+        width: 100%;
+        padding-left: 0px;
+        
+        margin-left: 0px;
+    }
+     
 }

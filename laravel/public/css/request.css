@@ -6,6 +6,11 @@ body{
 
 }
 
+#wrapper {
+  width:100%;
+  overflow:hidden;
+}
+
 .header{
   width:100%;
   padding: 5px 0px;
@@ -32,7 +37,7 @@ body{
 }
 
 /* ログイン後 */
-/* .mypage{
+.mypage{
   float: left;
   margin-right: 30px;
   background-color: #f90;
@@ -41,8 +46,6 @@ body{
   padding: 15px;
   border-radius: 4px;
 }
- */
-
 
 .btn a:visited{
   color:#fff;
@@ -162,7 +165,8 @@ textarea{
 }
 
 section{
-  margin: 7% 25%;
+  width: 50%;
+  margin: 7% auto;
   padding: 0px 30px 50px 30px;
   background-color: #fff;
   border-radius: 50px;
@@ -213,3 +217,4 @@ footer ul li a:visited{
   clear: both;
   
 }
+

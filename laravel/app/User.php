@@ -47,11 +47,10 @@ class User extends Authenticatable
     public function comments() {
         return $this->belongsTo('App\Comment');
     }
-    public function favs() {
-        return $this->hasMany(fav::class);
+    public function favs() { // Userは複数のFavをもつ
+        return $this->hasMany('App\Fav');
     }
-    // Userは複数のOpinionを持つ
-    public function opinions() {
+    public function opinions() { // Userは複数のOpinionを持つ
         return $this->hasMany('App\Opinion');
     }
 }

@@ -29,13 +29,12 @@ class DashboardController extends Controller
      */
     public function index($array=null)
     {
-        // $imagesはimagesテーブルのレコードが配列で格納される
+        // $articlesはarticlesテーブルのレコードが配列で格納される
         // 後にビューでforeach文でアクセスするなどして扱う
-        $articles = Article::where('user_id', Auth::user()->id)->get();
-
-        // return view('home');
-        // return view('dashboard');
-        return view('dashboard', compact('articles', 'array'));
+        $articles = Article::where('user_id', Auth::user()->id)->latest('created_at')->get();
+        $fav_count = $articles->sum('favs_count'); // いいね数を格納する変数
+    
+        return view('dashboard', compact('articles', 'fav_count', 'array'));
     }
 
     // google reCAPTCHA v3を使って送信
@@ -80,7 +79,7 @@ class DashboardController extends Controller
             }
             // 新サムネイルをユーザデータに反映
             User::where('id', Auth::user()->id)->update(['avater' => $avater]);
-            return redirect()->route('dashboard.index')->with('message', 'サムネイルを更新しました！');
+            return redirect()->route('dashboard.index')->with('message', 'プロフィール画像を更新しました！');
         }
         return redirect()->route('dashboard.index')->with('message', '更新失敗です!!');
     }
