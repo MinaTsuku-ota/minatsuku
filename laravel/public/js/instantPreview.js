@@ -13,13 +13,13 @@ var preButton = document.getElementById("gR"),
     
 var pre_img = document.getElementById("pre_img");
 var main_gallery = document.getElementsByClassName("main-gallery")[0];
-
+var esc = 
 
 preButton.addEventListener("click", ReflectToPreview, false);
 blackBg.addEventListener("click", ReflectToPreview);
 closeBtn.addEventListener("click", ReflectToPreview);
 pre_img.addEventListener("click", imageGalleryShow);
-main_gallery.addEventListener("click", imageGalleryShow);
+window.addEventListener("keydown", removeImageGalleryShow);
 
 window.onload = listener();
 
@@ -150,13 +150,30 @@ function ReflectToPreview(e){
 	mod_refimage[2].src = img_test[2];
 
 	/* プレビュー画面 */
-	popup.classList.toggle('is-show');
-	if(!document.getElementsByClassName("hogeshow")){
-		return;
-	}else{main_gallery.classList.remove("hogeshow");}
+	if(document.getElementsByClassName("hogeshow")[0]){
+		main_gallery.classList.remove("hogeshow");
+	}else{
+		popup.classList.toggle("is-show");
+	}
+	// if(!document.getElementsByClassName("hogeshow")){
+	// 	popup.classList.add('is-show');
+	// 	// return;
+	// }else{main_gallery.classList.remove("hogeshow");}
 } // <-- function end
 
 function imageGalleryShow(){
 	main_gallery.classList.add("hogeshow");
+}
+
+function removeImageGalleryShow(key){
+	if(document.getElementsByClassName("is-show")[0] && document.getElementsByClassName("hogeshow")[0]){
+		if(key.keyCode == 27 || key.keyCode == 8 || key.keyCode == 46){
+			main_gallery.classList.remove("hogeshow");
+		}
+	}else if(document.getElementsByClassName("is-show")[0] && !document.getElementsByClassName("hogeshow")[0]){
+		if(key.keyCode == 27 || key.keyCode == 8 || key.keyCode == 46){
+			popup.classList.remove("is-show");
+		}
+	}
 }
 // end
