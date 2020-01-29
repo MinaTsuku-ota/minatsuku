@@ -58,6 +58,7 @@
     $(function () {
         // ドロップ時の処理
         $('input:file').on('drop', function (e) {
+            console.log('dropped');
             // e.stopPropagation(); // 後続へのイベント伝播を止める
             e.preventDefault(); // イベントのデフォルト処理をキャンセルする
 

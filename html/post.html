@@ -7,65 +7,62 @@
     <link rel="stylesheet" href="../laravel/public/css/normalize.css">
     <link rel="stylesheet" href="../laravel/public/css/post.css">
     <link rel="shortcut icon" href="../image/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../laravel/public/css/flickity.min.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-		<script src="../laravel/public/js/jquery-3.4.1.min.js"></script>
-		<script src="../laravel/public/js/jquery-ui.min.js"></script>
-		<script src="../laravel/public/js/D&D.js"></script>
+    <script src="../laravel/public/js/jquery-3.4.1.min.js"></script>
+    <script src="../laravel/public/js/jquery-ui.min.js"></script>
+    <script src="../laravel/public/js/D&D.js"></script>
 </head>
 
 <body>
     <div id="wrap">
-        <header class="header clearfix">
+        <!-- <header class="header clearfix">
             <div class="header-left clearfix">
                 <a href="home.html"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
-            </div>
-
+						</div>
+						
             <div class="header-right">
                 <a href="login.html">
                     <div class="btn login ">ログイン</div>
-                </a>
-                <!-- ログイン後 -->
-                <!-- <a href="#"><div class="btn mypage ">マイページ</div></a> -->
-                <a href="create.html">
+                </a> -->
+        <!-- ログイン後 -->
+        <!-- <a href="#"><div class="btn mypage ">マイページ</div></a> -->
+        <!-- <a href="create.html">
                     <div class="btn sinki ">新規登録</div>
                 </a>
             </div>
-        </header>
+        </header> -->
         <main>
-            <div class="header clearfix dummy">
+            <!-- <div class="header clearfix dummy">
                 <div class="header-left clearfix">
                     <a href="#"><img src="../image/home_daimei.png" class="home_daimei" alt="みなツク"></a>
-                </div>
-
+								</div>
+								
                 <div class="header-right">
                     <div class="btn login "><a href="#">ログイン</a></div>
                     <div class="btn sinki "><a href="#">新規登録</a></div>
                 </div>
-            </div>
+						</div> -->
 
             <div id="contens">
-
-
                 <section class="homeContent clearfix">
-
                     <div class="toukouPanel">
-
                         <div id="post_syoudai">
                             <h1 class="post_daimei">新規投稿</h1>
                         </div>
                         <div id="ookisa">
-                            <table class="toukou">
 
+                            <table class="toukou">
                                 <tr>
                                     <td>ジャンル?</td>
                                     <form>
                                         <td style="border-style:none;">
                                             <select size="1" class="genre" id="ref_gen">
-																							<option value="0">Please&nbsp;select&nbsp;a&nbsp;genre.</option>
-																							<option value="1">Web</option>
-																							<option value="2">Picture</option>
-																							<option value="3">Movie</option>
-																							<option value="4">Other...</option>
+                                                <option value="0">Please&nbsp;select&nbsp;a&nbsp;genre.</option>
+                                                <option value="1">Web</option>
+                                                <option value="2">Picture</option>
+                                                <option value="3">Movie</option>
+                                                <option value="4">Other...</option>
                                             </select>
                                         </td>
                                     </form>
@@ -73,7 +70,8 @@
                                 <tr>
                                     <form action="#" method="#">
                                         <td colspan="10" height="30px">
-																						<input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" id="ref_tit">
+                                            <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力"
+                                                id="ref_tit">
                                         </td>
                                     </form>
                                 </tr>
@@ -83,15 +81,18 @@
                                         <td colspan="10" height="300px" id="input_td">
                                             <span class="input_span">
                                                 <div class="imageText">Click or Drop here</div>
-                                                <input type="file" class="imageInput" name="file0">
+                                                <input type="file" class="imageInput" name="file0" id="Area0">
+                                                <button class="reset_js">リセット</button>
                                             </span>
                                             <span class="input_span">
                                                 <div class="imageText">Click or Drop here</div>
-                                                <input type="file" class="imageInput" name="file1">
+                                                <input type="file" class="imageInput" name="file1" id="Area1">
+                                                <button class="reset_js">リセット</button>
                                             </span>
                                             <span class="input_span">
                                                 <div class="imageText">Click or Drop here</div>
-                                                <input type="file" class="imageInput" name="file2">
+                                                <input type="file" class="imageInput" name="file2" id="Area2">
+                                                <button class="reset_js">リセット</button>
                                             </span>
                                         </td>
                                     </form>
@@ -99,58 +100,73 @@
 
                                 <tr>
                                     <td colspan="10" height="350px">
-                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText" id="ref_des"></textarea>
+                                        <textarea placeholder="作品の説明を記入してください。" class="setumeiText"
+                                            id="ref_des"></textarea>
                                     </td>
-																</tr>
+                                </tr>
 
-																
-															</table>
-														<!-- Preview area -->
-														<div id="preview_wrap">
-															<h2>Simple preview feature.</h2>
-															<table class="preview_area">
-																<tr>
-																	<td colspan="10" id="pre_gen">Genre</td>
-																</tr>
-																<tr>
-																	<td colspan="10" id="pre_tit">Title</td>
-																</tr>
-																<tr>
-																	<td colspan="6" height="220px" id="pre_des">Description</td>
-																	<td colspan="4" height="220px" id="pre_img">
-																		<output class="preImgPosition1"></output>
-																		<output class="preImgPosition2"></output>
-																		<output class="preImgPosition3"></output>
-																	</td>
-																</tr>
-																<tr>
-																	<td colspan="1"></td>
-																	<td colspan="1"></td>
-																	<td colspan="3" id="pre_name">Your name</td>
-																	<td colspan="5" id="pre_dep">Your department</td>
-																</tr>
-															</table>
+                            </table>
+                            <!-- Preview area -->
+                            <div class="popup" id="js-popup">
+                                <div class="popup-inner">
+                                    <div id="preview_wrap">
+                                        <h2>この内容で投稿しますか？</h2>
+                                        <table class="preview_area">
+                                            <tr>
+                                                <td colspan="10" id="pre_gen">Genre</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="10" id="pre_tit">Title</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6" height="220px" id="pre_des">Description</td>
+                                                <td colspan="4" height="220px" id="pre_img">
+                                                    <output class="preImgPosition"><a href="" class="anchorimage lt"><img class="refimage"></a></output>
+                                                    <output class="preImgPosition"><a href="" class="anchorimage lt"><img class="refimage"></a></output>
+                                                    <output class="preImgPosition"><a href="" class="anchorimage lt"><img class="refimage"></a></output>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1"></td>
+                                                <td colspan="1"></td>
+                                                <td colspan="3" id="pre_name">Your name</td>
+                                                <td colspan="5" id="pre_dep">Your department</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+                                    <div class="STbtn"><a href="#" class="STbtnChild">投稿しゅる</a></div>
+                                </div>
+                                <div class="black-background" id="js-black-bg"></div>
 														</div>
-														<!-- Preview area End -->
+														<div class="main-gallery">
+															<div class="gasetsu"><img src="../image/galleryImageDiscriptionINM.png" alt="説明画像です"></div>
+															<div class="modImgPosition"><img class="mod_refimage"></a></div>
+															<div class="modImgPosition"><img class="mod_refimage"></a></div>
+															<div class="modImgPosition"><img class="mod_refimage"></a></div>
+														</div>
+
+                            <!-- <div class="imagepopup" id="imagejs-popup">
+                                <div class="imagepopup-inner">
+                                  <div class="imageclose-btn" id="imagejs-close-btn"><i class="fas fa-times"></i></div>
+                                  <div class="main-gallery">
+                                      <div class="modImgPosition"><img class="mod_refimage"></a></div>
+                                      <div class="modImgPosition"><img class="mod_refimage"></a></div>
+                                      <div class="modImgPosition"><img class="mod_refimage"></a></div>
+                                  </div>
+                                </div>
+                                <div class="imageblack-background" id="imagejs-black-bg"></div>
+														</div> -->
+                            <!-- Preview area End -->
                         </div>
-                        <div class="STbtn">
+                        <!-- <div class="STbtn">
                             <a href="#" class="STbtnChild">投稿</a>
-                        </div>
-
-                        <div>
-
-
-                        </div>
-
+												</div> -->
                     </div>
-
-
                 </section>
-
-                <div>
-
-				</main>
-				<div class="goReflect"><a href="#" role="button" id="gR">プレビュー画面に反映するゾ</a></div>
+            </div>
+        </main>
+        <div class="goReflect"><a href="#" role="button" id="gR">プレビュー画面に反映して投稿するゾ</a></div>
         <footer>
             <ul>
                 <li><a href="home.html"><i class="fas fa-home">ホーム</i></a></li>
@@ -159,8 +175,10 @@
                 <li><a href="credit.html"><i class="fab fa-creative-commons-by">クレジット</i></a></li>
             </ul>
         </footer>
-		</div>
-		<script src="../laravel/public/js/instantPreview.js"></script>
+    </div>
+    <script src="../laravel/public/js/instantPreview.js"></script>
+    <script src="../laravel/public/js/flickity.pkgd.min.js"></script>
+    <script src="../laravel/public/js/instantPreviewImageGallery.js"></script>
 </body>
 
 </html>

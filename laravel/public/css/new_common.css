@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('./loading.css');
 body {
     background-image: url(../image/aozora1.png);
     background-size: 1950px 2400px;
@@ -39,11 +40,8 @@ body {
     border-radius: 4px;
 }
 
-
 /* ログイン後 */
-
-
-/* .mypage{
+.mypage{
     float: left;
     margin-right: 30px;
     background-color: #f90;
@@ -52,7 +50,6 @@ body {
     padding: 15px;
     border-radius: 4px;
 }
-   */
 
 .btn a:visited {
     color: #fff;
@@ -131,12 +128,6 @@ body {
 /*タブを横並びに整列させる*/
 .navBox input {
     cursor: pointer;
-    position: absolute;
-    top: 0px;
-    left: 14px;
-    width: 137px;
-    height: 44px;
-    opacity: 0;
 }
 
 input[type="radio"]{
@@ -220,7 +211,16 @@ display:none;
     overflow: hidden;
     padding: 10px 50px 20px;
 }
-
+/*------------怪しい-------------*/
+.navBox input.menu01:checked~.homeContent .homeContent .clearfix,
+.navBox input.menu02:checked~.homeContent .content02,
+.navBox input.menu03:checked~.homeContent .content03,
+.navBox input.menu04:checked~.homeContent .content04 {
+    opacity: 1;
+    -webkit-transition: all ease-out 0.4s 0.4s;
+    transition: all ease-out 0.4s 0.4s;
+}
+/*------------------------------*/
 .homeContent {
     width: 850px;
     height: auto;
@@ -314,13 +314,26 @@ table.toukou td {
     border-radius: 5px;
 }
 
-.comment {
+table.comment {
     table-layout: fixed;
     word-break: break-all;
     word-wrap: break-all;
     text-align: center;
     margin: 5px 5px 10px 10px;
     width: 270px;
+    height: 200px;
+    border: solid 1px black;
+}
+
+
+/* コメント表示機能 */
+
+.comment_none {
+    display: none;
+}
+
+.comment_none li {
+    list-style-type: none;
     height: auto;
     position: relative;
     font-weight: bold;
@@ -337,9 +350,9 @@ table.toukou td {
 
 #parson{
     width: 28px;
-    position: absolute;
-    left: 70px;
-    top: 15px;
+    position: relative;
+    left: 8px;
+    top: 38px;
     padding: 0;
 }
 
@@ -355,10 +368,7 @@ table.toukou td {
 }
 
 
-#profil {
-    text-align: center;
-    padding-top: 10px;
-}
+/*ここまで*/
 
 /**/
 .newComment{
@@ -366,31 +376,49 @@ table.toukou td {
     margin: 5px 3px;
 }
 
-.toukouName{
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 10px;
+/*----------ローディング画面----------*/
+
+#loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    /*変化速度*/
+    background-color: rgba(0, 204, 255, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 }
 
-.commentFooter{
-    font-size: 13px;
-    text-align: right;
-    margin-right: 5px;
-    margin-top: 10px;
-    margin-bottom: 0;
+#load_position {
+    position: relative;
+    top: 50%;
+}
+
+#loader {
+    color: rgba(255, 255, 255, 1);
+    font-size: 50px;
+    margin: 100px auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-animation: load4 1.3s infinite linear;
+    animation: load4 1.3s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+    /*要素の消すわけじゃなく隠す(存在はする)*/
 }
 
 
-/* コメント表示機能 */
-
-.comment_none {
-    display: none;
-}
-
-.comment_none li {
-    list-style-type: none;
-}
+/*------------ここまで----------------*/
 
 footer {
     width: 100%;

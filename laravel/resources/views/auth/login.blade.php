@@ -13,29 +13,36 @@
 </head>
 
 <body>
-
+<div id="wrapper">
     <header class="header clearfix">
         <div class="header-left clearfix">
-            <a href="{{ route('articles.index') }}"><img src="/image/home_daimei.png" class="sinki_daimei"
-                    alt="みなツク"></a>
+            <a href="{{ route('articles.index') }}">
+                <img src="/image/home_daimei.png" class="home_daimei" alt="みなツク">
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="{{ route('login') }}">
+                <div class="btn login ">ログイン</div>
+            </a>
+            <a href="{{ route('register') }}">
+                <div class="btn sinki ">新規登録</div>
+            </a>
         </div>
     </header>
 
     <main>
-        <div class="header clearfix dummy">
-            <div class="header-left clearfix">
-                <a href="#"><img src="/image/home_daimei.png" class="sinki_daimei" alt="みなツク"></a>
-            </div>
-        </div>
-
+        @include('header_dummy')
         <section>
             <div id="back">
-                <a href="{{ route('articles.index') }}"><i class="backbutton fas fa-arrow-circle-left fa-3x"></i></a>
+                <a href="{{ route('articles.index') }}">
+                    <i class="backbutton fas fa-arrow-circle-left fa-3x"></i>
+                </a>
             </div>
             <div id="login_syoudai">
                 <h1 class="login_daimei">ログイン</h1>
             </div>
 
+            <!-- ログインフォーム -->
             <form class="clearfix" method="POST" action="{{ route('login') }}">
                 @csrf
                 <dl>
@@ -44,13 +51,14 @@
                             <div class="daimei">ニックネーム</div>
                         </label>
                     </dt>
-                    <dd><input type="text" name="name" id="name" class="nyuuryoku" required value="{{ old('name') }}"
-                            autocomplete="name" autofocus></dd>
+                    <dd>
+                        <input type="text" name="name" id="name" class="nyuuryoku" required value="{{ old('name') }}"
+                            autocomplete="name" autofocus>
+                    </dd>
                     {{-- バリデーション関連(https://readouble.com/laravel/6.x/ja/validation.html) --}}
                     @error('name')
                     <script>
                         alert('{{ $message }}');
-
                     </script>
                     @enderror
                     <dt>
@@ -58,16 +66,17 @@
                             <div class="daimei">パスワード</div>
                         </label>
                     </dt>
-                    <dd><input type="password" name="password" id="password" class="nyuuryoku"
-                            autocomplete="current-password" required></dd>
+                    <dd>
+                        <input type="password" name="password" id="password" class="nyuuryoku"
+                            autocomplete="current-password" required>
+                    </dd>
                     @error('password')
                     <script>
                         alert('{{ $message }}');
-
                     </script>
                     @enderror
                 </dl>
-                <div class="login">
+                <div class="login-bo">
                     <p class="button"><input type="submit" value="ログイン" id="loginsuru"></p>
                 </div>
                 <input type="hidden" name="recaptcha" id="recaptcha">
@@ -76,6 +85,7 @@
     </main>
 
     @include('footer')
+</div>
 </body>
 
 </html>

@@ -5,6 +5,8 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Fav;
+
 class Article extends Model
 {
     protected $fillable = ['title', 'body', 'published_at', 'image1', 'image2', 'image3', 'user_id', 'genre_id'];
@@ -55,13 +57,10 @@ class Article extends Model
         return $this->belongsTo('App\Comment');
     }
 
-    public function favs()
-    {
-        return $this->hasMany('App\favs');
+    public function favs(){ // Favモデルが親
+        return $this->hasMany('App\Fav');
     }
-
-    public function fav_by()
-    {
-        return fav::where('user_id', Auth::user()->id)->first();
+    public function fav_by(){ // favsテーブルからユーザのレコードを持ってくる
+        return Fav::where('user_id', Auth::user()->id);
     }
 }

@@ -1,0 +1,17 @@
+証明書手順
+
+1.以下を参考に
+http://kumasoft.blogspot.com/2016/09/windowsopenssl.html
+set OPENSSL_CONF=C:\xampp\apache\conf\ssl\my_openssl.cnf
+
+2.以下がWindowsでの設定方法
+https://higehito.qrunch.io/entries/DOthrJZ1hPaBV2jQ
+手順はこちらを使う
+https://blog.fileshelfplus.com/vps/312
+
+以下も参考になるかもしれない
+XAMPP for WindowsでSSLを有効にする
+https://qiita.com/sutara79/items/21a068494bc3a08a4803
+
+バーチャルホストの設定は
+https://wp.yat-net.com/?p=2400

@@ -1,0 +1,15 @@
+﻿証明書参考
+
+保存パスは以下のようにする
+https://www.sslbox.jp/support/man/install_flow_openssl.php
+
+XAMPPで立ち上げたローカルサーバーとSSL通信をしたい。オレオレ証明書で - 髭人学習帳(仮)
+https://higehito.qrunch.io/entries/DOthrJZ1hPaBV2jQ
+
+CONFファイルのパス指定に
+http://kumasoft.blogspot.com/2016/09/windowsopenssl.html
+
+簡単版
+鹿鳴草: [Apache] xamppで https 利用するための自己署名証明書の作成方法
+https://shikanagusa.blogspot.com/2018/05/apache-xampp-https.html
+openssl req -newkey rsa:4096 -keyout my-server.key -x509 -nodes -out my-server.crt -subj "//CN=localhost" -reqexts SAN -extensions SAN -config openssl-san.cnf -days 3650

@@ -36,11 +36,8 @@ body {
     border-radius: 4px;
 }
 
-
 /* ログイン後 */
-
-
-/* .mypage{
+.mypage{
   float: left;
   margin-right: 30px;
   background-color: #f90;
@@ -49,7 +46,6 @@ body {
   padding: 15px;
   border-radius: 4px;
 }
- */
 
 .btn a:visited {
     color: #fff;
@@ -112,7 +108,7 @@ section {
     left: 40%;
     top: 300px;
     padding: 30px 10px;
-    background-color: #6BB8FF;
+    background-color: rgb(247, 213, 112);
     border-radius: 600px;
     min-width: 350px;
     /* -------いったん高さとる--------- */
@@ -246,7 +242,7 @@ table.toukou td {
 }
 
 
-/*編集・削除ボタン*/
+/*----------編集・削除ボタン----------*/
 
 .menuButton {
     position: relative;
@@ -259,7 +255,9 @@ table.toukou td {
     left: 76px;
     border: 1px solid #000;
     width: 60px;
+    /*60px*/
     height: 50px;
+    /*50px*/
     padding: 0;
     line-height: 20px;
     background-color: #0cf;
@@ -282,7 +280,31 @@ table.toukou td {
 }
 
 
-/*編集・削除ボタンここまで*/
+/*----------編集・削除ボタンここまで----------*/
+
+
+/*----------活動実績ここから----------*/
+
+.jelly {
+    position: absolute;
+    display: none;
+}
+
+#area_js {
+    /* background: red; */
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 750px;
+    border-bottom: 4px solid #000;
+}
+
+#main_js {
+    overflow: hidden;
+}
+
+
+/*----------活動実績ここまで----------*/
 
 .fa-thumbs-up:hover,.fa-comment:hover,.fa-cog:hover{
     opacity: 0.5;

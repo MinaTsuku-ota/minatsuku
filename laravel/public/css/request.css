@@ -37,7 +37,7 @@ body{
 }
 
 /* ログイン後 */
-/* .mypage{
+.mypage{
   float: left;
   margin-right: 30px;
   background-color: #f90;
@@ -46,8 +46,6 @@ body{
   padding: 15px;
   border-radius: 4px;
 }
- */
-
 
 .btn a:visited{
   color:#fff;
