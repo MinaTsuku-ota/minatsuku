@@ -2,13 +2,6 @@ $(function() {
     var duration = 300;
     var close_duration = 200;
 
-    // var url = location.href;
-    // if (url == 'http://localhost/articles') {
-    //     alert('Goood');
-    // }
-    // console.log(url);
-
-
     //全てのコメント要素に関数を反映
     $('.comment_button').each(function() {
 
@@ -57,15 +50,16 @@ $(function() {
     $('.comment_submit').on('click', function(ev) {
         ev.preventDefault();
 
-        var thisParent = $(this).parent();
-
-        console.log(thisParent);
-
-        var thisParentParent = thisParent.parents('ul');
-        var comment_data = thisParent.find('.comment_text').val();
-        var comments = "<li><span class='profile'></span> : " + comment_data + "</li>";
+        //親要素・コメントの内容・表示するためのＤＯＭ要素・記事ＩＤの定義
+        var comment_area = $(this).parents('ul');
+        var comment_data = $(this).siblings('.comment_text').val();
+        var comments = "<li><span class='profile'><img src='storage/avaters/default_avater.png' alt='プロフィール画像' class='no_image'></span> : " + comment_data + "</li>";
         var article_id = this.getAttribute('id');
 
+        // 簡易的に表示
+        // comment_area.append(comments);
+
+        //ajaxでデータの保存
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -80,11 +74,11 @@ $(function() {
                 article_id: article_id
             }
         }).done(function(data) {
-            console.log('done');
-            console.log(data.comment_data);
+            //簡易的に表示
+            comment_area.append(comments);
         }).fail(function(data) {
-            console.log('fail');
-            console.log(data);
+            //ログインアラート
+            alert('ログインしてください');
         })
     })
 })
