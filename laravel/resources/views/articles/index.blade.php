@@ -2,7 +2,6 @@
 
 @section('addcss')
     <link rel="stylesheet" href="/css/new_common.css">
-    <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/fav.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,6 +16,14 @@
     <script src="js/tagSwitchGet.js"></script>
     <script src="js/fav.js"></script>
     @include('recaptcha_js')
+@endsection
+
+@section('loading')
+<div id="loading">
+    <div id="load_position">
+        <div id="loader"></div>
+    </div>
+</div>
 @endsection
 
 @section('content')
