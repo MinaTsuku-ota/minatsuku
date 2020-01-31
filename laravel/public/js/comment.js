@@ -1,12 +1,19 @@
-$(function () {
+$(function() {
     var duration = 300;
     var close_duration = 200;
 
+    // var url = location.href;
+    // if (url == 'http://localhost/articles') {
+    //     alert('Goood');
+    // }
+    // console.log(url);
+
+
     //全てのコメント要素に関数を反映
-    $('.comment_button').each(function () {
+    $('.comment_button').each(function() {
 
         //クリック時
-        $(this).click(function () {
+        $(this).click(function() {
 
             //コメント内容の要素をjQOにする
             var $comment = $(this).parent().next('.comment_none');
@@ -32,7 +39,7 @@ $(function () {
 
                     $comment.fadeOut(duration)
 
-                ).done(function () {
+                ).done(function() {
 
                     //入力フォームの削除
                     $comment.find('.form_js').empty();
@@ -47,7 +54,7 @@ $(function () {
     });
 
 
-    $('.comment_submit').on('click', function (ev) {
+    $('.comment_submit').on('click', function(ev) {
         ev.preventDefault();
 
         var thisParent = $(this).parent();
@@ -72,18 +79,18 @@ $(function () {
                 comment_data: comment_data,
                 article_id: article_id
             }
-        }).done(function (data) {
+        }).done(function(data) {
             console.log('done');
             console.log(data.comment_data);
-        }).fail(function (data) {
+        }).fail(function(data) {
             console.log('fail');
             console.log(data);
         })
     })
 })
 
-$(function () {
-    $('svg').hover(function () {
+$(function() {
+    $('svg').hover(function() {
         $('svg').stop();
         anime({
             targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
@@ -92,7 +99,7 @@ $(function () {
             scale: 1,
             easing: 'easeInOutExpo'
         })
-    }, function () {
+    }, function() {
         $('svg').stop();
         $('filter feTurbulence').attr('style', '');
         anime({

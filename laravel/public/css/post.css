@@ -295,29 +295,34 @@ input[type="text1"] {
 }
 
 .STbtn {
-    background-color: #d38334;
-    margin: 50px auto;
-    max-width: 50px;
+    background-color: #4c9ad6;
+    margin: 30px auto 15px;
+    max-width: 100px;
     min-width: 30px;
     line-height: 30px;
     text-align: center;
     color: #ffffff;
     padding: 0.5em 1em;
-    border-bottom: solid 2px rgb(121, 55, 8);
+    border-bottom: solid 5px rgb(121, 55, 8);
     /*少し濃い目の色に*/
-    border-radius: 4px;
+    border-radius: 10px;
     /*角の丸み*/
     box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .STbtnChild {
+    text-decoration: none;
     display: inline-block;
 }
 
 .STbtn:active {
-    border-bottom: solid 5px #996633;
+    border-top: solid 5px #ffffff;
+    border-bottom: solid 0px #996633;
     box-shadow: 0 2px 2px rgb(121, 55, 8);
+}
+.STbtn a:visited, a:link{
+    color: #ffffff;
 }
 
 
@@ -342,7 +347,7 @@ table.preview_area {
     word-wrap: break-all;
     text-align: center;
     margin: 20px auto 20px auto;
-    width: 740px;
+    width: 670px;
     height: 350px;
     border: solid 1px black;
 }
@@ -368,9 +373,10 @@ table.preview_area td {
 
 #pre_img {
     position: relative;
+    cursor: pointer;
 }
 
-output.preImgPosition1 {
+output.preImgPosition:nth-child(1) {
     position: absolute;
     top: 17px;
     left: 17px;
@@ -380,7 +386,7 @@ output.preImgPosition1 {
     background-color: white;
 }
 
-output.preImgPosition2 {
+output.preImgPosition:nth-child(2) {
     position: absolute;
     top: 37px;
     left: 50px;
@@ -390,7 +396,7 @@ output.preImgPosition2 {
     background-color: white;
 }
 
-output.preImgPosition3 {
+output.preImgPosition:nth-child(3) {
     position: absolute;
     top: 57px;
     left: 83px;
@@ -407,22 +413,36 @@ output.preImgPosition3 {
     text-align: center;
     position: -webkit-sticky;
     position: sticky;
+    transition: 0.8s;
 }
 
 .goReflect a {
-    background-color: #50c8da;
+    background-color: #ff8b43;
     border-radius: 3px;
+    border: solid 2px #ffffffc2;
     color: #fff;
     display: inline-block;
     font-size: 20px;
-    height: 80px;
-    line-height: 80px;
-    max-width: 600px;
+    height: 70px;
+    line-height: 70px;
+    max-width: 500px;
     text-decoration: none;
     width: 100%;
+    border-radius: 5px;
+    transition: 1s;
 }
-
-
+.goReflect:hover{
+    background: #81dde9;
+}
+.goReflect a:hover{
+    background: #be0b0b;
+}
+output img{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
 /* Preview area css End */
 
 footer {
@@ -446,3 +466,132 @@ footer ul li {
 footer ul li a:visited {
     color: #fff;
 }
+
+/* ↓↓↓ プレビューのモーダル ↓↓↓ 
+	 https://tech-dig.jp/js-modal */
+.popup {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	opacity: 0;
+	visibility: hidden;
+	transition: .4s;
+}
+.popup.is-show {
+	opacity: 1;
+	visibility: visible;
+}
+.popup-inner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 100%;
+	max-width: 700px;
+	padding: 20px;
+	background-color: #fff;
+	z-index: 2;
+}
+/* .popup-inner img {
+	width: 100%;
+} */
+.close-btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	cursor: pointer;
+}
+.close-btn i {
+	font-size: 20px;
+	color: #333;
+}
+.black-background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.8);
+	z-index: 1;
+	cursor: pointer;
+}
+/* ↑↑↑ プレビューのモーダル ↑↑↑ */
+
+/* ↓↓↓ プレビュー画像のモーダル ↓↓↓ */
+/* .imagepopup {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	opacity: 0;
+	visibility: hidden;
+	transition: .4s;
+}
+.imagepopup.imageis-show {
+	opacity: 1;
+	visibility: visible;
+}
+.imagepopup-inner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 100%;
+	max-width: 750px;
+	padding: 40px;
+	background-color: #fff;
+	z-index: 200;
+}
+.imagepopup-inner img {
+	width: 100%;
+} */
+.imageblack-background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.8);
+	z-index: 100;
+	cursor: pointer;
+}
+.main-gallery{
+	visibility: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 800px;
+	max-height: 600px;
+	background-color: #ffffff;
+	padding: 80px;
+	z-index: 999;
+	transition: .5s;
+	opacity: 0;
+}
+.main-gallery img{
+	width: 800px;
+	max-height: 600px;
+}
+.main-gallery.hogeshow{
+	opacity: 1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	visibility: visible;
+}
+.gatitle{
+	text-align: center;
+	font: bold;
+	padding: 300px;
+}
+/* ↑↑↑ プレビュー画像のモーダル ↑↑↑ */

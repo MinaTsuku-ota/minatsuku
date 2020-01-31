@@ -11,11 +11,8 @@
     @yield('addjs')
 </head>
 <body>
-<div id="loading">
-    <div id="load_position">
-        <div id="loader"></div>
-    </div>
-</div>
+
+    @yield('loading')
 
     <div id="wrap">
         {{-- header --}}
