@@ -113,7 +113,7 @@
                                 onmouseout="this.src='/image/tyuuki0.png'" class="tyuuki" alt="注記">
                         </span>
                     </div>
-                    <input type="hidden" name="recaptcha" id="recaptcha">
+                    <!-- <input type="hidden" name="recaptcha" id="recaptcha"> -->
                 </form>
             </section>
         </main>

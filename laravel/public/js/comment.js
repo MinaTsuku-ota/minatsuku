@@ -24,18 +24,18 @@ $(function() {
                 $comment.fadeIn(duration);
 
                 //入力フォームの作成
-                $comment.find('.form_js').append('<form action="#" method="post">@csrf<input type="text" class="comment_text"><input type="hidden" name="recaptcha" id="recaptcha"><input type="submit" class="comment_submit"></form>');
+                $comment.find('.form_js').append('<input type="text" class="comment_text"><input type="submit" class="comment_submit">');
 
             } else {
 
                 $.when(
 
-                    $comment.fadeOut(duration)
+                    $comment.find('.form_js').empty()
 
                 ).done(function() {
 
                     //入力フォームの削除
-                    $comment.find('.form_js').empty();
+                    $comment.hide('blind', 5000);
 
                 });
             };
@@ -80,31 +80,5 @@ $(function() {
             //ログインアラート
             alert('ログインしてください');
         })
-    })
-})
-
-$(function() {
-    $('svg').hover(function() {
-        $('svg').stop();
-        anime({
-            targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
-            points: '64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96',
-            baseFrequency: .05,
-            scale: 1,
-            easing: 'easeInOutExpo'
-        })
-    }, function() {
-        $('svg').stop();
-        $('filter feTurbulence').attr('style', '');
-        anime({
-            targets: ['#svgAttributes polygon', 'feTurbulence', 'feDisplacementMap'],
-            points: '64 68.64 8.574 100 63.446 67.68 64 4 64.554 67.68 119.426 100',
-            baseFrequency: .05,
-            type: 'turbulence',
-            style: '',
-            scale: 1,
-            easing: 'easeInOutExpo'
-        })
-
     })
 })
