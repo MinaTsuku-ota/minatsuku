@@ -249,17 +249,17 @@ class ArticlesController extends Controller
     }
 
     //avaterの変更機能
-    public function avater(Request $request)
-    {
-        $request->validate([
-            'avater' => 'file|image|mimes:jpeg,jpg,png,gif',
-        ]);
-        $avater = $request->avater;
-        $user = User::find(Auth::user()->id);
-        $user->avater = basename($avater->store('public/avaters')); //画像保存してavaterに名前を入れる
-        $user->save();
+    // public function avater(Request $request)
+    // {
+    //     $request->validate([
+    //         'avater' => 'file|image|mimes:jpeg,jpg,png,gif',
+    //     ]);
+    //     $avater = $request->avater;
+    //     $user = User::find(Auth::user()->id);
+    //     $user->avater = basename($avater->store('public/avaters')); //画像保存してavaterに名前を入れる
+    //     $user->save();
 
 
-        return redirect('dashboard');
-    }
+    //     return redirect('dashboard');
+    // }
 }

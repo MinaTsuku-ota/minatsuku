@@ -55,9 +55,9 @@
                     <div id="profil">
                         <div id="progazou" class="clearfix">
                             <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
-                            <form method="post" enctype="multipart/form-data"  action="{{ action('ArticlesController@avater') }}" name="avater_form">
-                                @csrf
-                                <input type="file" accept="image/png, image/jpeg" name="avater" id="file">
+                            {{-- <form method="patch" enctype="multipart/form-data"  action="{{ route('dashboard.update') }}" name="avater_form"> --}}
+                                {!! Form::open(['method' => 'PATCH', 'route' => 'dashboard.update', 'files' => true]) !!}
+                                <input type="file" name="avater" id="file">
                                 <input type="submit" value="変更する" id="change">
                                 <script>
                                     var input_file = document.getElementById("file");
@@ -72,7 +72,8 @@
                                         }
                                     };
                                     </script>
-                            </form>
+                                    {!! Form::close() !!}
+                            {{-- </form> --}}
                         </div>
                         <div id="puro_text">
                             <div id="nikku">{{ Auth::user()->name }}</div>
@@ -116,7 +117,7 @@
                                 <i class="fas fa-cog"></i>
                                 <div class="menuInfo">
                                     <ul>
-                                        <li><a href="{{ route('articles.edit', [$article->id]) }}">編集</a></li>
+                                        <li><a href="{{ route('articles.create', [$article->id]) }}">編集</a></li>
                                         <li>{!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
                                 {!! Form::submit('削除') !!}
                                 {!! Form::close() !!}</li>
