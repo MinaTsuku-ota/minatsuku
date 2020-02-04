@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 // use Illuminate\Http\Request;
 use App\Article;
 // use App\Tag;
-// use App\User;
+use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Storage;
@@ -229,21 +229,37 @@ class ArticlesController extends Controller
     //     return view('articles.index', compact('comments'));
     // }
 
-    public function favpost(){ // いいね送信
+    public function favpost()
+    { // いいね送信
         $article_id = filter_input(INPUT_POST, 'article_id'); // 受け取った記事ID
         $article = Article::find($article_id);
         $user_id = Auth::User()->id;
-        if(Fav::where('user_id', $user_id)->where('article_id', $article_id)->exists()){ // データが存在していれば削除
+        if (Fav::where('user_id', $user_id)->where('article_id', $article_id)->exists()) { // データが存在していれば削除
             Fav::where('user_id', $user_id)->where('article_id', $article_id)->delete();
             $article->decrement('favs_count');
-            echo('レコード削除!');
-        }else{ // データの追加
+            echo ('レコード削除!');
+        } else { // データの追加
             Fav::create([
                 'user_id' => $user_id,
                 'article_id' => $article_id
             ]);
             $article->increment('favs_count');
-            echo('レコード追加!');
+            echo ('レコード追加!');
         }
+    }
+
+    //avaterの変更機能
+    public function avater(Request $request)
+    {
+        $request->validate([
+            'avater' => 'file|image|mimes:jpeg,jpg,png,gif',
+        ]);
+        $avater = $request->avater;
+        $user = User::find(Auth::user()->id);
+        $user->avater = basename($avater->store('public/avaters')); //画像保存してavaterに名前を入れる
+        $user->save();
+
+
+        return redirect('dashboard');
     }
 }

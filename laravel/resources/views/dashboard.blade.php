@@ -14,6 +14,7 @@
     <script src="/js/dropdown.js"></script>
     <script src="/js/fav.js"></script>
     <script src="/js/performance.js"></script>
+    <script src="/js/avater.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -54,6 +55,24 @@
                     <div id="profil">
                         <div id="progazou" class="clearfix">
                             <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
+                            <form method="post" enctype="multipart/form-data"  action="{{ action('ArticlesController@avater') }}" name="avater_form">
+                                @csrf
+                                <input type="file" accept="image/png, image/jpeg" name="avater" id="file">
+                                <input type="submit" value="変更する" id="change">
+                                <script>
+                                    var input_file = document.getElementById("file");
+                                    input_file.onchange = function (){
+                                        // ファイルが選択されたか
+                                        if(input_file.value){
+                                            document.getElementById("change").style.display = "block";
+                                            console.log("ファイルが選択された:");
+                                        }else{
+                                            document.getElementById("change").style.display = "none";
+                                            console.log("ファイルが未選択");
+                                        }
+                                    };
+                                    </script>
+                            </form>
                         </div>
                         <div id="puro_text">
                             <div id="nikku">{{ Auth::user()->name }}</div>
