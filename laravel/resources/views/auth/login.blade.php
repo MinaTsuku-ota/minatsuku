@@ -79,7 +79,7 @@
                 <div class="login-bo">
                     <p class="button"><input type="submit" value="ログイン" id="loginsuru"></p>
                 </div>
-                <input type="hidden" name="recaptcha" id="recaptcha">
+                <!-- <input type="hidden" name="recaptcha" id="recaptcha"> -->
             </form>
         </section>
     </main>

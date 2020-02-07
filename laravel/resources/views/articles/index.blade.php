@@ -86,15 +86,11 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                    <form action="#">
-                                        @csrf
-                                        <input type="text" class="comment_text">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                    <input type="submit" class="comment_submit" id="{{ $article->id }}">
-                                    </form>
-                                </li>
-                                <li>コメント内容の予定</li>
+                            <li class="form_none">
+                                <form action="#" method="post" class="form_js">
+                                    @csrf
+                                </form>
+                            </li>
                             </ul>
                         </td>
                     </tr>
@@ -107,7 +103,7 @@
             <div class="commentPanel">
                     <p>NEW コメント</p>
                     {{-- コメント --}}
-                    @foreach($comments as $comment) 
+                    @foreach($comments as $comment)
                     <div class="comment">
                         <div class="userName">
                                 <div id="profil">
@@ -176,14 +172,7 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                <form>
-                                        @csrf
-                                        <input type="text" class="comment_text" name="comment">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
-                                    </form>
-                                <li>コメント内容の予定</li>
+                            <li class="form_js"></li>
                             </ul>
                         </td>
                     </tr>
@@ -240,8 +229,7 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li class="form_js"></li>
-                                <li>コメント内容の予定</li>
+                            <li class="form_js"></li>
                             </ul>
                         </td>
                     </tr>
@@ -298,14 +286,7 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                    <form action="#">
-                                        @csrf
-                                        <input type="text" class="comment_text">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
-                                    </form>
-                                <li>コメント内容の予定</li>
+                                <li class="form_js"></li>
                             </ul>
                         </td>
                     </tr>

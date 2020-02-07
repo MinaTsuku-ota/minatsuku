@@ -83,7 +83,7 @@ class LoginController extends Controller
         $this->validateLogin($request);
 
         // helper.php参照
-        recaptcha($request);
+        // recaptcha($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
