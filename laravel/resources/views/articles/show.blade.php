@@ -3,6 +3,12 @@
 
 @section('addcss')
 <link rel="stylesheet" href="/css/new_common.css">
+<link rel="shortcut icon" href="/image/favicon.png" type="image/png">
+@endsection
+
+@section('addjs')
+<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
 @endsection
 
 @section('content')

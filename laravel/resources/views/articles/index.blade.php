@@ -2,7 +2,6 @@
 
 @section('addcss')
     <link rel="stylesheet" href="/css/new_common.css">
-    <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/fav.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,6 +16,14 @@
     <script src="js/tagSwitchGet.js"></script>
     <script src="js/fav.js"></script>
     @include('recaptcha_js')
+@endsection
+
+@section('loading')
+<div id="loading">
+    <div id="load_position">
+        <div id="loader"></div>
+    </div>
+</div>
 @endsection
 
 @section('content')
@@ -79,15 +86,11 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                    <form action="#">
-                                        @csrf
-                                        <input type="text" class="comment_text">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                    <input type="submit" class="comment_submit" id="{{ $article->id }}">
-                                    </form>
-                                </li>
-                                <li>コメント内容の予定</li>
+                            <li class="form_none">
+                                <form action="#" method="post" class="form_js">
+                                    @csrf
+                                </form>
+                            </li>
                             </ul>
                         </td>
                     </tr>
@@ -100,7 +103,7 @@
             <div class="commentPanel">
                     <p>NEW コメント</p>
                     {{-- コメント --}}
-                    @foreach($comments as $comment) 
+                    @foreach($comments as $comment)
                     <div class="comment">
                         <div class="userName">
                                 <div id="profil">
@@ -169,14 +172,7 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                <form>
-                                        @csrf
-                                        <input type="text" class="comment_text" name="comment">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
-                                    </form>
-                                <li>コメント内容の予定</li>
+                            <li class="form_js"></li>
                             </ul>
                         </td>
                     </tr>
@@ -233,8 +229,7 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li class="form_js"></li>
-                                <li>コメント内容の予定</li>
+                            <li class="form_js"></li>
                             </ul>
                         </td>
                     </tr>
@@ -291,14 +286,7 @@
                     <tr class="comment_none">
                         <td colspan="10">
                             <ul>
-                                <li>
-                                    <form action="#">
-                                        @csrf
-                                        <input type="text" class="comment_text">
-                                        <input type="hidden" name="recaptcha" id="recaptcha">
-                                        <input type="submit" class="comment_submit" id="{{ $article->id }}">
-                                    </form>
-                                <li>コメント内容の予定</li>
+                                <li class="form_js"></li>
                             </ul>
                         </td>
                     </tr>
