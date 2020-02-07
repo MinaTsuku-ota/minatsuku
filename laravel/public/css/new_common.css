@@ -400,7 +400,7 @@ table.toukou td {
     top: 10px;
 }
 
-#parson {
+.parson {
     width: 28px;
     position: absolute;
     left: 57px;
@@ -422,7 +422,7 @@ table.toukou td {
     top: 50px;
 }
 
-#commentFooter{
+.commentFooter{
     margin-top: 5px;
     position: absolute;
     top: 155px;
