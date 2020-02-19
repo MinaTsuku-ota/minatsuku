@@ -35,12 +35,11 @@ $(function() {
                 ).done(function() {
 
                     //入力フォームの削除
-                    $comment.hide('blind', 5000);
+                    $comment.hide('blind', 500);
 
                 });
+
             };
-
-
 
         });
 
@@ -57,7 +56,7 @@ $(function() {
         var article_id = this.getAttribute('id');
 
         // 簡易的に表示
-        // comment_area.append(comments);
+        comment_area.append(comments);
 
         //ajaxでデータの保存
         $.ajaxSetup({
