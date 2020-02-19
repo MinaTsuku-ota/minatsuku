@@ -341,7 +341,7 @@ table.toukou td {
     border-radius: 5px;
 }
 
-table.comment {
+.comment {
     table-layout: fixed;
     word-break: break-all;
     word-wrap: break-all;
@@ -349,7 +349,14 @@ table.comment {
     margin: 5px 5px 10px 10px;
     width: 270px;
     height: 200px;
-    border: solid 1px black;
+    font-weight: bold;
+    color: #111111;
+    /*文字色*/
+    /* background: #f5deb3; */
+    border: solid 3px #996633;
+    /*線*/
+    border-radius: 4px;
+    position: relative;
 }
 
 
@@ -376,15 +383,9 @@ table.comment {
 .userName {
     font-size: 20px;
     font-weight: bold;
+    margin-top: 3px;
 }
 
-#parson {
-    width: 28px;
-    position: relative;
-    left: 8px;
-    top: 38px;
-    padding: 0;
-}
 
 .circle {
     width: 41px;
@@ -392,22 +393,42 @@ table.comment {
     border-radius: 50%;
     background: skyblue;
     /*背景色*/
-    display: inline-block;
+    /* display: inline-block; */
     margin: 0;
-    left: 100px;
-    top: 5px;
+    position: absolute;
+    left: 50px;
+    top: 10px;
 }
 
+.parson {
+    width: 28px;
+    position: absolute;
+    left: 57px;
+    top: 17px;
+    padding: 0;
+    z-index: 10;
+}
 
-/*ここまで*/
-
-
-/**/
+.useruuu{
+    position: absolute;
+    top: 20px;
+    left: 95px;
+}
 
 .newComment {
     text-align: left;
     margin: 5px 3px;
+    position: absolute;
+    top: 50px;
 }
+
+.commentFooter{
+    margin-top: 5px;
+    position: absolute;
+    top: 155px;
+    left: 30px;
+}
+
 
 
 /*----------ローディング画面----------*/

@@ -6,12 +6,16 @@
     <title>みなツク</title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/flickity.min.css">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/flickity.pkgd.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     {{-- <script src="/js/D&D.js"></script> --}}
     <script src="/js/test_D&D.js"></script>
+    <script src="/js/instantPreview.js"></script>
+    <script src="/js/instantPreviewImageGallery.js"></script>
 
     @include('recaptcha_js')
 </head>
@@ -63,6 +67,7 @@
                                         <td>ジャンル?</td>
                                         <td style="border-style:none;">
                                             <select size="1" class="genre" name="genre_id" id="ref_gen">
+                                                <option value="0">ジャンルを追加ついかしてくだサイ</option>
                                                 <option value="1">WEB</option>
                                                 <option value="2">写真</option>
                                                 <option value="3">動画</option>
@@ -96,40 +101,52 @@
                                                 required></textarea>
                                         </td>
                                     </tr>
-																</table>
+                                </table>
 																
-																<!-- Preview area -->
-																<div id="preview_wrap">
-																	<h2>Simple preview feature.</h2>
-																	<table class="preview_area">
-																		<tr>
-																			<td colspan="10" id="pre_gen">Genre</td>
-																		</tr>
-																		<tr>
-																			<td colspan="10" id="pre_tit">Title</td>
-																		</tr>
-																		<tr>
-																			<td colspan="6" height="220px" id="pre_des">Description</td>
-																			<td colspan="4" height="220px" id="pre_img">
-																				<output class="preImgPosition1"></output>
-																				<output class="preImgPosition2"></output>
-																				<output class="preImgPosition3"></output>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td colspan="1"></td>
-																			<td colspan="1"></td>
-																			<td colspan="3" id="pre_name">Your name</td>
-																			<td colspan="5" id="pre_dep">Your department</td>
-																		</tr>
-																	</table>
-																</div>
-																<!-- Preview area End -->
-
-                                <div class="STbtn">
+                                <!-- Preview area -->
+                                <div class="popup" id="js-popup">
+                                    <div class="popup-inner">
+                                        <div id="preview_wrap">
+                                            <h2>この内容で投稿しますか？</h2>
+                                            <table class="preview_area">
+                                                <tr>
+                                                    <td colspan="10" id="pre_gen">Genre</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="10" id="pre_tit">Title</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" height="220px" id="pre_des">Description</td>
+                                                    <td colspan="4" height="220px" id="pre_img">
+                                                        <output class="preImgPosition"><a href="" class="anchorimage lt"><img class="refimage"></a></output>
+                                                        <output class="preImgPosition"><a href="" class="anchorimage lt"><img class="refimage"></a></output>
+                                                        <output class="preImgPosition"><a href="" class="anchorimage lt"><img class="refimage"></a></output>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="1"></td>
+                                                    <td colspan="1"></td>
+                                                    <td colspan="3" id="pre_name">Your name</td>
+                                                    <td colspan="5" id="pre_dep">Your department</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+                                        <div class="STbtn"><a href="#" class="STbtnChild">投稿しゅる</a></div>
+                                    </div>
+                                    <div class="black-background" id="js-black-bg"></div>
+                                </div>
+                                <div class="main-gallery">
+                                    <div class="gasetsu"><img src="../image/galleryImageDiscriptionINM.png" alt="説明画像です"></div>
+                                    <div class="modImgPosition"><img class="mod_refimage"></a></div>
+                                    <div class="modImgPosition"><img class="mod_refimage"></a></div>
+                                    <div class="modImgPosition"><img class="mod_refimage"></a></div>
+                                </div>
+                                <!-- Preview area End -->
+                                <!-- <div class="STbtn">
                                     <button type="submit" class="STbtnChild">投稿</button>
                                 </div>
-                                <input type="hidden" name="recaptcha" id="recaptcha">
+                                <input type="hidden" name="recaptcha" id="recaptcha"> -->
                             </div>
                         </form>
                     </div>
