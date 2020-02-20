@@ -21,6 +21,7 @@ $(function() {
 
                 $('.comment_none').fadeOut(close_duration).removeClass('open');
 
+                $('.comment_form').show();
                 //コメントエリアの表示
                 $comment.addClass('open');
                 $comment.fadeIn(duration);
@@ -37,6 +38,7 @@ $(function() {
 
                 ).done(function() {
 
+                    // $('.comment_form').hide('blind', close_duration);
                     //入力フォームの削除
                     $comment.hide('blind', close_duration);
                 });
