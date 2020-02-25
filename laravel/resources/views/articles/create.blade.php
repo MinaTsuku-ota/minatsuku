@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-	
-	<head>
-		<meta charset="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
     <title>みなツク</title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/post.css">
@@ -13,7 +13,7 @@
     {{-- <script src="/js/D&D.js"></script> --}}
     <script src="/js/test_D&D.js"></script>
 
-    @include('recaptcha_js')
+    {{-- @include('recaptcha_js') --}}
 </head>
 
 <body>
@@ -71,7 +71,8 @@
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="30px">
-                                            <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力" id="ref_tit" required>
+                                            <input type="text1" name="title" size="50" maxlength="20" placeholder="題名入力(必須)"
+                                                id="ref_tit" required>
                                         </td>
                                     </tr>
                                     <tr>
@@ -92,60 +93,61 @@
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="350px">
-                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText" name="body" id="ref_des"
-                                                required></textarea>
+                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText" name="body"
+                                                id="ref_des" required></textarea>
                                         </td>
                                     </tr>
-																</table>
-																
-																<!-- Preview area -->
-																<div id="preview_wrap">
-																	<h2>Simple preview feature.</h2>
-																	<table class="preview_area">
-																		<tr>
-																			<td colspan="10" id="pre_gen">Genre</td>
-																		</tr>
-																		<tr>
-																			<td colspan="10" id="pre_tit">Title</td>
-																		</tr>
-																		<tr>
-																			<td colspan="6" height="220px" id="pre_des">Description</td>
-																			<td colspan="4" height="220px" id="pre_img">
-																				<output class="preImgPosition1"></output>
-																				<output class="preImgPosition2"></output>
-																				<output class="preImgPosition3"></output>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td colspan="1"></td>
-																			<td colspan="1"></td>
-																			<td colspan="3" id="pre_name">Your name</td>
-																			<td colspan="5" id="pre_dep">Your department</td>
-																		</tr>
-																	</table>
-																</div>
-																<!-- Preview area End -->
+                                </table>
+
+                                <!-- Preview area -->
+                                <div id="preview_wrap">
+                                    <h2>Simple preview feature.</h2>
+                                    <table class="preview_area">
+                                        <tr>
+                                            <td colspan="10" id="pre_gen">Genre</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="10" id="pre_tit">Title</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" height="220px" id="pre_des">Description</td>
+                                            <td colspan="4" height="220px" id="pre_img">
+                                                <output class="preImgPosition1"></output>
+                                                <output class="preImgPosition2"></output>
+                                                <output class="preImgPosition3"></output>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1"></td>
+                                            <td colspan="1"></td>
+                                            <td colspan="3" id="pre_name">Your name</td>
+                                            <td colspan="5" id="pre_dep">Your department</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- Preview area End -->
 
                                 <div class="STbtn">
                                     <button type="submit" class="STbtnChild">投稿</button>
                                 </div>
-                                <input type="hidden" name="recaptcha" id="recaptcha">
+                                {{-- <input type="hidden" name="recaptcha" id="recaptcha"> --}}
                             </div>
                         </form>
                     </div>
                 </section>
             </div>
-				</main>
-		<div class="goReflect"><a href="#" role="button" id="gR">プレビュー画面に反映するゾ</a></div>
+        </main>
+        <div class="goReflect"><a href="#" role="button" id="gR">プレビュー画面に反映するゾ</a></div>
     </div>
     @include('footer')
     </div>
     @if($errors->any())
     <script>
         alert("{{ $errors->first() }}")
-				</script>
+
+    </script>
     @endif
-				<script src="/js/instantPreview.js"></script>
+    <script src="/js/instantPreview.js"></script>
 </body>
 
 </html>

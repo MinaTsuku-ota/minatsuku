@@ -5,6 +5,7 @@
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/fav.css">
+    <link rel="stylesheet" href="/css/article_image.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
@@ -47,10 +48,10 @@
                     <tr>
                         <td colspan="6" height="250px">{{ $article->body }}</td> {{-- 記事本文 --}}
                         <td colspan="4" height="250px">
-                            @if($article->image1 === null)
+                            @if(!($article->image1)) {{-- image1がない場合 --}}
                                 <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
-                            @else
-                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                            @else {{-- image1がある場合 --}}
+                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                             @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
@@ -136,9 +137,9 @@
                         <td colspan="6" height="250px">{{ $article->body }}</td>
                         <td colspan="4" height="250px">
                             @if($article->image1 === null)
-                                <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
+                                <img src="storage/avaters/default_avater.png" alt="no_image" class="no_image">
                             @else
-                                <img src="storage/avaters/avater" alt="プロフィール画像" class="no_image">
+                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                             @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
@@ -202,7 +203,7 @@
                             @if($article->image1 === null)
                                 <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
                             @else
-                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                             @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
@@ -260,7 +261,7 @@
                             @if($article->image1 === null)
                                 <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
                             @else
-                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="o_image">
+                                <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                             @endif
                             <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                             <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">

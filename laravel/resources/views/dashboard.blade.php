@@ -6,6 +6,8 @@
     <title>みなツク -MINATUKU-</title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/management.css">
+    <link rel="stylesheet" href="/css/fav.css">
+    <link rel="stylesheet" href="/css/article_image.css">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="/js/jquery-3.4.1.min.js"></script>
@@ -117,7 +119,7 @@
                                 <i class="fas fa-cog"></i>
                                 <div class="menuInfo">
                                     <ul>
-                                        <li><a href="{{ route('articles.create', [$article->id]) }}">編集</a></li>
+                                        <li><a href="{{ route('articles.edit', [$article->id]) }}">編集</a></li>
                                         <li>{!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
                                 {!! Form::submit('削除') !!}
                                 {!! Form::close() !!}</li>
@@ -131,16 +133,14 @@
                                 @if($article->image1 === null)
                                     <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" class="no_image">
                                 @else
-                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image">
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                                 @endif
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1">@guest
-                                <i class="far fa-heart" data-articleid="{{ $article->id }}"></i>
-                            @else {{-- ログインしている場合 --}}
+                            <td colspan="1">
                                 <i class="
                                 @if(App\Fav::where('article_id', $article->id)->where('user_id', Auth::User()->id)->exists())
                                 {{ 'fas' }} {{-- いいね済 --}}
@@ -148,7 +148,7 @@
                                 {{ 'far' }} {{-- いいね前 --}}
                                 @endif
                                 fa-heart fav_btn" data-articleid="{{ $article->id }}"></i> {{-- 記事IDの送信用 --}}
-                            @endguest</td>
+                            </td>
                             <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                             <td colspan="3">
                                 @switch($article->genre_id)

@@ -77,12 +77,13 @@ class ArticlesController extends Controller
         return view('articles.create');
     }
 
+    /*** 記事の追加 ***/
     // Requestファザードを使っていたがstoreメソッドの引数からIlluminate\Http\Request クラスのインスタンスを取得するようにしました
     // Laravel のコントローラはメソッドの引数にタイプヒントでクラスを記述すると、そのクラスのインスタンスを自動生成して渡してくれます。とてもクールです
     public function store(ArticleRequest $request)
     {
         // dd($request->all()); // デバッグ
-        recaptcha($request); // app/Http/helper.php
+        // recaptcha($request); // app/Http/helper.php
 
         // 画像はここでバリデート
         $request->validate([
@@ -142,16 +143,10 @@ class ArticlesController extends Controller
         return redirect()->route('articles.index')->with('message', '記事を追加しました。');
     }
 
-    // 記事の編集
-    public function edit(Article $article)
-    { // $id から $article へ変更
+    /*** 記事の編集 ***/
+    public function edit(Article $article){ // $id から $article へ変更
 
-        // $article = Article::findOrFail($id);
-        // タグ名と id の一覧を View に渡す
-        // $tag_list = Tag::pluck('name', 'id');
-        // return view('articles.edit', compact('article, tag_list'));
-
-        // ユーザに編集の権限があるかチェック
+        /* ユーザに編集の権限があるかチェック */
         // ログインしていない場合はコンストラクタのmiddleware('auth')によってログイン画面へ
         if ($article->user_id == Auth::user()->id) {
             // 編集の権限があれば編集画面へ
@@ -162,7 +157,6 @@ class ArticlesController extends Controller
             return redirect()->route('articles.index')->with('message', '編集権限が無いよ!');
         }
 
-        // return view('articles.edit', compact('article'));
     }
 
     // 記事の更新
