@@ -56,50 +56,32 @@
                         </div>
 
                         <!-- 投稿フォーム -->
-                        <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
-                            @csrf
+                        {!! Form::model($article, ['method' => 'PATCH', 'route' => ['articles.update', $article->id], 'enctype' => 'multipart/form-data']) !!}
                             <div id="ookisa">
                                 <table class="toukou">
                                     <tr>
                                         <td>ジャンル?</td>
                                         <td style="border-style:none;">
-                                            <select size="1" class="genre" name="genre_id" id="ref_gen">
-												{{-- $article->genre_idをチェックしてselected属性をつける --}}
-                                                <option value="1"
-												@if($article->genre_id == 1)
-													selected
-												@endif
-												>WEB</option>
-                                                <option value="2"
-												@if($article->genre_id == 2)
-													selected
-												@endif
-												>写真</option>
-                                                <option value="3"
-												@if($article->genre_id == 3)
-													selected
-												@endif
-												>動画</option>
-                                            </select>
+                                            {!! Form::select('genre_id', ['1' => 'WEB', '2' => '写真', '3' => '動画'], null, ['size' => '1', 'class' => 'genre', 'name' => 'genre_id', 'id' => 'ref_gen']) !!}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="30px">
-                                            <input type="text1" name="title" size="50" maxlength="20" value="{{ $article->title }}"
-                                                placeholder="題名入力(必須)" id="ref_tit" required>
+                                            {!! Form::text('title', null, ['id' => 'ref_tit', 'name' => 'title', 'size' => '50', 'maxlength' => '20', 'placeholder' => '題名入力(必須)', 'required']) !!}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="300px" id="input_td">
+                                            {{-- 画像が存在すれば表示する --}}
                                             <span class="input_span">
                                                 <div class="imageText">
-												@if($article->image1) {{-- image1がある場合 --}}
+												@if($article->image1)
 													<img src="{{ asset('storage/uploaded_images/'.$article->image1) }}">
 												@else
 													Click or Drop here
 												@endif
 												</div>
-                                                <input type="file" class="imageInput" id="Area0" name="file0">
+                                                {!! Form::file('image1', ['id' => 'Area0', 'class' => 'imageInput', 'name' => 'file0']) !!}
                                             </span>
                                             <span class="input_span">
                                                 <div class="imageText">
@@ -109,7 +91,7 @@
 													Click or Drop here
 												@endif
 												</div>
-                                                <input type="file" class="imageInput" id="Area1" name="file1">
+                                                {!! Form::file('image2', ['id' => 'Area1', 'class' => 'imageInput', 'name' => 'file1']) !!}
                                             </span>
                                             <span class="input_span">
                                                 <div class="imageText">
@@ -119,14 +101,15 @@
 													Click or Drop here
 												@endif
 												</div>
-                                                <input type="file" class="imageInput" id="Area2" name="file2">
+                                                {!! Form::file('image3', ['id' => 'Area2', 'class' => 'imageInput', 'name' => 'file2']) !!}
                                             </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="10" height="350px">
-                                            <textarea placeholder="作品の説明を記入してください。" class="setumeiText" name="body"
-                                                id="ref_des" required>{{ $article->body }}</textarea>
+                                            {{-- <textarea placeholder="作品の説明を記入してください。" class="setumeiText" name="body"
+                                                id="ref_des" required>{{ $article->body }}</textarea> --}}
+                                            {!! Form::textarea('body', null, ['placeholder' => '作品の説明を記入してください。', 'class' => 'setumeiText', 'name' => 'body', 'id' => 'ref_des', 'required']) !!}
                                         </td>
                                     </tr>
                                 </table>
@@ -164,7 +147,8 @@
                                 </div>
                                 {{-- <input type="hidden" name="recaptcha" id="recaptcha"> --}}
                             </div>
-                        </form>
+                        {{-- </form> --}}
+                        {!! Form::close() !!}
                     </div>
                 </section>
             </div>

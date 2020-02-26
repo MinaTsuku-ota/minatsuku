@@ -159,7 +159,7 @@ class ArticlesController extends Controller
 
     }
 
-    // 記事の更新
+    /*** 記事の更新 ***/
     public function update(ArticleRequest $request, Article $article)
     { // $id から $article へ変更
         // $article = Article::findOrFail($id);
@@ -168,8 +168,23 @@ class ArticlesController extends Controller
         // sync() メソッドでは article_tag テーブルのデータが引数で渡された id の物だけになるように、追加と削除を行います
         // $article->tags()->sync($request->input('tags'));
 
+        /* imageの保存処理 */
+        if ($request->file0) {
+            $article->image1 = basename($request->file0->store('public/uploaded_images'));
+        }
+        if ($request->file1) {
+            $article->image2 = basename($request->file1->store('public/uploaded_images'));
+        }
+        if ($request->file2) {
+            $article->image3 = basename($request->file2->store('public/uploaded_images'));
+        }
+        $article->save(); // updateにしないといけないかも
+
+        // dd($request->image1, $request->image2, $request->image3); // デバッグ用(画像の送信確認)
+
         // return redirect(url('articles', [$article->id]))->with('message', '記事を更新しました。');
-        return redirect()->route('articles.show', [$article->id])->with('message', '記事を更新しました。');
+        // return redirect()->route('articles.show', [$article->id])->with('message', '記事を更新しました。');
+        return redirect()->route('articles.index')->with('message', '記事を更新しました。');
     }
 
     // 記事の削除

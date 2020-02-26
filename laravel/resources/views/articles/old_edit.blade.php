@@ -5,7 +5,7 @@
 @endsection
 
 @section('addjs')
-@include('recaptcha_js')
+{{-- @include('recaptcha_js') --}}
 @endsection
 
 @section('content')
@@ -25,6 +25,6 @@
             // 'published_at' => $article->published_at->format('Y-m-d'),
             'submitButton' => 'Edit Article'
             ])
-    <input type="hidden" name="recaptcha" id="recaptcha">
+    {{-- <input type="hidden" name="recaptcha" id="recaptcha"> --}}
     {!! Form::close() !!}
 @endsection

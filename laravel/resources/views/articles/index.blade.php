@@ -53,8 +53,8 @@
                             @else {{-- image1がある場合 --}}
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                             @endif
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
-                            <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'" class="imageOfArticle">
+                            <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'" class="imageOfArticle">
                         </td>
                     </tr>
                     <tr>

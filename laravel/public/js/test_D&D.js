@@ -13,7 +13,7 @@
 $(function () {
     /*** ファイルドロップ時の処理 ***/
     $('.imageText').on('drop', function (e) {
-        // console.log('dropped');
+        //console.log('dropped');
         e.stopPropagation();
         e.preventDefault();
 
@@ -22,7 +22,7 @@ $(function () {
 
         // input:fileにファイルデータを入力
         $('#' + input_id)[0].files = e.originalEvent.dataTransfer.files;
-        // console.log($('#' + input_id)[0].files);
+        //console.log($('#' + input_id)[0].files);
         $('#' + input_id).change(); // changeイベントの強制発火
     });
 
