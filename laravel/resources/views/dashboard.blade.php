@@ -56,8 +56,9 @@
                 <section id="profile_js">
                     <div id="profil">
                         <div id="progazou" class="clearfix">
-                            <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" id="parson">
-                            {{-- <form method="patch" enctype="multipart/form-data"  action="{{ route('dashboard.update') }}" name="avater_form"> --}}
+                            <img src="{{ asset('storage/avaters/'.App\User::find($id)->avater) }}" alt="プロフィール画像" id="parson">
+                            @if(Auth::user()->id === $id) {{-- 本人か確認 --}}
+                                <form method="patch" enctype="multipart/form-data"      action="{{ route('dashboard.update') }}" name="avater_form">
                                 {!! Form::open(['method' => 'PATCH', 'route' => 'dashboard.update', 'files' => true]) !!}
                                 <input type="file" name="avater" id="file">
                                 <input type="submit" value="変更する" id="change">
@@ -75,11 +76,12 @@
                                     };
                                     </script>
                                     {!! Form::close() !!}
+                                @endif
                             {{-- </form> --}}
                         </div>
                         <div id="puro_text">
-                            <div id="nikku">{{ Auth::user()->name }}</div>
-                            <div id="gakka">{{ App\Subject::find(Auth::user()->subject_id)->subject }}</div>
+                            <div id="nikku">{{ App\User::find($id)->name }}</div> {{-- user_idが使えなっかった --}}
+                            <div id="gakka">{{ App\Subject::find(App\User::find($id)->subject_id)->subject }}</div>
                         </div>
                     </div>
                 </section>
@@ -93,8 +95,8 @@
 
         <div id="matome">
             <div id="toukou">
-                <div id="soutoukou_dai">総投稿</div>
-                <div id="soutoukou"><span id="post_js">{{ $articles->count() }}</span>件</div>
+            <div id="soutoukou_dai">総投稿</div>
+                <div id="soutoukou"><span id="post_js">{{ $user_id->count() }}</span>件</div>
             </div>
             <div id="sougou">
                 <div id="good">
@@ -108,7 +110,7 @@
             <h1>投稿一覧</h1>
             <div id="toukouPanel">
 
-                @foreach($articles as $article)
+                @foreach($user_id as $article)
                 <table class="toukou">
                     <tbody>
                         <tr>
@@ -116,15 +118,19 @@
                                 <a href="{{ url('articles', $article->id) }}">{{ $article->title }}</a>
                             </td>
                             <td class="menuButton">
-                                <i class="fas fa-cog"></i>
-                                <div class="menuInfo">
-                                    <ul>
-                                        <li><a href="{{ route('articles.edit', [$article->id]) }}">編集</a></li>
-                                        <li>{!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
-                                {!! Form::submit('削除') !!}
-                                {!! Form::close() !!}</li>
-                                    </ul>
-                                </div>
+                                @if(Auth::user()->id === $id) {{-- 本人か確認 --}}
+                                    <i class="fas fa-cog"></i>
+                                    <div class="menuInfo">
+                                        <ul>
+                                            <li><a href="{{ route('articles.edit', [$article->id]) }}">編集</a></li>
+                                            <li>{!! Form::open(['method' => 'DELETE', 'url' => ['articles', $article->id]]) !!}
+                                    {!! Form::submit('削除') !!}
+                                    {!! Form::close() !!}</li>
+                                        </ul>
+                                    </div>
+                                @else
+                                    <a>✖</a>
+                                @endif
                             </td>
                         </tr>
                         <tr>
@@ -133,7 +139,7 @@
                                 @if($article->image1 === null)
                                     <img src="{{ asset('storage/avaters/'.Auth::user()->avater) }}" alt="プロフィール画像" class="no_image">
                                 @else
-                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
+                                    <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}"  class="imageOfArticle">
                                 @endif
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image2) }}" onerror="this.style.display='none'">
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image3) }}" onerror="this.style.display='none'">

@@ -73,7 +73,8 @@
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td> {{-- コメントボタン --}}
                         <td colspan="3">
-                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
+                            {{-- ユーザーのマイページに飛ぶようにしたい --}}
+                            <a href="{{ route('dashboard.index', ['user_id' => $article->user_id])}}" >{{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}</a>
                         </td> {{-- ユーザ名@学科名 --}}
                         <td colspan="5">{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}</td> {{-- 投稿日付 --}}
                     </tr>
@@ -88,7 +89,18 @@
                                     <input type="submit" class="comment_submit" id="{{ $article->id }}">
                                     </form>
                                 </li>
-                                <li>コメント内容の予定</li>
+                                <li>コメント内容の予定
+                                    @foreach(App\Comment::where('article_id', $article->id)->get() as $comment) {{-- 記事につけられたコメントのぶん繰り返してほしい --}}
+                                        @if($loop->iteration === 11)
+                                            <a href="{{ url('articles', $article->id) }}" id="{{ $article->id }}">全件表示</a>{{-- 11こ目のコメントだった場合foreachを抜けてshow.bladeに飛ばすリンクを出す --}}
+                                            @break
+                                        @endif
+                                        <img src="{{ asset('storage/avaters/'.App\user::find($comment->user_id)->avater) }}"  class="comment_avater">{{-- コメントした人のアバター --}}
+                                    <a><br>{{ App\User::find($comment->user_id)->name }}<br></a>{{-- コメントしたユーザーの名前 --}}
+                                    <a>{{ $comment->comment }}<br></a> {{-- コメント内容 --}}
+                                    <a>{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}</a>{{-- コメントの日付 --}}
+                                </li>
+                                    @endforeach
                             </ul>
                         </td>
                     </tr>
@@ -105,7 +117,7 @@
                     <div class="comment">
                         <div class="userName">
                                 <div id="profil">
-                                    <img src="{{ asset('storage/avaters/'.App\user::find($comment->user_id)->avater) }}" alt="プロフィール画像" class="parson">
+                                    <img src="{{ asset('storage/avaters/'.App\user::find($comment->user_id)->avater) }}"  class="parson">
                                 </div>
                                 {{ App\user::find($comment->user_id)->name }}
                             </div>
@@ -113,7 +125,7 @@
                             {{ $comment->comment }}
                         </div>
                         <div class="toukouName">
-                            投稿記事：{{ App\article::find($comment->article_id)->title }}
+                            投稿記事：<a href="{{ url('articles', $comment->article_id) }}" id="{{ $article->id }}"> {{ App\article::find($comment->article_id)->title }}</a>
                         </div>
                         <div class="commentFooter">
                             <time>{{ strtr(substr($comment->created_at, 5, 5), '-', '/') }}</time>
@@ -161,7 +173,8 @@
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                         <td colspan="3">
-                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
+                            <a href="{{ route('dashboard.index', ['user_id' => $article->user_id])}}" >
+                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}</a>
                         </td>
                         <td colspan="5">
                             {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
@@ -201,7 +214,7 @@
                         <td colspan="6" height="250px">{{ $article->body }}</td>
                         <td colspan="4" height="250px">
                             @if($article->image1 === null)
-                                <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
+                                <img src="storage/avaters/default_avater.png"  class="no_image">
                             @else
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                             @endif
@@ -225,7 +238,7 @@
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                         <td colspan="3">
-                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
+                            <a href="{{ route('dashboard.index', ['user_id' => $article->user_id])}}" >{{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}</a>
                         </td>
                         <td colspan="5">
                             {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}
@@ -259,7 +272,7 @@
                         <td colspan="6" height="250px">詳細説明<br>{{ $article->body }}</td>
                         <td colspan="4" height="250px">
                             @if($article->image1 === null)
-                                <img src="storage/avaters/default_avater.png" alt="プロフィール画像" class="no_image">
+                                <img src="storage/avaters/default_avater.png"  class="no_image">
                             @else
                                 <img src="{{ asset('storage/uploaded_images/'.$article->image1) }}" alt="no_image" class="imageOfArticle">
                             @endif
@@ -283,7 +296,8 @@
                         </td>
                         <td colspan="1" class="comment_button"><i class="far fa-comment"></i></td>
                         <td colspan="3">
-                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}
+                            <a href="{{ route('dashboard.index', ['user_id' => $article->user_id])}}" >
+                            {{ App\user::find($article->user_id)->name }}{{ '@' }}{{ App\subject::find(App\user::find($article->user_id)->subject_id)->subject }}</a>
                         </td>
                         <td colspan="5">
                             {{ strtr(substr($article->created_at, 5, 5), '-', '/') }}

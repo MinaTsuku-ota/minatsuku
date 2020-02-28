@@ -144,7 +144,8 @@ class ArticlesController extends Controller
     }
 
     /*** 記事の編集 ***/
-    public function edit(Article $article){ // $id から $article へ変更
+    public function edit(Article $article)
+    { // $id から $article へ変更
 
         /* ユーザに編集の権限があるかチェック */
         // ログインしていない場合はコンストラクタのmiddleware('auth')によってログイン画面へ
@@ -156,7 +157,6 @@ class ArticlesController extends Controller
             // 注意: with()に値をいれないとnullになってしまう
             return redirect()->route('articles.index')->with('message', '編集権限が無いよ!');
         }
-
     }
 
     /*** 記事の更新 ***/
@@ -218,6 +218,7 @@ class ArticlesController extends Controller
     //コメントのajax通信
     public function post_ajax()
     {
+
         $comment_data = filter_input(INPUT_POST, 'comment_data');
         // $article_id = filter_input(INPUT_POST, 'article_id');
         $user_id = Auth::User()->id;
@@ -256,19 +257,4 @@ class ArticlesController extends Controller
             echo ('レコード追加!');
         }
     }
-
-    //avaterの変更機能
-    // public function avater(Request $request)
-    // {
-    //     $request->validate([
-    //         'avater' => 'file|image|mimes:jpeg,jpg,png,gif',
-    //     ]);
-    //     $avater = $request->avater;
-    //     $user = User::find(Auth::user()->id);
-    //     $user->avater = basename($avater->store('public/avaters')); //画像保存してavaterに名前を入れる
-    //     $user->save();
-
-
-    //     return redirect('dashboard');
-    // }
 }
