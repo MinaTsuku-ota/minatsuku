@@ -118,8 +118,52 @@ section {
 
 #space {
     height: 900px;
-    background-color: rgb(247, 213, 112);
+    background-image: url("../../../image/manehaikei.jpg");
+    background-size: 1950px 1000px;
 }
+
+.btn1 {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #F29089;/*背景色*/
+    border-bottom: solid 2px #E07860;/*少し濃い目の色に*/
+    border-radius: 10px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+    font-size: 45px;
+  }
+  
+  .btn1:active {
+    border-bottom: solid 2px #F29089;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+
+  .to_home{
+      position: absolute;
+      top: 600px;
+      left: 20%;
+  }
+
+  .to_home:hover{
+      position: absolute;
+      top: 595px;
+      left: 20%;
+  }
+
+  .to_rule{
+    position: absolute;
+    top: 600px;
+    right: 20%;
+  }
+
+  .to_rule:hover{
+      position: absolute;
+      top: 595px;
+      right: 20%;
+  }
 
 #profil {
     text-align: center;
