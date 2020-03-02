@@ -15,6 +15,7 @@
     <script src="/js/dropdown.js"></script>
     <script src="/js/fav.js"></script>
     <script src="/js/performance.js"></script>
+    <script src="/js/modal.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -49,10 +50,21 @@
                 <div class="btn sinki "><a href="#">新規登録</a></div>
             </div>
         </div>
+
+        <!-- モーダル -->
+        <div id="modal01" class="modal js-modal">
+            <div class="modal__bg js-modal-close"></div>
+            <div class="modal__content">
+                <img src="/image/manaInfo.jpg" alt="マイページの説明だよ！" id="manaInfo">
+                <button href="#" id="js-modal-close">閉じる</button>
+            </div>
+        </div>
+    <!-- ここまでモーダル -->
+
         <div id="space">
           <div id="btn">
             <a  href="home.html" class="to_home btn1">ホーム</a>
-            <a href="#"  class="to_rule btn1">説明</a>
+            <button href="#"  class="to_rule btn1" id="js-modal-open" data-target="modal01">説明</button>
           </div>
             <div id="center">
                 <section id="profile_js">
