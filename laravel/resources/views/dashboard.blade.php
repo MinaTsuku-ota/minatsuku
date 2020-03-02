@@ -50,6 +50,10 @@
             </div>
         </div>
         <div id="space">
+          <div id="btn">
+            <a  href="home.html" class="to_home btn1">ホーム</a>
+            <a href="#"  class="to_rule btn1">説明</a>
+          </div>
             <div id="center">
                 <section id="profile_js">
                     <div id="profil">
