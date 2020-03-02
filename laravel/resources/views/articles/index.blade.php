@@ -84,11 +84,11 @@
                         <td colspan="5">{{ strtr(substr($article->created_at, 5, 5), '-', '/') }}</td> {{-- 投稿日付 --}}
                     </tr>
                     <tr class="comment_none">
-                        <td colspan="10">
+                        <td colspan="10" class="comment_form">
                             <ul>
                             <li class="form_none">
                                 <form action="#" method="post" class="form_js">
-                                    @csrf
+                                @csrf
                                 </form>
                             </li>
                             </ul>

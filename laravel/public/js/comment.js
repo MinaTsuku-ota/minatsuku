@@ -16,7 +16,9 @@ $(function() {
             if ($comment.hasClass('open')) {
 
                 //全体のフォームとエリアを削除
-                $comment.find('.form_js').empty();
+                $('#comment_text ').remove();
+                $('#comment_submit').remove();
+
                 $('.comment_none').fadeOut(close_duration).removeClass('open');
 
                 //コメントエリアの表示
@@ -24,37 +26,36 @@ $(function() {
                 $comment.fadeIn(duration);
 
                 //入力フォームの作成
-                $comment.find('.form_js').append('<input type="text" class="comment_text"><input type="submit" class="comment_submit">');
+                $comment.find('.form_js').append('<input type="text" id="comment_text"><input type="submit" id="comment_submit">');
 
             } else {
 
                 $.when(
 
-                    $comment.find('.form_js').empty()
+                    $('#comment_text').remove(),
+                    $('#comment_submit').remove()
 
                 ).done(function() {
 
                     //入力フォームの削除
-                    $comment.hide('blind', 5000);
-
+                    $comment.hide('blind', close_duration);
                 });
+
             };
-
-
 
         });
 
     });
 
-
-    $('.comment_submit').on('click', function(ev) {
+    $('form').submit(function(ev) {
         ev.preventDefault();
+        ev.stopPropagation();
 
         //親要素・コメントの内容・表示するためのＤＯＭ要素・記事ＩＤの定義
         var comment_area = $(this).parents('ul');
-        var comment_data = $(this).siblings('.comment_text').val();
+        var comment_data = $(this).find('#comment_text').val();
         var comments = "<li><span class='profile'><img src='storage/avaters/default_avater.png' alt='プロフィール画像' class='no_image'></span> : " + comment_data + "</li>";
-        var article_id = this.getAttribute('id');
+        var article_id = $(this).parents('.toukou').find('a').attr('id');
 
         // 簡易的に表示
         // comment_area.append(comments);
@@ -80,5 +81,8 @@ $(function() {
             //ログインアラート
             alert('ログインしてください');
         })
+
     })
+
+
 })
