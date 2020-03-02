@@ -63,8 +63,8 @@
 
         <div id="space">
           <div id="btn">
-            <a  href="home.html" class="to_home btn1">ホーム</a>
-            <button href="#" class="js-modal-open to_rule btn1" data-target="modal01">説明</button>
+            <a  href="articles" class="to_home btn1">ホーム</a>
+            <button class="js-modal-open to_rule btn1" data-target="modal01">説明</button>
           </div>
             <div id="center">
                 <section id="profile_js">
