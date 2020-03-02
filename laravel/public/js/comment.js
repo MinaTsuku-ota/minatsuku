@@ -34,7 +34,8 @@ $(function() {
                 $.when(
 
                     $('#comment_text').remove(),
-                    $('#comment_submit').remove()
+                    $('#comment_submit').remove(),
+                    $comment.find('td').hide()
 
                 ).done(function() {
 
@@ -56,7 +57,7 @@ $(function() {
         //親要素・コメントの内容・表示するためのＤＯＭ要素・記事ＩＤの定義
         var comment_area = $(this).parents('ul');
         var comment_data = $(this).find('#comment_text').val();
-        var comments = "<li><span class='profile'><img src='storage/avaters/default_avater.png' alt='プロフィール画像' class='no_image'></span> : " + comment_data + "</li>";
+        var comments = "<li class='comment_data_area'><span class='profile'><img src='storage/avaters/default_avater.png' alt='プロフィール画像' class='no_image'></span> : " + comment_data + "</li>";
         var article_id = $(this).parents('.toukou').find('a').attr('id');
 
         // 簡易的に表示
