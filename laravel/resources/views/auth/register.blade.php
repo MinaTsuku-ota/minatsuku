@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="tyuukikakko">
-                        <span href="#" id="js-modal-open" data-target="modal01">
+                        <span href="#" class="js-modal-open" data-target="modal01">
                             <img src="/image/tyuuki0.png" onmouseover="this.src='/image/tyuuki1.png'"
                                 onmouseout="this.src='/image/tyuuki0.png'" class="tyuuki" alt="注記">
                         </span>
@@ -129,7 +129,7 @@
                 <div id="policy">
                     <iframe src="{{ route('policy_iframe') }}"></iframe>
                 </div>
-                <button href="#" id="js-modal-close">閉じる</button>
+                <button href="#" class="js-modal-close">閉じる</button>
             </div>
         </div>
     </div>
