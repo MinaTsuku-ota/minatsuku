@@ -50,10 +50,24 @@
             </div>
         </div>
         <div id="space">
-          <div id="btn">
-            <a  href="articles" class="to_home btn1">ホーム</a>
-            <button  class="to_rule btn1">説明</button>
-          </div>
+            <div class="iti">
+              <table id="panel" border="1">
+                  <tr class="soudai">
+                    <th class="soug_dai" >総グッド数</th>
+                    <th class="sout_dai" >総投稿数</th>
+                  </tr>
+                  <tr class="souken">
+                    <th class="soug"><span id="good_js">{{ $fav_count }}</span>件</th>
+                    <th class="sout"><span id="post_js">{{ $articles->count() }}</span>件</th>{{-- $fav_count ... DashboardController@index --}}
+                  </tr>
+                  <tr>
+                    <th colspan="2"><a  href="home.html" class="to_home btn1">ホーム</a></th>
+                  </tr>
+              </table>
+            </div>
+            <div id="maneinfo">
+                <img class="rule" src="/image/manainfo.jpg" alt="説明">
+            </div>
             <div id="center">
                 <section id="profile_js">
                     <div id="profil">
@@ -74,7 +88,7 @@
 
         </div>
 
-        <div id="matome">
+        <!-- <div id="matome">
             <div id="toukou">
                 <div id="soutoukou_dai">総投稿</div>
                 <div id="soutoukou"><span id="post_js">{{ $articles->count() }}</span>件</div>
@@ -85,7 +99,7 @@
                     <div id="sougood"><span id="good_js">{{ $fav_count }}</span>件</div> {{-- $fav_count ... DashboardController@index --}}
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div id="toukouitiran">
             <h1>投稿一覧</h1>
