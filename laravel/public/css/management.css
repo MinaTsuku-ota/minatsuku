@@ -119,7 +119,7 @@ section {
 #space {
     position: relative;
     height: 900px;
-    background-image: url("../../../image/manehaikei.jpg");
+    background-image: url("../../../image/manahaikei.jpg");
     background-size: 1950px 1000px;
 }
 
@@ -474,5 +474,21 @@ footer ul li a:visited {
         position: absolute;
         top: 700px;
         left: 250px;
+      }
+}
+
+@media screen and (max-width:360px) {
+    section{
+        left: 0px;
+    }
+    .to_home{
+        position: absolute;
+        top: 600px;
+        left: 100px;
+    }
+    .to_rule{
+        position: absolute;
+        top: 700px;
+        left: 120px;
       }
 }
