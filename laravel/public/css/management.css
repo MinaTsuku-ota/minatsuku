@@ -105,8 +105,8 @@ main {
 
 section {
     position: absolute;
-    left: 40%;
-    top: 300px;
+    left: 750px;
+    top: 250px;
     padding: 30px 10px;
     background-color: rgb(247, 213, 112);
     border-radius: 600px;
@@ -123,10 +123,19 @@ section {
     background-size: 1950px 1000px;
 }
 
+#btn0{
+    display: none;
+}
+
+#inner{
+    width: 1000px;
+    position: relative;
+}
+
 #panel{
     position: absolute;
-    top:270px;
-    left: 70px;
+    top:150px;
+    left: 40px;
     background-color: #fff3b7;
     width: 650px;
     height: 478px;
@@ -167,8 +176,8 @@ section {
   .rule{
     width:650px;
     position: absolute;
-    top: 270px;
-    right: 70px;
+    top: 150px;
+    left: 1200px;
     opacity: 0.9;
   }
 
@@ -346,8 +355,8 @@ table.toukou td {
     position: absolute;
     width: 100%;
     height: 200px;
-    top: 750px;
-    border-bottom: 4px solid #000;
+    top: 620px;
+    
 }
 
 #main_js {
@@ -408,12 +417,39 @@ footer ul li a:visited {
 
 
 @media screen and (max-width:900px) { 
-    section {
-        padding: 0px;
+    
+    #btn0{
+        display: block;
+        position: relative;
+        width: 700px;
+    }
+
+    .to_home{
         position: absolute;
-        left: 10%;
-        top: 300px;
-     }
+        top: 600px;
+        left: 100px;
+    }
+    
+    .to_rule{
+        position: absolute;
+        top: 600px;
+        left: 400px;
+      }
+
+      #area_js {
+          display:none;
+      }
+
+    .iti{
+        display: none;
+    }
+
+    section{
+        position: relative;
+        top: 200px;
+        left: 140px;
+    }
+    
      #good {
         
         margin-right: 15px;
@@ -425,4 +461,18 @@ footer ul li a:visited {
         margin-left: 0px;
     }
      
+}
+
+@media screen and (max-width:560px) {
+    
+    .to_home{
+        position: absolute;
+        top: 600px;
+        left: 230px;
+    }
+    .to_rule{
+        position: absolute;
+        top: 700px;
+        left: 250px;
+      }
 }
