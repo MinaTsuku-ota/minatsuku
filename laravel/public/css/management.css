@@ -7,9 +7,9 @@ body {
 }
 
 #wrapper {
-    width: 100%;
-    overflow: hidden;
-}
+    width:100%;
+    overflow:hidden;
+  }
 
 .header {
     width: 100%;
@@ -36,17 +36,15 @@ body {
     border-radius: 4px;
 }
 
-
 /* ログイン後 */
-
-.mypage {
-    float: left;
-    margin-right: 30px;
-    background-color: #f90;
-    color: #fff;
-    font-weight: bold;
-    padding: 15px;
-    border-radius: 4px;
+.mypage{
+  float: left;
+  margin-right: 30px;
+  background-color: #f90;
+  color:#fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 4px;
 }
 
 .btn a:visited {
@@ -119,9 +117,31 @@ section {
 }
 
 #space {
+    position: relative;
     height: 900px;
     background-image: url("../../../image/manehaikei.jpg");
     background-size: 1950px 1000px;
+}
+
+#panel{
+    position: absolute;
+    top:270px;
+    left: 70px;
+    background-color: #fff3b7;
+    width: 650px;
+    height: 478px;
+    opacity: 0.9;
+}
+
+.soudai{
+    height:30px;
+    font-size: 20px;
+    
+}
+
+.souken{
+    font-size: 80px;
+    height: 300px;
 }
 
 .btn1 {
@@ -130,45 +150,27 @@ section {
     padding: 0.25em 0.5em;
     text-decoration: none;
     color: #FFF;
-    background: #F29089;
-    /*背景色*/
-    border-bottom: solid 2px #E07860;
-    /*少し濃い目の色に*/
-    border-radius: 10px;
-    /*角の丸み*/
-    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    background: #F29089;/*背景色*/
+    border-bottom: solid 2px #E07860;/*少し濃い目の色に*/
+    border-radius: 10px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     font-weight: bold;
     font-size: 45px;
-}
-
-.btn1:active {
+  }
+  
+  .btn1:active {
     border-bottom: solid 2px #F29089;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-}
+  }
 
-.to_home {
-    position: absolute;
-    top: 600px;
-    left: 20%;
-}
 
-.to_home:hover {
+  .rule{
+    width:650px;
     position: absolute;
-    top: 595px;
-    left: 20%;
-}
-
-.to_rule {
-    position: absolute;
-    top: 600px;
-    right: 20%;
-}
-
-.to_rule:hover {
-    position: absolute;
-    top: 595px;
-    right: 20%;
-}
+    top: 270px;
+    right: 70px;
+    opacity: 0.9;
+  }
 
 #profil {
     text-align: center;
@@ -355,60 +357,12 @@ table.toukou td {
 
 /*----------活動実績ここまで----------*/
 
-
-/*modal.css*/
-
-#js-modal-open {
-    cursor: pointer;
-}
-
-.modal {
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-}
-
-.modal__bg {
-    background: rgba(0, 0, 0, 0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
-}
-
-.modal__content {
-    background: #fff;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 70vw;
-    /* height: 70vw; */
-    text-align: center;
-}
-
-#manaInfo {
-    width: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-#js-modal-close {
-    position: relative;
-    top: 10%;
-    margin-top: 15px;
-}
-
-
-/*ここまで*/
-
-.fa-thumbs-up:hover,
-.fa-comment:hover,
-.fa-cog:hover {
+.fa-thumbs-up:hover,.fa-comment:hover,.fa-cog:hover{
     opacity: 0.5;
 }
+
+
+
 
 footer {
     width: 100%;
@@ -452,19 +406,23 @@ footer ul li a:visited {
     text-align: center;
 }
 
-@media screen and (max-width:900px) {
+
+@media screen and (max-width:900px) { 
     section {
         padding: 0px;
         position: absolute;
         left: 10%;
         top: 300px;
-    }
-    #good {
+     }
+     #good {
+        
         margin-right: 15px;
     }
     #toukouitiran {
         width: 100%;
         padding-left: 0px;
+        
         margin-left: 0px;
     }
+     
 }
