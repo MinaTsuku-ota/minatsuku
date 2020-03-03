@@ -117,9 +117,31 @@ section {
 }
 
 #space {
+    position: relative;
     height: 900px;
     background-image: url("../../../image/manehaikei.jpg");
     background-size: 1950px 1000px;
+}
+
+#panel{
+    position: absolute;
+    top:270px;
+    left: 70px;
+    background-color: #fff3b7;
+    width: 650px;
+    height: 478px;
+    opacity: 0.9;
+}
+
+.soudai{
+    height:30px;
+    font-size: 20px;
+    
+}
+
+.souken{
+    font-size: 80px;
+    height: 300px;
 }
 
 .btn1 {
@@ -141,28 +163,13 @@ section {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
   }
 
-  .to_home{
-      position: absolute;
-      top: 600px;
-      left: 20%;
-  }
 
-  .to_home:hover{
-      position: absolute;
-      top: 595px;
-      left: 20%;
-  }
-
-  .to_rule{
+  .rule{
+    width:650px;
     position: absolute;
-    top: 600px;
-    right: 20%;
-  }
-
-  .to_rule:hover{
-      position: absolute;
-      top: 595px;
-      right: 20%;
+    top: 270px;
+    right: 70px;
+    opacity: 0.9;
   }
 
 #profil {
