@@ -362,6 +362,14 @@ table.toukou td {
 
 /* コメント表示機能 */
 
+.count_area.count_danger {
+    color: #f00;
+}
+
+.count_area {
+    margin: 0 40px 5px 0;
+}
+
 .comment_data_area {
     margin-top: 10px;
     margin-right: 40px;

@@ -86,6 +86,7 @@
                     <tr class="comment_none">
                         <td colspan="10" class="comment_form">
                             <ul>
+                            
                             <li class="form_none">
                                 <form action="#" method="post" class="form_js">
                                 @csrf
