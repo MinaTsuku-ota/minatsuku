@@ -15,6 +15,7 @@
     <script src="/js/dropdown.js"></script>
     <script src="/js/fav.js"></script>
     <script src="/js/performance.js"></script>
+    <script src="/js/modal.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -50,6 +51,17 @@
             </div>
         </div>
         <div id="space">
+            <div id="btn0">
+                <a  href="articles" class="to_home btn1">ホーム</a>
+                <button  class="js-modal-open to_rule btn1" data-target="modal01">説明</button>
+            </div>
+            <div id="modal01" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <img src="/image/manainfo.jpg" alt="マイページの説明だよ！" id="manaInfo">
+                    <button href="#" class="js-modal-close js-modal-close-button">閉じる</button>
+                </div>
+            </div>
             <div class="iti">
               <table id="panel" border="1">
                   <tr class="soudai">
