@@ -7,9 +7,9 @@ body {
 }
 
 #wrapper {
-    width:100%;
-    overflow:hidden;
-  }
+    width: 100%;
+    overflow: hidden;
+}
 
 .header {
     width: 100%;
@@ -36,15 +36,17 @@ body {
     border-radius: 4px;
 }
 
+
 /* ログイン後 */
-.mypage{
-  float: left;
-  margin-right: 30px;
-  background-color: #f90;
-  color:#fff;
-  font-weight: bold;
-  padding: 15px;
-  border-radius: 4px;
+
+.mypage {
+    float: left;
+    margin-right: 30px;
+    background-color: #f90;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 4px;
 }
 
 .btn a:visited {
@@ -119,22 +121,22 @@ section {
 #space {
     position: relative;
     height: 900px;
-    background-image: url("../../../image/manahaikei.jpg");
+    background-image: url("../image/manehaikei.jpg");
     background-size: 1950px 1000px;
 }
 
-#btn0{
+#btn0 {
     display: none;
 }
 
-#inner{
+#inner {
     width: 1000px;
     position: relative;
 }
 
-#panel{
+#panel {
     position: absolute;
-    top:150px;
+    top: 150px;
     left: 40px;
     background-color: #fff3b7;
     width: 650px;
@@ -142,13 +144,12 @@ section {
     opacity: 0.9;
 }
 
-.soudai{
-    height:30px;
+.soudai {
+    height: 30px;
     font-size: 20px;
-    
 }
 
-.souken{
+.souken {
     font-size: 80px;
     height: 300px;
 }
@@ -159,27 +160,29 @@ section {
     padding: 0.25em 0.5em;
     text-decoration: none;
     color: #FFF;
-    background: #F29089;/*背景色*/
-    border-bottom: solid 2px #E07860;/*少し濃い目の色に*/
-    border-radius: 10px;/*角の丸み*/
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    background: #F29089;
+    /*背景色*/
+    border-bottom: solid 2px #E07860;
+    /*少し濃い目の色に*/
+    border-radius: 10px;
+    /*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
     font-weight: bold;
     font-size: 45px;
-  }
-  
-  .btn1:active {
+}
+
+.btn1:active {
     border-bottom: solid 2px #F29089;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-  }
+}
 
-
-  .rule{
-    width:650px;
+.rule {
+    width: 650px;
     position: absolute;
     top: 150px;
     left: 1200px;
     opacity: 0.9;
-  }
+}
 
 #profil {
     text-align: center;
@@ -356,7 +359,6 @@ table.toukou td {
     width: 100%;
     height: 200px;
     top: 620px;
-    
 }
 
 #main_js {
@@ -366,12 +368,61 @@ table.toukou td {
 
 /*----------活動実績ここまで----------*/
 
-.fa-thumbs-up:hover,.fa-comment:hover,.fa-cog:hover{
-    opacity: 0.5;
+
+/* modal.css */
+
+#js-modal-open {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 0px 0px 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    /* height: 70vw; */
+    text-align: center;
+}
+
+#manaInfo {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.js-modal-close-button {
+    position: relative;
+    top: 10%;
+    margin-top: 15px;
 }
 
 
+/* modal.cssここまで */
 
+.fa-thumbs-up:hover,
+.fa-comment:hover,
+.fa-cog:hover {
+    opacity: 0.5;
+}
 
 footer {
     width: 100%;
@@ -415,80 +466,68 @@ footer ul li a:visited {
     text-align: center;
 }
 
-
-@media screen and (max-width:900px) { 
-    
-    #btn0{
+@media screen and (max-width:900px) {
+    #btn0 {
         display: block;
         position: relative;
         width: 700px;
     }
-
-    .to_home{
+    .to_home {
         position: absolute;
         top: 600px;
         left: 100px;
     }
-    
-    .to_rule{
+    .to_rule {
         position: absolute;
         top: 600px;
         left: 400px;
-      }
-
-      #area_js {
-          display:none;
-      }
-
-    .iti{
+    }
+    #area_js {
         display: none;
     }
-
-    section{
+    .iti {
+        display: none;
+    }
+    section {
         position: relative;
         top: 200px;
         left: 140px;
     }
-    
-     #good {
-        
+    #good {
         margin-right: 15px;
     }
     #toukouitiran {
         width: 100%;
         padding-left: 0px;
-        
         margin-left: 0px;
     }
-     
 }
 
 @media screen and (max-width:560px) {
-    
-    .to_home{
+    .to_home {
         position: absolute;
         top: 600px;
         left: 230px;
     }
-    .to_rule{
+    .to_rule {
         position: absolute;
         top: 700px;
         left: 250px;
-      }
+    }
 }
 
 @media screen and (max-width:360px) {
-    section{
+    section {
         left: 0px;
     }
-    .to_home{
+    .to_home {
         position: absolute;
         top: 600px;
         left: 100px;
     }
-    .to_rule{
+    .to_rule {
         position: absolute;
         top: 700px;
         left: 120px;
-      }
+    }
 }

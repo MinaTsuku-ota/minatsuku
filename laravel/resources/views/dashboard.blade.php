@@ -15,6 +15,7 @@
     <script src="/js/dropdown.js"></script>
     <script src="/js/fav.js"></script>
     <script src="/js/performance.js"></script>
+    <script src="/js/modal.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -51,28 +52,34 @@
         </div>
         <div id="space">
             <div id="btn0">
-                    <a  href="articles" class="to_home btn1">ホーム</a>
-                    <button  class="to_rule btn1">説明</button>
+                <a  href="articles" class="to_home btn1">ホーム</a>
+                <button  class="js-modal-open to_rule btn1" data-target="modal01">説明</button>
             </div>
-            <div id="inner">
-              <div class="iti">
+            <div id="modal01" class="modal js-modal">
+                <div class="modal__bg js-modal-close"></div>
+                <div class="modal__content">
+                    <img src="/image/manainfo.jpg" alt="マイページの説明だよ！" id="manaInfo">
+                    <button href="#" class="js-modal-close js-modal-close-button">閉じる</button>
+                </div>
+            </div>
+            <div class="iti">
               <table id="panel" border="1">
                   <tr class="soudai">
                     <th class="soug_dai" >総グッド数</th>
                     <th class="sout_dai" >総投稿数</th>
                   </tr>
                   <tr class="souken">
-                    <th class="soug">30件</th>
-                    <th class="sout">10件</th>
+                    <th class="soug"><span id="good_js">{{ $fav_count }}</span>件</th>
+                    <th class="sout"><span id="post_js">{{ $articles->count() }}</span>件</th>{{-- $fav_count ... DashboardController@index --}}
                   </tr>
                   <tr>
-                    <th colspan="2"><a href="articles" class="to_home btn1">ホーム</a></th>
+                    <th colspan="2"><a  href="home.html" class="to_home btn1">ホーム</a></th>
                   </tr>
               </table>
-              </div>
-              <div id="maneinfo">
-                <img class="rule" src="../image/manainfo.jpg" alt="説明">
-              </div>
+            </div>
+            <div id="maneinfo">
+                <img class="rule" src="/image/manainfo.jpg" alt="説明">
+            </div>
             <div id="center">
                 <section id="profile_js">
                     <div id="profil">
@@ -86,14 +93,14 @@
                     </div>
                 </section>
             </div>
-            </div>
+
             <div id="area_js">
 
             </div>
 
         </div>
 
-        <div id="matome">
+        <!-- <div id="matome">
             <div id="toukou">
                 <div id="soutoukou_dai">総投稿</div>
                 <div id="soutoukou"><span id="post_js">{{ $articles->count() }}</span>件</div>
@@ -104,7 +111,7 @@
                     <div id="sougood"><span id="good_js">{{ $fav_count }}</span>件</div> {{-- $fav_count ... DashboardController@index --}}
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div id="toukouitiran">
             <h1>投稿一覧</h1>

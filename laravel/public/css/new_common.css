@@ -362,11 +362,18 @@ table.toukou td {
 
 /* コメント表示機能 */
 
-.comment_none {
-    display: none;
+.count_area.count_danger {
+    color: #f00;
 }
 
-.comment_none li {
+.count_area {
+    margin: 0 40px 5px 0;
+}
+
+.comment_data_area {
+    margin-top: 10px;
+    margin-right: 40px;
+    text-align: left;
     list-style-type: none;
     height: auto;
     position: relative;
@@ -380,12 +387,48 @@ table.toukou td {
     /*角の丸み*/
 }
 
+.no_image {
+    width: 25px;
+    height: 25px;
+    margin-left: 8px;
+}
+
+.comment_none {
+    display: none;
+}
+
+.comment_none li {
+    list-style-type: none;
+    /* height: auto;
+    position: relative;
+    font-weight: bold;
+    color: #111111;
+    background: #f5deb3;
+    border: solid 2px #996633;
+    border-radius: 10px; */
+}
+
+.form_js {
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+    margin-right: 40px;
+    list-style-type: none;
+    height: auto;
+    position: relative;
+    font-weight: bold;
+    color: #111111;
+    background: #f5deb3;
+    /* border-top: solid 3px #963;
+    border-bottom: solid 3px #963; */
+    /* border-left: solid 3px #963;
+    border-right: solid 3px #963; */
+}
+
 .userName {
     font-size: 20px;
     font-weight: bold;
     margin-top: 3px;
 }
-
 
 .circle {
     width: 41px;
@@ -409,7 +452,7 @@ table.toukou td {
     z-index: 10;
 }
 
-.useruuu{
+.useruuu {
     position: absolute;
     top: 20px;
     left: 95px;
@@ -422,13 +465,12 @@ table.toukou td {
     top: 50px;
 }
 
-.commentFooter{
+.commentFooter {
     margin-top: 5px;
     position: absolute;
     top: 155px;
     left: 30px;
 }
-
 
 
 /*----------ローディング画面----------*/
