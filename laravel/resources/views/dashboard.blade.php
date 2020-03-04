@@ -50,10 +50,29 @@
             </div>
         </div>
         <div id="space">
-          <div id="btn">
-            <a  href="articles" class="to_home btn1">ホーム</a>
-            <button  class="to_rule btn1">説明</button>
-          </div>
+            <div id="btn0">
+                    <a  href="articles" class="to_home btn1">ホーム</a>
+                    <button  class="to_rule btn1">説明</button>
+            </div>
+            <div id="inner">
+              <div class="iti">
+              <table id="panel" border="1">
+                  <tr class="soudai">
+                    <th class="soug_dai" >総グッド数</th>
+                    <th class="sout_dai" >総投稿数</th>
+                  </tr>
+                  <tr class="souken">
+                    <th class="soug">30件</th>
+                    <th class="sout">10件</th>
+                  </tr>
+                  <tr>
+                    <th colspan="2"><a href="articles" class="to_home btn1">ホーム</a></th>
+                  </tr>
+              </table>
+              </div>
+              <div id="maneinfo">
+                <img class="rule" src="../image/manainfo.jpg" alt="説明">
+              </div>
             <div id="center">
                 <section id="profile_js">
                     <div id="profil">
@@ -67,7 +86,7 @@
                     </div>
                 </section>
             </div>
-
+            </div>
             <div id="area_js">
 
             </div>
