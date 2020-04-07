@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 body {
     background-image: url("../image/aozora1.png");
     background-size: 1950px 1800px;
@@ -472,30 +473,37 @@ footer ul li a:visited {
         position: relative;
         width: 700px;
     }
+
     .to_home {
         position: absolute;
         top: 600px;
         left: 100px;
     }
+
     .to_rule {
         position: absolute;
         top: 600px;
         left: 400px;
     }
+
     #area_js {
         display: none;
     }
+
     .iti {
         display: none;
     }
+
     section {
         position: relative;
         top: 200px;
         left: 140px;
     }
+
     #good {
         margin-right: 15px;
     }
+
     #toukouitiran {
         width: 100%;
         padding-left: 0px;
@@ -509,6 +517,7 @@ footer ul li a:visited {
         top: 600px;
         left: 230px;
     }
+
     .to_rule {
         position: absolute;
         top: 700px;
@@ -520,11 +529,13 @@ footer ul li a:visited {
     section {
         left: 0px;
     }
+
     .to_home {
         position: absolute;
         top: 600px;
         left: 100px;
     }
+
     .to_rule {
         position: absolute;
         top: 700px;
